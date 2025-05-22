@@ -1,0 +1,23 @@
+{
+  "K3" : {
+    "id" : 3,
+    "nome" : "Gustavo",
+    "email" : null,
+    "cpf" : "123.476.559-75",
+    "idade" : 20
+  },
+  "K1" : {
+    "id" : 1,
+    "nome" : "Raul Kon Uk Nakama",
+    "email" : null,
+    "cpf" : "234.432.334-54",
+    "idade" : 34
+  },
+  "K2" : {
+    "id" : 2,
+    "nome" : "Fredd",
+    "email" : null,
+    "cpf" : "434.565.443-90",
+    "idade" : 54
+  }
+}
