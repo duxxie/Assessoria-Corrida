@@ -18,7 +18,8 @@ public class AlunoController {
         String email = pegarEmail();
         String cpf = pegarCpf();
         int idade = pegarIdade();
-         return new Aluno(1, nome, email, cpf, idade);
+        String telefone = pegarTelefone();
+         return new Aluno(1, nome, email, cpf, idade, telefone);
     }
 
     public void adicionarAluno() {
@@ -36,11 +37,15 @@ public class AlunoController {
     }
 
     public String pegarEmail() {
-        return InputHelper.lerString("Digite o email: ");
+        return InputHelper.lerString("Digite o email (Ex: user@gmail.com): ");
     }
 
     public String pegarCpf() {
-        return InputHelper.lerString("Digite o CPF: ");
+        return InputHelper.lerString("Digite o CPF (xxx.xxx.xxx-xx) : ");
+    }
+
+    public String pegarTelefone() {
+        return InputHelper.lerString("Digite o telefone ((DDD)9xxxx-xxxx): ");
     }
 
     public Map<String,Aluno> pegarMapAlunos() {
