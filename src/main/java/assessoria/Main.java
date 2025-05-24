@@ -24,6 +24,9 @@ public class Main {
         //mapClientes.put("K2", new Aluno(2, "Fredd", "434.565.443-90", 54));
 
         do {
+            System.out.println("------------------------");
+            System.out.println("| -->> Assessoria -->> |");
+            System.out.println("------------------------");
             System.out.println("Cadastrar aluno [1]");
             System.out.println("Sair[0]");
             opcao = InputHelper.lerInt("Escolha uma opção: ");
