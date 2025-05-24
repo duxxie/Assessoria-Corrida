@@ -38,5 +38,8 @@ public class Main {
             }
         }while(opcao != 0);
 
+        for(Map.Entry<String, Aluno> a : alunoController.pegarMapAlunos().entrySet()) {
+            System.out.println(a.getKey());
+        }
     }
 }
