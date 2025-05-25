@@ -1,10 +1,10 @@
 package assessoria.controller;
 import assessoria.model.Aluno;
 import assessoria.util.InputHelper;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 import assessoria.dao.AlunoDAO;
+import assessoria.view.AlunoView;
 
 public class AlunoController {
 
@@ -13,17 +13,19 @@ public class AlunoController {
 
     public AlunoController() {}
 
-    private Aluno criarAluno() {
+    private Aluno criarAluno(int id) {
         String nome = pegarNome();
         String email = pegarEmail();
         String cpf = pegarCpf();
         int idade = pegarIdade();
         String telefone = pegarTelefone();
-         return new Aluno(1, nome, email, cpf, idade, telefone);
+         return new Aluno(id, nome, email, cpf, idade, telefone);
     }
 
     public void adicionarAluno() {
-        mapAlunos.put("K1", criarAluno());
+        int idAluno = pegarMapAlunos().size() + 1;
+        AlunoView.mostrarMenuCadastrarAluno();
+        mapAlunos.put("K" + idAluno, criarAluno(idAluno));
         alunoDAO.inserirAlunoNoArquivo(pegarMapAlunos());
         System.out.println("Aluno adicionado com sucesso!!");
     }
