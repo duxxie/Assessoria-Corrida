@@ -1,6 +1,6 @@
 package assessoria.controller;
 import assessoria.model.Aluno;
-import assessoria.view.InputHelper;
+import assessoria.util.InputHelper;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -13,7 +13,7 @@ public class AlunoController {
 
     public AlunoController() {}
 
-    public Aluno criarAluno() {
+    private Aluno criarAluno() {
         String nome = pegarNome();
         String email = pegarEmail();
         String cpf = pegarCpf();
@@ -28,23 +28,23 @@ public class AlunoController {
         System.out.println("Aluno adicionado com sucesso!!");
     }
 
-    public String pegarNome() {
+    private String pegarNome() {
        return InputHelper.lerString("Digite o nome completo: ");
     }
 
-    public int pegarIdade() {
+    private int pegarIdade() {
         return InputHelper.lerInt("Digite a idade: ");
     }
 
-    public String pegarEmail() {
+    private String pegarEmail() {
         return InputHelper.lerString("Digite o email (Ex: user@gmail.com): ");
     }
 
-    public String pegarCpf() {
-        return InputHelper.lerString("Digite o CPF (xxx.xxx.xxx-xx) : ");
+    private String pegarCpf() {
+        return InputHelper.lerCpf("Digite o CPF (xxx.xxx.xxx-xx) : ");
     }
 
-    public String pegarTelefone() {
+    private String pegarTelefone() {
         return InputHelper.lerString("Digite o telefone ((DDD)9xxxx-xxxx): ");
     }
 
