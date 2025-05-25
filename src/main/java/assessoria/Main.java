@@ -1,7 +1,7 @@
 package assessoria;
 import assessoria.controller.AlunoController;
 import assessoria.model.Aluno;
-import assessoria.view.InputHelper;
+import assessoria.util.InputHelper;
 
 import java.io.File;
 import java.util.LinkedHashMap;

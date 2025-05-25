@@ -1,4 +1,4 @@
-package assessoria.view;
+package assessoria.util;
 
 import java.util.Scanner;
 
@@ -9,6 +9,21 @@ public class InputHelper {
     public static String lerString(String frase) {
         System.out.print(frase);
         return ler.nextLine();
+    }
+
+    public static String lerCpf(String frase) {
+        String cpf = "";
+        boolean valido = false;
+        while(!valido) {
+            try{
+                System.out.print(frase);
+                cpf = ler.nextLine();
+                valido = Validador.isCpfValido(cpf);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return cpf;
     }
 
     public static int lerInt(String frase) {
