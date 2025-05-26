@@ -39,7 +39,7 @@ public class AlunoController {
     }
 
     private String pegarEmail() {
-        return InputHelper.lerString("Digite o email (Ex: user@gmail.com): ");
+        return InputHelper.lerEmail("Digite o email (Ex: user@gmail.com): ");
     }
 
     private String pegarCpf() {

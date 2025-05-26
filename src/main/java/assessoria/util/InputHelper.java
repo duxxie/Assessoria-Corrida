@@ -26,6 +26,21 @@ public class InputHelper {
         return cpf;
     }
 
+    public static String lerEmail(String frase) {
+        String email = "";
+        boolean valido = false;
+        while(!valido) {
+            try {
+                System.out.print(frase);
+                email = ler.nextLine();
+                valido = Validador.isEmailValido(email);
+            }catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+        return email;
+    }
+
     public static int lerInt(String frase) {
         System.out.print(frase);
         return Integer.parseInt(ler.nextLine());

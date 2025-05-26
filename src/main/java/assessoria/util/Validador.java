@@ -7,12 +7,12 @@ public class Validador {
         cpf = cpf.replaceAll("[^0-9]", "");
 
         if(cpf.length() != 11) {
-            throw new IllegalArgumentException("ERRO --> [O cpf deve conter 11 dígitos numéricos]");
+            throw new IllegalArgumentException("⚠️ --> [O cpf deve conter 11 dígitos numéricos!!]");
         }
 
         // Verificando se todos o números digitados são iguais
         if(cpf.matches("(\\d)\\1{10}")) {
-            throw new IllegalArgumentException("ERRO --> [O cpf com todos os números iguais não é válido]");
+            throw new IllegalArgumentException("⚠️ --> [O cpf com todos os números iguais não é válido!!]");
         }
 
         // Validação do primeiro digito verificador
@@ -25,7 +25,7 @@ public class Validador {
         if(primeiroDigito > 9) primeiroDigito = 0;
 
         if(Character.getNumericValue(cpf.charAt(9)) != primeiroDigito) {
-            throw new IllegalArgumentException("ERRO --> [Formato de cpf inválido]");
+            throw new IllegalArgumentException("⚠️ --> [Formato de cpf inválido!!]");
         }
 
         // Validação do segundo digito verificador
@@ -39,5 +39,13 @@ public class Validador {
 
         return Character.getNumericValue(cpf.charAt(10)) == segundoDigito;
 
+    }
+
+    public static boolean isEmailValido(String email) {
+        if(!email.matches("^[a-z._0-9+-]+@[a-z]{3,}+\\.[a-z]{2,}$")) {
+            throw new IllegalArgumentException("⚠️ --> [Formato de email inválido!!]");
+        }else {
+            return true;
+        }
     }
 }

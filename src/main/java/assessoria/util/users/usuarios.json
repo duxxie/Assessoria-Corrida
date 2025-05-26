@@ -2,17 +2,9 @@
   "K1" : {
     "id" : 1,
     "nome" : "Gustavo Falcao",
-    "email" : "gustvao@gmail.com",
-    "cpf" : "222.333.666-38",
-    "idade" : 20,
-    "telefone" : "(041)93242-9950"
-  },
-  "K2" : {
-    "id" : 2,
-    "nome" : "Fernando Pradez",
-    "email" : "fernando@gmail.com",
+    "email" : "gus@gmail.com",
     "cpf" : "368.382.970-27",
-    "idade" : 45,
-    "telefone" : "(011)93234-1112"
+    "idade" : 20,
+    "telefone" : "(041)92314-3332"
   }
 }
