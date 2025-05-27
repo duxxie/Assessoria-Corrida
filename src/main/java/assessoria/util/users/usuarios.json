@@ -1,10 +1,10 @@
 {
   "K1" : {
     "id" : 1,
-    "nome" : "Gustavo Falcao",
-    "email" : "gus@gmail.com",
+    "nome" : "Guastavo Falcao",
+    "email" : "gustavo@gmail.com",
     "cpf" : "368.382.970-27",
     "idade" : 20,
-    "telefone" : "(041)92314-3332"
+    "telefone" : "(041)93243-2221"
   }
 }

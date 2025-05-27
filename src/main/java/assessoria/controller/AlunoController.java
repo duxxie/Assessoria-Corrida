@@ -4,14 +4,13 @@ import assessoria.util.InputHelper;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import assessoria.dao.AlunoDAO;
-import assessoria.view.AlunoView;
+import assessoria.view.*;
 
 public class AlunoController {
 
     private final Map<String, Aluno> mapAlunos = new LinkedHashMap<>();;
     private final AlunoDAO alunoDAO = new AlunoDAO();
-
-    public AlunoController() {}
+    private final MensagemView mensagemView = new MensagemView();
 
     private Aluno criarAluno(int id) {
         String nome = pegarNome();
@@ -27,7 +26,7 @@ public class AlunoController {
         AlunoView.mostrarMenuCadastrarAluno();
         mapAlunos.put("K" + idAluno, criarAluno(idAluno));
         alunoDAO.inserirAlunoNoArquivo(pegarMapAlunos());
-        System.out.println("Aluno adicionado com sucesso!!");
+        mensagemView.mostrarSucesso("Aluno adicionado!!");
     }
 
     private String pegarNome() {
