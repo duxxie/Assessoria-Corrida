@@ -46,8 +46,17 @@ public class InputHelper {
         return Integer.parseInt(ler.nextLine());
     }
 
+    public static int lerOpcao() {
+        System.out.print("Escolha uma opção: ");
+        return Integer.parseInt(ler.nextLine());
+    }
+
     public static float lerFloat(String frase) {
         System.out.print(frase);
         return Float.parseFloat(ler.nextLine());
+    }
+
+    public static void encerrarInput() {
+        ler.close();
     }
 }
