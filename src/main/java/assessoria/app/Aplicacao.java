@@ -23,7 +23,7 @@ public class Aplicacao {
         InputHelper.encerrarInput();
     }
 
-    public void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {
+    private void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {
         switch (opcaoMenuPrincipal) {
             case 1 -> executarMenuCadastro();
             case 2 -> executarMenuLogin();
@@ -32,7 +32,7 @@ public class Aplicacao {
         }
     }
 
-    public void executarMenuCadastro() {
+    private void executarMenuCadastro() {
         int opcaoMenuCadastro;
         do {
             menuCadastro.mostrarMenu();
@@ -47,7 +47,7 @@ public class Aplicacao {
         }while(opcaoMenuCadastro != 0);
     }
 
-    public void executarMenuLogin() {
+    private void executarMenuLogin() {
         int opcaoMenuLogin;
         do {
             menuLogin.mostrarMenu();
