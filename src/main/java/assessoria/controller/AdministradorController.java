@@ -5,6 +5,7 @@ import assessoria.model.Administrador;
 import assessoria.util.InputHelper;
 import assessoria.view.AdministradorView;
 import assessoria.view.MensagemView;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -54,5 +55,4 @@ public class AdministradorController {
     public Map<String,Administrador> pegarMapAdministrador() {
         return new LinkedHashMap<>(mapAdministrador);
     }
-
 }

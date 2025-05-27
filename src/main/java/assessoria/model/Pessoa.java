@@ -1,5 +1,9 @@
 package assessoria.model;
 
+import assessoria.util.Hash;
+
+import java.util.logging.Handler;
+
 public abstract class Pessoa {
     private int id;
     private String nome;
@@ -7,6 +11,19 @@ public abstract class Pessoa {
     private String cpf;
     private int idade;
     private String telefone;
+    private String senhaHash;
+    private Hash hashProvider;
+
+    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, Hash hashProvider) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.idade = idade;
+        this.telefone = telefone;
+        this.senhaHash = senhaHash;
+        this.hashProvider = hashProvider;
+    }
 
     public Pessoa(int id, String nome, String cpf, int idade) {
         this.id = id;
@@ -71,4 +88,14 @@ public abstract class Pessoa {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    public String getSenhaHash() {
+        return senhaHash;
+    }
+
+    public boolean verificarSenha(String senhaPlana) {
+        return hashProvider.verificarHash(senhaPlana, this.senhaHash);
+    }
+
+
 }
