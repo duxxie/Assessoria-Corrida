@@ -1,10 +1,12 @@
 package assessoria.util;
 
 import java.util.Scanner;
+import assessoria.view.MensagemView;
 
 public class InputHelper {
 
     private final static Scanner ler = new Scanner(System.in);
+    private final static MensagemView mensagemView = new MensagemView();
 
     public static String lerString(String frase) {
         System.out.print(frase);
@@ -42,8 +44,14 @@ public class InputHelper {
     }
 
     public static int lerInt(String frase) {
-        System.out.print(frase);
-        return Integer.parseInt(ler.nextLine());
+        while(true) {
+            try{
+                System.out.print(frase);
+                return Integer.parseInt(ler.nextLine());
+            } catch (Exception e) {
+                mensagemView.mostrarErro("Digite apenas número inteiro!!");
+            }
+        }
     }
 
     public static int lerOpcao() {
@@ -52,8 +60,15 @@ public class InputHelper {
     }
 
     public static float lerFloat(String frase) {
-        System.out.print(frase);
-        return Float.parseFloat(ler.nextLine());
+        while(true) {
+            try{
+                System.out.print(frase);
+                return Float.parseFloat(ler.nextLine());
+            } catch (Exception e) {
+                mensagemView.mostrarErro("Digite apenas número decimal!!");
+            }
+        }
+
     }
 
     public static void encerrarInput() {
