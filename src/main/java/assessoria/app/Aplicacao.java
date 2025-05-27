@@ -1,4 +1,5 @@
 package assessoria.app;
+import assessoria.controller.AdministradorController;
 import assessoria.controller.AlunoController;
 import assessoria.model.Aluno;
 import assessoria.util.InputHelper;
@@ -12,6 +13,9 @@ public class Aplicacao {
     private final MenuCadastro menuCadastro = new MenuCadastro();
     private final MenuLogin menuLogin = new MenuLogin();
     private final MensagemView mensagemView = new MensagemView();
+
+    //Administrador
+    private final AdministradorController adicionarAdministrador = new AdministradorController();
 
     public void executarPrograma() {
         int opcaoMenuPrincipal;
@@ -40,7 +44,7 @@ public class Aplicacao {
             switch (opcaoMenuCadastro) {
                 case 1 -> alunoController.adicionarAluno();
                 //case 2 -> adicionarProfessor;
-                //case 3 -> adicionarAdministrador;
+                case 3 -> adicionarAdministrador.adicionarAdministrador();
                 case 0 -> mensagemView.mostrarMensagem("Votando ao menu principal...");
                 default -> mensagemView.mostrarErro("Opção inválida para cadastro!!");
             }
