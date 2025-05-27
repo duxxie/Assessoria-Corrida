@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class AdministradorController {
-    private final Map<String, Aluno> mapAdministrador = new LinkedHashMap<>();;
+    private final Map<String, Administrador> mapAdministrador = new LinkedHashMap<>();;
     private final AlunoDAO alunoDAO = new AlunoDAO();
     private final MensagemView mensagemView = new MensagemView();
 
@@ -29,7 +29,6 @@ public class AdministradorController {
         int idAdministrador = pegarMapAdministrador().size() + 1;
         AdministradorView.mostrarMenuCadastroAdministrador();
         mapAdministrador.put("K" + idAdministrador, criarAdministrador(idAdministrador));
-        alunoDAO.inserirAlunoNoArquivo(pegarMapAdministrador());
         mensagemView.mostrarSucesso("Administrador adicionado!!");
     }
 
@@ -53,7 +52,7 @@ public class AdministradorController {
         return InputHelper.lerString("Digite o telefone ((DDD)9xxxx-xxxx): ");
     }
 
-    public Map<String,Aluno> pegarMapAdministrador() {
+    public Map<String,Administrador> pegarMapAdministrador() {
         return new LinkedHashMap<>(mapAdministrador);
     }
 
