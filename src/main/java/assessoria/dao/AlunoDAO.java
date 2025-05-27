@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class AlunoDAO {
 
-    private final String arquivoUsuarios = "src/main/java/assessoria/util/users/usuarios.json";
+    private final String arquivoUsuarios = "src/main/java/assessoria/util/users/alunos.json";
 
     public AlunoDAO(){}
 

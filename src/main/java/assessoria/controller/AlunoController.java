@@ -29,6 +29,14 @@ public class AlunoController {
         mensagemView.mostrarSucesso("Aluno adicionado!!");
     }
 
+//    private int pegarId() {
+//        int id = 0;
+//        for(Map.Entry<String,Aluno> entry : mapAlunos.entrySet()) {
+//            id = entry.getValue().getId();
+//        }
+//        return id;
+//    }
+
     private String pegarNome() {
        return InputHelper.lerString("Digite o nome completo: ");
     }
