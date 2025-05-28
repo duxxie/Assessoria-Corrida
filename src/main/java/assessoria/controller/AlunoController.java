@@ -25,7 +25,7 @@ public class AlunoController {
         int idAluno = pegarMapAlunos().size() + 1;
         AlunoView.mostrarMenuCadastrarAluno();
         mapAlunos.put("K" + idAluno, criarAluno(idAluno));
-        alunoDAO.inserirAlunoNoArquivo(pegarMapAlunos());
+        alunoDAO.inserirAlunoNoCsv(pegarMapAlunos());
         mensagemView.mostrarSucesso("Aluno adicionado!!");
     }
 
