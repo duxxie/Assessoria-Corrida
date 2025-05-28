@@ -11,8 +11,7 @@ import java.util.Map;
 
 public class AlunoDAO extends PessoaDAO {
 
-    String nome = "aluno";
-    private final String arquivoUsuarios = "src/main/java/assessoria/util/users/" + nome + ".json";
+    private final String arquivoUsuarios = "src/main/java/assessoria/util/users/aluno.json";
 
     public void inserirAlunoNoArquivo(Map<String, Aluno> alunoMap) {
         ObjectMapper objectMapper = new ObjectMapper();

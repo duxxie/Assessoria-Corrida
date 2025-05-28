@@ -12,13 +12,11 @@ public class ProfessorDAO {
 
     private final String arquivoProfessor = "src/main/java/assessoria/util/users/professor.json";
 
-    public ProfessorDAO(){}
-
-    public void inserirProfessorNoArquivo(Map<String, Professor> alunoMap) {
+    public void inserirProfessorNoArquivo(Map<String, Professor> professorMap) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         try{
-            objectMapper.writeValue(new File(arquivoProfessor), alunoMap);
+            objectMapper.writeValue(new File(arquivoProfessor), professorMap);
             System.out.println("Arquivo escrito com sucesso");
         } catch (IOException e) {
             System.out.println("Erro ao escrever no arquivo");

@@ -44,7 +44,7 @@ public class Aplicacao {
             switch (opcaoMenuCadastro) {
                 case 1 -> alunoController.adicionarAluno();
                 //case 2 -> adicionarProfessor;
-                case 3 -> adicionarAdministrador.adicionarAdministrador();
+                case 3 -> adicionarAdministrador.adicionarPessoa();
                 case 0 -> mensagemView.mostrarMensagem("Votando ao menu principal...");
                 default -> mensagemView.mostrarErro("Opção inválida para cadastro!!");
             }

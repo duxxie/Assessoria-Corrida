@@ -2,14 +2,13 @@ package assessoria.controller;
 
 import assessoria.dao.ProfessorDAO;
 import assessoria.model.Professor;
-import assessoria.util.InputHelper;
 import assessoria.view.ProfessorView;
 import assessoria.view.MensagemView;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ProfessorController {
+public class ProfessorController extends PessoaController{
 
     private final Map<String, Professor> mapProfessor = new LinkedHashMap<>();
     private final ProfessorDAO professorDAO = new ProfessorDAO();
@@ -32,6 +31,10 @@ public class ProfessorController {
         mensagemView.mostrarSucesso("Professor adicionado!!");
     }
 
+    public Map<String, Professor> pegarMapProfessor() {
+        return new LinkedHashMap<>(mapProfessor);
+    }
+
 //    private int pegarId() {
 //        int id = 0;
 //        for(Map.Entry<String,Professor> entry : mapProfessor.entrySet()) {
@@ -39,29 +42,5 @@ public class ProfessorController {
 //        }
 //        return id;
 //    }
-
-    private String pegarNome() {
-        return InputHelper.lerString("Digite o nome completo: ");
-    }
-
-    private int pegarIdade() {
-        return InputHelper.lerInt("Digite a idade: ");
-    }
-
-    private String pegarEmail() {
-        return InputHelper.lerEmail("Digite o email (Ex: user@gmail.com): ");
-    }
-
-    private String pegarCpf() {
-        return InputHelper.lerCpf("Digite o CPF (xxx.xxx.xxx-xx) : ");
-    }
-
-    private String pegarTelefone() {
-        return InputHelper.lerString("Digite o telefone ((DDD)9xxxx-xxxx): ");
-    }
-
-    public Map<String,Professor> pegarMapProfessor() {
-        return new LinkedHashMap<>(mapProfessor);
-    }
 
 }

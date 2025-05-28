@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.Map;
 
 public class PessoaDAO {
+
+    /* Talvez vamos usar
     String nome = "pessoas";
     private final String arquivoUsuarios = "src/main/java/assessoria/util/users/" + nome + ".json";
 
@@ -23,4 +25,5 @@ public class PessoaDAO {
             System.out.println(e.getMessage());
         }
     }
+    */
 }

@@ -1,4 +1,6 @@
 package assessoria.controller;
+import assessoria.dao.AlunoDAO;
+import assessoria.model.Aluno;
 import assessoria.model.Aluno;
 import assessoria.util.InputHelper;
 import java.util.LinkedHashMap;
@@ -6,11 +8,19 @@ import java.util.Map;
 import assessoria.dao.AlunoDAO;
 import assessoria.view.*;
 
-public class AlunoController {
+public class AlunoController extends PessoaController{
 
-    private final Map<String, Aluno> mapAlunos = new LinkedHashMap<>();;
-    private final AlunoDAO alunoDAO = new AlunoDAO();
+    private final Map<String, Aluno> mapAluno = new LinkedHashMap<>();
+    private final AlunoDAO administradorDAO = new AlunoDAO();
     private final MensagemView mensagemView = new MensagemView();
+
+    public void adicionarAluno() {
+        int idAluno = pegarMapAluno().size() + 1;
+        AlunoView.mostrarMenuCadastrarAluno();
+        mapAluno.put("K" + idAluno, criarAluno(idAluno));
+        administradorDAO.inserirAlunoNoArquivo(pegarMapAluno());
+        mensagemView.mostrarSucesso("Aluno adicionado!!");
+    }
 
     private Aluno criarAluno(int id) {
         String nome = pegarNome();
@@ -18,15 +28,11 @@ public class AlunoController {
         String cpf = pegarCpf();
         int idade = pegarIdade();
         String telefone = pegarTelefone();
-         return new Aluno(id, nome, email, cpf, idade, telefone);
+        return new Aluno(id, nome, email, cpf, idade, telefone);
     }
 
-    public void adicionarAluno() {
-        int idAluno = pegarMapAlunos().size() + 1;
-        AlunoView.mostrarMenuCadastrarAluno();
-        mapAlunos.put("K" + idAluno, criarAluno(idAluno));
-        alunoDAO.inserirAlunoNoArquivo(pegarMapAlunos());
-        mensagemView.mostrarSucesso("Aluno adicionado!!");
+    public Map<String,Aluno> pegarMapAluno() {
+        return new LinkedHashMap<>(mapAluno);
     }
 
 //    private int pegarId() {
@@ -36,29 +42,5 @@ public class AlunoController {
 //        }
 //        return id;
 //    }
-
-    private String pegarNome() {
-       return InputHelper.lerString("Digite o nome completo: ");
-    }
-
-    private int pegarIdade() {
-        return InputHelper.lerInt("Digite a idade: ");
-    }
-
-    private String pegarEmail() {
-        return InputHelper.lerEmail("Digite o email (Ex: user@gmail.com): ");
-    }
-
-    private String pegarCpf() {
-        return InputHelper.lerCpf("Digite o CPF (xxx.xxx.xxx-xx) : ");
-    }
-
-    private String pegarTelefone() {
-        return InputHelper.lerString("Digite o telefone ((DDD)9xxxx-xxxx): ");
-    }
-
-    public Map<String,Aluno> pegarMapAlunos() {
-        return new LinkedHashMap<>(mapAlunos);
-    }
 
 }
