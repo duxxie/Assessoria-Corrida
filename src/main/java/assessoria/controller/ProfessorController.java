@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class ProfessorController {
 
-    private final Map<String, Professor> mapProfessor = new LinkedHashMap<>();;
+    private final Map<String, Professor> mapProfessor = new LinkedHashMap<>();
     private final ProfessorDAO professorDAO = new ProfessorDAO();
     private final MensagemView mensagemView = new MensagemView();
 

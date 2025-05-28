@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class ProfessorDAO {
 
-    private final String arquivoUsuarios = "src/main/java/assessoria/util/users/alunos.json";
+    private final String arquivoProfessor = "src/main/java/assessoria/util/users/professor.json";
 
     public ProfessorDAO(){}
 
@@ -18,7 +18,7 @@ public class ProfessorDAO {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         try{
-            objectMapper.writeValue(new File(arquivoUsuarios), alunoMap);
+            objectMapper.writeValue(new File(arquivoProfessor), alunoMap);
             System.out.println("Arquivo escrito com sucesso");
         } catch (IOException e) {
             System.out.println("Erro ao escrever no arquivo");
