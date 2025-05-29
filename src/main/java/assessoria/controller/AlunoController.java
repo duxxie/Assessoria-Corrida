@@ -34,6 +34,13 @@ public class AlunoController extends PessoaController{
     public Map<String,Aluno> pegarMapAluno() {
         return new LinkedHashMap<>(mapAluno);
     }
+    public void adicionarAluno() {
+        int idAluno = pegarMapAlunos().size() + 1;
+        AlunoView.mostrarMenuCadastrarAluno();
+        mapAlunos.put("K" + idAluno, criarAluno(idAluno));
+        alunoDAO.inserirAlunoNoCsv(pegarMapAlunos());
+        mensagemView.mostrarSucesso("Aluno adicionado!!");
+    }
 
 //    private int pegarId() {
 //        int id = 0;
