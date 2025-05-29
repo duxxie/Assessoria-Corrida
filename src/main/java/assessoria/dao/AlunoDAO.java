@@ -1,6 +1,7 @@
 package assessoria.dao;
 
 import assessoria.model.Aluno;
+import assessoria.model.Pessoa;
 import assessoria.view.MensagemView;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -12,12 +13,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class AlunoDAO {
+public class AlunoDAO extends PessoaDAO {
 
+
+    private final String arquivoUsuarios = "src/main/java/assessoria/util/users/aluno.json";
+
+    public void inserirAlunoNoArquivo(Map<String, Aluno> alunoMap) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+    }
     //private final String arquivoUsuarios = "src/main/java/assessoria/util/users/alunos.json";
     private final String arquivoUsuarios = "src/main/java/assessoria/util/treino/alunos.csv";
 
     public void inserirAlunoNoCsv(Map<String,Aluno> alunoMap) {
+
         try{
             MensagemView mensagemView = new MensagemView();
             FileWriter fileWriter = new FileWriter(arquivoUsuarios, StandardCharsets.ISO_8859_1);
@@ -41,6 +50,7 @@ public class AlunoDAO {
             e.printStackTrace();
         }
     }
+}
 //    public void inserirAlunoNoArquivo(Map<String, Aluno> alunoMap) {
 //        ObjectMapper objectMapper = new ObjectMapper();
 //        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
