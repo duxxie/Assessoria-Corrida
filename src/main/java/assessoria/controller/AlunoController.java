@@ -1,53 +1,22 @@
 package assessoria.controller;
-import assessoria.dao.AlunoDAO;
 import assessoria.model.Aluno;
-import assessoria.model.Aluno;
-import assessoria.util.InputHelper;
-import java.util.LinkedHashMap;
+import assessoria.service.AlunoService;
 import java.util.Map;
-import assessoria.dao.AlunoDAO;
-import assessoria.view.*;
 
 public class AlunoController extends PessoaController{
 
-    private final Map<String, Aluno> mapAluno = new LinkedHashMap<>();
-    private final AlunoDAO administradorDAO = new AlunoDAO();
-    private final MensagemView mensagemView = new MensagemView();
+    private final AlunoService alunoService = new AlunoService();
 
-    public void adicionarAluno() {
-        int idAluno = pegarMapAluno().size() + 1;
-        AlunoView.mostrarMenuCadastrarAluno();
-        mapAluno.put("K" + idAluno, criarAluno(idAluno));
-        administradorDAO.inserirAlunoNoArquivo(pegarMapAluno());
-        mensagemView.mostrarSucesso("Aluno adicionado!!");
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone) {
+        alunoService.salvarAluno(new Aluno(gerarId(), nome, email, cpf, idade, telefone));
     }
 
-    private Aluno criarAluno(int id) {
-        String nome = pegarNome();
-        String email = pegarEmail();
-        String cpf = pegarCpf();
-        int idade = pegarIdade();
-        String telefone = pegarTelefone();
-        return new Aluno(id, nome, email, cpf, idade, telefone);
+    private int gerarId() {
+        int id = 0;
+        for(Map.Entry<String,Aluno> entry : alunoService.pegarCopiaMapAluno().entrySet()) {
+            id = entry.getValue().getId();
+        }
+        return id+1;
     }
-
-    public Map<String,Aluno> pegarMapAluno() {
-        return new LinkedHashMap<>(mapAluno);
-    }
-    public void adicionarAluno() {
-        int idAluno = pegarMapAlunos().size() + 1;
-        AlunoView.mostrarMenuCadastrarAluno();
-        mapAlunos.put("K" + idAluno, criarAluno(idAluno));
-        alunoDAO.inserirAlunoNoCsv(pegarMapAlunos());
-        mensagemView.mostrarSucesso("Aluno adicionado!!");
-    }
-
-//    private int pegarId() {
-//        int id = 0;
-//        for(Map.Entry<String,Aluno> entry : mapAlunos.entrySet()) {
-//            id = entry.getValue().getId();
-//        }
-//        return id;
-//    }
 
 }

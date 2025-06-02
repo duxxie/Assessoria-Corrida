@@ -35,12 +35,12 @@ public class ProfessorController extends PessoaController{
         return new LinkedHashMap<>(mapProfessor);
     }
 
-//    private int pegarId() {
-//        int id = 0;
-//        for(Map.Entry<String,Professor> entry : mapProfessor.entrySet()) {
-//            id = entry.getValue().getId();
-//        }
-//        return id;
-//    }
+    private int pegarId() {
+        int id = 0;
+        for(Map.Entry<String,Professor> entry : mapProfessor.entrySet()) {
+            id = entry.getValue().getId();
+        }
+        return id;
+    }
 
 }

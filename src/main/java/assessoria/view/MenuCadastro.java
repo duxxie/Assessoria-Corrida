@@ -2,6 +2,8 @@ package assessoria.view;
 
 public class MenuCadastro {
 
+    MensagemView mensagemView = new MensagemView();
+
     public void mostrarMenu() {
         System.out.println("\n\n+ ------------------------------------- +");
         System.out.println("|       << -- Fazer cadastro -- >>      |");
@@ -11,5 +13,13 @@ public class MenuCadastro {
         System.out.println("|             [3] Administrador         |");
         System.out.println("|             [0] Sair                  |");
         System.out.println("+ ------------------------------------- +");
+    }
+
+    public void mostrarSaida() {
+        mensagemView.mostrarMensagem("Voltando ao menu principal...");
+    }
+
+    public void mostrarDefaultMenu() {
+        mensagemView.mostrarErro("Opção inválida para o cadastro!!");
     }
 }

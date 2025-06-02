@@ -11,8 +11,6 @@ import java.util.Map;
 public class AdministradorDAO {
     private final String arquivoAdministrador = "src/main/java/assessoria/util/users/administrador.json";
 
-    public AdministradorDAO(){}
-
     public void inserirAdministradorNoArquivo(Map<String, Administrador> administradorMap) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
