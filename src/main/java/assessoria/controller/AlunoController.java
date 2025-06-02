@@ -3,6 +3,7 @@ import assessoria.model.Aluno;
 import assessoria.service.AlunoService;
 import java.util.Map;
 
+
 public class AlunoController extends PessoaController{
 
     private final AlunoService alunoService = new AlunoService();
@@ -17,6 +18,10 @@ public class AlunoController extends PessoaController{
             id = entry.getValue().getId();
         }
         return id+1;
+    }
+
+    public Map<String,Aluno> pegarMapAlunos() {
+        return alunoService.pegarCopiaMapAluno();
     }
 
 }
