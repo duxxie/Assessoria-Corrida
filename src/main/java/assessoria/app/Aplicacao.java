@@ -1,18 +1,14 @@
 package assessoria.app;
 import assessoria.controller.AdministradorController;
-import assessoria.controller.AlunoController;
-import assessoria.model.Aluno;
 import assessoria.util.InputHelper;
-import java.util.Map;
 import assessoria.view.*;
 
 public class Aplicacao {
 
     private final MenuPrincipal menuPrincipal = new MenuPrincipal();
-    private final AlunoController alunoController = new AlunoController();
     private final MenuCadastro menuCadastro = new MenuCadastro();
     private final MenuLogin menuLogin = new MenuLogin();
-    private final MensagemView mensagemView = new MensagemView();
+    private final AlunoApp alunoApp = new AlunoApp();
 
     //Administrador
     private final AdministradorController adicionarAdministrador = new AdministradorController();
@@ -31,8 +27,8 @@ public class Aplicacao {
         switch (opcaoMenuPrincipal) {
             case 1 -> executarMenuCadastro();
             case 2 -> executarMenuLogin();
-            case 0 -> mensagemView.mostrarMensagem("Encerrando o programa...");
-            default -> mensagemView.mostrarErro("Escolha uma opção válida!!");
+            case 0 -> menuPrincipal.mostrarSaida();
+            default -> menuPrincipal.mostrarDefaultMenu();
         }
     }
 
@@ -42,11 +38,11 @@ public class Aplicacao {
             menuCadastro.mostrarMenu();
             opcaoMenuCadastro = InputHelper.lerOpcao();
             switch (opcaoMenuCadastro) {
-                case 1 -> alunoController.adicionarAluno();
-                //case 2 -> adicionarProfessor;
+                case 1 -> alunoApp.executarCadastro();
+                case 2 -> adicionarProfessor;
                 case 3 -> adicionarAdministrador.adicionarAdministrador();
-                case 0 -> mensagemView.mostrarMensagem("Votando ao menu principal...");
-                default -> mensagemView.mostrarErro("Opção inválida para cadastro!!");
+                case 0 -> menuCadastro.mostrarSaida();
+                default -> menuCadastro.mostrarDefaultMenu();
             }
         }while(opcaoMenuCadastro != 0);
     }
@@ -60,8 +56,8 @@ public class Aplicacao {
                 case 1 -> System.out.println("Entrar como aluno");
                 case 2 -> System.out.println("Entrar como professor");
                 case 3 -> System.out.println("Entrar como Administrador");
-                case 0 -> mensagemView.mostrarMensagem("Votando ao menu principal...");
-                default -> mensagemView.mostrarErro("Opção inválida para login!!");
+                case 0 -> menuLogin.mostrarSaida();
+                default -> menuLogin.mostrarDefaultMenu();
             }
         }while (opcaoMenuLogin != 0);
     }
