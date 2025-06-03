@@ -20,6 +20,8 @@ public class Aplicacao {
             opcaoMenuPrincipal = InputHelper.lerOpcao();
             tratarOpcaoMenuPrincipal(opcaoMenuPrincipal);
         }while (opcaoMenuPrincipal != 0);
+        System.out.println("\n\n");
+        alunoApp.mostrarAlunos();
         InputHelper.encerrarInput();
     }
 
@@ -39,8 +41,8 @@ public class Aplicacao {
             opcaoMenuCadastro = InputHelper.lerOpcao();
             switch (opcaoMenuCadastro) {
                 case 1 -> alunoApp.executarCadastro();
-                case 2 -> adicionarProfessor;
-                case 3 -> adicionarAdministrador.adicionarAdministrador();
+                //case 2 -> adicionarProfessor;
+                //case 3 -> adicionarAdministrador.adicionarAdministrador();
                 case 0 -> menuCadastro.mostrarSaida();
                 default -> menuCadastro.mostrarDefaultMenu();
             }

@@ -10,4 +10,8 @@ public class AlunoApp {
         alunoView.mostrarMenuCadastrarAluno();
         alunoView.pegarDadosAluno();
     }
+
+    public void mostrarAlunos() {
+        alunoView.mostrarAlunosCadastrados();
+    }
 }

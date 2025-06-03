@@ -7,6 +7,7 @@ public class AlunoView {
 
     AlunoController alunoController = new AlunoController();
     MensagemView mensagemView = new MensagemView();
+    DashBoardView dashBoardView = new DashBoardView();
 
     public void mostrarMenuCadastrarAluno() {
         System.out.println("\n\n+ ---------------------------- +");
@@ -22,5 +23,9 @@ public class AlunoView {
         String telefone = InputHelper.pegarTelefone();
         alunoController.criarAluno(nome, email, cpf, idade, telefone);
         mensagemView.mostrarSucesso("Aluno cadastrado com sucesso!!");
+    }
+
+    public void mostrarAlunosCadastrados() {
+        dashBoardView.mostrarTabela(alunoController.pegarMapAlunos());
     }
 }
