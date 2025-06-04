@@ -11,6 +11,7 @@ public class AlunoController {
     private final Map<String, Aluno> mapAlunos = new LinkedHashMap<>();;
     private final AlunoDAO alunoDAO = new AlunoDAO();
     private final MensagemView mensagemView = new MensagemView();
+    private int idDinaminco;
 
     private Aluno criarAluno(int id) {
         String nome = pegarNome();
@@ -22,20 +23,16 @@ public class AlunoController {
     }
 
     public void adicionarAluno() {
-        int idAluno = pegarMapAlunos().size() + 1;
+        int idAluno = geraId();
         AlunoView.mostrarMenuCadastrarAluno();
         mapAlunos.put("K" + idAluno, criarAluno(idAluno));
         alunoDAO.inserirAlunoNoCsv(pegarMapAlunos());
         mensagemView.mostrarSucesso("Aluno adicionado!!");
     }
 
-//    private int pegarId() {
-//        int id = 0;
-//        for(Map.Entry<String,Aluno> entry : mapAlunos.entrySet()) {
-//            id = entry.getValue().getId();
-//        }
-//        return id;
-//    }
+    private int geraId() {
+        return ++idDinaminco;
+    }
 
     private String pegarNome() {
        return InputHelper.lerString("Digite o nome completo: ");
