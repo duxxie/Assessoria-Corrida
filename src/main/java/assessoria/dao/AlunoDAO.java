@@ -14,9 +14,18 @@ import java.util.Map;
 
 public class AlunoDAO extends GenericDAO<Aluno> {
 
+    public AlunoDAO() {
+        super(Aluno.class);
+    }
+
     @Override
     public void inserirDadosNoArquivo(Map<String, Aluno> alunoMap, String caminhoArquivo) {
         super.inserirDadosNoArquivo(alunoMap, caminhoArquivo);
+    }
+
+    @Override
+    public Map<String,Aluno> lerDadosDoArquivo(Map<String, Aluno> alunoMap, String caminhoArquivo) {
+       return super.lerDadosDoArquivo(alunoMap, caminhoArquivo);
     }
 
     //private final String arquivoUsuarios = "src/main/java/assessoria/util/treino/alunos.csv";

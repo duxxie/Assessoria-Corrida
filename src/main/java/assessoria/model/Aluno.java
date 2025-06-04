@@ -2,6 +2,8 @@ package assessoria.model;
 
 public class Aluno extends Pessoa{
 
+    public Aluno() {super();}
+
     public Aluno(int id, String nome, String cpf, int idade) {
         super(id, nome, cpf, idade);
     }

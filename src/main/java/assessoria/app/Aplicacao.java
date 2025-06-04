@@ -21,8 +21,15 @@ public class Aplicacao {
             tratarOpcaoMenuPrincipal(opcaoMenuPrincipal);
         }while (opcaoMenuPrincipal != 0);
         System.out.println("\n\n");
-        alunoApp.mostrarAlunos();
         InputHelper.encerrarInput();
+    }
+
+    public void mostrarDados() {
+        alunoApp.mostrarAlunos();
+    }
+
+    public void inicializarDados() {
+        alunoApp.carregarMap();
     }
 
     private void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {
