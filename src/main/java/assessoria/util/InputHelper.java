@@ -8,17 +8,25 @@ public class InputHelper {
     private final static Scanner ler = new Scanner(System.in);
     private final static MensagemView mensagemView = new MensagemView();
 
-    public static String lerString(String frase) {
+    private static String lerString(String frase) {
         System.out.print(frase);
         return ler.nextLine();
     }
 
-    public static String lerCpf(String frase) {
+    public static String pegarNome() {
+        return lerString("Digite o nome completo: ");
+    }
+
+    public static String pegarTelefone() {
+        return lerString("Digite o telefone (XX)9xxxx-xxxx: ");
+    }
+
+    public static String pegarCpf() {
         String cpf = "";
         boolean valido = false;
         while(!valido) {
             try{
-                System.out.print(frase);
+                System.out.print("Digite o CPF (xxx.xxx.xxx-xx) : ");
                 cpf = ler.nextLine();
                 valido = Validador.isCpfValido(cpf);
             }catch (Exception e) {
@@ -28,12 +36,12 @@ public class InputHelper {
         return cpf;
     }
 
-    public static String lerEmail(String frase) {
+    public static String pegarEmail() {
         String email = "";
         boolean valido = false;
         while(!valido) {
             try {
-                System.out.print(frase);
+                System.out.print("Digite o email (Ex: user@gmail.com): ");
                 email = ler.nextLine();
                 valido = Validador.isEmailValido(email);
             }catch (Exception e) {
@@ -43,7 +51,7 @@ public class InputHelper {
         return email;
     }
 
-    public static int lerInt(String frase) {
+    private static int lerInt(String frase) {
         while(true) {
             try{
                 System.out.print(frase);
@@ -54,9 +62,12 @@ public class InputHelper {
         }
     }
 
+    public static int pegarIdade() {
+       return lerInt("Digite a idade: ");
+    }
+
     public static int lerOpcao() {
-        System.out.print("Escolha uma opção: ");
-        return Integer.parseInt(ler.nextLine());
+       return lerInt("Escolha uma opção: ");
     }
 
     public static float lerFloat(String frase) {

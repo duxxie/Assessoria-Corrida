@@ -14,6 +14,8 @@ public abstract class Pessoa {
     private String senhaHash;
     private Hash hashProvider;
 
+    public Pessoa(){}
+
     public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, Hash hashProvider) {
         this.id = id;
         this.nome = nome;
@@ -97,5 +99,13 @@ public abstract class Pessoa {
         return hashProvider.verificarHash(senhaPlana, this.senhaHash);
     }
 
+    public void mostrarInfo() {
+        System.out.println("Id: " + getId());
+        System.out.println("Nome: " + getNome());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Cpf: " + getCpf());
+        System.out.println("Iade: " + getIdade());
+        System.out.println("Telefone: " + getTelefone());
+    }
 
 }

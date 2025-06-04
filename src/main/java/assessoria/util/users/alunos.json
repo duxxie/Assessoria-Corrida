@@ -1,10 +1,56 @@
 {
   "K1" : {
     "id" : 1,
-    "nome" : "Gustavo Falcao",
-    "email" : "gustavo@gmail.com",
-    "cpf" : "368.382.970-27",
+    "nome" : "Gustavo Duarte Falcão",
+    "email" : "duartegusfalcao@gmail.com",
+    "cpf" : "735.081.590-51",
     "idade" : 20,
-    "telefone" : "(041)93241-2223"
+    "telefone" : "(11)92112-9990",
+    "senhaHash" : null
+  },
+  "K2" : {
+    "id" : 2,
+    "nome" : "Fernando Correa De Paula",
+    "email" : "fernando@gmail.com",
+    "cpf" : "437.175.040-02",
+    "idade" : 37,
+    "telefone" : "(21)94443-2342",
+    "senhaHash" : null
+  },
+  "K3" : {
+    "id" : 3,
+    "nome" : "Anna Ribeiro Gonçalves",
+    "email" : "ana_rib@gmail.com",
+    "cpf" : "225.513.490-01",
+    "idade" : 28,
+    "telefone" : "(68)94435-0000",
+    "senhaHash" : null
+  },
+  "K4" : {
+    "id" : 4,
+    "nome" : "Carla Machado",
+    "email" : "carla_ma@gmail.com",
+    "cpf" : "162.488.220-00",
+    "idade" : 32,
+    "telefone" : "(41)93330-8980",
+    "senhaHash" : null
+  },
+  "K5" : {
+    "id" : 5,
+    "nome" : "Pedro Machado de Oliveira",
+    "email" : "pedro_machado@gmail.com",
+    "cpf" : "890.345.110-49",
+    "idade" : 45,
+    "telefone" : "(29)91122-1210",
+    "senhaHash" : null
+  },
+  "K6" : {
+    "id" : 6,
+    "nome" : "Maria Cardoso",
+    "email" : "maria_card@gmail.com",
+    "cpf" : "965.368.070-65",
+    "idade" : 29,
+    "telefone" : "(11)94454-0009",
+    "senhaHash" : null
   }
 }
