@@ -4,9 +4,13 @@ import assessoria.service.AlunoService;
 import java.util.Map;
 
 
-public class AlunoController extends PessoaController{
+public class AlunoController{
 
-    private final AlunoService alunoService = new AlunoService();
+    private final AlunoService alunoService;
+
+    public AlunoController(AlunoService alunoService) {
+        this.alunoService = alunoService;
+    }
 
     public void criarAluno(String nome, String email, String cpf, int idade, String telefone) {
         alunoService.salvarAluno(new Aluno(gerarId(), nome, email, cpf, idade, telefone));
@@ -19,9 +23,9 @@ public class AlunoController extends PessoaController{
         }
         return id+1;
     }
-
+    
     public Map<String,Aluno> pegarMapAlunos() {
-        return alunoService.pegarCopiaMapAluno();
+        return alunoService.getMapAluno();
     }
 
 }

@@ -36,7 +36,7 @@ public class DashBoardView {
         int larguraTelefone = maxTelefone + 4;
 
         // Linha separadora
-        int totalLargura = larguraId + larguraNome + larguraCpf + larguraEmail + larguraIdade + larguraTelefone + 7; // 6 separadores "|"
+        int totalLargura = larguraId + larguraNome + larguraCpf + larguraEmail + larguraIdade + larguraTelefone + 7; // 7 separadores "|"
 
 
         System.out.println("-".repeat(totalLargura));
