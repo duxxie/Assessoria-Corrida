@@ -1,5 +1,9 @@
 package assessoria.util;
 
+import assessoria.model.Usuario;
+
+import java.util.Map;
+
 public class Validador {
 
     public static boolean isCpfValido(String cpf) {
@@ -48,4 +52,24 @@ public class Validador {
             return true;
         }
     }
+
+    public static boolean isSenhaValido(String senha) {
+        if(!senha.matches("^(?=.*[A-Z])(?=.*\\d).{8,}$")) {
+            throw new IllegalArgumentException("⚠️ --> [Formato de senha inválido!!]");
+        } else {
+            return true;
+        }
+    }
+
+    public static  <type extends Usuario> type isDadosLoginValido(String emailFornecido, String senhaFornecida, Map<String, type> map) {
+        BCryptHash bCryptHash = new BCryptHash();
+
+        for(Map.Entry<String, type> entry : map.entrySet()) {
+            if(emailFornecido.equals(entry.getValue().getEmail()) && bCryptHash.verificarHash(senhaFornecida, entry.getValue().getHashProvider())) {
+                return entry.getValue();
+            }
+        }
+        throw new IllegalArgumentException("Email ou senha inválidos!!");
+    }
+
 }

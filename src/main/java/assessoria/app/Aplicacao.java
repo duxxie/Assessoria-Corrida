@@ -62,7 +62,7 @@ public class Aplicacao {
             menuLogin.mostrarMenu();
             opcaoMenuLogin = InputHelper.lerOpcao();
             switch (opcaoMenuLogin) {
-                case 1 -> System.out.println("Entrar como aluno");
+                case 1 -> alunoApp.executarLogin();
                 case 2 -> System.out.println("Entrar como professor");
                 case 3 -> System.out.println("Entrar como Administrador");
                 case 0 -> menuLogin.mostrarSaida();
