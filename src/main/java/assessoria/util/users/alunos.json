@@ -6,7 +6,10 @@
     "cpf" : "735.081.590-51",
     "idade" : 20,
     "telefone" : "(11)92112-9990",
-    "senhaHash" : null
+    "senhaHash" : null,
+    "hashProvider" : null,
+    "contatoEmergencia" : null,
+    "infoMedica" : null
   },
   "K2" : {
     "id" : 2,
@@ -15,7 +18,10 @@
     "cpf" : "437.175.040-02",
     "idade" : 37,
     "telefone" : "(21)94443-2342",
-    "senhaHash" : null
+    "senhaHash" : null,
+    "hashProvider" : null,
+    "contatoEmergencia" : null,
+    "infoMedica" : null
   },
   "K3" : {
     "id" : 3,
@@ -24,7 +30,10 @@
     "cpf" : "225.513.490-01",
     "idade" : 28,
     "telefone" : "(68)94435-0000",
-    "senhaHash" : null
+    "senhaHash" : null,
+    "hashProvider" : null,
+    "contatoEmergencia" : null,
+    "infoMedica" : null
   },
   "K4" : {
     "id" : 4,
@@ -33,7 +42,10 @@
     "cpf" : "162.488.220-00",
     "idade" : 32,
     "telefone" : "(41)93330-8980",
-    "senhaHash" : null
+    "senhaHash" : null,
+    "hashProvider" : null,
+    "contatoEmergencia" : null,
+    "infoMedica" : null
   },
   "K5" : {
     "id" : 5,
@@ -42,7 +54,10 @@
     "cpf" : "890.345.110-49",
     "idade" : 45,
     "telefone" : "(29)91122-1210",
-    "senhaHash" : null
+    "senhaHash" : null,
+    "hashProvider" : null,
+    "contatoEmergencia" : null,
+    "infoMedica" : null
   },
   "K6" : {
     "id" : 6,
@@ -51,6 +66,34 @@
     "cpf" : "965.368.070-65",
     "idade" : 29,
     "telefone" : "(11)94454-0009",
-    "senhaHash" : null
+    "senhaHash" : null,
+    "hashProvider" : null,
+    "contatoEmergencia" : null,
+    "infoMedica" : null
+  },
+  "K7" : {
+    "id" : 7,
+    "nome" : "Carlos Alcaraz",
+    "email" : "carlos_alcaraz@gmail.com",
+    "cpf" : "883.628.930-44",
+    "idade" : 22,
+    "telefone" : "(90)91314-2221",
+    "senhaHash" : "Carlos@22",
+    "hashProvider" : "$2a$10$Xyzjr8iWoylNNehEg8q82uHvkIEenCpak/lqcUJEZGVJYCcrbwWKy",
+    "contatoEmergencia" : {
+      "nome" : "Jannik Sinner",
+      "telefone" : "(91)93231-1110",
+      "relacionamento" : "filho"
+    },
+    "infoMedica" : {
+      "descCondicaoMedica" : "asma",
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : "O suco",
+      "frequenciaMedicamentoEmUso" : "Todos os dias",
+      "descLesaoRecenteOuCronica" : "Lesão no ombro",
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : "O negativo"
+    }
   }
 }

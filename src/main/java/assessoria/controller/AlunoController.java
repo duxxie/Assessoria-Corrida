@@ -1,6 +1,9 @@
 package assessoria.controller;
 import assessoria.model.Aluno;
+import assessoria.model.ContatoEmergencia;
+import assessoria.model.InfoMedica;
 import assessoria.service.AlunoService;
+
 import java.util.Map;
 
 
@@ -12,8 +15,12 @@ public class AlunoController{
         this.alunoService = alunoService;
     }
 
-    public void criarAluno(String nome, String email, String cpf, int idade, String telefone) {
-        alunoService.salvarAluno(new Aluno(gerarId(), nome, email, cpf, idade, telefone));
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
+        alunoService.salvarAluno(new Aluno(gerarId(), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao), new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+    }
+
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
+        alunoService.salvarAluno(new Aluno(gerarId() ,nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
     }
 
     private int gerarId() {

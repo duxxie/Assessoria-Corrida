@@ -1,9 +1,5 @@
 package assessoria.model;
 
-import assessoria.util.Hash;
-
-import java.util.logging.Handler;
-
 public abstract class Pessoa {
     private int id;
     private String nome;
@@ -12,11 +8,13 @@ public abstract class Pessoa {
     private int idade;
     private String telefone;
     private String senhaHash;
-    private Hash hashProvider;
+    private String hashProvider;
+    private ContatoEmergencia contatoEmergencia;
+    private InfoMedica infoMedica;
 
     public Pessoa(){}
 
-    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, Hash hashProvider) {
+    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -25,6 +23,20 @@ public abstract class Pessoa {
         this.telefone = telefone;
         this.senhaHash = senhaHash;
         this.hashProvider = hashProvider;
+        this.contatoEmergencia = contatoEmergencia;
+        this.infoMedica = infoMedica;
+    }
+
+    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, InfoMedica infoMedica) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.idade = idade;
+        this.telefone = telefone;
+        this.senhaHash = senhaHash;
+        this.hashProvider = hashProvider;
+        this.infoMedica = infoMedica;
     }
 
     public Pessoa(int id, String nome, String cpf, int idade) {
@@ -95,17 +107,39 @@ public abstract class Pessoa {
         return senhaHash;
     }
 
-    public boolean verificarSenha(String senhaPlana) {
-        return hashProvider.verificarHash(senhaPlana, this.senhaHash);
+    public String getHashProvider() {
+        return hashProvider;
     }
 
-    public void mostrarInfo() {
+    public ContatoEmergencia getContatoEmergencia() {
+        return contatoEmergencia;
+    }
+
+    public void setContatoEmergencia(ContatoEmergencia contatoEmergencia) {
+        this.contatoEmergencia = contatoEmergencia;
+    }
+
+    public InfoMedica getInfoMedica() {
+        return infoMedica;
+    }
+
+    public void setInfoMedica(InfoMedica infoMedica) {
+        this.infoMedica = infoMedica;
+    }
+
+    //    public boolean verificarSenha(String senhaPlana) {
+//        return hashProvider.verificarHash(senhaPlana, this.senhaHash);
+//    }
+
+    public void mostrarInfoCompleta() {
         System.out.println("Id: " + getId());
         System.out.println("Nome: " + getNome());
         System.out.println("Email: " + getEmail());
         System.out.println("Cpf: " + getCpf());
         System.out.println("Iade: " + getIdade());
         System.out.println("Telefone: " + getTelefone());
+        getInfoMedica().mostrarInfoCompleta();
+        getContatoEmergencia().mostrarInfoCompleta();
     }
 
 }
