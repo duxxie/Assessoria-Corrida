@@ -1,7 +1,8 @@
 package assessoria.service;
 
-import assessoria.dao.AlunoDAO;
-import assessoria.model.Aluno;
+import assessoria.model.dao.AlunoDAO;
+import assessoria.model.entidades.Aluno;
+import assessoria.util.log.Log;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -9,24 +10,23 @@ import java.util.Map;
 public class AlunoService {
 
     private Map<String, Aluno> mapAluno;
-    private final String caminhoArquivo = "src/main/java/assessoria/util/users/alunos.json";
     private final AlunoDAO dao = new AlunoDAO();
 
     public void salvarAluno(Aluno aluno) {
         salvarAlunoMap(aluno);
-        salvarAlunoArquivo();
     }
 
     public void carregarMapAluno() {
-         this.mapAluno = dao.lerDadosDoArquivo(getMapAluno(), getCaminhoArquivo());
+         this.mapAluno = dao.lerDadosDoArquivo(getMapAluno());
     }
 
     private void salvarAlunoMap(Aluno aluno) {
         mapAluno.put("K" + aluno.getId(), aluno);
+        Log.registrar("Info", "Aluno ID " + aluno.getId() + " foi adicionado ao Map");
     }
 
-    private void salvarAlunoArquivo() {
-        dao.inserirDadosNoArquivo(getMapAluno(), getCaminhoArquivo());
+    public void inserirAlunosArquivo() {
+        dao.inserirDadosNoArquivo(getMapAluno());
     }
 
     public int pegarTamanhoMapAluno() {
@@ -35,10 +35,6 @@ public class AlunoService {
 
     public Map<String,Aluno> pegarCopiaMapAluno() {
         return new LinkedHashMap<>(mapAluno);
-    }
-
-    public String getCaminhoArquivo() {
-        return caminhoArquivo;
     }
 
     public Map<String, Aluno> getMapAluno() {

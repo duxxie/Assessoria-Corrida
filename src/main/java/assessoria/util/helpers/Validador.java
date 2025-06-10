@@ -1,6 +1,6 @@
-package assessoria.util;
+package assessoria.util.helpers;
 
-import assessoria.model.Usuario;
+import assessoria.model.entidades.Usuario;
 
 import java.util.Map;
 

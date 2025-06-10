@@ -7,7 +7,7 @@ public class MensagemView {
     }
 
     public void mostrarSucesso(String fraseSucesso) {
-        System.out.println("✅ Sucesso: " + fraseSucesso);
+        System.out.println("✅ " + fraseSucesso);
     }
 
     public void mostrarMensagem(String msg) {
