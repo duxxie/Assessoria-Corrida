@@ -1,0 +1,14 @@
+
+[2025-06-10 19:26:35] INFO - Sistema iniciado.
+[2025-06-10 19:26:35] INFO - Map de Alunos inicializado.
+[2025-06-10 19:26:35] INFO - IDs inicializados.
+[2025-06-10 19:26:49] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-10 19:26:49] INFO - Map de alunos foi salvo no arquivo.
+[2025-06-10 19:26:49] INFO - Sistema encerrado.
+[2025-06-10 19:29:14] INFO - Sistema iniciado.
+[2025-06-10 19:29:14] INFO - Map de Alunos inicializado.
+[2025-06-10 19:29:14] INFO - IDs inicializados.
+[2025-06-10 19:38:10] INFO - Aluno ID Alu3 foi adicionado ao Map
+[2025-06-10 20:17:42] INFO - Sistema iniciado.
+[2025-06-10 20:17:43] INFO - Map de Alunos inicializado.
+[2025-06-10 20:17:43] INFO - IDs inicializados.

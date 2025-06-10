@@ -1,15 +1,10 @@
 package assessoria.view;
 
 import assessoria.controller.AlunoController;
-import assessoria.model.Aluno;
-import assessoria.util.BCryptHash;
-import assessoria.util.Hash;
-import assessoria.util.InputHelper;
-import assessoria.util.Validador;
-
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import assessoria.model.entidades.Aluno;
+import assessoria.util.helpers.BCryptHash;
+import assessoria.util.helpers.InputHelper;
+import assessoria.util.helpers.Validador;
 
 public class AlunoView {
 
@@ -52,7 +47,7 @@ public class AlunoView {
         String tipoSanguineo = InputHelper.pegarTipoSanguineo();
 
         if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
-            System.out.println("/// Informe os dados do seu contado de emergencia abaixo ///");
+            System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
             String nomeEmergencia = InputHelper.pegarNome();
             String telefoneEmergencia = InputHelper.pegarTelefone();
             String relacao = InputHelper.pegarRelacao();
@@ -60,9 +55,10 @@ public class AlunoView {
             alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
         } else {
             //Criando aluno sem os dados do contato de emergencia
+            System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
             alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
         }
-        mensagemView.mostrarSucesso("Aluno cadastrado com sucesso!!");
+        mensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
 
@@ -89,7 +85,7 @@ public class AlunoView {
     }
 
     public void mostrarMenuAcoes() {
-        System.out.println("+ ------------------------- +");
+        System.out.println("\n\n+ ------------------------- +");
         System.out.println("|  << -- Ações Aluno -- >>  |");
         System.out.println("+ ------------------------- +");
         System.out.println("|   [1] Ver meus dados      |");

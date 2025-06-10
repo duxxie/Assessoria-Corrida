@@ -1,6 +1,8 @@
 package assessoria.app;
 import assessoria.controller.AdministradorController;
-import assessoria.util.InputHelper;
+import assessoria.util.helpers.GeradorID;
+import assessoria.util.helpers.InputHelper;
+import assessoria.util.log.Log;
 import assessoria.view.*;
 
 public class Aplicacao {
@@ -30,6 +32,16 @@ public class Aplicacao {
 
     public void inicializarDados() {
         alunoApp.carregarMap();
+        Log.registrar("Info", "Map de Alunos inicializado.");
+        GeradorID.carregarIds();
+        Log.registrar("Info", "IDs inicializados.");
+    }
+
+    public void salvarDados() {
+        GeradorID.salvarIds();
+        Log.registrar("Info", "Salvos os ultimos IDs que foram gerados.");
+        alunoApp.salvarDadosNoArquivo();
+        Log.registrar("Info", "Map de alunos foi salvo no arquivo.");
     }
 
     private void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {

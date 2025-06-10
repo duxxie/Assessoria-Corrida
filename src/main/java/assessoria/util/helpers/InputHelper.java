@@ -1,6 +1,5 @@
-package assessoria.util;
+package assessoria.util.helpers;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 import assessoria.view.MensagemView;
@@ -24,7 +23,7 @@ public class InputHelper {
     }
 
     public static String pegarRelacao() {
-        return lerString("Digite a relação do contato com você (ex: cônjugue, pai/mãe, amigo, irmão): ");
+        return lerString("Informe qual a sua relação com o contato (Ex: cônjugue, pai/mãe, amigo, irmão): ");
     }
 
     private static Character lerChar(String frase) {
@@ -40,6 +39,8 @@ public class InputHelper {
                     return caracter;
                 }
                 System.out.println("Escolha uma opcao entre (s) e (n) !!");
+            } else {
+                System.out.println("Digite apenas caracteres!!");
             }
         }
 
@@ -110,7 +111,8 @@ public class InputHelper {
         char opcao = Character.toLowerCase(lerChar("Deseja adicionar um contato para emergência ?"));
         if(opcao == 'n') {
            while(true) {
-               System.out.println("\nO contato de emergência é crucial em casos como: Emergência de Saúde; Acidentes Inesperados.");
+               System.out.println("\n------------------------------------------------------------------------");
+               System.out.println("O contato de emergência é crucial em casos como: Emergência de Saúde; Acidentes Inesperados.");
                System.out.println(" >> [1] Estou ciente, mesmo assim não quero adicionar um contato de emergência");
                System.out.println(" >> [2] Estou ciente, quero adicionar um contato de emergência");
                int op = lerOpcao();

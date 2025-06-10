@@ -1,31 +1,29 @@
-package assessoria.dao;
+package assessoria.model.dao;
 
-import assessoria.model.Aluno;
-import assessoria.view.MensagemView;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.opencsv.CSVWriter;
+import assessoria.model.entidades.Aluno;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class AlunoDAO extends GenericDAO<Aluno> {
+
+    private final String caminhoArquivo = "users/alunos/alunos.json";
 
     public AlunoDAO() {
         super(Aluno.class);
     }
 
     @Override
-    public void inserirDadosNoArquivo(Map<String, Aluno> alunoMap, String caminhoArquivo) {
-        super.inserirDadosNoArquivo(alunoMap, caminhoArquivo);
+    public void inserirDadosNoArquivo(Map<String, Aluno> alunoMap) {
+        super.inserirDadosNoArquivo(alunoMap);
+    }
+    @Override
+    public Map<String,Aluno> lerDadosDoArquivo(Map<String, Aluno> alunoMap) {
+       return super.lerDadosDoArquivo(alunoMap);
     }
 
     @Override
-    public Map<String,Aluno> lerDadosDoArquivo(Map<String, Aluno> alunoMap, String caminhoArquivo) {
-       return super.lerDadosDoArquivo(alunoMap, caminhoArquivo);
+    public String getCaminhoArquivo() {
+        return caminhoArquivo;
     }
 
     //private final String arquivoUsuarios = "src/main/java/assessoria/util/treino/alunos.csv";

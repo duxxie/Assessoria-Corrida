@@ -1,9 +1,9 @@
 package assessoria.app;
 
 import assessoria.controller.AlunoController;
-import assessoria.model.Aluno;
+import assessoria.model.entidades.Aluno;
 import assessoria.service.AlunoService;
-import assessoria.util.InputHelper;
+import assessoria.util.helpers.InputHelper;
 import assessoria.view.AlunoView;
 import assessoria.view.MensagemView;
 
@@ -28,6 +28,10 @@ public class AlunoApp {
 
     public void carregarMap() {
         alunoService.carregarMapAluno();
+    }
+
+    public void salvarDadosNoArquivo() {
+        alunoController.salvarAlunosArquivo();
     }
 
     public void executarCadastro() {

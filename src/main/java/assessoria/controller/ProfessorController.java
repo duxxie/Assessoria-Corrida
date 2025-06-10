@@ -1,13 +1,5 @@
 package assessoria.controller;
 
-import assessoria.dao.ProfessorDAO;
-import assessoria.model.Professor;
-import assessoria.view.ProfessorView;
-import assessoria.view.MensagemView;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 public class ProfessorController extends PessoaController{
 //
 //    private final Map<String, Professor> mapProfessor = new LinkedHashMap<>();

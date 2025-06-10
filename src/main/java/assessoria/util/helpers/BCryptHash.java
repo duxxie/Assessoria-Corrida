@@ -1,8 +1,8 @@
-package assessoria.util;
+package assessoria.util.helpers;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-public class BCryptHash implements Hash{
+public class BCryptHash implements Hash {
 
     private static final int LOG_ROUNDS = 10;
 

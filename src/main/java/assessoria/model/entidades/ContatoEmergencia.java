@@ -1,4 +1,4 @@
-package assessoria.model;
+package assessoria.model.entidades;
 
 public class ContatoEmergencia {
 
@@ -39,7 +39,7 @@ public class ContatoEmergencia {
     }
 
     public void mostrarInfoCompleta() {
-        String valor = "";
+        String valor;
         valor = getNome() == null ? "Não informado" : getNome();
         System.out.println("Nome: " + valor);
 

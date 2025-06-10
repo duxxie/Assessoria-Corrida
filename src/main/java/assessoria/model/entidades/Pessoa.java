@@ -1,7 +1,7 @@
-package assessoria.model;
+package assessoria.model.entidades;
 
 public abstract class Pessoa {
-    private int id;
+    private String id;
     private String nome;
     private String email;
     private String cpf;
@@ -14,7 +14,7 @@ public abstract class Pessoa {
 
     public Pessoa(){}
 
-    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
+    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -27,7 +27,7 @@ public abstract class Pessoa {
         this.infoMedica = infoMedica;
     }
 
-    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, InfoMedica infoMedica) {
+    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, InfoMedica infoMedica) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -39,14 +39,14 @@ public abstract class Pessoa {
         this.infoMedica = infoMedica;
     }
 
-    public Pessoa(int id, String nome, String cpf, int idade) {
+    public Pessoa(String id, String nome, String cpf, int idade) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
     }
 
-    public Pessoa(int id, String nome, String email, String cpf, int idade, String telefone) {
+    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -63,11 +63,11 @@ public abstract class Pessoa {
         this.cpf = cpf;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

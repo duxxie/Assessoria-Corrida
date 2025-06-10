@@ -1,4 +1,4 @@
-package assessoria.model;
+package assessoria.model.entidades;
 
 public class Treino {
     private String InicioTreino;

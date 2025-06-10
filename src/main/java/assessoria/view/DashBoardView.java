@@ -1,9 +1,7 @@
 package assessoria.view;
 
-import assessoria.model.Aluno;
+import assessoria.model.entidades.Aluno;
 
-import java.lang.reflect.Type;
-import java.util.List;
 import java.util.Map;
 
 public class DashBoardView {
@@ -55,7 +53,7 @@ public class DashBoardView {
 
         // Dados
         for (Map.Entry<String,Aluno> entry : typeMap.entrySet()) {
-            String linha = "|" + center(String.valueOf(entry.getValue().getId()), larguraId) + "|" + center(entry.getValue().getNome(), larguraNome) + "|" + center(entry.getValue().getCpf(), larguraCpf) + "|" + center(entry.getValue().getEmail(), larguraEmail) + "|" + center(String.valueOf(entry.getValue().getIdade()), larguraIdade) + "|" + center(entry.getValue().getTelefone(), larguraTelefone) + "|";
+            String linha = "|" + center(entry.getValue().getId(), larguraId) + "|" + center(entry.getValue().getNome(), larguraNome) + "|" + center(entry.getValue().getCpf(), larguraCpf) + "|" + center(entry.getValue().getEmail(), larguraEmail) + "|" + center(String.valueOf(entry.getValue().getIdade()), larguraIdade) + "|" + center(entry.getValue().getTelefone(), larguraTelefone) + "|";
             System.out.println(linha);
             System.out.println("-".repeat(totalLargura));
         }
