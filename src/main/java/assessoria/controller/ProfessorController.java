@@ -1,38 +1,33 @@
 package assessoria.controller;
 
+import assessoria.model.entidades.Professor;
+import assessoria.model.entidades.ContatoEmergencia;
+import assessoria.model.entidades.InfoMedica;
+import assessoria.model.entidades.Professor;
+import assessoria.service.ProfessorService;
+import assessoria.service.ProfessorService;
+import assessoria.util.helpers.GeradorID;
+
+import java.util.Map;
+
 public class ProfessorController{
-//
-//    private final Map<String, Professor> mapProfessor = new LinkedHashMap<>();
-//    private final ProfessorDAO professorDAO = new ProfessorDAO();
-//    private final MensagemView mensagemView = new MensagemView();
-//
-//    private Professor criarProfessor(int id) {
-//        String nome = pegarNome();
-//        String email = pegarEmail();
-//        String cpf = pegarCpf();
-//        int idade = pegarIdade();
-//        String telefone = pegarTelefone();
-//        return new Professor(id, nome, email, cpf, idade, telefone);
-//    }
-//
-//    public void adicionarProfessor() {
-//        int idProfessor = pegarMapProfessor().size() + 1;
-//        ProfessorView.mostrarMenuCadastrarProfessor();
-//        mapProfessor.put("K" + idProfessor, criarProfessor(idProfessor));
-//        professorDAO.inserirProfessorNoArquivo(pegarMapProfessor());
-//        mensagemView.mostrarSucesso("Professor adicionado!!");
-//    }
-//
-//    public Map<String, Professor> pegarMapProfessor() {
-//        return new LinkedHashMap<>(mapProfessor);
-//    }
-//
-//    private int pegarId() {
-//        int id = 0;
-//        for(Map.Entry<String,Professor> entry : mapProfessor.entrySet()) {
-//            id = entry.getValue().getId();
-//        }
-//        return id;
-//    }
+
+    private final ProfessorService professorService;
+
+    public ProfessorController(ProfessorService professorService) {
+        this.professorService = professorService;
+    }
+
+    public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
+        professorService.salvarProfessor(new Professor(GeradorID.gerarIdProfessor(), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao), new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+    }
+
+    public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
+        professorService.salvarProfessor(new Professor(GeradorID.gerarIdProfessor(),nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+    }
+
+    public Map<String,Professor> pegarMapProfessor() {
+        return professorService.getMapProfessor();
+    }
 
 }

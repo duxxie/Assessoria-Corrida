@@ -12,7 +12,7 @@ public class Aplicacao {
     private final MenuLogin menuLogin = new MenuLogin();
     private final AlunoApp alunoApp = new AlunoApp();
     private final AdministradorApp administradorApp = new AdministradorApp();
-
+    private final ProfessorApp professorApp = new ProfessorApp();
 
     public void executarPrograma() {
         int opcaoMenuPrincipal;
@@ -30,6 +30,8 @@ public class Aplicacao {
     }
 
     public void inicializarDados() {
+        professorApp.carregarMap();
+        Log.registrar("Info", "Map de Professores inicializado.");
         administradorApp.carregarMap();
         Log.registrar("Info", "Map de Administradores inicializado.");
         alunoApp.carregarMap();
@@ -59,7 +61,7 @@ public class Aplicacao {
             opcaoMenuCadastro = InputHelper.lerOpcao();
             switch (opcaoMenuCadastro) {
                 case 1 -> alunoApp.executarCadastro();
-                //case 2 -> adicionarProfessor;
+                case 2 -> professorApp.executarCadastro();
                 case 3 -> administradorApp.executarCadastro();
                 case 0 -> menuCadastro.mostrarSaida();
                 default -> menuCadastro.mostrarDefaultMenu();
@@ -74,7 +76,7 @@ public class Aplicacao {
             opcaoMenuLogin = InputHelper.lerOpcao();
             switch (opcaoMenuLogin) {
                 case 1 -> alunoApp.executarLogin();
-                case 2 -> System.out.println("Entrar como professor");
+                case 2 -> professorApp.executarLogin();
                 case 3 -> administradorApp.executarLogin();
                 case 0 -> menuLogin.mostrarSaida();
                 default -> menuLogin.mostrarDefaultMenu();
