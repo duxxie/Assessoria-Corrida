@@ -79,3 +79,69 @@
 [2025-06-11 17:54:46] INFO - Pedro Machado de Oliveira fez login
 [2025-06-11 17:55:59] INFO - Salvos os ultimos IDs que foram gerados.
 [2025-06-11 17:55:59] INFO - Sistema encerrado.
+[2025-06-11 18:22:46] INFO - Sistema iniciado.
+[2025-06-11 18:22:46] INFO - Map de Professores inicializado.
+[2025-06-11 18:22:46] INFO - Map de Administradores inicializado.
+[2025-06-11 18:22:46] INFO - Map de Alunos inicializado.
+[2025-06-11 18:22:46] INFO - IDs inicializados.
+[2025-06-11 18:35:38] INFO - Sistema iniciado.
+[2025-06-11 18:35:38] INFO - Map de Professores inicializado.
+[2025-06-11 18:35:38] INFO - Map de Administradores inicializado.
+[2025-06-11 18:35:38] INFO - Map de Alunos inicializado.
+[2025-06-11 18:35:38] INFO - IDs inicializados.
+[2025-06-11 18:39:14] INFO - Sistema iniciado.
+[2025-06-11 18:39:14] INFO - Map de Professores inicializado.
+[2025-06-11 18:39:14] INFO - Map de Administradores inicializado.
+[2025-06-11 18:39:14] INFO - Map de Alunos inicializado.
+[2025-06-11 18:39:14] INFO - IDs inicializados.
+[2025-06-11 18:46:40] INFO - Sistema iniciado.
+[2025-06-11 18:46:40] INFO - Map de Professores inicializado.
+[2025-06-11 18:46:40] INFO - Map de Administradores inicializado.
+[2025-06-11 18:46:40] INFO - Map de Alunos inicializado.
+[2025-06-11 18:46:40] INFO - IDs inicializados.
+[2025-06-11 18:47:35] INFO - Administrador ID Adm1 foi adicionado ao Map
+[2025-06-11 18:47:35] INFO - Dados do administrador (ID Adm1) foi registrado no arquivo.
+[2025-06-11 18:48:31] INFO - Sistema iniciado.
+[2025-06-11 18:48:31] INFO - Map de Professores inicializado.
+[2025-06-11 18:48:31] INFO - Map de Administradores inicializado.
+[2025-06-11 18:48:31] INFO - Map de Alunos inicializado.
+[2025-06-11 18:48:31] INFO - IDs inicializados.
+[2025-06-11 18:49:28] INFO - Sistema iniciado.
+[2025-06-11 18:49:28] INFO - Map de Professores inicializado.
+[2025-06-11 18:49:28] INFO - Map de Administradores inicializado.
+[2025-06-11 18:49:28] INFO - Map de Alunos inicializado.
+[2025-06-11 18:49:28] INFO - IDs inicializados.
+[2025-06-11 18:50:44] INFO - Administrador ID Adm1 foi adicionado ao Map
+[2025-06-11 18:50:44] INFO - Dados do administrador (ID Adm1) foi registrado no arquivo.
+[2025-06-11 18:51:57] INFO - Administrador ID Adm1 foi adicionado ao Map
+[2025-06-11 18:51:57] INFO - Dados do administrador (ID Adm1) foi registrado no arquivo.
+[2025-06-11 18:52:03] INFO - Administrador ID Adm1 foi adicionado ao Map
+[2025-06-11 18:52:03] INFO - Dados do administrador (ID Adm1) foi registrado no arquivo.
+[2025-06-11 18:52:16] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-11 18:52:16] INFO - Sistema encerrado.
+[2025-06-11 18:57:47] INFO - Sistema iniciado.
+[2025-06-11 18:57:47] INFO - Map de Professores inicializado.
+[2025-06-11 18:57:47] INFO - Map de Administradores inicializado.
+[2025-06-11 18:57:47] INFO - Map de Alunos inicializado.
+[2025-06-11 18:57:47] INFO - IDs inicializados.
+[2025-06-11 18:58:42] INFO - Sistema iniciado.
+[2025-06-11 18:58:42] INFO - Map de Professores inicializado.
+[2025-06-11 18:58:42] INFO - Map de Administradores inicializado.
+[2025-06-11 18:58:42] INFO - Map de Alunos inicializado.
+[2025-06-11 18:58:42] INFO - IDs inicializados.
+[2025-06-11 19:05:09] INFO - Sistema iniciado.
+[2025-06-11 19:05:10] INFO - Map de Professores inicializado.
+[2025-06-11 19:05:10] INFO - Map de Administradores inicializado.
+[2025-06-11 19:05:10] INFO - Map de Alunos inicializado.
+[2025-06-11 19:05:10] INFO - IDs inicializados.
+[2025-06-11 19:05:45] INFO - Sistema iniciado.
+[2025-06-11 19:05:46] INFO - Map de Professores inicializado.
+[2025-06-11 19:05:46] INFO - Map de Administradores inicializado.
+[2025-06-11 19:05:46] INFO - Map de Alunos inicializado.
+[2025-06-11 19:05:46] INFO - IDs inicializados.
+[2025-06-11 19:06:22] INFO - Administrador ID Adm2 foi adicionado ao Map
+[2025-06-11 19:06:22] INFO - Dados do administrador (ID Adm2) foi registrado no arquivo.
+[2025-06-11 19:08:38] INFO - Administrador ID Adm2 foi adicionado ao Map
+[2025-06-11 19:08:38] INFO - Dados do administrador (ID Adm2) foi registrado no arquivo.
+[2025-06-11 19:09:19] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-11 19:09:19] INFO - Sistema encerrado.

@@ -70,7 +70,7 @@ public class Aplicacao {
         this.administradorService = new AdministradorService(administradorDAO);
         this.administradorController = new AdministradorController(administradorService);
         this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
-        this.administradorApp = new AdministradorApp(administradorView);
+        this.administradorApp = new AdministradorApp(administradorView, administradorController);
     }
 
     private final MenuPrincipal menuPrincipal = new MenuPrincipal();
