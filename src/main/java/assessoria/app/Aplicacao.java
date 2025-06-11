@@ -41,10 +41,6 @@ public class Aplicacao {
     public void salvarDados() {
         GeradorID.salvarIds();
         Log.registrar("Info", "Salvos os ultimos IDs que foram gerados.");
-        administradorApp.salvarDadosNoArquivo();
-        Log.registrar("Info", "Map de administradores foi salvo no arquivo.");
-        alunoApp.salvarDadosNoArquivo();
-        Log.registrar("Info", "Map de alunos foi salvo no arquivo.");
     }
 
     private void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {

@@ -150,7 +150,9 @@ public abstract class Pessoa {
         System.out.println("Idade: " + getIdade());
         System.out.println("Telefone: " + getTelefone());
         getInfoMedica().mostrarInfoCompleta();
-        getContatoEmergencia().mostrarInfoCompleta();
+        if(getContatoEmergencia() != null) {
+            getContatoEmergencia().mostrarInfoCompleta();
+        }
     }
 
     public void mostrarInfo() {

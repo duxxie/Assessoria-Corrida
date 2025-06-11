@@ -12,37 +12,3 @@
 [2025-06-10 20:17:42] INFO - Sistema iniciado.
 [2025-06-10 20:17:43] INFO - Map de Alunos inicializado.
 [2025-06-10 20:17:43] INFO - IDs inicializados.
-[2025-06-11 12:11:26] INFO - Sistema iniciado.
-[2025-06-11 12:11:26] INFO - Map de Administradores inicializado.
-[2025-06-11 12:11:26] INFO - Map de Alunos inicializado.
-[2025-06-11 12:11:26] INFO - IDs inicializados.
-[2025-06-11 12:15:17] INFO - Administrador ID Adm1 foi adicionado ao Map
-[2025-06-11 12:21:45] INFO - Sistema iniciado.
-[2025-06-11 12:21:46] INFO - Map de Administradores inicializado.
-[2025-06-11 12:21:46] INFO - Map de Alunos inicializado.
-[2025-06-11 12:21:46] INFO - IDs inicializados.
-[2025-06-11 12:22:35] INFO - Administrador ID Adm1 foi adicionado ao Map
-[2025-06-11 12:23:12] INFO - Salvos os ultimos IDs que foram gerados.
-[2025-06-11 12:23:12] INFO - Map de administradores foi salvo no arquivo.
-[2025-06-11 12:23:12] INFO - Map de alunos foi salvo no arquivo.
-[2025-06-11 12:23:12] INFO - Sistema encerrado.
-[2025-06-11 12:23:18] INFO - Sistema iniciado.
-[2025-06-11 12:23:18] INFO - Map de Administradores inicializado.
-[2025-06-11 12:23:18] INFO - Map de Alunos inicializado.
-[2025-06-11 12:23:18] INFO - IDs inicializados.
-[2025-06-11 12:27:34] INFO - Sistema iniciado.
-[2025-06-11 12:27:35] INFO - Map de Administradores inicializado.
-[2025-06-11 12:27:35] INFO - Map de Alunos inicializado.
-[2025-06-11 12:27:35] INFO - IDs inicializados.
-[2025-06-11 12:29:46] INFO - Sistema iniciado.
-[2025-06-11 12:29:46] INFO - Map de Administradores inicializado.
-[2025-06-11 12:29:46] INFO - Map de Alunos inicializado.
-[2025-06-11 12:29:46] INFO - IDs inicializados.
-[2025-06-11 12:33:18] INFO - Sistema iniciado.
-[2025-06-11 12:33:19] INFO - Map de Administradores inicializado.
-[2025-06-11 12:33:19] INFO - Map de Alunos inicializado.
-[2025-06-11 12:33:19] INFO - IDs inicializados.
-[2025-06-11 12:33:52] INFO - Salvos os ultimos IDs que foram gerados.
-[2025-06-11 12:33:52] INFO - Map de administradores foi salvo no arquivo.
-[2025-06-11 12:33:52] INFO - Map de alunos foi salvo no arquivo.
-[2025-06-11 12:33:52] INFO - Sistema encerrado.

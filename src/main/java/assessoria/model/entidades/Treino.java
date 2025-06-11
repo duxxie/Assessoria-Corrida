@@ -1,38 +1,76 @@
 package assessoria.model.entidades;
 
-public class Treino {
-    private String InicioTreino;
-    private String MeioTreino;
-    private String MimTreino;
+import java.time.DayOfWeek;
+import java.util.ArrayList;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 
-    public Treino(String inicioTreino, String meioTreino, String mimTreino) {
-        InicioTreino = inicioTreino;
-        MeioTreino = meioTreino;
-        MimTreino = mimTreino;
+public class Treino implements Savable {
+    private String id;
+    private Aluno aluno;
+    private Professor professor;
+    private Map<DayOfWeek, List<String>> planoSemanal;
+
+    public Treino(String id, Aluno aluno, Professor professor) {
+        this.id = id;
+        this.aluno = aluno;
+        this.professor = professor;
+        this.planoSemanal = new EnumMap<>(DayOfWeek.class);
     }
 
-    public String getInicioTreino() {
-        return InicioTreino;
+    public String getId() {
+        return id;
     }
 
-    public String getMeioTreino() {
-        return MeioTreino;
+    public Aluno getAluno() {
+        return aluno;
     }
 
-    public String getMimTreino() {
-        return MimTreino;
+   public Professor getProfessor() {
+        return professor;
+   }
+
+   public Map<DayOfWeek, List<String>> getPlanoSemanal() {
+        return planoSemanal;
+   }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setInicioTreino(String inicioTreino) {
-        InicioTreino = inicioTreino;
+    public void setAluno(Aluno aluno) {
+        this.aluno = aluno;
     }
 
-    public void setMeioTreino(String meioTreino) {
-        MeioTreino = meioTreino;
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
 
-    public void setMimTreino(String mimTreino) {
-        MimTreino = mimTreino;
+    public void setPlanoSemanal(Map<DayOfWeek, List<String>> planoSemanal) {
+        this.planoSemanal = planoSemanal;
+    }
+
+    public void adiconarAtividade(DayOfWeek dia, String atividade) {
+        planoSemanal.computeIfAbsent(dia, k -> new ArrayList<>()).add(atividade);
+    }
+
+    public void adiconarAtividade(DayOfWeek dia, List<String> treinoDia) {
+        planoSemanal.put(dia, treinoDia);
+    }
+
+    public void removerAtividade(DayOfWeek dia, String atividade) {
+        List<String> list = planoSemanal.get(dia);
+        if(list != null) {
+            list.remove(atividade);
+            if(list.isEmpty()) {
+                planoSemanal.remove(dia);
+            }
+        }
+    }
+
+    public void removerDia(DayOfWeek dia) {
+        planoSemanal.remove(dia);
     }
 
 

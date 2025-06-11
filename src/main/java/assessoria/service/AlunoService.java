@@ -10,31 +10,32 @@ import java.util.Map;
 public class AlunoService {
 
     private Map<String, Aluno> mapAluno;
-    private final AlunoDAO dao = new AlunoDAO();
+    private final AlunoDAO dao;
+
+    public AlunoService(AlunoDAO dao) {
+        this.dao = dao;
+    }
 
     public void salvarAluno(Aluno aluno) {
         salvarAlunoMap(aluno);
+        inserirAlunosArquivo();
+        Log.registrar("Info", "Dados do aluno (ID " + aluno.getId() + ") foi registrado no arquivo.");
     }
 
     public void carregarMapAluno() {
-         this.mapAluno = dao.lerDadosDoArquivo(getMapAluno());
+         this.mapAluno = dao.lerDadosDoArquivo();
     }
 
     private void salvarAlunoMap(Aluno aluno) {
-        mapAluno.put("K" + aluno.getId(), aluno);
-        Log.registrar("Info", "Aluno ID " + aluno.getId() + " foi adicionado ao Map");
+        mapAluno.put(aluno.getId(), aluno);
     }
 
-    public void inserirAlunosArquivo() {
+    private void inserirAlunosArquivo() {
         dao.inserirDadosNoArquivo(getMapAluno());
     }
 
     public int pegarTamanhoMapAluno() {
         return mapAluno.size();
-    }
-
-    public Map<String,Aluno> pegarCopiaMapAluno() {
-        return new LinkedHashMap<>(mapAluno);
     }
 
     public Map<String, Aluno> getMapAluno() {

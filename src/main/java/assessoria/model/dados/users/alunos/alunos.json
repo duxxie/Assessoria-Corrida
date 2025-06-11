@@ -44,5 +44,30 @@
       "descRestricaoMedica" : null,
       "descTipoSanguineo" : "b positivo"
     }
+  },
+  "Alu3" : {
+    "id" : "Alu3",
+    "nome" : "Carlos Alcaraz",
+    "email" : "carlos_alcaraz@gmail.com",
+    "cpf" : "883.628.930-44",
+    "idade" : 22,
+    "telefone" : "(90)91314-2221",
+    "senhaHash" : "Carlos@22",
+    "hashProvider" : "$2a$10$aSAsWhoKJT7kPpKR0o1vl.yXLKzP2LYwVxPjm0Mv1JTO.kOM6h/kK",
+    "contatoEmergencia" : {
+      "nome" : "Jannik Sinner",
+      "telefone" : "(91)93231-1110",
+      "relacionamento" : "filho"
+    },
+    "infoMedica" : {
+      "descCondicaoMedica" : "asma",
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : "O suco",
+      "frequenciaMedicamentoEmUso" : "Todos os dias",
+      "descLesaoRecenteOuCronica" : "Ombro",
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : "A+"
+    }
   }
 }

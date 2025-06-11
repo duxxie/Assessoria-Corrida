@@ -5,6 +5,7 @@ import assessoria.model.entidades.Aluno;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
+import assessoria.util.log.Log;
 
 public class AlunoView {
 
@@ -32,7 +33,7 @@ public class AlunoView {
         int idade = InputHelper.pegarIdade();
         String telefone = InputHelper.pegarTelefone();
         String email = InputHelper.pegarEmail();
-        String senha = InputHelper.pegarSenha();
+        String senha = InputHelper.pegarSenhaToCadastro();
         String hash = bCryptHash.gerarHash(senha);
 
         //Dados scundários
@@ -72,7 +73,7 @@ public class AlunoView {
         while(true) {
             try {
                 String email = InputHelper.pegarEmail();
-                String senha = InputHelper.pegarSenha();
+                String senha = InputHelper.pegarSenhaToLogin();
                 return Validador.isDadosLoginValido(email, senha, alunoController.pegarMapAlunos());
             }catch (Exception e) {
                 System.out.println(e.getMessage());

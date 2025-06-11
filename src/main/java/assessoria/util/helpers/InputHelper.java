@@ -23,7 +23,7 @@ public class InputHelper {
     }
 
     public static String pegarRelacao() {
-        return lerString("Informe qual a sua relação com o contato (Ex: cônjugue, pai/mãe, amigo, irmão): ");
+        return lerString("Informe qual é a relação do contato com você (Ex: cônjugue, pai/mãe, amigo, irmão): ");
     }
 
     private static Character lerChar(String frase) {
@@ -143,10 +143,18 @@ public class InputHelper {
         return cpf;
     }
 
-    public static String pegarSenha() {
+    public static String pegarSenhaToCadastro() {
+        return pegarSenha("\n -->> Informe uma senha para a sua conta <<--");
+    }
+
+    public static String pegarSenhaToLogin() {
+        return pegarSenha("\n -->> Informe a sua senha <<--\n >> Lembrando que:");
+    }
+
+    private static String pegarSenha(String frase) {
         String senha = "";
         boolean valido = false;
-        System.out.println("\n -->> Informe uma senha para a sua conta <<--");
+        System.out.println(frase);
         System.out.println("[A senha deve ser composta por no mínimo 8 caracteres.]\n[Ter pelo menos uma letra maiúscula e um número.]");
         System.out.println("---------------------------------");
         while(!valido) {
