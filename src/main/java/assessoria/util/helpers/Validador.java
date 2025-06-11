@@ -1,5 +1,6 @@
 package assessoria.util.helpers;
 
+import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Usuario;
 
 import java.util.Map;
@@ -70,6 +71,15 @@ public class Validador {
             }
         }
         throw new IllegalArgumentException("Email ou senha inválidos!!");
+    }
+
+    public static Aluno isCpfExiste(String cpf, Map<String, Aluno> map) {
+        for(Map.Entry<String, Aluno> entry : map.entrySet()) {
+            if(cpf.equals(entry.getValue().getCpf())) {
+                return entry.getValue();
+            }
+        }
+        return null;
     }
 
 }

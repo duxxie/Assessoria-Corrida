@@ -10,8 +10,15 @@ public class InputHelper {
     private final static MensagemView mensagemView = new MensagemView();
 
     private static String lerString(String frase) {
-        System.out.print(frase);
-        return ler.nextLine();
+        while(true) {
+            System.out.print(frase);
+            String cont = ler.nextLine();
+            if(cont.isEmpty()) {
+                mensagemView.mostrarErro("Esse campo é obrigatório!!");
+            }else {
+                return cont;
+            }
+        }
     }
 
     public static String pegarNome() {

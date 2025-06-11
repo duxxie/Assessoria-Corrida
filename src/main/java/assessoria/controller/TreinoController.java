@@ -6,6 +6,8 @@ import assessoria.model.entidades.Treino;
 import assessoria.service.TreinoService;
 import assessoria.util.helpers.GeradorID;
 
+import java.util.Map;
+
 
 public class TreinoController {
 
@@ -19,6 +21,9 @@ public class TreinoController {
         treinoService.salvarTreino(new Treino(GeradorID.gerarIdTreino(), aluno, professor));
     }
 
+    public Map<String,Treino> pegarMapTreino() {
+        return treinoService.getMapTreino();
+    }
 
 
 }
