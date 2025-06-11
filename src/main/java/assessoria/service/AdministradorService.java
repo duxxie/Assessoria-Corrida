@@ -9,14 +9,20 @@ import java.util.Map;
 
 public class AdministradorService {
     private Map<String, Administrador> mapAdministrador;
-    private final AdministradorDAO dao = new AdministradorDAO();
+    private final AdministradorDAO dao;
+
+    public AdministradorService(AdministradorDAO dao) {
+        this.dao = dao;
+    }
 
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
+        inserirAdministradorArquivo();
+        Log.registrar("Info", "Dados do administrador (ID " + administrador.getId() + ") foi registrado no arquivo.");
     }
 
     public void carregarMapAdministrador() {
-        this.mapAdministrador = dao.lerDadosDoArquivo(getMapAdministrador());
+        this.mapAdministrador = dao.lerDadosDoArquivo();
     }
 
     private void salvarAdministradorMap(Administrador administrador) {

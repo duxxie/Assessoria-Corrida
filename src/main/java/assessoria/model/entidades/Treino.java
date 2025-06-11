@@ -51,11 +51,11 @@ public class Treino implements Savable {
         this.planoSemanal = planoSemanal;
     }
 
-    public void adiconarAtividade(DayOfWeek dia, String atividade) {
+    public void adicionarAtividade(DayOfWeek dia, String atividade) {
         planoSemanal.computeIfAbsent(dia, k -> new ArrayList<>()).add(atividade);
     }
 
-    public void adiconarAtividade(DayOfWeek dia, List<String> treinoDia) {
+    public void adicionarAtividade(DayOfWeek dia, List<String> treinoDia) {
         planoSemanal.put(dia, treinoDia);
     }
 
@@ -72,6 +72,5 @@ public class Treino implements Savable {
     public void removerDia(DayOfWeek dia) {
         planoSemanal.remove(dia);
     }
-
 
 }

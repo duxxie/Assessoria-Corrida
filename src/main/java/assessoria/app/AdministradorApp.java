@@ -1,6 +1,8 @@
 package assessoria.app;
 
 import assessoria.controller.AdministradorController;
+import assessoria.model.dao.AdministradorDAO;
+import assessoria.model.dao.AlunoDAO;
 import assessoria.model.entidades.Administrador;
 import assessoria.service.AdministradorService;
 import assessoria.util.helpers.InputHelper;
@@ -9,14 +11,16 @@ import assessoria.view.MensagemView;
 
 public class AdministradorApp {
     // Criando instancias que serao usadas nas classes
-    AdministradorView administradorView;
-    AdministradorController administradorController;
-    AdministradorService administradorService;
-    MensagemView mensagemView;
+    private final AdministradorView administradorView;
+    private final AdministradorController administradorController;
+    private final AdministradorService administradorService;
+    private final MensagemView mensagemView;
+    private final AdministradorDAO administradorDAO;
 
     public AdministradorApp() {
         this.mensagemView = new MensagemView();
-        this.administradorService = new AdministradorService();
+        this.administradorDAO = new AdministradorDAO();
+        this.administradorService = new AdministradorService(administradorDAO);
         this.administradorController = new AdministradorController(administradorService);
         this.administradorView = new AdministradorView(administradorController);
     }

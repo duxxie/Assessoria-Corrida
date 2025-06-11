@@ -17,8 +17,8 @@ public class AdministradorDAO extends GenericDAO<Administrador>{
     }
 
     @Override
-    public Map<String,Administrador> lerDadosDoArquivo(Map<String, Administrador> administradorMap) {
-        return super.lerDadosDoArquivo(administradorMap);
+    public Map<String,Administrador> lerDadosDoArquivo() {
+        return super.lerDadosDoArquivo();
     }
 
     @Override

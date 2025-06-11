@@ -30,7 +30,7 @@ public class AdministradorView {
         int idade = InputHelper.pegarIdade();
         String telefone = InputHelper.pegarTelefone();
         String email = InputHelper.pegarEmail();
-        String senha = InputHelper.pegarSenha();
+        String senha = InputHelper.pegarSenhaToCadastro();
         String hash = bCryptHash.gerarHash(senha);
 
         //Criando administrador sem os dados do contato de emergencia
@@ -49,7 +49,7 @@ public class AdministradorView {
         while(true) {
             try {
                 String email = InputHelper.pegarEmail();
-                String senha = InputHelper.pegarSenha();
+                String senha = InputHelper.pegarSenhaToLogin();
                 return Validador.isDadosLoginValido(email, senha, administradorController.pegarMapAdministrador());
             }catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -68,9 +68,11 @@ public class AdministradorView {
         System.out.println("+ ------------------------- +");
         System.out.println("|   [1] Ver meus dados      |");
         System.out.println("|   [2] Alterar meus dados  |");
+        System.out.println("|   [3] Visualizar dados de Professores |");
+        System.out.println("|   [4] Visualizar dados de Alunos |");
+        System.out.println("|   [5] Visualizar Treinos  |");
         System.out.println("|   [0] Encerrar sessão     |");
         System.out.println("+ ------------------------- +");
-
     }
 
     public void mostrarDadosAdministrador(Administrador administrador) {
