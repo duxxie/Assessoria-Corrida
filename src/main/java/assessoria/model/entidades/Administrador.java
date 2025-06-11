@@ -20,4 +20,7 @@ public class Administrador extends Pessoa implements Usuario,Savable{
         super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider, infoMedica);
     }
 
+    public Administrador(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider) {
+        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider);
+    }
 }

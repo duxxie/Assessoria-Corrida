@@ -1,29 +1,28 @@
 package assessoria.controller;
 
-public class AdministradorController extends PessoaController{
+import assessoria.model.entidades.Administrador;
+import assessoria.service.AdministradorService;
+import assessoria.util.helpers.GeradorID;
 
-//    private final Map<String, Administrador> mapAdministrador = new LinkedHashMap<>();
-//    private final AdministradorDAO administradorDAO = new AdministradorDAO();
-//    private final MensagemView mensagemView = new MensagemView();
-//
-//    public void adicionarAdministrador() {
-//        int idAdministrador = pegarMapAdministrador().size() + 1;
-//        AdministradorView.mostrarMenuCadastroAdministrador();
-//        mapAdministrador.put("K" + idAdministrador, criarAdministrador(idAdministrador));
-//        administradorDAO.inserirAdministradorNoArquivo(pegarMapAdministrador());
-//        mensagemView.mostrarSucesso("Administrador adicionado!!");
-//    }
-//
-//    private Administrador criarAdministrador(int id) {
-//        String nome = pegarNome();
-//        String email = pegarEmail();
-//        String cpf = pegarCpf();
-//        int idade = pegarIdade();
-//        String telefone = pegarTelefone();
-//        return new Administrador(id, nome, email, cpf, idade, telefone);
-//    }
-//
-//    public Map<String,Administrador> pegarMapAdministrador() {
-//        return new LinkedHashMap<>(mapAdministrador);
-//    }
+import java.util.Map;
+
+public class AdministradorController{
+
+    private final AdministradorService administradorService;
+
+    public AdministradorController(AdministradorService administradorService) {
+        this.administradorService = administradorService;
+    }
+
+    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha) {
+        administradorService.salvarAdministrador(new Administrador(GeradorID.gerarIdAdministrador(), nome, email, cpf, idade, telefone, senha, hashSenha));
+    }
+
+    public void salvarAdministradorArquivo() {
+        administradorService.inserirAdministradorArquivo();
+    }
+
+    public Map<String,Administrador> pegarMapAdministrador() {
+        return administradorService.getMapAdministrador();
+    }
 }

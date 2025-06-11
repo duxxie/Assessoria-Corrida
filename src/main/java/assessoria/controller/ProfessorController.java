@@ -1,6 +1,6 @@
 package assessoria.controller;
 
-public class ProfessorController extends PessoaController{
+public class ProfessorController{
 //
 //    private final Map<String, Professor> mapProfessor = new LinkedHashMap<>();
 //    private final ProfessorDAO professorDAO = new ProfessorDAO();

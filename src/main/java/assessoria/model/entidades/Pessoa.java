@@ -55,6 +55,17 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
+    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.idade = idade;
+        this.telefone = telefone;
+        this.senhaHash = senhaHash;
+        this.hashProvider = hashProvider;
+    }
+
     public String getCpf() {
         return cpf;
     }
@@ -136,10 +147,19 @@ public abstract class Pessoa {
         System.out.println("Nome: " + getNome());
         System.out.println("Email: " + getEmail());
         System.out.println("Cpf: " + getCpf());
-        System.out.println("Iade: " + getIdade());
+        System.out.println("Idade: " + getIdade());
         System.out.println("Telefone: " + getTelefone());
         getInfoMedica().mostrarInfoCompleta();
         getContatoEmergencia().mostrarInfoCompleta();
+    }
+
+    public void mostrarInfo() {
+        System.out.println("Id: " + getId());
+        System.out.println("Nome: " + getNome());
+        System.out.println("Email: " + getEmail());
+        System.out.println("Cpf: " + getCpf());
+        System.out.println("Idade: " + getIdade());
+        System.out.println("Telefone: " + getTelefone());
     }
 
 }
