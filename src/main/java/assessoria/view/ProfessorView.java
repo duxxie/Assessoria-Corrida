@@ -19,7 +19,7 @@ public class ProfessorView {
         this.alunoController = alunoController;
     }
     MensagemView mensagemView = new MensagemView();
-    DashBoardView dashBoardView = new DashBoardView();
+    ProfessorDashBoard professorDashBoard = new ProfessorDashBoard();
 
     public void mostrarMenuCadastrarProfessor() {
         System.out.println("\n\n+ ---------------------------- +");
@@ -86,7 +86,7 @@ public class ProfessorView {
     }
 
     public void mostrarProfessorCadastrados() {
-        //dashBoardView.mostrarTabela(professorController.pegarMapProfessor());
+        professorDashBoard.mostrarTabela(professorController.pegarMapProfessor());
     }
 
     public void mostrarMenuAcoes() {

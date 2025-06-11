@@ -1,8 +1,6 @@
 package assessoria.app;
 
-import assessoria.controller.AdministradorController;
 import assessoria.model.entidades.Administrador;
-import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.view.AdministradorView;
 import assessoria.view.MensagemView;
@@ -102,7 +100,4 @@ public class AdministradorApp {
         }
     }
 
-    public void mostrarAdministrador() {
-        administradorView.mostrarAdministradorCadastrados();
-    }
 }

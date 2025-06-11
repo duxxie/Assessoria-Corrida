@@ -91,6 +91,7 @@ public class Aplicacao {
 
     public void mostrarDados() {
         alunoApp.mostrarAlunos();
+        professorApp.mostrarProfessor();
     }
 
     public void inicializarDados() {
