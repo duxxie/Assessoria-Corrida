@@ -17,8 +17,8 @@ public class AlunoDAO extends GenericDAO<Aluno> {
         super.inserirDadosNoArquivo(alunoMap);
     }
     @Override
-    public Map<String,Aluno> lerDadosDoArquivo(Map<String, Aluno> alunoMap) {
-       return super.lerDadosDoArquivo(alunoMap);
+    public Map<String,Aluno> lerDadosDoArquivo() {
+       return super.lerDadosDoArquivo();
     }
 
     @Override

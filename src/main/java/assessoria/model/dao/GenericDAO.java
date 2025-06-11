@@ -34,7 +34,7 @@ public abstract class GenericDAO<T extends Savable> {
         }
     }
 
-    public Map<String,T> lerDadosDoArquivo(Map<String, T> typeMap) {
+    public Map<String,T> lerDadosDoArquivo() {
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(getCaminhoBase() + getCaminhoArquivo());
         if(!file.exists() || file.length() == 0) {
