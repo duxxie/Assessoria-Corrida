@@ -1,6 +1,9 @@
 package assessoria.view;
 
 import assessoria.controller.AdministradorController;
+import assessoria.controller.AlunoController;
+import assessoria.controller.ProfessorController;
+import assessoria.controller.TreinoController;
 import assessoria.model.entidades.Administrador;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
@@ -8,11 +11,17 @@ import assessoria.util.helpers.Validador;
 
 public class AdministradorView {
     AdministradorController administradorController;
+    AlunoController alunoController;
+    TreinoController treinoController;
+    ProfessorController professorController;
 
-    public AdministradorView(AdministradorController administradorController) {
+    public AdministradorView(AdministradorController administradorController, AlunoController alunoController, TreinoController treinoController, ProfessorController professorController) {
         this.administradorController = administradorController;
+        this.alunoController = alunoController;
+        this.treinoController = treinoController;
+        this.professorController = professorController;
     }
-    MensagemView mensagemView = new MensagemView();
+
     DashBoardView dashBoardView = new DashBoardView();
 
     public void mostrarMenuCadastrarAdministrador() {
@@ -35,7 +44,7 @@ public class AdministradorView {
 
         //Criando administrador sem os dados do contato de emergencia
         administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash);
-        mensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
 
@@ -77,5 +86,9 @@ public class AdministradorView {
 
     public void mostrarDadosAdministrador(Administrador administrador) {
         administrador.mostrarInfo();
+    }
+
+    public AdministradorController getAdministradorController() {
+        return administradorController;
     }
 }

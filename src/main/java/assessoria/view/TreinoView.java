@@ -10,4 +10,6 @@ public class TreinoView {
         this.treinoController = treinoController;
     }
 
+
+
 }

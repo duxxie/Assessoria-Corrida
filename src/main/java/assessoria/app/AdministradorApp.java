@@ -10,27 +10,15 @@ import assessoria.view.AdministradorView;
 import assessoria.view.MensagemView;
 
 public class AdministradorApp {
-    // Criando instancias que serao usadas nas classes
-    private final AdministradorView administradorView;
-    private final AdministradorController administradorController;
-    private final AdministradorService administradorService;
-    private final MensagemView mensagemView;
-    private final AdministradorDAO administradorDAO;
 
-    public AdministradorApp() {
-        this.mensagemView = new MensagemView();
-        this.administradorDAO = new AdministradorDAO();
-        this.administradorService = new AdministradorService(administradorDAO);
-        this.administradorController = new AdministradorController(administradorService);
-        this.administradorView = new AdministradorView(administradorController);
+   private final AdministradorView administradorView;
+
+    public AdministradorApp(AdministradorView administradorView) {
+        this.administradorView = administradorView;
     }
 
     public void carregarMap() {
-        administradorService.carregarMapAdministrador();
-    }
-
-    public void salvarDadosNoArquivo() {
-        administradorController.salvarAdministradorArquivo();
+        administradorView.getAdministradorController().carregarMap();
     }
 
     public void executarCadastro() {
@@ -56,8 +44,8 @@ public class AdministradorApp {
     private void tratarOpcaoMenuAcoes(int opcao, Administrador administrador) {
         switch (opcao) {
             case 1 -> administradorView.mostrarDadosAdministrador(administrador);
-            case 0 -> mensagemView.mostrarMensagem("Encerrando login...");
-            default -> mensagemView.mostrarErro("Escolha uma opção válida!!");
+            case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
     }
 

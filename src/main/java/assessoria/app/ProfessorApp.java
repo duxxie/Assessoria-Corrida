@@ -12,21 +12,13 @@ import assessoria.view.MensagemView;
 public class ProfessorApp {
 
     private final ProfessorView professorView;
-    private final ProfessorController professorController;
-    private final ProfessorService professorService;
-    private final MensagemView mensagemView;
-    private final ProfessorDAO professorDAO;
 
-    public ProfessorApp() {
-        this.mensagemView = new MensagemView();
-        this.professorDAO = new ProfessorDAO();
-        this.professorService = new ProfessorService(professorDAO);
-        this.professorController = new ProfessorController(professorService);
-        this.professorView = new ProfessorView(professorController);
+    public ProfessorApp(ProfessorView professorView) {
+        this.professorView = professorView;
     }
 
     public void carregarMap() {
-        professorService.carregarMapProfessor();
+        professorView.getProfessorController().carregarMap();
     }
 
     public void executarCadastro() {
@@ -53,8 +45,9 @@ public class ProfessorApp {
     private void tratarOpcaoMenuAcoes(int opcao, Professor professor) {
         switch (opcao) {
             case 1 -> professorView.mostrarDadosProfessor(professor);
-            case 0 -> mensagemView.mostrarMensagem("Encerrando login...");
-            default -> mensagemView.mostrarErro("Escolha uma opção válida!!");
+            case 4 -> professorView.mostrarMenuCriarTreino();
+            case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
     }
 

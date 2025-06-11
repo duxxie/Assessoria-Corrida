@@ -1,6 +1,8 @@
 package assessoria.view;
 
+import assessoria.controller.AlunoController;
 import assessoria.controller.ProfessorController;
+import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Professor;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
@@ -10,9 +12,11 @@ public class ProfessorView {
 
 
     ProfessorController professorController;
+    AlunoController alunoController;
 
-    public ProfessorView(ProfessorController professorController) {
+    public ProfessorView(ProfessorController professorController, AlunoController alunoController) {
         this.professorController = professorController;
+        this.alunoController = alunoController;
     }
     MensagemView mensagemView = new MensagemView();
     DashBoardView dashBoardView = new DashBoardView();
@@ -86,20 +90,38 @@ public class ProfessorView {
     }
 
     public void mostrarMenuAcoes() {
-        System.out.println("\n\n+ ------------------------- +");
+        System.out.println("\n\n+ ------------------------------- +");
         System.out.println("|  << -- Ações Professor -- >>  |");
-        System.out.println("+ ------------------------- +");
-        System.out.println("|   [1] Ver meus dados      |");
-        System.out.println("|   [2] Ver meus treinos    |");
-        System.out.println("|   [3] Alterar meus dados  |");
-        System.out.println("|   [0] Encerrar sessão     |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ ------------------------------- +");
+        System.out.println("|     [1] Ver meus dados        |");
+        System.out.println("|     [2] Ver meus treinos      |");
+        System.out.println("|     [3] Ver meus alunos       |");
+        System.out.println("|     [4] Criar um treino       |");
+        System.out.println("|     [5] Alterar meus dados    |");
+        System.out.println("|     [0] Encerrar sessão       |");
+        System.out.println("+ ------------------------------- +");
+    }
 
+    //private Aluno
+
+    public void mostrarMenuCriarTreino() {
+        System.out.println("|  << -- Criar treino -->>  |");
+        System.out.println(" >> Informe o cpf do Aluno que receberá o treino <<");
+        String cpfAluno = InputHelper.pegarCpf();
+        Aluno aluno = Validador.isCpfExiste(cpfAluno, alunoController.pegarMapAlunos());
+        if(aluno != null) {
+            System.out.println("\n\nAluno encontrado");
+            aluno.mostrarInfo();
+        }else {
+            System.out.println("Aluno não encontrado!!");
+        }
     }
 
     public void mostrarDadosProfessor(Professor professor) {
         professor.mostrarInfoCompleta();
     }
 
-
+    public ProfessorController getProfessorController() {
+        return professorController;
+    }
 }

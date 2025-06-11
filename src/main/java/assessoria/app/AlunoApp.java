@@ -11,22 +11,15 @@ import assessoria.view.MensagemView;
 
 public class AlunoApp {
     // Criando instancias que serao usadas nas classes
-    private final AlunoView alunoView;
-    private final AlunoController alunoController;
-    private final AlunoService alunoService;
-    private final MensagemView mensagemView;
-    private final AlunoDAO alunoDAO;
 
-    public AlunoApp() {
-        this.mensagemView = new MensagemView();
-        this.alunoDAO = new AlunoDAO();
-        this.alunoService = new AlunoService(alunoDAO);
-        this.alunoController = new AlunoController(alunoService);
-        this.alunoView = new AlunoView(alunoController);
+    private final AlunoView alunoView;
+
+    public AlunoApp(AlunoView alunoView) {
+        this.alunoView = alunoView;
     }
 
     public void carregarMap() {
-        alunoService.carregarMapAluno();
+        alunoView.getAlunoController().carregarAlunos();
     }
 
     public void executarCadastro() {
@@ -53,8 +46,8 @@ public class AlunoApp {
     private void tratarOpcaoMenuAcoes(int opcao, Aluno aluno) {
         switch (opcao) {
             case 1 -> alunoView.mostrarDadosAluno(aluno);
-            case 0 -> mensagemView.mostrarMensagem("Encerrando login...");
-            default -> mensagemView.mostrarErro("Escolha uma opção válida!!");
+            case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
     }
 

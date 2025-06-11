@@ -18,8 +18,8 @@ public class AdministradorController{
         administradorService.salvarAdministrador(new Administrador(GeradorID.gerarIdAdministrador(), nome, email, cpf, idade, telefone, senha, hashSenha));
     }
 
-    public void salvarAdministradorArquivo() {
-        administradorService.inserirAdministradorArquivo();
+    public void carregarMap() {
+        administradorService.carregarMapAdministrador();
     }
 
     public Map<String,Administrador> pegarMapAdministrador() {

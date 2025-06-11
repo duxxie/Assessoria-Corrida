@@ -28,4 +28,8 @@ public class AlunoController{
         return alunoService.getMapAluno();
     }
 
+    public void carregarAlunos() {
+        alunoService.carregarMapAluno();
+    }
+
 }

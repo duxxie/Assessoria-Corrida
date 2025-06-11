@@ -101,5 +101,8 @@ public class AlunoView {
         aluno.mostrarInfoCompleta();
     }
 
+    public AlunoController getAlunoController() {
+        return alunoController;
+    }
 
 }
