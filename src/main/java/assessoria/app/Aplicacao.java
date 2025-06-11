@@ -58,13 +58,13 @@ public class Aplicacao {
         this.alunoService = new AlunoService(alunoDAO);
         this.alunoController = new AlunoController(alunoService);
         this.alunoView = new AlunoView(alunoController);
-        this.alunoApp = new AlunoApp(alunoView);
+        this.alunoApp = new AlunoApp(alunoView, alunoController);
 
         this.professorDAO = new ProfessorDAO();
         this.professorService = new ProfessorService(professorDAO);
         this.professorController = new ProfessorController(professorService);
-        this.professorView = new ProfessorView(professorController, alunoController);
-        this.professorApp = new ProfessorApp(professorView);
+        this.professorView = new ProfessorView(professorController);
+        this.professorApp = new ProfessorApp(professorView, professorController);
 
         this.administradorDAO = new AdministradorDAO();
         this.administradorService = new AdministradorService(administradorDAO);

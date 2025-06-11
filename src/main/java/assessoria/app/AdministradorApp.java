@@ -1,6 +1,8 @@
 package assessoria.app;
 
+import assessoria.controller.AdministradorController;
 import assessoria.model.entidades.Administrador;
+import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.view.AdministradorView;
 import assessoria.view.MensagemView;
@@ -88,7 +90,6 @@ public class AdministradorApp {
             opcao = InputHelper.lerOpcao();
             tratarOpcaoMenuAcoes(opcao, administrador);
         }while(opcao != 0);
-
     }
 
     private void tratarOpcaoMenuAcoes(int opcao, Administrador administrador) {

@@ -14,9 +14,9 @@ public class ProfessorView {
     ProfessorController professorController;
     AlunoController alunoController;
 
-    public ProfessorView(ProfessorController professorController, AlunoController alunoController) {
+    public ProfessorView(ProfessorController professorController) {
         this.professorController = professorController;
-        this.alunoController = alunoController;
+        this.professorController = professorController;
     }
     MensagemView mensagemView = new MensagemView();
     ProfessorDashBoard professorDashBoard = new ProfessorDashBoard();
@@ -95,20 +95,34 @@ public class ProfessorView {
         System.out.println("+ ------------------------------- +");
         System.out.println("|     [1] Ver meus dados        |");
         System.out.println("|     [2] Ver meus treinos      |");
-        System.out.println("|     [3] Ver meus alunos       |");
+        System.out.println("|     [3] Ver meus professors       |");
         System.out.println("|     [4] Criar um treino       |");
         System.out.println("|     [5] Alterar meus dados    |");
         System.out.println("|     [0] Encerrar sessão       |");
         System.out.println("+ ------------------------------- +");
     }
 
-    //private Aluno
+    public void mostrarMenuUpdate() {
+        System.out.println("\n\n+ ------------------------- +");
+        System.out.println("|  << -- Ações Professorstrador -- >>  |");
+        System.out.println("+ ------------------------- +");
+        System.out.println("|   [1] Alterar nome      |");
+        System.out.println("|   [2] Alterar email  |");
+        System.out.println("|   [3] Alterar senha |");
+        System.out.println("|   [4] Alterar telefone |");
+        System.out.println("|   [5] Alterar CPF  |");
+        System.out.println("|   [6] Salvar alterações  |");
+        System.out.println("|   [0] Encerrar sessão     |");
+        System.out.println("+ ------------------------- +");
+    }
+
+    //private Professor
 
     public void mostrarMenuCriarTreino() {
         System.out.println("|  << -- Criar treino -->>  |");
         System.out.println(" >> Informe o cpf do Aluno que receberá o treino <<");
-        String cpfAluno = InputHelper.pegarCpf();
-        Aluno aluno = Validador.isCpfExiste(cpfAluno, alunoController.pegarMapAlunos());
+        String cpfProfessor = InputHelper.pegarCpf();
+        Aluno aluno = Validador.isCpfExiste(cpfProfessor, alunoController.pegarMapAlunos());
         if(aluno != null) {
             System.out.println("\n\nAluno encontrado");
             aluno.mostrarInfo();
