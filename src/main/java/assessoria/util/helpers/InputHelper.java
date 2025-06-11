@@ -7,14 +7,13 @@ import assessoria.view.MensagemView;
 public class InputHelper {
 
     private final static Scanner ler = new Scanner(System.in);
-    private final static MensagemView mensagemView = new MensagemView();
 
     private static String lerString(String frase) {
         while(true) {
             System.out.print(frase);
             String cont = ler.nextLine();
             if(cont.isEmpty()) {
-                mensagemView.mostrarErro("Esse campo é obrigatório!!");
+                MensagemView.mostrarErro("Esse campo é obrigatório!!");
             }else {
                 return cont;
             }
@@ -128,7 +127,7 @@ public class InputHelper {
                } else if (op == 2) {
                    return true;
                } else {
-                   mensagemView.mostrarErro("Escolha uma opção válida!!");
+                   MensagemView.mostrarErro("Escolha uma opção válida!!");
                }
            }
         }
@@ -198,7 +197,7 @@ public class InputHelper {
                 System.out.print(frase);
                 return Integer.parseInt(ler.nextLine());
             } catch (Exception e) {
-                mensagemView.mostrarErro("Digite apenas número inteiro!!");
+                MensagemView.mostrarErro("Digite apenas número inteiro!!");
             }
         }
     }
@@ -217,7 +216,7 @@ public class InputHelper {
                 System.out.print(frase);
                 return Float.parseFloat(ler.nextLine());
             } catch (Exception e) {
-                mensagemView.mostrarErro("Digite apenas número decimal!!");
+                MensagemView.mostrarErro("Digite apenas número decimal!!");
             }
         }
 
