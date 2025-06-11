@@ -22,8 +22,6 @@ public class AdministradorView {
         this.professorController = professorController;
     }
 
-    DashBoardView dashBoardView = new DashBoardView();
-
     public void mostrarMenuCadastrarAdministrador() {
         System.out.println("\n\n+ ---------------------------- +");
         System.out.println("|  << -- Cadastro Administrador -- >>  |");
@@ -64,11 +62,6 @@ public class AdministradorView {
                 System.out.println(e.getMessage());
             }
         }
-    }
-
-    public void mostrarAdministradorCadastrados() {
-        //Transformar DashBoardView em generics
-        //dashBoardView.mostrarTabela(administradorController.pegarMapAdministrador());
     }
 
     public void mostrarMenuAcoes() {
