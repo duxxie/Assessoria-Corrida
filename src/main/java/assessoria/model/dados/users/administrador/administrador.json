@@ -1,0 +1,14 @@
+{
+  "KAdm1" : {
+    "id" : "Adm1",
+    "nome" : "Rogerio silva",
+    "email" : "rogerio@gmail.com",
+    "cpf" : "354.887.720-65",
+    "idade" : 38,
+    "telefone" : "(41)99999-9999",
+    "senhaHash" : "Ainda10merrmu",
+    "hashProvider" : "$2a$10$fyBVFRIUPiT4pYfIUhTsxevknCU5zk3Mky3o4z1BftPqPvZcXPUdG",
+    "contatoEmergencia" : null,
+    "infoMedica" : null
+  }
+}

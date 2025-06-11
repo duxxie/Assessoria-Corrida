@@ -11,9 +11,8 @@ public class Aplicacao {
     private final MenuCadastro menuCadastro = new MenuCadastro();
     private final MenuLogin menuLogin = new MenuLogin();
     private final AlunoApp alunoApp = new AlunoApp();
+    private final AdministradorApp administradorApp = new AdministradorApp();
 
-    //Administrador
-    private final AdministradorController adicionarAdministrador = new AdministradorController();
 
     public void executarPrograma() {
         int opcaoMenuPrincipal;
@@ -31,6 +30,8 @@ public class Aplicacao {
     }
 
     public void inicializarDados() {
+        administradorApp.carregarMap();
+        Log.registrar("Info", "Map de Administradores inicializado.");
         alunoApp.carregarMap();
         Log.registrar("Info", "Map de Alunos inicializado.");
         GeradorID.carregarIds();
@@ -59,7 +60,7 @@ public class Aplicacao {
             switch (opcaoMenuCadastro) {
                 case 1 -> alunoApp.executarCadastro();
                 //case 2 -> adicionarProfessor;
-                //case 3 -> adicionarAdministrador.adicionarAdministrador();
+                case 3 -> administradorApp.executarCadastro();
                 case 0 -> menuCadastro.mostrarSaida();
                 default -> menuCadastro.mostrarDefaultMenu();
             }
@@ -74,7 +75,7 @@ public class Aplicacao {
             switch (opcaoMenuLogin) {
                 case 1 -> alunoApp.executarLogin();
                 case 2 -> System.out.println("Entrar como professor");
-                case 3 -> System.out.println("Entrar como Administrador");
+                case 3 -> administradorApp.executarLogin();
                 case 0 -> menuLogin.mostrarSaida();
                 default -> menuLogin.mostrarDefaultMenu();
             }

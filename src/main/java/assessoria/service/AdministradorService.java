@@ -11,20 +11,20 @@ public class AdministradorService {
     private Map<String, Administrador> mapAdministrador;
     private final AdministradorDAO dao = new AdministradorDAO();
 
-    public void salvarAdministrador(Administrador Administrador) {
-        salvarAdministradorMap(Administrador);
+    public void salvarAdministrador(Administrador administrador) {
+        salvarAdministradorMap(administrador);
     }
 
     public void carregarMapAdministrador() {
         this.mapAdministrador = dao.lerDadosDoArquivo(getMapAdministrador());
     }
 
-    private void salvarAdministradorMap(Administrador Administrador) {
-        mapAdministrador.put("K" + Administrador.getId(), Administrador);
-        Log.registrar("Info", "Administrador ID " + Administrador.getId() + " foi adicionado ao Map");
+    private void salvarAdministradorMap(Administrador administrador) {
+        mapAdministrador.put("K" + administrador.getId(), administrador);
+        Log.registrar("Info", "Administrador ID " + administrador.getId() + " foi adicionado ao Map");
     }
 
-    public void inserirAdministradorsArquivo() {
+    public void inserirAdministradorArquivo() {
         dao.inserirDadosNoArquivo(getMapAdministrador());
     }
 

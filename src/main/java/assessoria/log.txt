@@ -12,25 +12,3 @@
 [2025-06-10 20:17:42] INFO - Sistema iniciado.
 [2025-06-10 20:17:43] INFO - Map de Alunos inicializado.
 [2025-06-10 20:17:43] INFO - IDs inicializados.
-[2025-06-10 22:18:40] INFO - Sistema iniciado.
-[2025-06-10 22:18:40] INFO - Map de Alunos inicializado.
-[2025-06-10 22:18:40] INFO - IDs inicializados.
-[2025-06-10 22:21:15] INFO - Salvos os ultimos IDs que foram gerados.
-[2025-06-10 22:21:15] INFO - Map de alunos foi salvo no arquivo.
-[2025-06-10 22:21:15] INFO - Sistema encerrado.
-[2025-06-11 08:11:40] INFO - Sistema iniciado.
-[2025-06-11 08:11:40] INFO - Map de Alunos inicializado.
-[2025-06-11 08:11:40] INFO - IDs inicializados.
-[2025-06-11 08:12:41] INFO - Salvos os ultimos IDs que foram gerados.
-[2025-06-11 08:12:41] INFO - Sistema encerrado.
-[2025-06-11 10:40:23] INFO - Sistema iniciado.
-[2025-06-11 10:40:23] INFO - Map de Alunos inicializado.
-[2025-06-11 10:40:23] INFO - IDs inicializados.
-[2025-06-11 10:40:28] INFO - Salvos os ultimos IDs que foram gerados.
-[2025-06-11 10:40:28] INFO - Sistema encerrado.
-[2025-06-11 10:43:16] INFO - Sistema iniciado.
-[2025-06-11 10:43:16] INFO - Map de Alunos inicializado.
-[2025-06-11 10:43:16] INFO - IDs inicializados.
-[2025-06-11 10:51:59] INFO - Dados do aluno (ID Alu3) foi registrado no arquivo.
-[2025-06-11 11:08:45] INFO - Salvos os ultimos IDs que foram gerados.
-[2025-06-11 11:08:45] INFO - Sistema encerrado.
