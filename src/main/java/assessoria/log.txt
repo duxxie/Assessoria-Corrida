@@ -266,3 +266,36 @@
 [2025-06-12 07:34:56] INFO - Map de treinos foi salvo no arquivo.
 [2025-06-12 07:35:04] INFO - Salvos os ultimos IDs que foram gerados.
 [2025-06-12 07:35:04] INFO - Sistema encerrado.
+[2025-06-12 08:43:47] INFO - Sistema iniciado.
+[2025-06-12 08:43:47] INFO - Map de Professores inicializado.
+[2025-06-12 08:43:47] INFO - Map de Administradores inicializado.
+[2025-06-12 08:43:47] INFO - Map de Alunos inicializado.
+[2025-06-12 08:43:47] INFO - IDs inicializados.
+[2025-06-12 08:43:47] INFO - Map de treinos inicializado.
+[2025-06-12 08:44:57] INFO - Sistema iniciado.
+[2025-06-12 08:44:57] INFO - Map de Professores inicializado.
+[2025-06-12 08:44:57] INFO - Map de Administradores inicializado.
+[2025-06-12 08:44:57] INFO - Map de Alunos inicializado.
+[2025-06-12 08:44:57] INFO - IDs inicializados.
+[2025-06-12 08:44:57] INFO - Map de treinos inicializado.
+[2025-06-12 08:45:56] INFO - Sistema iniciado.
+[2025-06-12 08:45:56] INFO - Map de Professores inicializado.
+[2025-06-12 08:45:56] INFO - Map de Administradores inicializado.
+[2025-06-12 08:45:56] INFO - Map de Alunos inicializado.
+[2025-06-12 08:45:56] INFO - IDs inicializados.
+[2025-06-12 08:45:56] INFO - Map de treinos inicializado.
+[2025-06-12 08:49:53] INFO - Dados do aluno (ID Alu4) foi registrado no arquivo.
+[2025-06-12 08:51:28] INFO - Gustavo Duarte Falcão fez login
+[2025-06-12 08:59:03] INFO - Professor ID Pro3 foi adicionado ao Map
+[2025-06-12 08:59:03] INFO - Dados do professor (ID Pro3) foi registrado no arquivo.
+[2025-06-12 08:59:41] INFO - Fernando Correa De Paula fez login
+[2025-06-12 09:00:30] INFO - Aluno com ID(Alu4) foi selecionado para receber um treino
+[2025-06-12 09:00:30] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 09:00:30] INFO - Dados do treino (ID Tre7) foi registrado no arquivo.
+[2025-06-12 09:05:49] INFO - Gustavo Duarte Falcão fez login
+[2025-06-12 09:06:27] INFO - Dados do aluno (ID Alu4) foi registrado no arquivo.
+[2025-06-12 09:06:27] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 09:06:31] INFO - Dados do aluno (ID Alu4) foi registrado no arquivo.
+[2025-06-12 09:06:31] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 09:06:37] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 09:06:37] INFO - Sistema encerrado.
