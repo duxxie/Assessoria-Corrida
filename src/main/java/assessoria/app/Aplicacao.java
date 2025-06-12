@@ -58,7 +58,7 @@ public class Aplicacao {
         this.alunoService = new AlunoService(alunoDAO);
         this.alunoController = new AlunoController(alunoService);
         this.alunoView = new AlunoView(alunoController);
-        this.alunoApp = new AlunoApp(alunoView);
+        this.alunoApp = new AlunoApp(alunoView, alunoController);
 
         this.professorDAO = new ProfessorDAO();
         this.professorService = new ProfessorService(professorDAO);
@@ -66,11 +66,12 @@ public class Aplicacao {
         this.professorView = new ProfessorView(professorController, alunoController, treinoController);
         this.professorApp = new ProfessorApp(professorView);
 
+
         this.administradorDAO = new AdministradorDAO();
         this.administradorService = new AdministradorService(administradorDAO);
         this.administradorController = new AdministradorController(administradorService);
         this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
-        this.administradorApp = new AdministradorApp(administradorView);
+        this.administradorApp = new AdministradorApp(administradorView, administradorController);
     }
 
     private final MenuPrincipal menuPrincipal = new MenuPrincipal();
@@ -91,6 +92,7 @@ public class Aplicacao {
 
     public void mostrarDados() {
         alunoApp.mostrarAlunos();
+        professorApp.mostrarProfessor();
     }
 
     public void inicializarDados() {

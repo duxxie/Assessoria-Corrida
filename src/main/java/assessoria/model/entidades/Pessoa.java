@@ -138,6 +138,14 @@ public abstract class Pessoa {
         this.infoMedica = infoMedica;
     }
 
+    public void setSenhaHash(String senhaHash) {
+        this.senhaHash = senhaHash;
+    }
+
+    public void setHashProvider(String hashProvider) {
+        this.hashProvider = hashProvider;
+    }
+
     //    public boolean verificarSenha(String senhaPlana) {
 //        return hashProvider.verificarHash(senhaPlana, this.senhaHash);
 //    }

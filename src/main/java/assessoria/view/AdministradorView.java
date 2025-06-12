@@ -10,19 +10,22 @@ import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
 
 public class AdministradorView {
-    AdministradorController administradorController;
-    AlunoController alunoController;
-    TreinoController treinoController;
-    ProfessorController professorController;
+    private final ProfessorDashBoard professorDashBoard;
+    private final AlunoDashBoard alunoDashBoard;
+    private final AdministradorController administradorController;
+    private final AlunoController alunoController;
+    private final TreinoController treinoController;
+    private final ProfessorController professorController;
+
 
     public AdministradorView(AdministradorController administradorController, AlunoController alunoController, TreinoController treinoController, ProfessorController professorController) {
         this.administradorController = administradorController;
         this.alunoController = alunoController;
         this.treinoController = treinoController;
         this.professorController = professorController;
+        this.professorDashBoard = new ProfessorDashBoard();
+        this.alunoDashBoard = new AlunoDashBoard();
     }
-
-    DashBoardView dashBoardView = new DashBoardView();
 
     public void mostrarMenuCadastrarAdministrador() {
         System.out.println("\n\n+ ---------------------------- +");
@@ -66,11 +69,6 @@ public class AdministradorView {
         }
     }
 
-    public void mostrarAdministradorCadastrados() {
-        //Transformar DashBoardView em generics
-        //dashBoardView.mostrarTabela(administradorController.pegarMapAdministrador());
-    }
-
     public void mostrarMenuAcoes() {
         System.out.println("\n\n+ ------------------------- +");
         System.out.println("|  << -- Ações Administrador -- >>  |");
@@ -79,7 +77,20 @@ public class AdministradorView {
         System.out.println("|   [2] Alterar meus dados  |");
         System.out.println("|   [3] Visualizar dados de Professores |");
         System.out.println("|   [4] Visualizar dados de Alunos |");
-        System.out.println("|   [5] Visualizar Treinos  |");
+        System.out.println("|   [0] Encerrar sessão     |");
+        System.out.println("+ ------------------------- +");
+    }
+
+    public void mostrarMenuUpdate() {
+        System.out.println("\n\n+ ------------------------- +");
+        System.out.println("|  << -- Ações Administrador -- >>  |");
+        System.out.println("+ ------------------------- +");
+        System.out.println("|   [1] Alterar nome      |");
+        System.out.println("|   [2] Alterar email  |");
+        System.out.println("|   [3] Alterar senha |");
+        System.out.println("|   [4] Alterar telefone |");
+        System.out.println("|   [5] Alterar CPF  |");
+        System.out.println("|   [6] Salvar alterações  |");
         System.out.println("|   [0] Encerrar sessão     |");
         System.out.println("+ ------------------------- +");
     }
@@ -90,5 +101,13 @@ public class AdministradorView {
 
     public AdministradorController getAdministradorController() {
         return administradorController;
+    }
+
+    public void mostrarProfessorCadastrados() {
+        professorDashBoard.mostrarTabela(professorController.pegarMapProfessor());
+    }
+
+    public void mostrarAlunosCadastrados() {
+        alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
     }
 }

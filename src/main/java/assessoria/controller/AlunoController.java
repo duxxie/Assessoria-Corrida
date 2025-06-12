@@ -23,6 +23,10 @@ public class AlunoController{
     public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
         alunoService.salvarAluno(new Aluno(GeradorID.gerarIdAluno(),nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
     }
+
+    public void salvarAluno(Aluno aluno) {
+        alunoService.salvarAluno(aluno);
+    }
     
     public Map<String,Aluno> pegarMapAlunos() {
         return alunoService.getMapAluno();

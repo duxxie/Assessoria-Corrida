@@ -4,7 +4,7 @@ import assessoria.model.entidades.Aluno;
 
 import java.util.Map;
 
-public class DashBoardView {
+public class AlunoDashBoard {
 
     public void mostrarTabela(Map<String, Aluno> typeMap) {
 

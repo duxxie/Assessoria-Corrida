@@ -30,7 +30,7 @@ public class AdministradorService {
         Log.registrar("Info", "Administrador ID " + administrador.getId() + " foi adicionado ao Map");
     }
 
-    public void inserirAdministradorArquivo() {
+    private void inserirAdministradorArquivo() {
         dao.inserirDadosNoArquivo(getMapAdministrador());
     }
 

@@ -1,10 +1,7 @@
 package assessoria.controller;
 
+import assessoria.model.entidades.*;
 import assessoria.model.entidades.Professor;
-import assessoria.model.entidades.ContatoEmergencia;
-import assessoria.model.entidades.InfoMedica;
-import assessoria.model.entidades.Professor;
-import assessoria.service.ProfessorService;
 import assessoria.service.ProfessorService;
 import assessoria.util.helpers.GeradorID;
 
@@ -24,6 +21,10 @@ public class ProfessorController{
 
     public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
         professorService.salvarProfessor(new Professor(GeradorID.gerarIdProfessor(),nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+    }
+
+    public void salvarProfessor(Professor professor) {
+        professorService.salvarProfessor(professor);
     }
 
     public Map<String,Professor> pegarMapProfessor() {

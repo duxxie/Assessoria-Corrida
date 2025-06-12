@@ -5,7 +5,6 @@ import assessoria.model.entidades.Aluno;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
-import assessoria.util.log.Log;
 
 public class AlunoView {
 
@@ -14,8 +13,7 @@ public class AlunoView {
     public AlunoView(AlunoController alunoController) {
         this.alunoController = alunoController;
     }
-    MensagemView mensagemView = new MensagemView();
-    DashBoardView dashBoardView = new DashBoardView();
+    AlunoDashBoard alunoDashBoard = new AlunoDashBoard();
 
     public void mostrarMenuCadastrarAluno() {
         System.out.println("\n\n+ ---------------------------- +");
@@ -59,7 +57,7 @@ public class AlunoView {
             System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
             alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
         }
-        mensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
 
@@ -82,7 +80,7 @@ public class AlunoView {
     }
 
     public void mostrarAlunosCadastrados() {
-        dashBoardView.mostrarTabela(alunoController.pegarMapAlunos());
+        alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
     }
 
     public void mostrarMenuAcoes() {
@@ -94,7 +92,20 @@ public class AlunoView {
         System.out.println("|   [3] Alterar meus dados  |");
         System.out.println("|   [0] Encerrar sessão     |");
         System.out.println("+ ------------------------- +");
+    }
 
+    public void mostrarMenuUpdate() {
+        System.out.println("\n\n+ ------------------------- +");
+        System.out.println("|  << -- Ações Administrador -- >>  |");
+        System.out.println("+ ------------------------- +");
+        System.out.println("|   [1] Alterar nome      |");
+        System.out.println("|   [2] Alterar email  |");
+        System.out.println("|   [3] Alterar senha |");
+        System.out.println("|   [4] Alterar telefone |");
+        System.out.println("|   [5] Alterar CPF  |");
+        System.out.println("|   [6] Salvar alterações  |");
+        System.out.println("|   [0] Encerrar sessão     |");
+        System.out.println("+ ------------------------- +");
     }
 
     public void mostrarDadosAluno(Aluno aluno) {

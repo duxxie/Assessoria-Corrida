@@ -22,6 +22,10 @@ public class AdministradorController{
         administradorService.carregarMapAdministrador();
     }
 
+    public void salvarAdministrador(Administrador administrador) {
+        administradorService.salvarAdministrador(administrador);
+    }
+
     public Map<String,Administrador> pegarMapAdministrador() {
         return administradorService.getMapAdministrador();
     }
