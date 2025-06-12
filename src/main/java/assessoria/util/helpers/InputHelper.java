@@ -29,7 +29,7 @@ public class InputHelper {
     }
 
     public static String pegarRelacao() {
-        return lerString("Informe qual é a relação do contato com você (Ex: cônjugue, pai/mãe, amigo, irmão): ");
+        return lerString("Informe qual é a relação do contato com você (Ex: cônjuge, pai/mãe, amigo, irmão): ");
     }
 
     private static Character lerChar(String frase) {

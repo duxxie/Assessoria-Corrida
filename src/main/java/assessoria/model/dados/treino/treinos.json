@@ -1,0 +1,150 @@
+{
+  "Tre8" : {
+    "id" : "Tre8",
+    "aluno" : {
+      "id" : "Alu5",
+      "nome" : "Fernando Correa De Paula",
+      "email" : "fernando@gmail.com",
+      "cpf" : "437.175.040-02",
+      "idade" : 37,
+      "telefone" : "(21)94443-2342",
+      "senhaHash" : "ferNan@10",
+      "hashProvider" : "$2a$10$siVRC1voSA946gmoJwpxiuMV74swgELBnbfDiX/yA6GA4aWZE.REe",
+      "contatoEmergencia" : {
+        "nome" : "Anna Ribeiro Gonçalves",
+        "telefone" : "(68)94435-0000",
+        "relacionamento" : "cônjuge"
+      },
+      "infoMedica" : {
+        "descCondicaoMedica" : "Diabetes, asma",
+        "descAlergia" : null,
+        "quaisMedicamentoEmUso" : "Ibuprofeno",
+        "frequenciaMedicamentoEmUso" : "dois em dois dias",
+        "descLesaoRecenteOuCronica" : "lesão no cotovelo",
+        "descCirurgiaRecente" : null,
+        "descRestricaoMedica" : null,
+        "descTipoSanguineo" : "A-"
+      }
+    },
+    "professor" : {
+      "id" : "Pro4",
+      "nome" : "Carlos Alcaraz",
+      "email" : "carlos_alcaraz@gmail.com",
+      "cpf" : "883.628.930-44",
+      "idade" : 22,
+      "telefone" : "(90)91314-2221",
+      "senhaHash" : "Carlos@22",
+      "hashProvider" : "$2a$10$aXHts8AEI/rnXUW/y.eOheP6vrMdRFhWTauZRwEmECXgC40YFJnqy",
+      "contatoEmergencia" : null,
+      "infoMedica" : {
+        "descCondicaoMedica" : null,
+        "descAlergia" : null,
+        "quaisMedicamentoEmUso" : null,
+        "frequenciaMedicamentoEmUso" : null,
+        "descLesaoRecenteOuCronica" : null,
+        "descCirurgiaRecente" : "luxação no braço",
+        "descRestricaoMedica" : "não é possível realizar exercícios que afetem a luxação",
+        "descTipoSanguineo" : "B-"
+      }
+    },
+    "planoSemanal" : {
+      "WEDNESDAY" : [ "Skipping: 3 séries de 2 minutos cada", "Abdominal: 3 séries de 15 repetições" ],
+      "THURSDAY" : [ "Burpee: 3 séries de 15 repetições" ]
+    }
+  },
+  "Tre9" : {
+    "id" : "Tre9",
+    "aluno" : {
+      "id" : "Alu6",
+      "nome" : "Anna Ribeiro Gonçalves",
+      "email" : "ana_rib@gmail.com",
+      "cpf" : "225.513.490-01",
+      "idade" : 28,
+      "telefone" : "(68)94435-0000",
+      "senhaHash" : "NaNa@10a",
+      "hashProvider" : "$2a$10$h9goCeJOGvjnSwiI8hDGAezqrPVIrPWcqDUk2gkhXYJvupScu/qL.",
+      "contatoEmergencia" : null,
+      "infoMedica" : {
+        "descCondicaoMedica" : null,
+        "descAlergia" : "amendoim",
+        "quaisMedicamentoEmUso" : null,
+        "frequenciaMedicamentoEmUso" : null,
+        "descLesaoRecenteOuCronica" : null,
+        "descCirurgiaRecente" : null,
+        "descRestricaoMedica" : null,
+        "descTipoSanguineo" : "O+"
+      }
+    },
+    "professor" : {
+      "id" : "Pro4",
+      "nome" : "Carlos Alcaraz",
+      "email" : "carlos_alcaraz@gmail.com",
+      "cpf" : "883.628.930-44",
+      "idade" : 22,
+      "telefone" : "(90)91314-2221",
+      "senhaHash" : "Carlos@22",
+      "hashProvider" : "$2a$10$aXHts8AEI/rnXUW/y.eOheP6vrMdRFhWTauZRwEmECXgC40YFJnqy",
+      "contatoEmergencia" : null,
+      "infoMedica" : {
+        "descCondicaoMedica" : null,
+        "descAlergia" : null,
+        "quaisMedicamentoEmUso" : null,
+        "frequenciaMedicamentoEmUso" : null,
+        "descLesaoRecenteOuCronica" : null,
+        "descCirurgiaRecente" : "luxação no braço",
+        "descRestricaoMedica" : "não é possível realizar exercícios que afetem a luxação",
+        "descTipoSanguineo" : "B-"
+      }
+    },
+    "planoSemanal" : {
+      "MONDAY" : [ "Anfersen: 3 séries de 2 minutos cada" ],
+      "THURSDAY" : [ "Polichinelo: 3 séries de 15 repetições" ]
+    }
+  },
+  "Tre10" : {
+    "id" : "Tre10",
+    "aluno" : {
+      "id" : "Alu7",
+      "nome" : "Maria Cardoso",
+      "email" : "maria_card@gmail.com",
+      "cpf" : "965.368.070-65",
+      "idade" : 29,
+      "telefone" : "(11)94454-0009",
+      "senhaHash" : "mari10Maria",
+      "hashProvider" : "$2a$10$slDbeSf5VmuBEchb2Ja//efMiB3oCAye7AoUheHW.HMXQCNyrsVQm",
+      "contatoEmergencia" : null,
+      "infoMedica" : {
+        "descCondicaoMedica" : null,
+        "descAlergia" : null,
+        "quaisMedicamentoEmUso" : null,
+        "frequenciaMedicamentoEmUso" : null,
+        "descLesaoRecenteOuCronica" : null,
+        "descCirurgiaRecente" : null,
+        "descRestricaoMedica" : null,
+        "descTipoSanguineo" : null
+      }
+    },
+    "professor" : {
+      "id" : "Pro5",
+      "nome" : "Pedro Machado de Oliveira",
+      "email" : "pedro_machado@gmail.com",
+      "cpf" : "890.345.110-49",
+      "idade" : 45,
+      "telefone" : "(29)91122-1210",
+      "senhaHash" : "pedraO223",
+      "hashProvider" : "$2a$10$oc6wdrCeKlvLiHJxRFApTeQLQ5nCgYyFoniIy88ablYwXtvylqhDu",
+      "contatoEmergencia" : null,
+      "infoMedica" : {
+        "descCondicaoMedica" : null,
+        "descAlergia" : null,
+        "quaisMedicamentoEmUso" : null,
+        "frequenciaMedicamentoEmUso" : null,
+        "descLesaoRecenteOuCronica" : null,
+        "descCirurgiaRecente" : null,
+        "descRestricaoMedica" : null,
+        "descTipoSanguineo" : null
+      }
+    },
+    "planoSemanal" : { }
+  }
+}
