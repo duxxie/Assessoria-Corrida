@@ -2,23 +2,30 @@ package assessoria.view;
 
 import assessoria.controller.AlunoController;
 import assessoria.controller.ProfessorController;
+import assessoria.controller.TreinoController;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Professor;
+import assessoria.model.entidades.Treino;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
+import assessoria.util.log.Log;
+import org.apache.commons.collections4.Trie;
+
+import java.time.DayOfWeek;
 
 public class ProfessorView {
 
 
     ProfessorController professorController;
     AlunoController alunoController;
+    TreinoController treinoController;
 
-    public ProfessorView(ProfessorController professorController, AlunoController alunoController) {
+    public ProfessorView(ProfessorController professorController, AlunoController alunoController, TreinoController treinoController) {
         this.professorController = professorController;
         this.alunoController = alunoController;
+        this.treinoController = treinoController;
     }
-    MensagemView mensagemView = new MensagemView();
     DashBoardView dashBoardView = new DashBoardView();
 
     public void mostrarMenuCadastrarProfessor() {
@@ -63,7 +70,7 @@ public class ProfessorView {
             System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
             professorController.criarProfessor(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
         }
-        mensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
 
@@ -102,23 +109,85 @@ public class ProfessorView {
         System.out.println("+ ------------------------------- +");
     }
 
-    //private Aluno
+    
+    public void mostrarMenuAdicionarAtividades() {
+        System.out.println("+ ---------------------------------- +");
+        System.out.println("|  << -- Adicionar Atividades -- >>  |");
+        System.out.println("+ ---------------------------------- +");
+        System.out.println("|         [1] Adicionar Linha        |");
+        System.out.println("|         [2] Remover Linha          |");
+        System.out.println("|         [0] Voltar                 |");
+        System.out.println("+ ---------------------------------- +");
+    }
+
+    private String pegarLinhaAtividade(String frase) {
+        return InputHelper.lerString(frase);
+    }
+
+    public void adicionarLinha(DayOfWeek day, Treino treino) {
+        treino.adicionarAtividade(day, pegarLinhaAtividade("Digite a informação aqui: "));
+    }
+
+    public void removerLinha(DayOfWeek day, Treino treino) {
+        treino.removerAtividade(day, pegarLinhaAtividade("Digite a informação da linha que quer remover: "));
+    }
+
+    public void mostrarMenuOpDiaTreino() {
+        System.out.println("+ ------------------------------------ +");
+        System.out.println("|  <<-- Escolha um dia da semana -->>  |");
+        System.out.println("+ ------------------------------------ +");
+        System.out.println("|         [1] - Segunda-feira          |");
+        System.out.println("|         [2] - Terça-feira            |");
+        System.out.println("|         [3] - Quarta-feira           |");
+        System.out.println("|         [4] - Quinta-feira           |");
+        System.out.println("|         [5] - Sexta-feira            |");
+        System.out.println("|         [6] - Sabado                 |");
+        System.out.println("|         [7] - Domingo                |");
+        System.out.println("|         [0] - Voltar                 |");
+        System.out.println("+ ------------------------------------ +");
+    }
+
 
     public void mostrarMenuCriarTreino() {
-        System.out.println("|  << -- Criar treino -->>  |");
-        System.out.println(" >> Informe o cpf do Aluno que receberá o treino <<");
-        String cpfAluno = InputHelper.pegarCpf();
-        Aluno aluno = Validador.isCpfExiste(cpfAluno, alunoController.pegarMapAlunos());
-        if(aluno != null) {
-            System.out.println("\n\nAluno encontrado");
-            aluno.mostrarInfo();
-        }else {
-            System.out.println("Aluno não encontrado!!");
+        System.out.println("+ ----------------------------- +");
+        System.out.println("|    << -- Criar treino -->>    |");
+        System.out.println("+ ----------------------------- +");
+        System.out.println("|          [1] Começar          |");
+        System.out.println("|          [2] Salvar           |");
+        System.out.println("|          [0] Voltar           |");
+        System.out.println("+ ----------------------------- +");
+    }
+
+
+
+    public Aluno escolherAlunoPorCpf() {
+        while(true) {
+            System.out.println(" >> Informe o cpf do Aluno que receberá o treino <<");
+            String cpfAluno = InputHelper.pegarCpf();
+            Aluno aluno = Validador.isCpfExiste(cpfAluno, alunoController.pegarMapAlunos());
+            if(aluno != null) {
+                Log.registrar("info", "Aluno com ID(" + aluno.getId() + ") foi selecionado para receber um treino");
+                return aluno;
+            }else {
+                System.out.println("Aluno não encontrado!!");
+            }
         }
+    }
+
+    public void salvarTreino() {
+        treinoController.salvarTreino();
     }
 
     public void mostrarDadosProfessor(Professor professor) {
         professor.mostrarInfoCompleta();
+    }
+
+    public String criarTreino(Aluno aluno, Professor professor) {
+       return treinoController.criarTreino(aluno, professor);
+    }
+
+    public Treino pegarTreinoPorID(String id) {
+        return treinoController.getTreinoPorID(id);
     }
 
     public ProfessorController getProfessorController() {

@@ -1,7 +1,10 @@
 package assessoria.service;
 
 import assessoria.model.dao.TreinoDAO;
+import assessoria.model.entidades.Aluno;
+import assessoria.model.entidades.Professor;
 import assessoria.model.entidades.Treino;
+import assessoria.util.helpers.GeradorID;
 import assessoria.util.log.Log;
 
 import java.util.Map;
@@ -19,18 +22,20 @@ public class TreinoService {
         this.mapTreino = dao.lerDadosDoArquivo();
     }
 
-    public void salvarTreino(Treino treino) {
-        salvarTreinoMap(treino);
+    public String salvarTreino(Aluno aluno, Professor professor) {
+        String id = GeradorID.gerarIdTreino();
+        salvarTreinoMap(new Treino(id, aluno, professor));
         salvarTreinoArquivo();
-        Log.registrar("info", "Dados do treino (ID " + treino.getId() + ") foi registrado no arquivo.");
-    }
-
-    private void inserirTreinosArquivo() {
-        dao.inserirDadosNoArquivo(getMapTreino());
+        Log.registrar("info", "Dados do treino (ID " + id + ") foi registrado no arquivo.");
+        return id;
     }
 
     public Map<String, Treino> getMapTreino() {
         return mapTreino;
+    }
+
+    public Treino getTreinoPorID(String id) {
+        return mapTreino.getOrDefault(id, null);
     }
 
     public int pegarTamanhoMap() {
@@ -41,7 +46,7 @@ public class TreinoService {
         mapTreino.put(treino.getId(), treino);
     }
 
-    private void salvarTreinoArquivo() {
+    public void salvarTreinoArquivo() {
         dao.inserirDadosNoArquivo(getMapTreino());
     }
 

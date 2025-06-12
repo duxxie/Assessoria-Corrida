@@ -79,3 +79,39 @@
 [2025-06-11 17:54:46] INFO - Pedro Machado de Oliveira fez login
 [2025-06-11 17:55:59] INFO - Salvos os ultimos IDs que foram gerados.
 [2025-06-11 17:55:59] INFO - Sistema encerrado.
+[2025-06-11 22:45:46] INFO - Sistema iniciado.
+[2025-06-11 22:45:46] INFO - Map de Professores inicializado.
+[2025-06-11 22:45:46] INFO - Map de Administradores inicializado.
+[2025-06-11 22:45:46] INFO - Map de Alunos inicializado.
+[2025-06-11 22:45:46] INFO - IDs inicializados.
+[2025-06-11 22:48:07] INFO - Professor ID Pro3 foi adicionado ao Map
+[2025-06-11 22:48:07] INFO - Dados do professor (ID Pro3) foi registrado no arquivo.
+[2025-06-11 22:48:46] INFO - Anna Ribeiro Gonçalves fez login
+[2025-06-11 22:49:21] INFO - Aluno com ID(Alu1) foi selecionado para receber um treino
+[2025-06-11 22:56:46] INFO - Sistema iniciado.
+[2025-06-11 22:56:46] INFO - Map de Professores inicializado.
+[2025-06-11 22:56:46] INFO - Map de Administradores inicializado.
+[2025-06-11 22:56:46] INFO - Map de Alunos inicializado.
+[2025-06-11 22:56:46] INFO - IDs inicializados.
+[2025-06-11 22:56:46] INFO - Map de treinos inicializado.
+[2025-06-11 22:57:32] INFO - Anna Ribeiro Gonçalves fez login
+[2025-06-11 22:57:53] INFO - Aluno com ID(Alu1) foi selecionado para receber um treino
+[2025-06-11 22:57:53] INFO - Dados do treino (ID Tre1) foi registrado no arquivo.
+[2025-06-11 23:02:24] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-11 23:02:24] INFO - Sistema encerrado.
+[2025-06-11 23:15:41] INFO - Sistema iniciado.
+[2025-06-11 23:15:41] INFO - Map de Professores inicializado.
+[2025-06-11 23:15:41] INFO - Map de Administradores inicializado.
+[2025-06-11 23:15:41] INFO - Map de Alunos inicializado.
+[2025-06-11 23:15:41] INFO - IDs inicializados.
+[2025-06-11 23:16:54] INFO - Sistema iniciado.
+[2025-06-11 23:16:54] INFO - Map de Professores inicializado.
+[2025-06-11 23:16:54] INFO - Map de Administradores inicializado.
+[2025-06-11 23:16:54] INFO - Map de Alunos inicializado.
+[2025-06-11 23:16:54] INFO - IDs inicializados.
+[2025-06-11 23:16:54] INFO - Map de treinos inicializado.
+[2025-06-11 23:17:44] INFO - Anna Ribeiro Gonçalves fez login
+[2025-06-11 23:18:01] INFO - Aluno com ID(Alu2) foi selecionado para receber um treino
+[2025-06-11 23:18:01] INFO - Dados do treino (ID Tre2) foi registrado no arquivo.
+[2025-06-11 23:20:47] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-11 23:20:47] INFO - Sistema encerrado.

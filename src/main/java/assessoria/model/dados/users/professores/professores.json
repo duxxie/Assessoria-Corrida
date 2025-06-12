@@ -23,5 +23,26 @@
       "descRestricaoMedica" : "sla",
       "descTipoSanguineo" : "A"
     }
+  },
+  "KPro3" : {
+    "id" : "Pro3",
+    "nome" : "Anna Ribeiro Gonçalves",
+    "email" : "ana_rib@gmail.com",
+    "cpf" : "225.513.490-01",
+    "idade" : 28,
+    "telefone" : "(68)94435-0000",
+    "senhaHash" : "Annaribero10",
+    "hashProvider" : "$2a$10$S4i1BzsZVghL50zQZ6gtHuLi6w0RCqK1mxllx.d6wkZudSOox3AAW",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : "asma",
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : "ombro",
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : "b+"
+    }
   }
 }
