@@ -28,9 +28,9 @@ public class AdministradorView {
     }
 
     public void mostrarMenuCadastrarAdministrador() {
-        System.out.println("\n\n+ ---------------------------- +");
+        System.out.println("\n\n+ ------------------------------------ +");
         System.out.println("|  << -- Cadastro Administrador -- >>  |");
-        System.out.println("+ ---------------------------- +");
+        System.out.println("+ ------------------------------------ +");
     }
 
     public void pegarDadosAdministrador() {
@@ -52,9 +52,9 @@ public class AdministradorView {
 
 
     public void mostrarMenuLoginAdministrador() {
-        System.out.println("+ ------------------------- +");
+        System.out.println("\n\n+ --------------------------------- +");
         System.out.println("|  << -- Login Administrador -- >>  |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ --------------------------------- +");
     }
 
     public Administrador pegarEtratarDadosLogin() {
@@ -70,29 +70,29 @@ public class AdministradorView {
     }
 
     public void mostrarMenuAcoes() {
-        System.out.println("\n\n+ ------------------------- +");
-        System.out.println("|  << -- Ações Administrador -- >>  |");
-        System.out.println("+ ------------------------- +");
-        System.out.println("|   [1] Ver meus dados      |");
-        System.out.println("|   [2] Alterar meus dados  |");
-        System.out.println("|   [3] Visualizar dados de Professores |");
-        System.out.println("|   [4] Visualizar dados de Alunos |");
-        System.out.println("|   [0] Encerrar sessão     |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("\n\n+ ------------------------------------- +");
+        System.out.println("|    << -- Ações Administrador -- >>    |");
+        System.out.println("+ ------------------------------------- +");
+        System.out.println("|  [1] Ver meus dados                   |");
+        System.out.println("|  [2] Alterar meus dados               |");
+        System.out.println("|  [3] Visualizar dados de Professores  |");
+        System.out.println("|  [4] Visualizar dados de Alunos       |");
+        System.out.println("|  [0] Encerrar sessão                  |");
+        System.out.println("+ ------------------------------------- +");
     }
 
     public void mostrarMenuUpdate() {
-        System.out.println("\n\n+ ------------------------- +");
+        System.out.println("\n\n+ --------------------------------- +");
         System.out.println("|  << -- Ações Administrador -- >>  |");
-        System.out.println("+ ------------------------- +");
-        System.out.println("|   [1] Alterar nome      |");
-        System.out.println("|   [2] Alterar email  |");
-        System.out.println("|   [3] Alterar senha |");
-        System.out.println("|   [4] Alterar telefone |");
-        System.out.println("|   [5] Alterar CPF  |");
-        System.out.println("|   [6] Salvar alterações  |");
-        System.out.println("|   [0] Encerrar sessão     |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ --------------------------------- +");
+        System.out.println("|     [1] Alterar nome              |");
+        System.out.println("|     [2] Alterar email             |");
+        System.out.println("|     [3] Alterar senha             |");
+        System.out.println("|     [4] Alterar telefone          |");
+        System.out.println("|     [5] Alterar CPF               |");
+        System.out.println("|     [6] Salvar alterações         |");
+        System.out.println("|     [0] Encerrar sessão           |");
+        System.out.println("+ --------------------------------- +");
     }
 
     public void mostrarDadosAdministrador(Administrador administrador) {

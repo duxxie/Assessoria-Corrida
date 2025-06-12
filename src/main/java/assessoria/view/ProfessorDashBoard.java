@@ -35,7 +35,7 @@ public class ProfessorDashBoard {
         // Linha separadora
         int totalLargura = larguraId + larguraNome + larguraCpf + larguraEmail + larguraIdade + larguraTelefone + 7; // 7 separadores "|"
 
-
+        System.out.println("\n\n");
         System.out.println("-".repeat(totalLargura));
 
         String titulo =  "|" + center("PROFESSORES CADASTRADOS", totalLargura-2) + "|";

@@ -98,7 +98,7 @@ public class AlunoView {
     }
 
     public void mostrarMenuUpdate() {
-        System.out.println("\n\n+ ------------------------- +");
+        System.out.println("\n\n+ --------------------------------- +");
         System.out.println("|  << -- Ações Administrador -- >>  |");
         System.out.println("+ --------------------------------- +");
         System.out.println("|         [1] Alterar nome          |");
@@ -123,7 +123,7 @@ public class AlunoView {
         }
     }
 
-    public TreinoController getTreinoController() {
-        return treinoController;
+    public void atualizarAlunoNoTreino(Aluno aluno) {
+        treinoController.atualizarAluno(aluno);
     }
 }
