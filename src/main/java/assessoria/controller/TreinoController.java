@@ -37,4 +37,14 @@ public class TreinoController {
         treinoService.carregarMapTreino();
     }
 
+    public Treino isAlunoInTreino(Aluno aluno) {
+        Map<String,Treino> map = pegarMapTreino();
+        for(Map.Entry<String,Treino> entry : map.entrySet()) {
+            if(entry.getValue().getAluno().getId().equals(aluno.getId())) {
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
 }

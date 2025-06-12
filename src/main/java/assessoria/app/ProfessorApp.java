@@ -108,11 +108,43 @@ public class ProfessorApp {
     private void tratarOpcaoMenuAcoes(int opcao, Professor professor) {
         switch (opcao) {
             case 1 -> professorView.mostrarDadosProfessor(professor);
+            case 3 -> professorView.mostrarAlunos(professor);
             case 4 -> executarCriacaoTreino(professor);
             case 5 -> executarUpdate(professor);
+            case 6 -> executarModificacaoTreino(professor);
+            // adicionar mais acoes aqui
             case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
+    }
+
+    private void executarModificacaoTreino(Professor professor) {
+        int opExecutarModTreino;
+        do {
+            professorView.mostrarMenuModificarTreino();
+            opExecutarModTreino = InputHelper.lerOpcao();
+            tratarOpModificarTreino(opExecutarModTreino, professor);
+        }while(opExecutarModTreino != 0);
+    }
+
+    private void tratarOpModificarTreino(int op, Professor professor) {
+        switch (op) {
+            case 1 -> modificarTreino(professor);
+            case 2 -> professorView.salvarTreino();
+            case 0 -> MensagemView.mostrarMensagem("Voltando...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
+        }
+    }
+
+    private void modificarTreino(Professor professor) {
+        Treino treino = professorView.escolherAlunoPorCpfComTreino();
+        int opModificarTreino;
+        do {
+            professorView.mostrarMenuOpDiaTreino();
+            opModificarTreino = InputHelper.lerOpcao();
+            tratarOpDiaTreino(opModificarTreino, treino);
+        }while (opModificarTreino != 0);
+
     }
 
     private void executarCriacaoTreino(Professor professor) {
@@ -147,23 +179,44 @@ public class ProfessorApp {
 
     private void tratarOpDiaTreino(int opDia, Treino treino) {
         DayOfWeek day = null;
+        boolean saindo = false;
         switch (opDia) {
-            case 1 -> day = DayOfWeek.MONDAY;
-            case 2 -> day = DayOfWeek.TUESDAY;
-            case 3 -> day = DayOfWeek.WEDNESDAY;
-            case 4 -> day = DayOfWeek.THURSDAY;
-            case 5 -> day = DayOfWeek.FRIDAY;
-            case 6 -> day = DayOfWeek.SATURDAY;
-            case 7 -> day = DayOfWeek.SUNDAY;
-            case 0 -> MensagemView.mostrarMensagem("Voltando...");
-            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
+            case 1:
+                day = DayOfWeek.MONDAY;
+            break;
+            case 2:
+                day = DayOfWeek.TUESDAY;
+            break;
+            case 3:
+                day = DayOfWeek.WEDNESDAY;
+            break;
+            case 4:
+                day = DayOfWeek.THURSDAY;
+            break;
+            case 5:
+                day = DayOfWeek.FRIDAY;
+            break;
+            case 6:
+                day = DayOfWeek.SATURDAY;
+            break;
+            case 7:
+                day = DayOfWeek.SUNDAY;
+            break;
+            case 0:
+                MensagemView.mostrarMensagem("Voltando...");
+                saindo = true;
+            break;
+            default:
+                MensagemView.mostrarErro("Escolha uma opção válida!!");
+            break;
         }
-        adicionarAtividades(day, treino);
+        if(!saindo) adicionarAtividades(day, treino);
     }
 
     private void adicionarAtividades(DayOfWeek day, Treino treino) {
         int opAdicionarAtv;
         do {
+            treino.mostrarTreino();
             professorView.mostrarMenuAdicionarAtividades();
             opAdicionarAtv = InputHelper.lerOpcao();
             tratarOpAddAtv(opAdicionarAtv, day, treino);
@@ -174,7 +227,7 @@ public class ProfessorApp {
         switch (opAdd) {
             case 1 -> professorView.adicionarLinha(day, treino);
             case 2 -> professorView.removerLinha(day, treino);
-            case 0 -> MensagemView.mostrarMensagem("Saindo...");
+            case 0 -> MensagemView.mostrarMensagem("Voltando...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!!");
         }
     }

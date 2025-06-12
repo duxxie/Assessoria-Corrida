@@ -91,27 +91,27 @@ public class InfoMedica {
     public void mostrarInfoCompleta() {
         String valor;
         valor = getDescCondicaoMedica() == null ? "Nenhum" : getDescCondicaoMedica();
-        System.out.println("Condição médica: " + valor);
+        System.out.println(">> Condição médica: " + valor);
 
         valor = getDescAlergia() == null ? "Nenhuma" : getDescAlergia();
-        System.out.println("Alergia: " + valor);
+        System.out.println(">> Alergia: " + valor);
 
         valor = getQuaisMedicamentoEmUso() == null ? "Nenhum" : getQuaisMedicamentoEmUso();
-        System.out.println("Medicamentos em uso: " + valor);
+        System.out.println(">> Medicamentos em uso: " + valor);
 
         valor = getFrequenciaMedicamentoEmUso() == null ? "Nenhuma" : getFrequenciaMedicamentoEmUso();
-        System.out.println("Frequência de uso do medicamento: " + valor);
+        System.out.println(">> Frequência de uso do medicamento: " + valor);
 
         valor = getDescLesaoRecenteOuCronica() == null ? "Nenhuma" : getDescLesaoRecenteOuCronica();
-        System.out.println("Lesão recente ou crônica: " + valor);
+        System.out.println(">> Lesão recente ou crônica: " + valor);
 
         valor = getDescCirurgiaRecente() == null ? "Nenhuma" : getDescCirurgiaRecente();
-        System.out.println("Cirurgia recente: " + valor);
+        System.out.println(">> Cirurgia recente: " + valor);
 
         valor = getDescRestricaoMedica() == null ? "Nenhuma" : getDescRestricaoMedica();
-        System.out.println("Restrição médica: " + valor);
+        System.out.println(">> Restrição médica: " + valor);
 
         valor = getDescTipoSanguineo() == null ? "Não informado" : getDescTipoSanguineo();
-        System.out.println("Tipo sanguíneo: " + valor);
+        System.out.println(">> Tipo sanguíneo: " + valor);
     }
 }

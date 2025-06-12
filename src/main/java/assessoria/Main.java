@@ -1,7 +1,6 @@
 package assessoria;
 import assessoria.app.Aplicacao;
 import assessoria.util.log.Log;
-import org.apache.commons.logging.LogFactory;
 
 public class Main {
 

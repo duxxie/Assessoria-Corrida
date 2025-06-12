@@ -94,7 +94,7 @@
       }
     },
     "planoSemanal" : {
-      "MONDAY" : [ "Aquecimento Leve -> Caminhada de 10 min", "Trote mediano -> 15 min", "Desaquecimento -> caminhada 10 min" ],
+      "MONDAY" : [ "Aquecimento Leve -> Caminhada de 10 min", "Desaquecimento -> caminhada 10 min", "Alongamento -> Alongar cada perna contando de 3 segundos (3x)" ],
       "WEDNESDAY" : [ "Aquecimento -> 10 min trote", "Tiros de 2 min", "Desaquecimento -> trote 15 min" ]
     }
   }

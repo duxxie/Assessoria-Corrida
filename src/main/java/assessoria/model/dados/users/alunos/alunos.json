@@ -90,5 +90,30 @@
       "descRestricaoMedica" : null,
       "descTipoSanguineo" : "A negativo"
     }
+  },
+  "Alu2" : {
+    "id" : "Alu2",
+    "nome" : "Fernando Correa De Paula",
+    "email" : "fernando@gmail.com",
+    "cpf" : "437.175.040-02",
+    "idade" : 37,
+    "telefone" : "(21)94443-2342",
+    "senhaHash" : "ferN45_d",
+    "hashProvider" : "$2a$10$XkSQ5rfyN1y8B1V6u1P/G.TMAjqO5dL4wUMKY.FDAHhz42B.hLipa",
+    "contatoEmergencia" : {
+      "nome" : "Rafael Pedrosa",
+      "telefone" : "(21)91121-0001",
+      "relacionamento" : "pai"
+    },
+    "infoMedica" : {
+      "descCondicaoMedica" : "Diabetes",
+      "descAlergia" : "Camarão",
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : "Ombro",
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : "b positivo"
+    }
   }
 }

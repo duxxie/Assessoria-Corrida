@@ -41,12 +41,12 @@ public class ContatoEmergencia {
     public void mostrarInfoCompleta() {
         String valor;
         valor = getNome() == null ? "Não informado" : getNome();
-        System.out.println("Nome: " + valor);
+        System.out.println(">> Nome: " + valor);
 
         valor = getTelefone() == null ? "Não informado" : getTelefone();
-        System.out.println("Telefone: " + valor);
+        System.out.println(">> Telefone: " + valor);
 
         valor = getRelacionamento() == null ? "Não informado" : getRelacionamento();
-        System.out.println("Relação: " + valor);
+        System.out.println(">> Relação: " + valor);
     }
 }
