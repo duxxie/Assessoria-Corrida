@@ -1,0 +1,14 @@
+{
+  "KAdm1" : {
+    "id" : "Adm1",
+    "nome" : "Carla Machado",
+    "email" : "carla_ma@gmail.com",
+    "cpf" : "162.488.220-00",
+    "idade" : 32,
+    "telefone" : "(41)93330-8980",
+    "senhaHash" : "ca1rlaZ0",
+    "hashProvider" : "$2a$10$9.OxkTN8bQDHTmTVcg9BLuaFN0duN3Y1yKjy1N63xRrSGUFWNni.2",
+    "contatoEmergencia" : null,
+    "infoMedica" : null
+  }
+}

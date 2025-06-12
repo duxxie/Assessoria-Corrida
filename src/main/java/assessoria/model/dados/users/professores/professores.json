@@ -1,0 +1,44 @@
+{
+  "KPro4" : {
+    "id" : "Pro4",
+    "nome" : "Carlos Alcaraz",
+    "email" : "carlos_alcaraz@gmail.com",
+    "cpf" : "883.628.930-44",
+    "idade" : 22,
+    "telefone" : "(90)91314-2221",
+    "senhaHash" : "Carlos@22",
+    "hashProvider" : "$2a$10$aXHts8AEI/rnXUW/y.eOheP6vrMdRFhWTauZRwEmECXgC40YFJnqy",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : "luxação no braço",
+      "descRestricaoMedica" : "não é possível realizar exercícios que afetem a luxação",
+      "descTipoSanguineo" : "B-"
+    }
+  },
+  "KPro5" : {
+    "id" : "Pro5",
+    "nome" : "Pedro Machado de Oliveira",
+    "email" : "pedro_machado@gmail.com",
+    "cpf" : "890.345.110-49",
+    "idade" : 45,
+    "telefone" : "(29)91122-1210",
+    "senhaHash" : "pedraO223",
+    "hashProvider" : "$2a$10$oc6wdrCeKlvLiHJxRFApTeQLQ5nCgYyFoniIy88ablYwXtvylqhDu",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : null
+    }
+  }
+}
