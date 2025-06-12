@@ -14,5 +14,8 @@ public class TreinoApp {
         this.treinoView = treinoView;
     }
 
+    public void carrgarMap() {
+        treinoView.carregarMap();
+    }
 
 }

@@ -63,8 +63,9 @@ public class Aplicacao {
         this.professorDAO = new ProfessorDAO();
         this.professorService = new ProfessorService(professorDAO);
         this.professorController = new ProfessorController(professorService);
-        this.professorView = new ProfessorView(professorController);
-        this.professorApp = new ProfessorApp(professorView, professorController);
+        this.professorView = new ProfessorView(professorController, alunoController, treinoController);
+        this.professorApp = new ProfessorApp(professorView);
+
 
         this.administradorDAO = new AdministradorDAO();
         this.administradorService = new AdministradorService(administradorDAO);
@@ -103,6 +104,9 @@ public class Aplicacao {
         Log.registrar("Info", "Map de Alunos inicializado.");
         GeradorID.carregarIds();
         Log.registrar("Info", "IDs inicializados.");
+        treinoApp.carrgarMap();
+        Log.registrar("info", "Map de treinos inicializado.");
+
     }
 
     public void salvarDados() {

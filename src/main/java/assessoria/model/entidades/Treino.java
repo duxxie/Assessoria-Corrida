@@ -12,6 +12,8 @@ public class Treino implements Savable {
     private Professor professor;
     private Map<DayOfWeek, List<String>> planoSemanal;
 
+    public Treino(){};
+
     public Treino(String id, Aluno aluno, Professor professor) {
         this.id = id;
         this.aluno = aluno;

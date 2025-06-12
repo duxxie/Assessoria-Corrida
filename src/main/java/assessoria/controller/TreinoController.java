@@ -17,13 +17,24 @@ public class TreinoController {
         this.treinoService = treinoService;
     }
 
-    public void criarTreino(Aluno aluno, Professor professor) {
-        treinoService.salvarTreino(new Treino(GeradorID.gerarIdTreino(), aluno, professor));
+    public String criarTreino(Aluno aluno, Professor professor) {
+       return treinoService.salvarTreino(aluno, professor);
     }
 
     public Map<String,Treino> pegarMapTreino() {
         return treinoService.getMapTreino();
     }
 
+    public Treino getTreinoPorID(String id) {
+        return treinoService.getTreinoPorID(id);
+    }
+
+    public void salvarTreino() {
+        treinoService.salvarTreinoArquivo();
+    }
+
+    public void carregarMap() {
+        treinoService.carregarMapTreino();
+    }
 
 }

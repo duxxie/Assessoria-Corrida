@@ -8,7 +8,7 @@ public class InputHelper {
 
     private final static Scanner ler = new Scanner(System.in);
 
-    private static String lerString(String frase) {
+    public static String lerString(String frase) {
         while(true) {
             System.out.print(frase);
             String cont = ler.nextLine();
