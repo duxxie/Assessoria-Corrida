@@ -46,3 +46,8 @@
 ### Passos para rodar
 - Clone o repositório git clone https://github.com/duxxie/Assessoria-Corrida.git em sua IDE
 - Compile em uma JVM
+
+### Referências e Recursos
+- Jackson - FasterXML GitHub
+
+- jBCrypt - Jeremy H GitHub
