@@ -10,7 +10,6 @@ import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
 import assessoria.util.log.Log;
-import org.apache.commons.collections4.Trie;
 
 import java.time.DayOfWeek;
 
@@ -98,21 +97,22 @@ public class ProfessorView {
 
     public void mostrarMenuAcoes() {
         System.out.println("\n\n+ ------------------------------- +");
-        System.out.println("|  << -- Ações Professor -- >>  |");
+        System.out.println("|   << -- Ações Professor -- >>   |");
         System.out.println("+ ------------------------------- +");
-        System.out.println("|     [1] Ver meus dados        |");
-        System.out.println("|     [2] Ver meus treinos      |");
-        System.out.println("|     [3] Ver meus alunos       |");
-        System.out.println("|     [4] Criar um treino       |");
-        System.out.println("|     [5] Alterar meus dados    |");
-        System.out.println("|     [0] Encerrar sessão       |");
+        System.out.println("|      [1] Ver meus dados         |");
+        System.out.println("|      [2] Ver meus treinos       |");
+        System.out.println("|      [3] Ver meus alunos        |");
+        System.out.println("|      [4] Criar um treino        |");
+        System.out.println("|      [5] Alterar meus dados     |");
+        System.out.println("|      [6] Modificar Treino       |");
+        System.out.println("|      [0] Encerrar sessão        |");
         System.out.println("+ ------------------------------- +");
     }
 
 
     
     public void mostrarMenuAdicionarAtividades() {
-        System.out.println("+ ---------------------------------- +");
+        System.out.println("\n\n+ ---------------------------------- +");
         System.out.println("|  << -- Adicionar Atividades -- >>  |");
         System.out.println("+ ---------------------------------- +");
         System.out.println("|         [1] Adicionar Linha        |");
@@ -134,7 +134,7 @@ public class ProfessorView {
     }
 
     public void mostrarMenuOpDiaTreino() {
-        System.out.println("+ ------------------------------------ +");
+        System.out.println("\n\n+ ------------------------------------ +");
         System.out.println("|  <<-- Escolha um dia da semana -->>  |");
         System.out.println("+ ------------------------------------ +");
         System.out.println("|         [1] - Segunda-feira          |");
@@ -150,7 +150,7 @@ public class ProfessorView {
 
 
     public void mostrarMenuCriarTreino() {
-        System.out.println("+ ----------------------------- +");
+        System.out.println("\n\n+ ----------------------------- +");
         System.out.println("|    << -- Criar treino -->>    |");
         System.out.println("+ ----------------------------- +");
         System.out.println("|          [1] Começar          |");
@@ -159,6 +159,16 @@ public class ProfessorView {
         System.out.println("+ ----------------------------- +");
     }
 
+
+    public void mostrarMenuModificarTreino() {
+        System.out.println("\n\n+ --------------------------------- +");
+        System.out.println("|    << -- Modificar treino -->>    |");
+        System.out.println("+ --------------------------------- +");
+        System.out.println("|           [1] Modificar           |");
+        System.out.println("|           [2] Salvar              |");
+        System.out.println("|           [0] Voltar              |");
+        System.out.println("+ --------------------------------- +");
+    }
 
 
     public Aluno escolherAlunoPorCpf() {
@@ -172,36 +182,36 @@ public class ProfessorView {
             }else {
                 System.out.println("Aluno não encontrado!!");
             }
+        }
+    }
 
+    public Treino escolherAlunoPorCpfComTreino() {
+        while(true) {
+            Aluno aluno = escolherAlunoPorCpf();
+            Treino treino = treinoController.isAlunoInTreino(aluno);
+            if(treino != null) {
+                Log.registrar("info", "Aluno com ID(" + aluno.getId() + ") foi selecionado para modificar o seu treino.");
+                return treino;
+            } else {
+                System.out.println("Aluno não possui um treino criado!!");
+            }
+        }
+
+    }
     public void mostrarMenuUpdate() {
         System.out.println("\n\n+ ------------------------- +");
         System.out.println("|  << -- Ações Professor -- >>  |");
-        System.out.println("+ ------------------------- +");
-        System.out.println("|   [1] Alterar nome      |");
-        System.out.println("|   [2] Alterar email  |");
-        System.out.println("|   [3] Alterar senha |");
-        System.out.println("|   [4] Alterar telefone |");
-        System.out.println("|   [5] Alterar CPF  |");
-        System.out.println("|   [6] Salvar alterações  |");
-        System.out.println("|   [0] Encerrar sessão     |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ ----------------------------- +");
+        System.out.println("|       [1] Alterar nome        |");
+        System.out.println("|       [2] Alterar email       |");
+        System.out.println("|       [3] Alterar senha       |");
+        System.out.println("|       [4] Alterar telefone    |");
+        System.out.println("|       [5] Alterar CPF         |");
+        System.out.println("|       [6] Salvar alterações   |");
+        System.out.println("|       [0] Encerrar sessão     |");
+        System.out.println("+ ----------------------------- +");
     }
 
-    //private Professor
-
-    public void mostrarMenuCriarTreino() {
-        System.out.println("|  << -- Criar treino -->>  |");
-        System.out.println(" >> Informe o cpf do Aluno que receberá o treino <<");
-        String cpfProfessor = InputHelper.pegarCpf();
-        Aluno aluno = Validador.isCpfExiste(cpfProfessor, alunoController.pegarMapAlunos());
-        if(aluno != null) {
-            System.out.println("\n\nAluno encontrado");
-            aluno.mostrarInfo();
-        }else {
-            System.out.println("Aluno não encontrado!!");
-
-        }
-    }
 
     public void salvarTreino() {
         treinoController.salvarTreino();
@@ -217,6 +227,10 @@ public class ProfessorView {
 
     public Treino pegarTreinoPorID(String id) {
         return treinoController.getTreinoPorID(id);
+    }
+
+    public void mostrarAlunos(Professor professor) {
+
     }
 
     public ProfessorController getProfessorController() {

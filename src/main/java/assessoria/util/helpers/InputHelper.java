@@ -150,19 +150,20 @@ public class InputHelper {
     }
 
     public static String pegarSenhaToCadastro() {
-        return pegarSenha("\n -->> Informe uma senha para a sua conta <<--");
+        return pegarSenha("\n-->> Informe uma senha para a sua conta <<--");
     }
 
     public static String pegarSenhaToLogin() {
-        return pegarSenha("\n -->> Informe a sua senha <<--\n >> Lembrando que:");
+        return pegarSenha("\n-->> Informe a sua senha <<--\n >> Lembrando que:");
     }
 
     private static String pegarSenha(String frase) {
         String senha = "";
         boolean valido = false;
+        System.out.println("\n\n----------------------------------------------------------");
         System.out.println(frase);
         System.out.println("[A senha deve ser composta por no mínimo 8 caracteres.]\n[Ter pelo menos uma letra maiúscula e um número.]");
-        System.out.println("---------------------------------");
+        System.out.println("----------------------------------------------------------");
         while(!valido) {
             try{
                 System.out.print("Digite a senha: ");

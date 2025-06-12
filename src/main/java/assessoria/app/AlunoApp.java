@@ -20,7 +20,7 @@ public class AlunoApp {
     }
 
     public void carregarMap() {
-        alunoView.getAlunoController().carregarAlunos();
+        alunoController.carregarAlunos();
     }
 
     public void executarCadastro() {
@@ -43,7 +43,6 @@ public class AlunoApp {
     }
 
     private void tratarOpcaoMenuUpdate(int opcao, Aluno aluno) {
-        boolean salvo = false;
         switch (opcao) {
             case 1:
                 String nome = InputHelper.pegarNome();
@@ -68,21 +67,15 @@ public class AlunoApp {
                 String cpf = InputHelper.pegarCpf();
                 aluno.setCpf(cpf);
                 break;
-            case 6:
-                alunoController.salvarAluno(aluno);
-                salvo = true;
-                break;
             case 0:
-                if (salvo){
-                    MensagemView.mostrarMensagem("Encerrando update...");
-                } else {
                     MensagemView.mostrarMensagem("Os dados não foram salvos!!!");
-                }
                 break;
             default:
                 MensagemView.mostrarErro("Escolha uma opção válida!!");
                 break;
         }
+        alunoController.salvarAluno(aluno);
+        alunoView.getTreinoController().salvarTreino();
     }
 
     private void executarAcao(Aluno aluno) {
@@ -99,6 +92,7 @@ public class AlunoApp {
     private void tratarOpcaoMenuAcoes(int opcao, Aluno aluno) {
         switch (opcao) {
             case 1 -> alunoView.mostrarDadosAluno(aluno);
+            case 2 -> alunoView.mostrarTreino(aluno);
             case 3 -> executarUpdate(aluno);
             case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");

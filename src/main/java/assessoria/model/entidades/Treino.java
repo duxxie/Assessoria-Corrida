@@ -1,10 +1,7 @@
 package assessoria.model.entidades;
 
 import java.time.DayOfWeek;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Treino implements Savable {
     private String id;
@@ -73,6 +70,35 @@ public class Treino implements Savable {
 
     public void removerDia(DayOfWeek dia) {
         planoSemanal.remove(dia);
+    }
+
+    private String traduzirDia(DayOfWeek day) {
+
+        return switch (day) {
+            case MONDAY -> "Segunda";
+            case TUESDAY -> "Terça";
+            case WEDNESDAY -> "Quarta";
+            case THURSDAY -> "Quinta";
+            case FRIDAY -> "Sexta";
+            case SATURDAY -> "Sábado";
+            case SUNDAY -> "Domingo";
+        };
+    }
+
+    public void mostrarTreino() {
+        System.out.println("\n\n");
+        System.out.println("              <<<<< ---     TREINO SEMANAL     --- >>>>>        ");
+        System.out.println("-".repeat(70));
+        for (DayOfWeek dia : DayOfWeek.values()) {
+            List<String> atividades = planoSemanal.get(dia);
+            if (atividades != null && !atividades.isEmpty()) {
+                System.out.println(" " + traduzirDia(dia) + ":");
+                for (String atividade : atividades) {
+                    System.out.println("     >> " + atividade);
+                }
+                System.out.println("-".repeat(70));
+            }
+        }
     }
 
 }

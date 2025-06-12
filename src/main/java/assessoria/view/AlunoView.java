@@ -1,17 +1,20 @@
 package assessoria.view;
 
 import assessoria.controller.AlunoController;
+import assessoria.controller.TreinoController;
 import assessoria.model.entidades.Aluno;
+import assessoria.model.entidades.Treino;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
 
 public class AlunoView {
 
-    AlunoController alunoController;
-
-    public AlunoView(AlunoController alunoController) {
+    private final AlunoController alunoController;
+    private final TreinoController treinoController;
+    public AlunoView(AlunoController alunoController, TreinoController treinoController) {
         this.alunoController = alunoController;
+        this.treinoController = treinoController;
     }
     AlunoDashBoard alunoDashBoard = new AlunoDashBoard();
 
@@ -88,7 +91,7 @@ public class AlunoView {
         System.out.println("|  << -- Ações Aluno -- >>  |");
         System.out.println("+ ------------------------- +");
         System.out.println("|   [1] Ver meus dados      |");
-        System.out.println("|   [2] Ver meus treinos    |");
+        System.out.println("|   [2] Ver meu treino      |");
         System.out.println("|   [3] Alterar meus dados  |");
         System.out.println("|   [0] Encerrar sessão     |");
         System.out.println("+ ------------------------- +");
@@ -97,23 +100,30 @@ public class AlunoView {
     public void mostrarMenuUpdate() {
         System.out.println("\n\n+ ------------------------- +");
         System.out.println("|  << -- Ações Administrador -- >>  |");
-        System.out.println("+ ------------------------- +");
-        System.out.println("|   [1] Alterar nome      |");
-        System.out.println("|   [2] Alterar email  |");
-        System.out.println("|   [3] Alterar senha |");
-        System.out.println("|   [4] Alterar telefone |");
-        System.out.println("|   [5] Alterar CPF  |");
-        System.out.println("|   [6] Salvar alterações  |");
-        System.out.println("|   [0] Encerrar sessão     |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ --------------------------------- +");
+        System.out.println("|         [1] Alterar nome          |");
+        System.out.println("|         [2] Alterar email         |");
+        System.out.println("|         [3] Alterar senha         |");
+        System.out.println("|         [4] Alterar telefone      |");
+        System.out.println("|         [5] Alterar CPF           |");
+        System.out.println("|         [0] Encerrar sessão       |");
+        System.out.println("+ --------------------------------- +");
     }
 
     public void mostrarDadosAluno(Aluno aluno) {
         aluno.mostrarInfoCompleta();
     }
 
-    public AlunoController getAlunoController() {
-        return alunoController;
+    public void mostrarTreino(Aluno aluno) {
+        Treino treino = treinoController.isAlunoInTreino(aluno);
+        if (treino != null) {
+            treino.mostrarTreino();
+        } else {
+            MensagemView.mostrarMensagem("\n [  >>> Você ainda não possuí treino <<<  ]\n\n");
+        }
     }
 
+    public TreinoController getTreinoController() {
+        return treinoController;
+    }
 }

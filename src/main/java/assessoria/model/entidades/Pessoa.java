@@ -151,16 +151,20 @@ public abstract class Pessoa {
 //    }
 
     public void mostrarInfoCompleta() {
-        System.out.println("Id: " + getId());
-        System.out.println("Nome: " + getNome());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Cpf: " + getCpf());
-        System.out.println("Idade: " + getIdade());
-        System.out.println("Telefone: " + getTelefone());
+
+        System.out.println("\n\n----------------------------------------");
+        System.out.println(">> Id: " + getId());
+        System.out.println(">> Nome: " + getNome());
+        System.out.println(">> Email: " + getEmail());
+        System.out.println(">> Cpf: " + getCpf());
+        System.out.println(">> Idade: " + getIdade());
+        System.out.println(">> Telefone: " + getTelefone());
         getInfoMedica().mostrarInfoCompleta();
         if(getContatoEmergencia() != null) {
             getContatoEmergencia().mostrarInfoCompleta();
         }
+
+        System.out.println("----------------------------------------");
     }
 
     public void mostrarInfo() {
