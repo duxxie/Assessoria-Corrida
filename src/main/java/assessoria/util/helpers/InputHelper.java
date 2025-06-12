@@ -150,11 +150,11 @@ public class InputHelper {
     }
 
     public static String pegarSenhaToCadastro() {
-        return pegarSenha("\n-->> Informe uma senha para a sua conta <<--");
+        return pegarSenha("-->> Informe uma senha para a sua conta <<--");
     }
 
     public static String pegarSenhaToLogin() {
-        return pegarSenha("\n-->> Informe a sua senha <<--\n >> Lembrando que:");
+        return pegarSenha("-->> Informe a sua senha <<--\n >> Lembrando que:");
     }
 
     private static String pegarSenha(String frase) {

@@ -68,14 +68,14 @@ public class AlunoApp {
                 aluno.setCpf(cpf);
                 break;
             case 0:
-                    MensagemView.mostrarMensagem("Os dados não foram salvos!!!");
+                    MensagemView.mostrarMensagem("Voltando...");
                 break;
             default:
                 MensagemView.mostrarErro("Escolha uma opção válida!!");
                 break;
         }
         alunoController.salvarAluno(aluno);
-        alunoView.getTreinoController().salvarTreino();
+        alunoView.atualizarAlunoNoTreino(aluno);
     }
 
     private void executarAcao(Aluno aluno) {

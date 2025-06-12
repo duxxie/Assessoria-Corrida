@@ -213,8 +213,8 @@ public class ProfessorView {
     }
 
 
-    public void salvarTreino() {
-        treinoController.salvarTreino();
+    public void salvarTreino(Treino treino) {
+        treinoController.salvarTreino(treino);
     }
 
     public void mostrarDadosProfessor(Professor professor) {
@@ -235,5 +235,13 @@ public class ProfessorView {
 
     public ProfessorController getProfessorController() {
         return professorController;
+    }
+
+    public TreinoController getTreinoController() {
+        return treinoController;
+    }
+
+    public void atualizarProfessorNoMapTreino(Professor professor) {
+        treinoController.atualizarProfessor(professor);
     }
 }

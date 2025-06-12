@@ -52,7 +52,6 @@ public class ProfessorApp {
     }
 
     private void tratarOpcaoMenuUpdate(int opcao, Professor professor) {
-        boolean salvo = false;
         switch (opcao) {
             case 1:
                 String nome = InputHelper.pegarNome();
@@ -77,21 +76,15 @@ public class ProfessorApp {
                 String cpf = InputHelper.pegarCpf();
                 professor.setCpf(cpf);
                 break;
-            case 6:
-                professorController.salvarProfessor(professor);
-                salvo = true;
-                break;
             case 0:
-                if (salvo){
-                    MensagemView.mostrarMensagem("Encerrando update...");
-                } else {
-                    MensagemView.mostrarMensagem("Os dados não foram salvos!!!");
-                }
+                MensagemView.mostrarMensagem("Encerrando update...");
                 break;
             default:
                 MensagemView.mostrarErro("Escolha uma opção válida!!");
                 break;
         }
+        professorController.salvarProfessor(professor);
+        professorView.atualizarProfessorNoMapTreino(professor);
     }
 
     private void executarAcao(Professor professor) {
@@ -130,7 +123,6 @@ public class ProfessorApp {
     private void tratarOpModificarTreino(int op, Professor professor) {
         switch (op) {
             case 1 -> modificarTreino(professor);
-            case 2 -> professorView.salvarTreino();
             case 0 -> MensagemView.mostrarMensagem("Voltando...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
@@ -144,7 +136,7 @@ public class ProfessorApp {
             opModificarTreino = InputHelper.lerOpcao();
             tratarOpDiaTreino(opModificarTreino, treino);
         }while (opModificarTreino != 0);
-
+        professorView.salvarTreino(treino);
     }
 
     private void executarCriacaoTreino(Professor professor) {
@@ -159,7 +151,6 @@ public class ProfessorApp {
     private void tratarOpCriacaoTreino(int opCriacaoTreino, Professor professor) {
         switch (opCriacaoTreino) {
             case 1 -> criarTreino(professor);
-            case 2 -> professorView.salvarTreino();
             case 0 -> MensagemView.mostrarMensagem("Voltando...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
@@ -175,6 +166,7 @@ public class ProfessorApp {
             opCriarTreino = InputHelper.lerOpcao();
             tratarOpDiaTreino(opCriarTreino, treino);
         }while(opCriarTreino != 0);
+        professorView.salvarTreino(treino);
     }
 
     private void tratarOpDiaTreino(int opDia, Treino treino) {

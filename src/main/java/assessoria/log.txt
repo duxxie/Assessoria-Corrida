@@ -196,3 +196,73 @@
 [2025-06-12 05:04:51] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
 [2025-06-12 05:04:53] INFO - Salvos os ultimos IDs que foram gerados.
 [2025-06-12 05:04:53] INFO - Sistema encerrado.
+[2025-06-12 05:24:07] INFO - Sistema iniciado.
+[2025-06-12 05:24:07] INFO - Map de Professores inicializado.
+[2025-06-12 05:24:07] INFO - Map de Administradores inicializado.
+[2025-06-12 05:24:07] INFO - Map de Alunos inicializado.
+[2025-06-12 05:24:07] INFO - IDs inicializados.
+[2025-06-12 05:24:07] INFO - Map de treinos inicializado.
+[2025-06-12 05:32:01] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 05:32:01] INFO - Sistema encerrado.
+[2025-06-12 05:32:07] INFO - Sistema iniciado.
+[2025-06-12 05:32:07] INFO - Map de Professores inicializado.
+[2025-06-12 05:32:07] INFO - Map de Administradores inicializado.
+[2025-06-12 05:32:07] INFO - Map de Alunos inicializado.
+[2025-06-12 05:32:07] INFO - IDs inicializados.
+[2025-06-12 05:32:07] INFO - Map de treinos inicializado.
+[2025-06-12 05:34:25] INFO - Sistema iniciado.
+[2025-06-12 05:34:25] INFO - Map de Professores inicializado.
+[2025-06-12 05:34:25] INFO - Map de Administradores inicializado.
+[2025-06-12 05:34:25] INFO - Map de Alunos inicializado.
+[2025-06-12 05:34:25] INFO - IDs inicializados.
+[2025-06-12 05:34:25] INFO - Map de treinos inicializado.
+[2025-06-12 05:36:27] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 05:36:27] INFO - Sistema encerrado.
+[2025-06-12 05:42:51] INFO - Sistema iniciado.
+[2025-06-12 05:42:51] INFO - Map de Professores inicializado.
+[2025-06-12 05:42:51] INFO - Map de Administradores inicializado.
+[2025-06-12 05:42:51] INFO - Map de Alunos inicializado.
+[2025-06-12 05:42:51] INFO - IDs inicializados.
+[2025-06-12 05:42:51] INFO - Map de treinos inicializado.
+[2025-06-12 05:43:15] INFO - Fernando Correa De Paula fez login
+[2025-06-12 05:44:20] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 05:44:28] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 05:45:42] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 05:45:42] INFO - Sistema encerrado.
+[2025-06-12 05:51:26] INFO - Sistema iniciado.
+[2025-06-12 05:51:26] INFO - Map de Professores inicializado.
+[2025-06-12 05:51:26] INFO - Map de Administradores inicializado.
+[2025-06-12 05:51:26] INFO - Map de Alunos inicializado.
+[2025-06-12 05:51:26] INFO - IDs inicializados.
+[2025-06-12 05:51:26] INFO - Map de treinos inicializado.
+[2025-06-12 05:52:16] INFO - Brenno Figueira fez login
+[2025-06-12 05:52:48] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 05:52:48] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 05:52:56] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 05:52:56] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 05:54:14] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 05:54:14] INFO - Sistema encerrado.
+[2025-06-12 06:51:43] INFO - Sistema iniciado.
+[2025-06-12 06:51:43] INFO - Map de Professores inicializado.
+[2025-06-12 06:51:43] INFO - Map de Administradores inicializado.
+[2025-06-12 06:51:43] INFO - Map de Alunos inicializado.
+[2025-06-12 06:51:43] INFO - IDs inicializados.
+[2025-06-12 06:51:43] INFO - Map de treinos inicializado.
+[2025-06-12 06:52:20] INFO - Junscleison Da Silva fez login
+[2025-06-12 06:52:51] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 06:52:54] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 06:53:07] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 06:53:07] INFO - Sistema encerrado.
+[2025-06-12 07:33:31] INFO - Sistema iniciado.
+[2025-06-12 07:33:31] INFO - Map de Professores inicializado.
+[2025-06-12 07:33:31] INFO - Map de Administradores inicializado.
+[2025-06-12 07:33:31] INFO - Map de Alunos inicializado.
+[2025-06-12 07:33:31] INFO - IDs inicializados.
+[2025-06-12 07:33:31] INFO - Map de treinos inicializado.
+[2025-06-12 07:34:33] INFO - jojooo fez login
+[2025-06-12 07:34:54] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 07:34:54] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 07:34:56] INFO - Dados do aluno (ID Alu2) foi registrado no arquivo.
+[2025-06-12 07:34:56] INFO - Map de treinos foi salvo no arquivo.
+[2025-06-12 07:35:04] INFO - Salvos os ultimos IDs que foram gerados.
+[2025-06-12 07:35:04] INFO - Sistema encerrado.

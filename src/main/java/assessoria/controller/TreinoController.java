@@ -29,8 +29,8 @@ public class TreinoController {
         return treinoService.getTreinoPorID(id);
     }
 
-    public void salvarTreino() {
-        treinoService.salvarTreinoArquivo();
+    public void salvarTreino(Treino treino) {
+        treinoService.salvarTreinoMap(treino);
     }
 
     public void carregarMap() {
@@ -47,4 +47,21 @@ public class TreinoController {
         return null;
     }
 
+    public Treino isProfessorInTreino(Professor professor) {
+        Map<String,Treino> map = pegarMapTreino();
+        for(Map.Entry<String,Treino> entry : map.entrySet()) {
+            if(entry.getValue().getAluno().getId().equals(professor.getId())) {
+                return entry.getValue();
+            }
+        }
+        return null;
+    }
+
+    public void atualizarProfessor(Professor professor) {
+        treinoService.atualizarProfessorNoTreino(professor);
+    }
+
+    public void atualizarAluno(Aluno aluno) {
+        treinoService.atualizarAlunoNoTreino(aluno);
+    }
 }
