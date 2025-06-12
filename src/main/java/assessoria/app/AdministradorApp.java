@@ -1,15 +1,11 @@
 package assessoria.app;
 
 import assessoria.controller.AdministradorController;
-import assessoria.controller.AlunoController;
-import assessoria.controller.ProfessorController;
 import assessoria.model.entidades.Administrador;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
 import assessoria.view.AdministradorView;
-import assessoria.view.AlunoDashBoard;
 import assessoria.view.MensagemView;
-import assessoria.view.ProfessorDashBoard;
 
 public class AdministradorApp {
 
