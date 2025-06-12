@@ -10,12 +10,10 @@ import assessoria.util.helpers.Validador;
 
 public class ProfessorView {
 
-
     ProfessorController professorController;
     AlunoController alunoController;
 
     public ProfessorView(ProfessorController professorController) {
-        this.professorController = professorController;
         this.professorController = professorController;
     }
     MensagemView mensagemView = new MensagemView();
@@ -95,7 +93,7 @@ public class ProfessorView {
         System.out.println("+ ------------------------------- +");
         System.out.println("|     [1] Ver meus dados        |");
         System.out.println("|     [2] Ver meus treinos      |");
-        System.out.println("|     [3] Ver meus professors       |");
+        System.out.println("|     [3] Ver meus alunos       |");
         System.out.println("|     [4] Criar um treino       |");
         System.out.println("|     [5] Alterar meus dados    |");
         System.out.println("|     [0] Encerrar sessão       |");
@@ -104,7 +102,7 @@ public class ProfessorView {
 
     public void mostrarMenuUpdate() {
         System.out.println("\n\n+ ------------------------- +");
-        System.out.println("|  << -- Ações Professorstrador -- >>  |");
+        System.out.println("|  << -- Ações Professor -- >>  |");
         System.out.println("+ ------------------------- +");
         System.out.println("|   [1] Alterar nome      |");
         System.out.println("|   [2] Alterar email  |");

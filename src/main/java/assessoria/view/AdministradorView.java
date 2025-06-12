@@ -10,16 +10,21 @@ import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
 
 public class AdministradorView {
-    AdministradorController administradorController;
-    AlunoController alunoController;
-    TreinoController treinoController;
-    ProfessorController professorController;
+    private final ProfessorDashBoard professorDashBoard;
+    private final AlunoDashBoard alunoDashBoard;
+    private final AdministradorController administradorController;
+    private final AlunoController alunoController;
+    private final TreinoController treinoController;
+    private final ProfessorController professorController;
+
 
     public AdministradorView(AdministradorController administradorController, AlunoController alunoController, TreinoController treinoController, ProfessorController professorController) {
         this.administradorController = administradorController;
         this.alunoController = alunoController;
         this.treinoController = treinoController;
         this.professorController = professorController;
+        this.professorDashBoard = new ProfessorDashBoard();
+        this.alunoDashBoard = new AlunoDashBoard();
     }
 
     public void mostrarMenuCadastrarAdministrador() {
@@ -72,7 +77,6 @@ public class AdministradorView {
         System.out.println("|   [2] Alterar meus dados  |");
         System.out.println("|   [3] Visualizar dados de Professores |");
         System.out.println("|   [4] Visualizar dados de Alunos |");
-        System.out.println("|   [5] Visualizar Treinos  |");
         System.out.println("|   [0] Encerrar sessão     |");
         System.out.println("+ ------------------------- +");
     }
@@ -97,5 +101,13 @@ public class AdministradorView {
 
     public AdministradorController getAdministradorController() {
         return administradorController;
+    }
+
+    public void mostrarProfessorCadastrados() {
+        professorDashBoard.mostrarTabela(professorController.pegarMapProfessor());
+    }
+
+    public void mostrarAlunosCadastrados() {
+        alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
     }
 }
