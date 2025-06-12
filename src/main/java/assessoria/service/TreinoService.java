@@ -66,7 +66,7 @@ public class TreinoService {
         Map<String, Treino> map = getMapTreino();
 
         for(Map.Entry<String,Treino> entry : map.entrySet()) {
-            if(entry.getValue().getProfessor().getId().equals(aluno.getId())) {
+            if(entry.getValue().getAluno().getId().equals(aluno.getId())) {
                 entry.getValue().setAluno(aluno);
             }
         }

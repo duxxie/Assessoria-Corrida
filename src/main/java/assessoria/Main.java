@@ -8,7 +8,6 @@ public class Main {
         Aplicacao app = new Aplicacao();
         Log.registrar("info", "Sistema iniciado.");
         app.inicializarDados();
-        app.mostrarDados();
         app.executarPrograma();
         app.salvarDados();
         Log.registrar("Info", "Sistema encerrado.");

@@ -90,10 +90,10 @@ public class Aplicacao {
         InputHelper.encerrarInput();
     }
 
-    public void mostrarDados() {
-        alunoApp.mostrarAlunos();
-        professorApp.mostrarProfessor();
-    }
+//    public void mostrarDados() {
+//        alunoApp.mostrarAlunos();
+//        professorApp.mostrarProfessor();
+//    }
 
     public void inicializarDados() {
         professorApp.carregarMap();
