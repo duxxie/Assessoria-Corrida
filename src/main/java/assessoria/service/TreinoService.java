@@ -16,10 +16,7 @@ public class TreinoService {
 
     public TreinoService(TreinoDAO dao) {
         this.dao = dao;
-    }
-
-    public void carregarMapTreino() {
-        this.mapTreino = dao.lerDadosDoArquivo();
+        this.mapTreino = this.dao.lerDadosDoArquivo();
     }
 
     public String salvarTreino(Aluno aluno, Professor professor) {

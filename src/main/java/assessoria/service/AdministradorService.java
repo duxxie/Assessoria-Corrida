@@ -13,16 +13,13 @@ public class AdministradorService {
 
     public AdministradorService(AdministradorDAO dao) {
         this.dao = dao;
+        this.mapAdministrador = this.dao.lerDadosDoArquivo();
     }
 
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
         inserirAdministradorArquivo();
         Log.registrar("Info", "Dados do administrador (ID " + administrador.getId() + ") foi registrado no arquivo.");
-    }
-
-    public void carregarMapAdministrador() {
-        this.mapAdministrador = dao.lerDadosDoArquivo();
     }
 
     private void salvarAdministradorMap(Administrador administrador) {

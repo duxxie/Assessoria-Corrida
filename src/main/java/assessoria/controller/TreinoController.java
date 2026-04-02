@@ -33,10 +33,6 @@ public class TreinoController {
         treinoService.salvarTreinoMap(treino);
     }
 
-    public void carregarMap() {
-        treinoService.carregarMapTreino();
-    }
-
     public Treino isAlunoInTreino(Aluno aluno) {
         Map<String,Treino> map = pegarMapTreino();
         for(Map.Entry<String,Treino> entry : map.entrySet()) {

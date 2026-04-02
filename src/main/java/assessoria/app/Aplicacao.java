@@ -90,22 +90,9 @@ public class Aplicacao {
         InputHelper.encerrarInput();
     }
 
-//    public void mostrarDados() {
-//        alunoApp.mostrarAlunos();
-//        professorApp.mostrarProfessor();
-//    }
-
-    public void inicializarDados() {
-        professorApp.carregarMap();
-        Log.registrar("Info", "Map de Professores inicializado.");
-        administradorApp.carregarMap();
-        Log.registrar("Info", "Map de Administradores inicializado.");
-        alunoApp.carregarMap();
-        Log.registrar("Info", "Map de Alunos inicializado.");
+    public void inicializarIds() {
         GeradorID.carregarIds();
         Log.registrar("Info", "IDs inicializados.");
-        treinoApp.carrgarMap();
-        Log.registrar("info", "Map de treinos inicializado.");
     }
 
     public void salvarDados() {

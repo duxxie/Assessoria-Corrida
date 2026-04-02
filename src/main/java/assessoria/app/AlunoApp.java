@@ -19,10 +19,6 @@ public class AlunoApp {
         this.alunoController = alunoController;
     }
 
-    public void carregarMap() {
-        alunoController.carregarAlunos();
-    }
-
     public void executarCadastro() {
         alunoView.mostrarMenuCadastrarAluno();
         alunoView.pegarDadosAluno();

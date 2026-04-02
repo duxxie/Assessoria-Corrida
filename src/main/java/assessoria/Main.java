@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Aplicacao app = new Aplicacao();
         Log.registrar("info", "Sistema iniciado.");
-        app.inicializarDados();
+        app.inicializarIds();
         app.executarPrograma();
         app.salvarDados();
         Log.registrar("Info", "Sistema encerrado.");

@@ -99,10 +99,6 @@ public class AdministradorView {
         administrador.mostrarInfo();
     }
 
-    public AdministradorController getAdministradorController() {
-        return administradorController;
-    }
-
     public void mostrarProfessorCadastrados() {
         professorDashBoard.mostrarTabela(professorController.pegarMapProfessor());
     }

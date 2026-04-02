@@ -28,10 +28,6 @@ public class ProfessorApp {
         this.professorController = professorController;
     }
 
-    public void carregarMap() {
-        professorView.getProfessorController().carregarMap();
-    }
-
     public void executarCadastro() {
         professorView.mostrarMenuCadastrarProfessor();
         professorView.pegarDadosProfessor();

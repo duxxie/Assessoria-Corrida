@@ -31,8 +31,4 @@ public class ProfessorController{
         return professorService.getMapProfessor();
     }
 
-    public void carregarMap() {
-        professorService.carregarMapProfessor();
-    }
-
 }
