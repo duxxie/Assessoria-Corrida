@@ -17,10 +17,6 @@ public class AdministradorApp {
         this.administradorController = administradorController;
     }
 
-    public void carregarMap() {
-        administradorView.getAdministradorController().carregarMap();
-    }
-
     public void executarCadastro() {
         administradorView.mostrarMenuCadastrarAdministrador();
         administradorView.pegarDadosAdministrador();

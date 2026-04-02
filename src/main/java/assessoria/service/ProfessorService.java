@@ -13,16 +13,13 @@ public class ProfessorService {
 
     public ProfessorService(ProfessorDAO dao) {
         this.dao = dao;
+        this.mapProfessor = this.dao.lerDadosDoArquivo();
     }
 
     public void salvarProfessor(Professor professor) {
         salvarProfessorMap(professor);
         inserirProfessorArquivo();
         Log.registrar("Info", "Dados do professor (ID " + professor.getId() + ") foi registrado no arquivo.");
-    }
-
-    public void carregarMapProfessor() {
-        this.mapProfessor = dao.lerDadosDoArquivo();
     }
 
     private void salvarProfessorMap(Professor professor) {

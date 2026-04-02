@@ -328,3 +328,47 @@
 [2025-06-12 18:30:52] INFO - Maria Cardoso fez login
 [2025-06-12 18:31:03] INFO - Salvos os ultimos IDs que foram gerados.
 [2025-06-12 18:31:03] INFO - Sistema encerrado.
+[2026-03-31 10:58:59] INFO - Sistema iniciado.
+[2026-03-31 10:58:59] INFO - Map de Professores inicializado.
+[2026-03-31 10:58:59] INFO - Map de Administradores inicializado.
+[2026-03-31 10:58:59] INFO - Map de Alunos inicializado.
+[2026-03-31 10:58:59] INFO - IDs inicializados.
+[2026-03-31 10:58:59] INFO - Map de treinos inicializado.
+[2026-03-31 10:59:35] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-03-31 10:59:35] INFO - Sistema encerrado.
+[2026-04-02 11:26:31] INFO - Sistema iniciado.
+[2026-04-02 11:26:31] INFO - Map de Administradores inicializado.
+[2026-04-02 11:26:31] INFO - Map de Alunos inicializado.
+[2026-04-02 11:26:31] INFO - IDs inicializados.
+[2026-04-02 11:26:31] INFO - Map de treinos inicializado.
+[2026-04-02 11:28:09] INFO - Sistema iniciado.
+[2026-04-02 11:28:09] INFO - Map de Administradores inicializado.
+[2026-04-02 11:28:09] INFO - Map de Alunos inicializado.
+[2026-04-02 11:28:09] INFO - IDs inicializados.
+[2026-04-02 11:28:09] INFO - Map de treinos inicializado.
+[2026-04-02 11:31:51] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-02 11:31:51] INFO - Sistema encerrado.
+[2026-04-02 11:37:58] INFO - Sistema iniciado.
+[2026-04-02 11:37:58] INFO - Map de Administradores inicializado.
+[2026-04-02 11:37:58] INFO - IDs inicializados.
+[2026-04-02 11:37:59] INFO - Map de treinos inicializado.
+[2026-04-02 11:39:04] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-02 11:39:04] INFO - Sistema encerrado.
+[2026-04-02 11:41:53] INFO - Sistema iniciado.
+[2026-04-02 11:41:53] INFO - IDs inicializados.
+[2026-04-02 11:41:53] INFO - Map de treinos inicializado.
+[2026-04-02 11:42:54] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-02 11:42:54] INFO - Sistema encerrado.
+[2026-04-02 11:54:42] INFO - Sistema iniciado.
+[2026-04-02 11:54:42] INFO - IDs inicializados.
+[2026-04-02 11:56:16] INFO - Fernando Correa De Paula fez login
+[2026-04-02 11:58:11] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-02 11:58:11] INFO - Sistema encerrado.
+[2026-04-02 15:55:45] INFO - Sistema iniciado.
+[2026-04-02 15:55:45] INFO - IDs inicializados.
+[2026-04-02 16:02:48] INFO - Sistema iniciado.
+[2026-04-02 16:02:48] INFO - IDs inicializados.
+[2026-04-02 16:32:52] INFO - Sistema iniciado.
+[2026-04-02 16:32:52] INFO - IDs inicializados.
+[2026-04-02 16:33:58] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-02 16:33:58] INFO - Sistema encerrado.

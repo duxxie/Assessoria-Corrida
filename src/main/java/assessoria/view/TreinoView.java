@@ -10,8 +10,4 @@ public class TreinoView {
         this.treinoController = treinoController;
     }
 
-    public void carregarMap() {
-        treinoController.carregarMap();
-    }
-
 }

@@ -1,5 +1,7 @@
 package assessoria.util.helpers;
 
+import assessoria.model.entidades.*;
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,6 +13,24 @@ public class GeradorID {
     private static int idProfessor = 0;
     private static int idAdministrador = 0;
     private static int idTreino = 0;
+
+    public static String gerarIdClass(Class<?> typeClass) {
+
+        if(typeClass == Aluno.class) {
+            return gerarIdAluno();
+        }
+        if(typeClass == Professor.class) {
+            return gerarIdProfessor();
+        }
+        if(typeClass == Administrador.class) {
+            return gerarIdAdministrador();
+        }
+        if(typeClass == Treino.class) {
+            return gerarIdTreino();
+        }
+
+        throw new IllegalArgumentException("Classe não suportada: " + typeClass.getSimpleName());
+    }
 
     public static String gerarIdAluno() {
         return "Alu" + ++idAluno;

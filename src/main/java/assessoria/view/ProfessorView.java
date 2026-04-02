@@ -233,10 +233,6 @@ public class ProfessorView {
 
     }
 
-    public ProfessorController getProfessorController() {
-        return professorController;
-    }
-
     public TreinoController getTreinoController() {
         return treinoController;
     }
