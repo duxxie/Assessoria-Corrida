@@ -44,10 +44,29 @@ public class AdministradorView {
         String email = InputHelper.pegarEmail();
         String senha = InputHelper.pegarSenhaToCadastro();
         String hash = bCryptHash.gerarHash(senha);
+        String codigoAdmin = InputHelper.lerString("Informe o código de administrador: ");
 
-        //Criando administrador sem os dados do contato de emergencia
-        administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash);
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+        //Dados scundários
+        String condicaoMedica = InputHelper.pegarCondicaoMedica();
+        String alergia = InputHelper.pegarAlergia();
+        String[] medicamento = InputHelper.pegarMedicamentoEmUso();
+        String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
+        String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
+        String lesaoRecente = InputHelper.pegarLesao();
+        String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
+        String restricaoMedica = InputHelper.pegarRestricaoMedica();
+        String tipoSanguineo = InputHelper.pegarTipoSanguineo();
+
+        if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
+            System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
+            String nomeEmergencia = InputHelper.pegarNome();
+            String telefoneEmergencia = InputHelper.pegarTelefone();
+            String relacao = InputHelper.pegarRelacao();
+            administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+        } else {
+            System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
+            administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+        }
     }
 
 

@@ -1,14 +1,48 @@
 {
-  "KAdm1" : {
-    "id" : "Adm1",
+  "KAdm3" : {
+    "id" : "Adm3",
     "nome" : "Carla Machado",
     "email" : "carla_ma@gmail.com",
     "cpf" : "162.488.220-00",
     "idade" : 32,
     "telefone" : "(41)93330-8980",
     "senhaHash" : "ca1rlaZ0",
-    "hashProvider" : "$2a$10$9.OxkTN8bQDHTmTVcg9BLuaFN0duN3Y1yKjy1N63xRrSGUFWNni.2",
+    "hashProvider" : "$2a$10$dUp9u/T4jigvscEoui5pzOlZ50TOLDyjan/vfaZwdD4h2Evtr0wXq",
     "contatoEmergencia" : null,
-    "infoMedica" : null
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : null
+    },
+    "idCodigoAdministrador" : "ADM-7KQ9-XP21-2026",
+    "adiminRaiz" : true
+  },
+  "KAdm4" : {
+    "id" : "Adm4",
+    "nome" : "Joa Carlos",
+    "email" : "joa.carlos@gmail.com",
+    "cpf" : "591.245.237-98",
+    "idade" : 45,
+    "telefone" : "41923210090",
+    "senhaHash" : "Joa.carlos13",
+    "hashProvider" : "$2a$10$J.mxpy1lQk4T5NE8K0az5ehc/L301lPPsmSf1L5uBvEGPOAQD5DVG",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : null
+    },
+    "idCodigoAdministrador" : "CONV-023T-2OOP",
+    "adiminRaiz" : false
   }
 }

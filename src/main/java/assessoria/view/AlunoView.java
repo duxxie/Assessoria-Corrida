@@ -60,7 +60,6 @@ public class AlunoView {
             System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
             alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
         }
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
 

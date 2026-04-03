@@ -1,12 +1,6 @@
 package assessoria.model.dao;
 
 import assessoria.model.entidades.Professor;
-import assessoria.model.entidades.Professor;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
 public class ProfessorDAO extends GenericDAO<Professor>{
