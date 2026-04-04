@@ -1,16 +1,7 @@
 package assessoria.app;
-import assessoria.controller.AdministradorController;
-import assessoria.controller.AlunoController;
-import assessoria.controller.ProfessorController;
-import assessoria.controller.TreinoController;
-import assessoria.model.dao.AdministradorDAO;
-import assessoria.model.dao.AlunoDAO;
-import assessoria.model.dao.ProfessorDAO;
-import assessoria.model.dao.TreinoDAO;
-import assessoria.service.AdministradorService;
-import assessoria.service.AlunoService;
-import assessoria.service.ProfessorService;
-import assessoria.service.TreinoService;
+import assessoria.controller.*;
+import assessoria.model.dao.*;
+import assessoria.service.*;
 import assessoria.util.helpers.GeradorID;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.log.Log;
@@ -39,6 +30,11 @@ public class Aplicacao {
     private final ProfessorService professorService;
     private final ProfessorDAO professorDAO;
 
+    //Intancias CodigoAdministrador
+    private final CodigoAdministradorController codigoAdministradorController;
+    private final CodigoAdministradorService codigoAdministradorService;
+    private final CodigoAdministradorDAO codigoAdministradorDAO;
+
     //Intancias Administrados
     private final AdministradorApp administradorApp;
     private final AdministradorView administradorView;
@@ -66,9 +62,12 @@ public class Aplicacao {
         this.professorView = new ProfessorView(professorController, alunoController, treinoController);
         this.professorApp = new ProfessorApp(professorView, professorController);
 
+        this.codigoAdministradorDAO = new CodigoAdministradorDAO();
+        this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorDAO);
+        this.codigoAdministradorController = new CodigoAdministradorController(codigoAdministradorService);
 
         this.administradorDAO = new AdministradorDAO();
-        this.administradorService = new AdministradorService(administradorDAO);
+        this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService);
         this.administradorController = new AdministradorController(administradorService);
         this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
         this.administradorApp = new AdministradorApp(administradorView, administradorController);

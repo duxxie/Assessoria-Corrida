@@ -25,15 +25,11 @@ public class AlunoController{
     }
 
     public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        executeActionWithErrorHandler(() -> {
-            alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        });
+        executeActionWithErrorHandler(() -> alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
     }
 
     public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        executeActionWithErrorHandler(() -> {
-            alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        });
+        executeActionWithErrorHandler(() -> alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
     }
 
     public void salvarAluno(Aluno aluno) {

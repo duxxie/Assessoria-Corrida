@@ -372,3 +372,29 @@
 [2026-04-02 16:32:52] INFO - IDs inicializados.
 [2026-04-02 16:33:58] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-02 16:33:58] INFO - Sistema encerrado.
+[2026-04-03 12:23:50] INFO - Sistema iniciado.
+[2026-04-03 12:23:50] INFO - IDs inicializados.
+[2026-04-03 12:26:02] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-03 12:26:02] INFO - Sistema encerrado.
+[2026-04-03 13:00:18] INFO - Sistema iniciado.
+[2026-04-03 13:00:18] INFO - IDs inicializados.
+[2026-04-03 13:02:17] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-03 13:02:17] INFO - Sistema encerrado.
+[2026-04-03 20:12:23] INFO - Sistema iniciado.
+[2026-04-03 20:12:23] INFO - IDs inicializados.
+[2026-04-03 20:14:35] INFO - Administrador ID Adm2 foi adicionado ao Map
+[2026-04-03 20:14:35] INFO - Dados do administrador (ID Adm2) foi registrado no arquivo.
+[2026-04-03 20:17:15] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-03 20:17:15] INFO - Sistema encerrado.
+[2026-04-03 20:19:10] INFO - Sistema iniciado.
+[2026-04-03 20:19:10] INFO - IDs inicializados.
+[2026-04-03 20:20:23] INFO - Administrador ID Adm3 foi adicionado ao Map
+[2026-04-03 20:20:23] INFO - Dados do administrador (ID Adm3) foi registrado no arquivo.
+[2026-04-03 20:20:55] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-03 20:20:55] INFO - Sistema encerrado.
+[2026-04-03 20:23:08] INFO - Sistema iniciado.
+[2026-04-03 20:23:08] INFO - IDs inicializados.
+[2026-04-03 20:24:24] INFO - Administrador ID Adm4 foi adicionado ao Map
+[2026-04-03 20:24:24] INFO - Dados do administrador (ID Adm4) foi registrado no arquivo.
+[2026-04-03 20:24:35] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-03 20:24:35] INFO - Sistema encerrado.

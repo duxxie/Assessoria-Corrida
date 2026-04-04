@@ -6,6 +6,7 @@ import assessoria.model.entidades.ContatoEmergencia;
 import assessoria.model.entidades.InfoMedica;
 import assessoria.util.helpers.GeradorID;
 import assessoria.util.log.Log;
+import assessoria.view.MensagemView;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -24,11 +25,13 @@ public class AlunoService {
     public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
        validarCpfUnico(cpf);
         salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao), new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
     public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
         validarCpfUnico(cpf);
         salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class),nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
     public void validarCpfUnico(String cpf) {
@@ -36,7 +39,7 @@ public class AlunoService {
                 .filter(aluno -> aluno.getCpf().equals(cpf))
                 .findAny()
                 .ifPresent(aluno -> {
-                    throw new IllegalArgumentException("Cpf já cadastrado");
+                    throw new IllegalArgumentException("Cpf já informado já está cadastrado");
                 });
     }
 

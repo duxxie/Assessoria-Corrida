@@ -28,9 +28,9 @@ public class ProfessorView {
 
 
     public void mostrarMenuCadastrarProfessor() {
-        System.out.println("\n\n+ ---------------------------- +");
+        System.out.println("\n\n+ -------------------------------- +");
         System.out.println("|  << -- Cadastro Professor -- >>  |");
-        System.out.println("+ ---------------------------- +");
+        System.out.println("+ -------------------------------- +");
     }
 
     public void pegarDadosProfessor() {
@@ -69,14 +69,13 @@ public class ProfessorView {
             System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
             professorController.criarProfessor(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
         }
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
 
     public void mostrarMenuLoginProfessor() {
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ ----------------------------- +");
         System.out.println("|  << -- Login Professor -- >>  |");
-        System.out.println("+ ------------------------- +");
+        System.out.println("+ ----------------------------- +");
     }
 
     public Professor pegarEtratarDadosLogin() {
@@ -231,10 +230,6 @@ public class ProfessorView {
 
     public void mostrarAlunos(Professor professor) {
 
-    }
-
-    public TreinoController getTreinoController() {
-        return treinoController;
     }
 
     public void atualizarProfessorNoMapTreino(Professor professor) {
