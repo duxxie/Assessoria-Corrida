@@ -31,7 +31,6 @@ public class Aplicacao {
     private final ProfessorDAO professorDAO;
 
     //Intancias CodigoAdministrador
-    private final CodigoAdministradorController codigoAdministradorController;
     private final CodigoAdministradorService codigoAdministradorService;
     private final CodigoAdministradorDAO codigoAdministradorDAO;
 
@@ -64,7 +63,6 @@ public class Aplicacao {
 
         this.codigoAdministradorDAO = new CodigoAdministradorDAO();
         this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorDAO);
-        this.codigoAdministradorController = new CodigoAdministradorController(codigoAdministradorService);
 
         this.administradorDAO = new AdministradorDAO();
         this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService);

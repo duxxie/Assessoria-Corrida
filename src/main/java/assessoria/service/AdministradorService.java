@@ -40,6 +40,10 @@ public class AdministradorService {
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
+    public String gerarCodigoAdministrador() {
+        return codigoAdministradorService.gerarCodigoAdministrador();
+    }
+
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
         inserirAdministradorArquivo();

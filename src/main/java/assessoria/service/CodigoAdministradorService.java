@@ -2,9 +2,11 @@ package assessoria.service;
 
 import assessoria.model.dao.CodigoAdministradorDAO;
 import assessoria.model.entidades.CodigoAdministrador;
+import assessoria.view.MensagemView;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class CodigoAdministradorService {
 
@@ -35,6 +37,14 @@ public class CodigoAdministradorService {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         codigoAdministrador.setUsado(true);
         inserirDadosArquivo();
+    }
+
+    public String gerarCodigoAdministrador() {
+        String codigoGerado = "ADM-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
+        codigoAdministradorList.add(new CodigoAdministrador(codigoGerado, false));
+        inserirDadosArquivo();
+        MensagemView.mostrarSucesso("Codigo gerado com sucesso e salvo no sistema.");
+        return codigoGerado;
     }
 
     private void salvarCodigoAdministrador() {

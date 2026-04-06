@@ -88,7 +88,7 @@ public class AdministradorView {
         }
     }
 
-    public void mostrarMenuAcoes() {
+    public void mostrarMenuAcoesAdminNormal() {
         System.out.println("\n\n+ ------------------------------------- +");
         System.out.println("|    << -- Ações Administrador -- >>    |");
         System.out.println("+ ------------------------------------- +");
@@ -96,6 +96,21 @@ public class AdministradorView {
         System.out.println("|  [2] Alterar meus dados               |");
         System.out.println("|  [3] Visualizar dados de Professores  |");
         System.out.println("|  [4] Visualizar dados de Alunos       |");
+        System.out.println("|  [0] Encerrar sessão                  |");
+        System.out.println("+ ------------------------------------- +");
+    }
+
+    public void mostrarMenuAcoesAdminRaiz() {
+        System.out.println("\n\n+ ------------------------------------- +");
+        System.out.println("|    << -- Ações Administrador -- >>    |");
+        System.out.println("+ ------------------------------------- +");
+        System.out.println("|  [1] Ver meus dados                   |");
+        System.out.println("|  [2] Alterar meus dados               |");
+        System.out.println("|  [3] Visualizar dados de Professores  |");
+        System.out.println("|  [4] Visualizar dados de Alunos       |");
+        System.out.println("|  [5] Gerar código de administrador    |");
+        System.out.println("|  [6] Visualizar administradores       |");
+        System.out.println("|  [7] Visualizar codigos               |");
         System.out.println("|  [0] Encerrar sessão                  |");
         System.out.println("+ ------------------------------------- +");
     }
@@ -124,5 +139,13 @@ public class AdministradorView {
 
     public void mostrarAlunosCadastrados() {
         alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
+    }
+
+    public void mostrarAdministradores() {
+        AdministradorDashBoard.mostrarTabela(administradorController.pegarMapAdministrador());
+    }
+
+    public void gerarCodigoAdministrador() {
+        System.out.println(">> Código: " + administradorController.gerarCodigoAdministrador());
     }
 }

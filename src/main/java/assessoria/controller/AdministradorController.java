@@ -30,6 +30,10 @@ public class AdministradorController{
         executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
     }
 
+    public String gerarCodigoAdministrador() {
+        return administradorService.gerarCodigoAdministrador();
+    }
+
     public void salvarAdministrador(Administrador administrador) {
         administradorService.salvarAdministrador(administrador);
     }

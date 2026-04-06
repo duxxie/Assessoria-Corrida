@@ -27,6 +27,46 @@ public class AdministradorApp {
         executarAcao(administradorView.pegarEtratarDadosLogin());
     }
 
+    private void executarAcao(Administrador administrador) {
+        int opcao;
+        do {
+            if(administrador.isAdiminRaiz()) {
+                administradorView.mostrarMenuAcoesAdminRaiz();
+                opcao = InputHelper.lerOpcao();
+                tratarOpcaoMenuAcoesAdminRaiz(opcao, administrador);
+            } else {
+                administradorView.mostrarMenuAcoesAdminNormal();
+                opcao = InputHelper.lerOpcao();
+                tratarOpcaoMenuAcoesAdminNormal(opcao, administrador);
+            }
+        }while(opcao != 0);
+    }
+
+    private void tratarOpcaoMenuAcoesAdminNormal(int opcao, Administrador administrador) {
+        switch (opcao) {
+            case 1 -> administradorView.mostrarDadosAdministrador(administrador);
+            case 2 -> executarUpdate(administrador);
+            case 3 -> administradorView.mostrarProfessorCadastrados();
+            case 4 -> administradorView.mostrarAlunosCadastrados();
+            case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
+        }
+    }
+
+    private void tratarOpcaoMenuAcoesAdminRaiz(int opcao, Administrador administrador) {
+        switch (opcao) {
+            case 1 -> administradorView.mostrarDadosAdministrador(administrador);
+            case 2 -> executarUpdate(administrador);
+            case 3 -> administradorView.mostrarProfessorCadastrados();
+            case 4 -> administradorView.mostrarAlunosCadastrados();
+            case 5 -> administradorView.gerarCodigoAdministrador();
+            case 6 -> administradorView.mostrarAdministradores();
+            //case 7 -> visualizar codigos de administrador
+            case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
+        }
+    }
+
     public void executarUpdate(Administrador administrador) {
         int opcao;
         do {
@@ -76,27 +116,6 @@ public class AdministradorApp {
             default:
                 MensagemView.mostrarErro("Escolha uma opção válida!!");
                 break;
-        }
-    }
-
-    private void executarAcao(Administrador administrador) {
-        int opcao;
-        do {
-            administradorView.mostrarMenuAcoes();
-            opcao = InputHelper.lerOpcao();
-            tratarOpcaoMenuAcoes(opcao, administrador);
-        }while(opcao != 0);
-    }
-
-
-    private void tratarOpcaoMenuAcoes(int opcao, Administrador administrador) {
-        switch (opcao) {
-            case 1 -> administradorView.mostrarDadosAdministrador(administrador);
-            case 2 -> executarUpdate(administrador);
-            case 3 -> administradorView.mostrarProfessorCadastrados();
-            case 4 -> administradorView.mostrarAlunosCadastrados();
-            case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
-            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
     }
 
