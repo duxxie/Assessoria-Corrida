@@ -22,15 +22,15 @@
     "idCodigoAdministrador" : "ADM-7KQ9-XP21-2026",
     "adiminRaiz" : true
   },
-  "KAdm4" : {
-    "id" : "Adm4",
-    "nome" : "Joa Carlos",
-    "email" : "joa.carlos@gmail.com",
-    "cpf" : "591.245.237-98",
-    "idade" : 45,
-    "telefone" : "41923210090",
-    "senhaHash" : "Joa.carlos13",
-    "hashProvider" : "$2a$10$J.mxpy1lQk4T5NE8K0az5ehc/L301lPPsmSf1L5uBvEGPOAQD5DVG",
+  "KAdm5" : {
+    "id" : "Adm5",
+    "nome" : "Pedro Fagundes",
+    "email" : "pedro.faa@gmail.com",
+    "cpf" : "370.373.659-39",
+    "idade" : 28,
+    "telefone" : "41934258890",
+    "senhaHash" : "Pedro@28",
+    "hashProvider" : "$2a$10$K.AtnPc5SS14rMZhGE76YelQURfwVcvdMkQ47IxmSRfeuXjmb77mu",
     "contatoEmergencia" : null,
     "infoMedica" : {
       "descCondicaoMedica" : null,
@@ -42,7 +42,7 @@
       "descRestricaoMedica" : null,
       "descTipoSanguineo" : null
     },
-    "idCodigoAdministrador" : "CONV-023T-2OOP",
+    "idCodigoAdministrador" : "ADM-2FA4A5BB",
     "adiminRaiz" : false
   }
 }
