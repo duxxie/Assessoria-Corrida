@@ -39,6 +39,18 @@ public abstract class Pessoa {
         this.infoMedica = infoMedica;
     }
 
+    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.idade = idade;
+        this.telefone = telefone;
+        this.senhaHash = senhaHash;
+        this.hashProvider = hashProvider;
+        this.contatoEmergencia = contatoEmergencia;
+    }
+
     public Pessoa(String id, String nome, String cpf, int idade) {
         this.id = id;
         this.nome = nome;

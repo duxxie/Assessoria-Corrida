@@ -424,3 +424,36 @@
 [2026-04-04 13:09:13] INFO - IDs inicializados.
 [2026-04-04 13:09:48] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-04 13:09:48] INFO - Sistema encerrado.
+[2026-04-07 11:07:00] INFO - Sistema iniciado.
+[2026-04-07 11:07:00] INFO - IDs inicializados.
+[2026-04-07 11:08:20] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 11:08:20] INFO - Sistema encerrado.
+[2026-04-07 11:08:27] INFO - Sistema iniciado.
+[2026-04-07 11:08:27] INFO - IDs inicializados.
+[2026-04-07 11:10:04] INFO - Sistema iniciado.
+[2026-04-07 11:10:04] INFO - IDs inicializados.
+[2026-04-07 11:12:30] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 11:12:30] INFO - Sistema encerrado.
+[2026-04-07 11:21:27] INFO - Sistema iniciado.
+[2026-04-07 11:21:27] INFO - IDs inicializados.
+[2026-04-07 11:22:49] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 11:22:49] INFO - Sistema encerrado.
+[2026-04-07 11:39:11] INFO - Sistema iniciado.
+[2026-04-07 11:39:11] INFO - IDs inicializados.
+[2026-04-07 11:41:28] INFO - Dados do aluno (ID Alu8) foi registrado no arquivo.
+[2026-04-07 11:42:34] INFO - Dados do aluno (ID Alu9) foi registrado no arquivo.
+[2026-04-07 11:43:23] INFO - Dados do aluno (ID Alu10) foi registrado no arquivo.
+[2026-04-07 11:44:48] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 11:44:48] INFO - Sistema encerrado.
+[2026-04-07 12:03:03] INFO - Sistema iniciado.
+[2026-04-07 12:03:03] INFO - IDs inicializados.
+[2026-04-07 12:04:53] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 12:04:53] INFO - Sistema encerrado.
+[2026-04-07 12:04:59] INFO - Sistema iniciado.
+[2026-04-07 12:04:59] INFO - IDs inicializados.
+[2026-04-07 12:07:48] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 12:07:48] INFO - Sistema encerrado.
+[2026-04-07 12:13:49] INFO - Sistema iniciado.
+[2026-04-07 12:13:49] INFO - IDs inicializados.
+[2026-04-07 12:14:40] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-07 12:14:40] INFO - Sistema encerrado.

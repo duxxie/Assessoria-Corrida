@@ -57,29 +57,25 @@ public class AdministradorDashBoard {
         String linhaTituloTabela = " ".repeat(marginTituloTabela-2) + "|" + " ".repeat(paddingTituloTabela) + tituloTabela + " ".repeat(paddingTituloTabela) + "|" + " ".repeat(marginTituloTabela-2);
         String bordaTopTituloTabela = " ".repeat(marginTituloTabela-2) + "+ " + "-".repeat((tituloTabela.length() + (paddingTituloTabela*2) + bordasLateraisTituloTabela) - 4) + " +";
 
-        String bordaTabela = "+ " + "-".repeat(linhaTituloAdministrador.length()-4) + " +";
-        String linhaDivisoriaProdutos = "-".repeat(linhaTituloAdministrador.length());
-        String linhaVazia = "|" +
-                " ".repeat(widthId) + "|" +
-                " ".repeat(widthNome) + "|" +
-                " ".repeat(widthCpf) + "|" +
-                " ".repeat(widthEmail) + "|" +
-                " ".repeat(widthIdade) + "|" +
-                " ".repeat(widthTelefone) + "|" +
-                " ".repeat(widthCodigoAdmin) + "|" +
-                " ".repeat(widthAdminRaiz) +
-                "|";
+        String bordaTabela = "+" + "-".repeat(widthId)
+                + "+" + "-".repeat(widthNome)
+                + "+" + "-".repeat(widthCpf)
+                + "+" + "-".repeat(widthEmail)
+                + "+" + "-".repeat(widthIdade)
+                + "+" + "-".repeat(widthTelefone)
+                + "+" + "-".repeat(widthCodigoAdmin)
+                + "+" + "-".repeat(widthAdminRaiz)
+                + "+";
 
         System.out.println(bordaTopTituloTabela);
         System.out.println(linhaTituloTabela);
+        System.out.println(bordaTopTituloTabela);
         System.out.println(bordaTabela);
         System.out.println(linhaTituloAdministrador);
+        System.out.println(bordaTabela);
 
         for(Map.Entry<String,Administrador> entry : produtos.entrySet()) {
-            System.out.println(linhaDivisoriaProdutos);
-            System.out.println(linhaVazia);
-            System.out.println(formatarCampoDadosProduto(widthId, widthNome, widthCpf, widthEmail, widthIdade, widthTelefone, widthCodigoAdmin, widthAdminRaiz,entry.getValue()));
-            System.out.println(linhaVazia);
+            System.out.println(formatarCampoDadosAdministrador(widthId, widthNome, widthCpf, widthEmail, widthIdade, widthTelefone, widthCodigoAdmin, widthAdminRaiz,entry.getValue()));
         }
         System.out.println(bordaTabela);
     }
@@ -92,7 +88,7 @@ public class AdministradorDashBoard {
         return padding + valorCampo + padding.repeat(valorPadding - 1);
     }
 
-    private static String formatarCampoDadosProduto(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, int widthCodigoAdmin, int widthAdminRaiz, Administrador administrador) {
+    private static String formatarCampoDadosAdministrador(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, int widthCodigoAdmin, int widthAdminRaiz, Administrador administrador) {
         return "|" + campoFormatado(widthId, administrador.getId())
                 + "|" + campoFormatado(widthNome, administrador.getNome())
                 + "|" + campoFormatado(widthCpf, administrador.getCpf())
