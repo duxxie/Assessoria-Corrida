@@ -23,6 +23,18 @@ public class Administrador extends Pessoa implements Usuario,Savable{
         this.adiminRaiz = adiminRaiz;
     }
 
+    public Administrador(String id,String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdministrador, boolean adminRaiz, ContatoEmergencia contatoEmergencia) {
+        super(id, nome, email, cpf, idade, telefone, senha, hashSenha, contatoEmergencia);
+        this.idCodigoAdministrador = codigoAdministrador;
+        this.adiminRaiz = adminRaiz;
+    }
+
+    public Administrador(String id, String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdministrador, boolean adminRaiz) {
+        super(id, nome, email, cpf, idade, telefone, senha, hashSenha);
+        this.idCodigoAdministrador = codigoAdministrador;
+        this.adiminRaiz = adminRaiz;
+    }
+
     public String getIdCodigoAdministrador() {
         return idCodigoAdministrador;
     }

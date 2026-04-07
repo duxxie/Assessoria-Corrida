@@ -52,7 +52,13 @@ public class InputHelper {
 
     }
 
-    public static Boolean pegarSePossuiInfoMedica(String frase) {
+    public static Boolean isAdicionarDadosInfoMedicaAgoraTrue() {
+        char escolha = Character.toLowerCase(lerChar("Deseja adicionar as sua informações médicas agora ?"));
+        return escolha == 's';
+
+    }
+
+    private static Boolean pegarSePossuiInfoMedica(String frase) {
         char possui = Character.toLowerCase(lerChar(frase));
         return possui == 's';
     }

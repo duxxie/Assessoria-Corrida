@@ -2,6 +2,7 @@ package assessoria.service;
 
 import assessoria.model.dao.AdministradorDAO;
 import assessoria.model.entidades.Administrador;
+import assessoria.model.entidades.CodigoAdministrador;
 import assessoria.model.entidades.ContatoEmergencia;
 import assessoria.model.entidades.InfoMedica;
 import assessoria.util.helpers.GeradorID;
@@ -9,6 +10,7 @@ import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AdministradorService {
@@ -37,6 +39,22 @@ public class AdministradorService {
         if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
         salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
         codigoAdministradorService.desativarCodigoAdministrador(codigoAdmin);
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+    }
+
+    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin,String nomeEmergencia, String telefoneEmergencia, String relacao) {
+        validarCpfUnicoAdministrador(cpf);
+        boolean adminRaiz = mapAdministrador.isEmpty();
+        if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
+        salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao)));
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+    }
+
+    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin) {
+        validarCpfUnicoAdministrador(cpf);
+        boolean adminRaiz = mapAdministrador.isEmpty();
+        if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
+        salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz));
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
@@ -70,6 +88,10 @@ public class AdministradorService {
 
     public int pegarTamanhoMapAdministrador() {
         return mapAdministrador.size();
+    }
+
+    public List<CodigoAdministrador> pegarCodigoAdministradorList() {
+        return codigoAdministradorService.getCodigoAdministradorList();
     }
 
     public Map<String,Administrador> pegarCopiaMapAdministrador() {

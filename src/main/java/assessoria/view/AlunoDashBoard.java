@@ -1,5 +1,6 @@
 package assessoria.view;
 
+import assessoria.model.entidades.Administrador;
 import assessoria.model.entidades.Aluno;
 
 import java.util.Map;
@@ -10,12 +11,12 @@ public class AlunoDashBoard {
 
         String[] headers = {"id", "Nome", "Cpf", "Email", "Idade", "Telefone"};
 
-        int maxId = headers[0].length();
-        int maxNome = headers[1].length();
-        int maxCpf = headers[2].length();
-        int maxEmail = headers[3].length();
-        int maxIdade = headers[4].length();
-        int maxTelefone = headers[5].length();
+        int maxId = 0;
+        int maxNome = 0;
+        int maxCpf = 0;
+        int maxEmail = 0;
+        int maxIdade = 0;
+        int maxTelefone = 0;
 
         for(Map.Entry<String, Aluno> entry : typeMap.entrySet()) {
             maxId = Math.max(maxId, String.valueOf(entry.getValue().getIdade()).length());
@@ -26,45 +27,66 @@ public class AlunoDashBoard {
             maxTelefone = Math.max(maxTelefone, entry.getValue().getTelefone().length());
         }
 
-        int larguraId = maxId + 4;
-        int larguraNome = maxNome + 4;
-        int larguraCpf = maxCpf + 4;
-        int larguraEmail = maxEmail + 4;
-        int larguraIdade = maxIdade + 4;
-        int larguraTelefone = maxTelefone + 4;
+        int widthId = maxId + 6;
+        int widthNome = maxNome + 6;
+        int widthCpf = maxCpf + 6;
+        int widthEmail = maxEmail + 6;
+        int widthIdade = maxIdade + 6;
+        int widthTelefone = maxTelefone + 6;
 
-        // Linha separadora
-        int totalLargura = larguraId + larguraNome + larguraCpf + larguraEmail + larguraIdade + larguraTelefone + 7; // 7 separadores "|"
+        String linhaTitulo = "|" + campoFormatado(widthId, headers[0]) +
+                "|" + campoFormatado(widthNome, headers[1]) +
+                "|" + campoFormatado(widthCpf, headers[2]) +
+                "|" + campoFormatado(widthEmail, headers[3]) +
+                "|" + campoFormatado(widthIdade, headers[4]) +
+                "|" + campoFormatado(widthTelefone, headers[5]) +
+                "|";
 
-        System.out.println("\n\n");
-        System.out.println("-".repeat(totalLargura));
+        String tituloTabela = "DASHBOARD ALUNO";
+        int marginTitulo = linhaTitulo.length() - (tituloTabela.length() + 6);
+        int paddingTituloTabela = 6;
+        int marginTituloTabela = marginTitulo/2;
+        int bordasLateraisTituloTabela = 2;
 
-        String titulo =  "|" + center("ALUNOS CADASTRADOS", totalLargura-2) + "|";
+        String linhaTituloTabela = " ".repeat(marginTituloTabela-2) + "|" + " ".repeat(paddingTituloTabela) + tituloTabela + " ".repeat(paddingTituloTabela) + "|" + " ".repeat(marginTituloTabela-2);
+        String bordaTopTituloTabela = " ".repeat(marginTituloTabela-2) + "+ " + "-".repeat((tituloTabela.length() + (paddingTituloTabela*2) + bordasLateraisTituloTabela) - 4) + " +";
 
-        System.out.println(titulo);
-
-        System.out.println("-".repeat(totalLargura));
-
-        // Imprime o cabeçalho
-        String cabecalho = "|" + center("id", larguraId) + "|" + center("Nome", larguraNome) + "|" + center("Cpf", larguraCpf) + "|" +  center("Email", larguraEmail) + "|" + center("Idade", larguraIdade) + "|" + center("Telefone", larguraTelefone) + "|";
-        System.out.println(cabecalho);
-
-        System.out.println("-".repeat(totalLargura));
+        String bordaTabela = "+" + "-".repeat(widthId)
+                + "+" + "-".repeat(widthNome)
+                + "+" + "-".repeat(widthCpf)
+                + "+" + "-".repeat(widthEmail)
+                + "+" + "-".repeat(widthIdade)
+                + "+" + "-".repeat(widthTelefone)
+                + "+";
+        System.out.println("\n\n\n");
+        System.out.println(bordaTopTituloTabela);
+        System.out.println(linhaTituloTabela);
+        System.out.println(bordaTopTituloTabela);
+        System.out.println(bordaTabela);
+        System.out.println(linhaTitulo);
+        System.out.println(bordaTabela);
 
         // Dados
-        for (Map.Entry<String,Aluno> entry : typeMap.entrySet()) {
-            String linha = "|" + center(entry.getValue().getId(), larguraId) + "|" + center(entry.getValue().getNome(), larguraNome) + "|" + center(entry.getValue().getCpf(), larguraCpf) + "|" + center(entry.getValue().getEmail(), larguraEmail) + "|" + center(String.valueOf(entry.getValue().getIdade()), larguraIdade) + "|" + center(entry.getValue().getTelefone(), larguraTelefone) + "|";
-            System.out.println(linha);
-            System.out.println("-".repeat(totalLargura));
+        for (Aluno aluno : typeMap.values()) {
+            System.out.println(formatarCampoDadosAlunos(widthId, widthNome, widthCpf, widthEmail, widthIdade, widthTelefone, aluno));
         }
-
+        System.out.println(bordaTabela);
     }
 
-    // Método para centralizar o texto dentro de um campo
-    public static String center(String text, int width) {
-        int padding = width - text.length();
-        int padStart = padding / 2;
-        int padEnd = padding - padStart;
-        return " ".repeat(padStart) + text + " ".repeat(padEnd);
+    public static String campoFormatado(int widthCampo, String valorCampo) {
+        int valorPadding = widthCampo - valorCampo.length();
+        String padding = " ";
+
+        return padding + valorCampo + padding.repeat(valorPadding - 1);
+    }
+
+    private static String formatarCampoDadosAlunos(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, Aluno aluno) {
+        return "|" + campoFormatado(widthId, aluno.getId())
+                + "|" + campoFormatado(widthNome, aluno.getNome())
+                + "|" + campoFormatado(widthCpf, aluno.getCpf())
+                + "|" + campoFormatado(widthEmail, aluno.getEmail())
+                + "|" + campoFormatado(widthIdade, String.valueOf(aluno.getIdade()))
+                + "|" + campoFormatado(widthTelefone, aluno.getTelefone())
+                + "|";
     }
 }

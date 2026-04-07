@@ -65,5 +65,68 @@
       "descRestricaoMedica" : null,
       "descTipoSanguineo" : null
     }
+  },
+  "Alu8" : {
+    "id" : "Alu8",
+    "nome" : "Lucas Almeida Ribeiro",
+    "email" : "lucas.ribeiro79@gmail.com",
+    "cpf" : "104.332.181-00",
+    "idade" : 19,
+    "telefone" : "(41) 99301-0310",
+    "senhaHash" : "Lucas@2007",
+    "hashProvider" : "$2a$10$rKrZU8pEhputf3tcPQb5G.itiupP.0JEOocLPUJHDtH8c/kM6VMI6",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : null
+    }
+  },
+  "Alu9" : {
+    "id" : "Alu9",
+    "nome" : "Mariana Costa Ferreira",
+    "email" : "mariana.ferreira98@outlook.com",
+    "cpf" : "960.013.389-14",
+    "idade" : 22,
+    "telefone" : "(11) 95183-4738",
+    "senhaHash" : "Mariana#2004",
+    "hashProvider" : "$2a$10$pxmYBLMa4773gUxoL7.JueO8eX./VRHEvpHAslE.vFtDzkoAmBEe2",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : null
+    }
+  },
+  "Alu10" : {
+    "id" : "Alu10",
+    "nome" : "Pedro Henrique Martins",
+    "email" : "pedro.martins35@hotmail.com",
+    "cpf" : "083.863.794-99",
+    "idade" : 18,
+    "telefone" : "(21) 92997-3763",
+    "senhaHash" : "Pedro@2008",
+    "hashProvider" : "$2a$10$y497g2YbRPbN0Sql9PsB7ODU8zgrRgjQWDRlrPABjIK1XP9TL9SQa",
+    "contatoEmergencia" : null,
+    "infoMedica" : {
+      "descCondicaoMedica" : null,
+      "descAlergia" : null,
+      "quaisMedicamentoEmUso" : null,
+      "frequenciaMedicamentoEmUso" : null,
+      "descLesaoRecenteOuCronica" : null,
+      "descCirurgiaRecente" : null,
+      "descRestricaoMedica" : null,
+      "descTipoSanguineo" : null
+    }
   }
 }

@@ -46,29 +46,40 @@ public class AdministradorView {
         String hash = bCryptHash.gerarHash(senha);
         String codigoAdmin = InputHelper.lerString("Informe o código de administrador: ");
 
-        //Dados scundários
-        String condicaoMedica = InputHelper.pegarCondicaoMedica();
-        String alergia = InputHelper.pegarAlergia();
-        String[] medicamento = InputHelper.pegarMedicamentoEmUso();
-        String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
-        String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
-        String lesaoRecente = InputHelper.pegarLesao();
-        String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
-        String restricaoMedica = InputHelper.pegarRestricaoMedica();
-        String tipoSanguineo = InputHelper.pegarTipoSanguineo();
+        if(InputHelper.isAdicionarDadosInfoMedicaAgoraTrue()) {
+            String condicaoMedica = InputHelper.pegarCondicaoMedica();
+            String alergia = InputHelper.pegarAlergia();
+            String[] medicamento = InputHelper.pegarMedicamentoEmUso();
+            String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
+            String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
+            String lesaoRecente = InputHelper.pegarLesao();
+            String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
+            String restricaoMedica = InputHelper.pegarRestricaoMedica();
+            String tipoSanguineo = InputHelper.pegarTipoSanguineo();
 
-        if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
+            if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
+                System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
+                String nomeEmergencia = InputHelper.pegarNome();
+                String telefoneEmergencia = InputHelper.pegarTelefone();
+                String relacao = InputHelper.pegarRelacao();
+                administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+            } else {
+                administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+            }
+        } else if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
             System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
             String nomeEmergencia = InputHelper.pegarNome();
             String telefoneEmergencia = InputHelper.pegarTelefone();
             String relacao = InputHelper.pegarRelacao();
-            administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        } else {
-            System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
-            administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+            administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao);
         }
-    }
+        else {
+            administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin);
+        }
 
+        //administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+        //administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+    }
 
     public void mostrarMenuLoginAdministrador() {
         System.out.println("\n\n+ --------------------------------- +");
@@ -147,5 +158,9 @@ public class AdministradorView {
 
     public void gerarCodigoAdministrador() {
         System.out.println(">> Código: " + administradorController.gerarCodigoAdministrador());
+    }
+
+    public void mostrarCodigosAdministrador() {
+        CodigoAdministradorDashBoard.mostrarTabela(administradorController.pegarCodigoAdministradorList());
     }
 }

@@ -1,9 +1,11 @@
 package assessoria.controller;
 
 import assessoria.model.entidades.Administrador;
+import assessoria.model.entidades.CodigoAdministrador;
 import assessoria.service.AdministradorService;
 import assessoria.view.MensagemView;
 
+import java.util.List;
 import java.util.Map;
 
 public class AdministradorController{
@@ -30,6 +32,14 @@ public class AdministradorController{
         executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
     }
 
+    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin,String nomeEmergencia, String telefoneEmergencia, String relacao) {
+        executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao));
+    }
+
+    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin) {
+        executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin));
+    }
+
     public String gerarCodigoAdministrador() {
         return administradorService.gerarCodigoAdministrador();
     }
@@ -40,5 +50,9 @@ public class AdministradorController{
 
     public Map<String,Administrador> pegarMapAdministrador() {
         return administradorService.getMapAdministrador();
+    }
+
+    public List<CodigoAdministrador> pegarCodigoAdministradorList() {
+        return administradorService.pegarCodigoAdministradorList();
     }
 }
