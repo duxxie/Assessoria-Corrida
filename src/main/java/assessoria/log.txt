@@ -485,3 +485,8 @@
 [2026-04-07 19:56:59] INFO - Dados do administrador (ID Adm6) foi registrado no arquivo.
 [2026-04-07 19:58:52] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-07 19:58:52] INFO - Sistema encerrado.
+[2026-04-08 13:37:22] INFO - Sistema iniciado.
+[2026-04-08 13:37:22] INFO - IDs inicializados.
+[2026-04-08 13:40:39] INFO - Dados do aluno (ID Alu11) foi registrado no arquivo.
+[2026-04-08 13:43:34] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-08 13:43:34] INFO - Sistema encerrado.

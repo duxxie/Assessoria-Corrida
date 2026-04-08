@@ -76,9 +76,6 @@ public class AdministradorView {
         else {
             administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin);
         }
-
-        //administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        //administradorController.criarAdministrador(nome, email, cpf, idade, telefone, senha, hash, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
     }
 
     public void mostrarMenuLoginAdministrador() {
