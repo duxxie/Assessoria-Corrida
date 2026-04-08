@@ -34,6 +34,19 @@ public class AlunoService {
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao) {
+        validarCpfUnico(cpf);
+        salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao)));
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+    }
+
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha) {
+        validarCpfUnico(cpf);
+        salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class), nome, email, cpf, idade, telefone, senha, hashSenha));
+        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+    }
+
+
     public void validarCpfUnico(String cpf) {
         mapAluno.values().stream()
                 .filter(aluno -> aluno.getCpf().equals(cpf))

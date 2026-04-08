@@ -44,5 +44,19 @@
     },
     "idCodigoAdministrador" : "ADM-2FA4A5BB",
     "adiminRaiz" : false
+  },
+  "KAdm6" : {
+    "id" : "Adm6",
+    "nome" : "Jean Jackson",
+    "email" : "jean.jack@gmail.com",
+    "cpf" : "916.395.006-50",
+    "idade" : 29,
+    "telefone" : "(41) 92231-0039",
+    "senhaHash" : "Jean-jack@29",
+    "hashProvider" : "$2a$10$5wWzMnuvu12aSkRoe2fqeOIr/LbX54qh37qCtoOPsg3IJSlNM/WHa",
+    "contatoEmergencia" : null,
+    "infoMedica" : null,
+    "idCodigoAdministrador" : "ADM-E091B688",
+    "adiminRaiz" : false
   }
 }

@@ -32,12 +32,12 @@ public class AdministradorController{
         executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
     }
 
-    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin,String nomeEmergencia, String telefoneEmergencia, String relacao) {
-        executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao));
-    }
-
     public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin) {
         executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin));
+    }
+
+    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin,String nomeEmergencia, String telefoneEmergencia, String relacao) {
+        executeActionWithErrorHandler(() -> administradorService.criarAdministrador(nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, nomeEmergencia, telefoneEmergencia, relacao));
     }
 
     public String gerarCodigoAdministrador() {
