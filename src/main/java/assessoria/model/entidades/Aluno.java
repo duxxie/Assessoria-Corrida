@@ -16,4 +16,12 @@ public class Aluno extends Pessoa implements Usuario,Savable {
         super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider, infoMedica);
     }
 
+    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia) {
+        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider, contatoEmergencia);
+    }
+
+    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider) {
+        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider);
+    }
+
 }

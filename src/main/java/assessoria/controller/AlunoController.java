@@ -32,6 +32,14 @@ public class AlunoController{
         executeActionWithErrorHandler(() -> alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
     }
 
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao) {
+        executeActionWithErrorHandler(() -> alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha, nomeEmergencia, telefoneEmergencia, relacao));
+    }
+
+    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha) {
+        executeActionWithErrorHandler(() -> alunoService.criarAluno(nome, email, cpf, idade, telefone, senha, hashSenha));
+    }
+
     public void salvarAluno(Aluno aluno) {
         alunoService.salvarAluno(aluno);
     }

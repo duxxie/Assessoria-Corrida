@@ -26,7 +26,6 @@ public class AlunoView {
 
     public void pegarDadosAluno() {
         BCryptHash bCryptHash = new BCryptHash();
-        boolean dadosEmergencia = false;
 
         //Dados primários
         String nome = InputHelper.pegarNome();
@@ -37,28 +36,40 @@ public class AlunoView {
         String senha = InputHelper.pegarSenhaToCadastro();
         String hash = bCryptHash.gerarHash(senha);
 
-        //Dados scundários
-        String condicaoMedica = InputHelper.pegarCondicaoMedica();
-        String alergia = InputHelper.pegarAlergia();
-        String[] medicamento = InputHelper.pegarMedicamentoEmUso();
-        String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
-        String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
-        String lesaoRecente = InputHelper.pegarLesao();
-        String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
-        String restricaoMedica = InputHelper.pegarRestricaoMedica();
-        String tipoSanguineo = InputHelper.pegarTipoSanguineo();
+        if(InputHelper.isAdicionarDadosInfoMedicaAgoraTrue()) {
+            //Dados scundários
+            String condicaoMedica = InputHelper.pegarCondicaoMedica();
+            String alergia = InputHelper.pegarAlergia();
+            String[] medicamento = InputHelper.pegarMedicamentoEmUso();
+            String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
+            String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
+            String lesaoRecente = InputHelper.pegarLesao();
+            String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
+            String restricaoMedica = InputHelper.pegarRestricaoMedica();
+            String tipoSanguineo = InputHelper.pegarTipoSanguineo();
 
-        if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
+            if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
+                System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
+                String nomeEmergencia = InputHelper.pegarNome();
+                String telefoneEmergencia = InputHelper.pegarTelefone();
+                String relacao = InputHelper.pegarRelacao();
+                //Criando aluno com todos os atributos
+                alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+            } else {
+                //criar so com info medica
+                alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+            }
+        } else if (InputHelper.pegarEscolhaDadosContatoEmergencia()) {
             System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
             String nomeEmergencia = InputHelper.pegarNome();
             String telefoneEmergencia = InputHelper.pegarTelefone();
             String relacao = InputHelper.pegarRelacao();
-            //Criando aluno com todos os atributos
-            alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        } else {
-            //Criando aluno sem os dados do contato de emergencia
-            System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
-            alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+
+            alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash, nomeEmergencia, telefoneEmergencia, relacao);
+        }
+        else {
+            //criar só com dados genericos aluno
+            alunoController.criarAluno(nome, email, cpf, idade, telefone, senha, hash);
         }
     }
 

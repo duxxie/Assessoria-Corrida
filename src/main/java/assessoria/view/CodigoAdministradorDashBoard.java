@@ -27,6 +27,7 @@ public class CodigoAdministradorDashBoard {
 
         String bordaTitulo = "+" + "-".repeat(widthId) + "+" + "-".repeat(widthUsado) + "+";
 
+        System.out.println("\n\n\n");
         System.out.println(bordaTitulo);
         System.out.println(linhaTitulo);
         System.out.println(bordaTitulo);
