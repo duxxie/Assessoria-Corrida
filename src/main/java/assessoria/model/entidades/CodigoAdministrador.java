@@ -4,12 +4,14 @@ public class CodigoAdministrador implements Savable {
 
     private String id;
     private boolean usado;
+    private boolean ativo;
 
     public CodigoAdministrador() {};
 
-    public CodigoAdministrador(String id, boolean usado) {
+    public CodigoAdministrador(String id, boolean usado, boolean ativo) {
         this.id = id;
         this.usado = usado;
+        this.ativo = ativo;
     }
 
     public boolean isUsado() {
@@ -28,5 +30,13 @@ public class CodigoAdministrador implements Savable {
     @Override
     public void setId(String id) {
         this.id = id;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
     }
 }

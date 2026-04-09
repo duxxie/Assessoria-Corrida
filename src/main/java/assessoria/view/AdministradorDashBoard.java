@@ -1,33 +1,41 @@
 package assessoria.view;
 
+import assessoria.model.dto.AdministradorDetalhado;
 import assessoria.model.entidades.Administrador;
 
+import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AdministradorDashBoard {
 
-    public static void mostrarTabela(Map<String, Administrador> produtos) {
+    public static void mostrarTabela(List<AdministradorDetalhado> administradorDetalhadoList) {
 
-        String[] headers = {"Id", "Nome", "Cpf", "Email", "Idade", "Telefone", "CodigoAdministrador", "AdminRaiz"};
+        String[] headers = {"Id", "Nome", "Cpf", "Email", "Idade", "Telefone", "CodigoAdministrador", "AdminRaiz", "CodigoAtivo", "CogidoUsado"};
 
-        int maiorLengthId = 0;
-        int maiorLengthNome = 0;
-        int maiorLengthCpf = 0;
-        int maiorLengthEmail = 0;
-        int maiorLengthIdade = 0;
-        int maiorLengthTelefone = 0;
-        int maiorLengthCodigoAdmin = 0;
-        int maiorLengthAdminRaiz = 0;
+        int maiorLengthId = headers[0].length();
+        int maiorLengthNome = headers[1].length();
+        int maiorLengthCpf = headers[2].length();
+        int maiorLengthEmail = headers[3].length();
+        int maiorLengthIdade = headers[4].length();
+        int maiorLengthTelefone = headers[5].length();
+        int maiorLengthCodigoAdmin = headers[6].length();
+        int maiorLengthAdminRaiz = headers[7].length();
+        int maiorLengthCodigoAtivo = headers[8].length();
+        int maiorLengthCodigoUsado = headers[9].length();
 
-        for(Map.Entry<String, Administrador> entry : produtos.entrySet()) {
-            maiorLengthId = Math.max(maiorLengthId, entry.getValue().getId().length());
-            maiorLengthNome = Math.max(maiorLengthNome, entry.getValue().getNome().length());
-            maiorLengthCpf = Math.max(maiorLengthCpf, entry.getValue().getCpf().length());
-            maiorLengthEmail = Math.max(maiorLengthEmail, entry.getValue().getEmail().length());
-            maiorLengthIdade = Math.max(maiorLengthIdade, String.valueOf(entry.getValue().getIdade()).length());
-            maiorLengthTelefone = Math.max(maiorLengthTelefone, entry.getValue().getTelefone().length());
-            maiorLengthCodigoAdmin = Math.max(maiorLengthCodigoAdmin, entry.getValue().getIdCodigoAdministrador().length());
-            maiorLengthAdminRaiz = Math.max(maiorLengthAdminRaiz, String.valueOf(entry.getValue().isAdiminRaiz()).length());
+        for(AdministradorDetalhado administradorDetalhado : administradorDetalhadoList) {
+            maiorLengthId = Math.max(maiorLengthId, administradorDetalhado.id().length());
+            maiorLengthNome = Math.max(maiorLengthNome, administradorDetalhado.nome().length());
+            maiorLengthCpf = Math.max(maiorLengthCpf, administradorDetalhado.cpf().length());
+            maiorLengthEmail = Math.max(maiorLengthEmail, administradorDetalhado.email().length());
+            maiorLengthIdade = Math.max(maiorLengthIdade, String.valueOf(administradorDetalhado.idade()).length());
+            maiorLengthTelefone = Math.max(maiorLengthTelefone, administradorDetalhado.telefone().length());
+            maiorLengthCodigoAdmin = Math.max(maiorLengthCodigoAdmin, administradorDetalhado.idCodigoAdministrador().length());
+            maiorLengthAdminRaiz = Math.max(maiorLengthAdminRaiz, String.valueOf(administradorDetalhado.adminRaiz()).length());
+            maiorLengthCodigoAtivo = Math.max(maiorLengthCodigoAtivo, String.valueOf(administradorDetalhado.codigoAtivo()).length());
+            maiorLengthCodigoUsado = Math.max(maiorLengthCodigoUsado, String.valueOf(administradorDetalhado.codigoUsado()).length());
         }
 
         int widthId = maiorLengthId + 6;
@@ -38,6 +46,8 @@ public class AdministradorDashBoard {
         int widthTelefone = maiorLengthTelefone + 6;
         int widthCodigoAdmin = maiorLengthCodigoAdmin + 6;
         int widthAdminRaiz = maiorLengthAdminRaiz + 6;
+        int widthCodigoAtivo = maiorLengthCodigoAtivo + 6;
+        int widthCodigoUsado = maiorLengthCodigoUsado + 6;
 
         String linhaTituloAdministrador = "|" + campoFormatado(widthId, headers[0]) +
                 "|" + campoFormatado(widthNome, headers[1]) +
@@ -47,6 +57,8 @@ public class AdministradorDashBoard {
                 "|" + campoFormatado(widthTelefone, headers[5]) +
                 "|" + campoFormatado(widthCodigoAdmin, headers[6]) +
                 "|" + campoFormatado(widthAdminRaiz, headers[7]) +
+                "|" + campoFormatado(widthCodigoAtivo, headers[8]) +
+                "|" + campoFormatado(widthCodigoUsado, headers[9]) +
                 "|";
 
         String tituloTabela = "DASHBOARD ADMINISTRADOR";
@@ -65,6 +77,8 @@ public class AdministradorDashBoard {
                 + "+" + "-".repeat(widthTelefone)
                 + "+" + "-".repeat(widthCodigoAdmin)
                 + "+" + "-".repeat(widthAdminRaiz)
+                + "+" + "-".repeat(widthCodigoAtivo)
+                + "+" + "-".repeat(widthCodigoUsado)
                 + "+";
 
         System.out.println(bordaTopTituloTabela);
@@ -74,9 +88,21 @@ public class AdministradorDashBoard {
         System.out.println(linhaTituloAdministrador);
         System.out.println(bordaTabela);
 
-        for(Map.Entry<String,Administrador> entry : produtos.entrySet()) {
-            System.out.println(formatarCampoDadosAdministrador(widthId, widthNome, widthCpf, widthEmail, widthIdade, widthTelefone, widthCodigoAdmin, widthAdminRaiz,entry.getValue()));
-        }
+        administradorDetalhadoList.stream()
+                .forEach(administradorDetalhado -> System.out.println(
+                        formatarCampoDadosAdministrador(
+                                widthId,
+                                widthNome,
+                                widthCpf,
+                                widthEmail,
+                                widthIdade,
+                                widthTelefone,
+                                widthCodigoAdmin,
+                                widthAdminRaiz,
+                                widthCodigoAtivo,
+                                widthCodigoUsado,
+                                administradorDetalhado)));
+
         System.out.println(bordaTabela);
     }
 
@@ -88,15 +114,17 @@ public class AdministradorDashBoard {
         return padding + valorCampo + padding.repeat(valorPadding - 1);
     }
 
-    private static String formatarCampoDadosAdministrador(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, int widthCodigoAdmin, int widthAdminRaiz, Administrador administrador) {
-        return "|" + campoFormatado(widthId, administrador.getId())
-                + "|" + campoFormatado(widthNome, administrador.getNome())
-                + "|" + campoFormatado(widthCpf, administrador.getCpf())
-                + "|" + campoFormatado(widthEmail, administrador.getEmail())
-                + "|" + campoFormatado(widthIdade, String.valueOf(administrador.getIdade()))
-                + "|" + campoFormatado(widthTelefone, administrador.getTelefone())
-                + "|" + campoFormatado(widthCodigoAdmin, administrador.getIdCodigoAdministrador())
-                + "|" + campoFormatado(widthAdminRaiz, String.valueOf(administrador.isAdiminRaiz()))
+    private static String formatarCampoDadosAdministrador(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, int widthCodigoAdmin, int widthAdminRaiz, int widthCodigoAtivo, int widthCodigoUsado, AdministradorDetalhado administradorDetalhado) {
+        return "|" + campoFormatado(widthId, administradorDetalhado.id())
+                + "|" + campoFormatado(widthNome, administradorDetalhado.nome())
+                + "|" + campoFormatado(widthCpf, administradorDetalhado.cpf())
+                + "|" + campoFormatado(widthEmail, administradorDetalhado.email())
+                + "|" + campoFormatado(widthIdade, String.valueOf(administradorDetalhado.idade()))
+                + "|" + campoFormatado(widthTelefone, administradorDetalhado.telefone())
+                + "|" + campoFormatado(widthCodigoAdmin, administradorDetalhado.idCodigoAdministrador())
+                + "|" + campoFormatado(widthAdminRaiz, String.valueOf(administradorDetalhado.adminRaiz()))
+                + "|" + campoFormatado(widthCodigoAtivo, String.valueOf(administradorDetalhado.codigoAtivo()))
+                + "|" + campoFormatado(widthCodigoUsado, String.valueOf(administradorDetalhado.codigoUsado()))
                 + "|";
     }
 }

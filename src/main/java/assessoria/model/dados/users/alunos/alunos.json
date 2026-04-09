@@ -128,5 +128,17 @@
       "descRestricaoMedica" : null,
       "descTipoSanguineo" : null
     }
+  },
+  "Alu11" : {
+    "id" : "Alu11",
+    "nome" : "Ana Beatriz Souza",
+    "email" : "ana.souza93@gmail.com",
+    "cpf" : "026.542.351-14",
+    "idade" : 24,
+    "telefone" : "(31) 91066-9784",
+    "senhaHash" : "AnaBeatriz#2002",
+    "hashProvider" : "$2a$10$iwJnCTIA0MdUdLadGHkikOyVqZPrDkw9ARCBOKBt4c8m92hidD7Iq",
+    "contatoEmergencia" : null,
+    "infoMedica" : null
   }
 }

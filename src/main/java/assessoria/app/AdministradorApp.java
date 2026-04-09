@@ -24,7 +24,8 @@ public class AdministradorApp {
 
     public void executarLogin() {
         administradorView.mostrarMenuLoginAdministrador();
-        executarAcao(administradorView.pegarEtratarDadosLogin());
+        Administrador administrador = administradorView.pegarEtratarDadosLogin();
+        if(administrador != null) executarAcao(administrador);
     }
 
     private void executarAcao(Administrador administrador) {
@@ -62,6 +63,9 @@ public class AdministradorApp {
             case 5 -> administradorView.gerarCodigoAdministrador();
             case 6 -> administradorView.mostrarAdministradores();
             case 7 -> administradorView.mostrarCodigosAdministrador();
+            case 8 -> administradorView.desativarAdministrador();
+            case 9 -> administradorView.reativarAdministrador();
+            case 10 -> administradorView.excluirAdministrador();
             case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }

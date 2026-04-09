@@ -4,24 +4,87 @@ public class Aluno extends Pessoa implements Usuario,Savable {
 
     public Aluno() {super();}
 
-    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone) {
-        super(id, nome, email, cpf, idade, telefone);
+    private Aluno(Builder builder) {
+        super(
+                builder.id,
+                builder.nome,
+                builder.email,
+                builder.cpf,
+                builder.idade,
+                builder.telefone,
+                builder.senhaHash,
+                builder.hashProvider,
+                builder.contatoEmergencia,
+                builder.infoMedica
+        );
     }
 
-    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
-        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider, contatoEmergencia, infoMedica);
-    }
+    public static class Builder {
+        private String id;
+        private String nome;
+        private String email;
+        private String cpf;
+        private int idade;
+        private String telefone;
+        private String senhaHash;
+        private String hashProvider;
+        private ContatoEmergencia contatoEmergencia;
+        private InfoMedica infoMedica;
 
-    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, InfoMedica infoMedica) {
-        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider, infoMedica);
-    }
+        public Builder id(String id) {
+            this.id = id;
+            return this;
+        }
 
-    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia) {
-        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider, contatoEmergencia);
-    }
+        public Builder nome(String nome) {
+            this.nome = nome;
+            return this;
+        }
 
-    public Aluno(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider) {
-        super(id, nome, email, cpf, idade, telefone, senhaHash, hashProvider);
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder cpf(String cpf) {
+            this.cpf = cpf;
+            return this;
+        }
+
+        public Builder idade(int idade) {
+            this.idade = idade;
+            return this;
+        }
+
+        public Builder telefone(String telefone) {
+            this.telefone = telefone;
+            return this;
+        }
+
+        public Builder senhaHash(String senhaHash) {
+            this.senhaHash = senhaHash;
+            return this;
+        }
+
+        public Builder hashProvider(String hashProvider) {
+            this.hashProvider = hashProvider;
+            return this;
+        }
+
+        public Builder contatoEmergencia(ContatoEmergencia contatoEmergencia) {
+            this.contatoEmergencia = contatoEmergencia;
+            return this;
+        }
+
+        public Builder infoMedica(InfoMedica infoMedica) {
+            this.infoMedica = infoMedica;
+            return this;
+        }
+
+        public Aluno build() {
+            return new Aluno(this);
+        }
+
     }
 
 }

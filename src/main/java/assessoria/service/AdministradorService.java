@@ -1,17 +1,25 @@
 package assessoria.service;
 
+import assessoria.exceptions.NotFoundException;
+import assessoria.exceptions.OperationNotAllowedException;
+import assessoria.exceptions.ValidationException;
 import assessoria.model.dao.AdministradorDAO;
+import assessoria.model.dto.AdministradorDetalhado;
+import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Administrador;
 import assessoria.model.entidades.CodigoAdministrador;
 import assessoria.model.entidades.ContatoEmergencia;
 import assessoria.model.entidades.InfoMedica;
 import assessoria.util.helpers.GeradorID;
+import assessoria.util.helpers.Validador;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class AdministradorService {
     private final AdministradorDAO dao;
@@ -24,38 +32,81 @@ public class AdministradorService {
         this.mapAdministrador = this.dao.lerDadosDoArquivo();
     }
 
-    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        validarCpfUnicoAdministrador(cpf);
+    public List<AdministradorDetalhado> gerarListaAdministradorParaExibicao() {
+        if(getMapAdministrador().isEmpty()) throw new NotFoundException("Falha ao gerar lista para Administrador | Motivo: nenhum administrador cadastrado");
+        List<AdministradorDetalhado> administradorDetalhados = getMapAdministrador().values().stream()
+                .map(this::gerarAdministradorDetalhado)
+                .toList();
+
+        return administradorDetalhados;
+    }
+
+    private AdministradorDetalhado gerarAdministradorDetalhado(Administrador administrador) {
+        CodigoAdministrador codigoAdministrador = codigoAdministradorService.encontrarCodigoAdministrador(administrador.getIdCodigoAdministrador());
+
+        return new AdministradorDetalhado(
+                administrador.getId(),
+                administrador.getNome(),
+                administrador.getEmail(),
+                administrador.getCpf(),
+                administrador.getIdade(),
+                administrador.getTelefone(),
+                administrador.getIdCodigoAdministrador(),
+                administrador.isAdiminRaiz(),
+                codigoAdministrador.isAtivo(),
+                codigoAdministrador.isUsado()
+        );
+    }
+
+    public Administrador validarLogin(String email, String senha) {
+        Administrador administrador = Validador.isDadosLoginValido(email, senha, getMapAdministrador());
+        codigoAdministradorService.validarCodigoAdministradorParaLogin(administrador.getIdCodigoAdministrador());
+
+        return administrador;
+    }
+
+    public void criarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
+        validarCpfUnicoAdministrador(dadosCadastroPessoa.getCpf());
         boolean adminRaiz = mapAdministrador.isEmpty();
-        if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
-        salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao), new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
-        codigoAdministradorService.desativarCodigoAdministrador(codigoAdmin);
+        if(!adminRaiz) codigoAdministradorService.validarCodigoAdministradorParaCadastro(codigoAdmin);
+
+        Administrador administrador = new Administrador.Builder()
+                .id(GeradorID.gerarIdClass(Administrador.class))
+                .nome(dadosCadastroPessoa.getNome())
+                .email(dadosCadastroPessoa.getEmail())
+                .cpf(dadosCadastroPessoa.getCpf())
+                .idade(dadosCadastroPessoa.getIdade())
+                .telefone(dadosCadastroPessoa.getTelefone())
+                .senhaHash(dadosCadastroPessoa.getSenhaHash())
+                .hashProvider(dadosCadastroPessoa.getHashProvider())
+                .contatoEmergencia(dadosCadastroPessoa.getContatoEmergencia())
+                .infoMedica(dadosCadastroPessoa.getInfoMedica())
+                .build(codigoAdmin, adminRaiz);
+
+        salvarAdministrador(administrador);
+        codigoAdministradorService.setarCodigoAdministradorUsadoTrue(codigoAdmin);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
-    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        validarCpfUnicoAdministrador(cpf);
-        boolean adminRaiz = mapAdministrador.isEmpty();
-        if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
-        salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
-        codigoAdministradorService.desativarCodigoAdministrador(codigoAdmin);
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+    public void excluirAdministrador(String idAdministradorInformado) {
+        Administrador administrador = findAdministradorPorId(idAdministradorInformado);
+        mapAdministrador.remove(administrador.getId(), administrador);
+        codigoAdministradorService.setarCodigoAdminUsadoFalse(administrador.getIdCodigoAdministrador());
+        atualizarMapAdministradorNoArquivo();
+        MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi excluido com sucesso!!");
     }
 
-    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin,String nomeEmergencia, String telefoneEmergencia, String relacao) {
-        validarCpfUnicoAdministrador(cpf);
-        boolean adminRaiz = mapAdministrador.isEmpty();
-        if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
-        salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao)));
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+
+    public void desativarAdministrador(String idAdministradorInformado) {
+        Administrador administrador = findAdministradorPorId(idAdministradorInformado);
+        codigoAdministradorService.desativarCodigoAdministrador(administrador.getIdCodigoAdministrador());
+        MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi desativado com sucesso!!");
     }
 
-    public void criarAdministrador(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String codigoAdmin) {
-        validarCpfUnicoAdministrador(cpf);
-        boolean adminRaiz = mapAdministrador.isEmpty();
-        if(!adminRaiz) codigoAdministradorService.validarCodigoUnicoAndSendoUsado(codigoAdmin);
-        salvarAdministrador(new Administrador(GeradorID.gerarIdClass(Administrador.class), nome, email, cpf, idade, telefone, senha, hashSenha, codigoAdmin, adminRaiz));
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+    public void reativarAdministrador(String idAdministradorInformado) {
+        Administrador administrador = findAdministradorPorId(idAdministradorInformado);
+        codigoAdministradorService.reativarCodigoAdministrador(administrador.getIdCodigoAdministrador());
+        MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi reativado com sucesso!!");
     }
 
     public String gerarCodigoAdministrador() {
@@ -64,12 +115,12 @@ public class AdministradorService {
 
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
-        inserirAdministradorArquivo();
+        atualizarMapAdministradorNoArquivo();
         Log.registrar("Info", "Dados do administrador (ID " + administrador.getId() + ") foi registrado no arquivo.");
     }
 
     private void salvarAdministradorMap(Administrador administrador) {
-        mapAdministrador.put("K" + administrador.getId(), administrador);
+        mapAdministrador.put(administrador.getId(), administrador);
         Log.registrar("Info", "Administrador ID " + administrador.getId() + " foi adicionado ao Map");
     }
 
@@ -78,11 +129,19 @@ public class AdministradorService {
                 .filter(administrador -> administrador.getCpf().equals(cpf))
                 .findAny()
                 .ifPresent(administrador -> {
-                    throw new IllegalArgumentException("Cpf informado já está cadastrado");
+                    throw new ValidationException("Falha no cadastro do administrador | Motivo: cpf informado já está cadastrado");
                 });
     }
 
-    private void inserirAdministradorArquivo() {
+    public Administrador findAdministradorPorId(String idAdministradorInformado) {
+        Administrador administrador = mapAdministrador.get(idAdministradorInformado);
+
+        if(administrador == null) throw new NotFoundException("Falha ao encontrar o administrador com o id: " + idAdministradorInformado + " | Motivo: id não encontrado");
+
+        return administrador;
+    }
+
+    private void atualizarMapAdministradorNoArquivo() {
         dao.inserirDadosNoArquivo(getMapAdministrador());
     }
 

@@ -1,6 +1,7 @@
 package assessoria.service;
 
 import assessoria.model.dao.AlunoDAO;
+import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.ContatoEmergencia;
 import assessoria.model.entidades.InfoMedica;
@@ -22,37 +23,32 @@ public class AlunoService {
         this.mapAluno = this.dao.lerDadosDoArquivo();
     }
 
-    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-       validarCpfUnico(cpf);
-        salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao), new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+    public void criarAluno(DadosCadastroPessoa dadosCadastroPessoa) {
+        validarCpfUnico(dadosCadastroPessoa.getCpf());
+
+        Aluno aluno = new Aluno.Builder()
+                .id(GeradorID.gerarIdClass(Aluno.class))
+                .nome(dadosCadastroPessoa.getNome())
+                .email(dadosCadastroPessoa.getEmail())
+                .cpf(dadosCadastroPessoa.getCpf())
+                .idade(dadosCadastroPessoa.getIdade())
+                .telefone(dadosCadastroPessoa.getTelefone())
+                .senhaHash(dadosCadastroPessoa.getSenhaHash())
+                .hashProvider(dadosCadastroPessoa.getHashProvider())
+                .contatoEmergencia(dadosCadastroPessoa.getContatoEmergencia())
+                .infoMedica(dadosCadastroPessoa.getInfoMedica())
+                .build();
+
+        salvarAluno(aluno);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
-
-    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        validarCpfUnico(cpf);
-        salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class),nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
-    }
-
-    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao) {
-        validarCpfUnico(cpf);
-        salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao)));
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
-    }
-
-    public void criarAluno(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha) {
-        validarCpfUnico(cpf);
-        salvarAluno(new Aluno(GeradorID.gerarIdClass(Aluno.class), nome, email, cpf, idade, telefone, senha, hashSenha));
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
-    }
-
 
     public void validarCpfUnico(String cpf) {
         mapAluno.values().stream()
                 .filter(aluno -> aluno.getCpf().equals(cpf))
                 .findAny()
                 .ifPresent(aluno -> {
-                    throw new IllegalArgumentException("Cpf já informado já está cadastrado");
+                    throw new IllegalArgumentException("Cpf informado já está cadastrado");
                 });
     }
 
