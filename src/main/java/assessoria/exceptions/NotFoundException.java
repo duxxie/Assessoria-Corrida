@@ -1,0 +1,7 @@
+package assessoria.exceptions;
+
+public class NotFoundException extends BusinessException {
+    public NotFoundException(String message) {
+        super(message);
+    }
+}

@@ -1,5 +1,6 @@
 package assessoria.util.helpers;
 
+import assessoria.exceptions.ValidationException;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Usuario;
 
@@ -70,7 +71,7 @@ public class Validador {
                 return entry.getValue();
             }
         }
-        throw new IllegalArgumentException("Email ou senha inválidos!!");
+        throw new ValidationException("Falha ao validar cadastro | Motivo: email ou senha inválidos!!");
     }
 
     public static Aluno isCpfExiste(String cpf, Map<String, Aluno> map) {

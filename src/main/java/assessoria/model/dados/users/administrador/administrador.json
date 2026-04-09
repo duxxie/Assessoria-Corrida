@@ -1,59 +1,41 @@
 {
-  "KAdm3" : {
-    "id" : "Adm3",
+  "Adm7" : {
+    "id" : "Adm7",
     "nome" : "Carla Machado",
     "email" : "carla_ma@gmail.com",
     "cpf" : "162.488.220-00",
     "idade" : 32,
     "telefone" : "(41)93330-8980",
     "senhaHash" : "ca1rlaZ0",
-    "hashProvider" : "$2a$10$dUp9u/T4jigvscEoui5pzOlZ50TOLDyjan/vfaZwdD4h2Evtr0wXq",
+    "hashProvider" : "$2a$10$Dkx0yiMbJ.JTxd7Gzm9.duYSgiyCvXlvNv53Ac.T3meS20IMp6IeW",
     "contatoEmergencia" : null,
-    "infoMedica" : {
-      "descCondicaoMedica" : null,
-      "descAlergia" : null,
-      "quaisMedicamentoEmUso" : null,
-      "frequenciaMedicamentoEmUso" : null,
-      "descLesaoRecenteOuCronica" : null,
-      "descCirurgiaRecente" : null,
-      "descRestricaoMedica" : null,
-      "descTipoSanguineo" : null
-    },
+    "infoMedica" : null,
     "idCodigoAdministrador" : "ADM-7KQ9-XP21-2026",
     "adiminRaiz" : true
   },
-  "KAdm5" : {
-    "id" : "Adm5",
+  "Adm8" : {
+    "id" : "Adm8",
     "nome" : "Pedro Fagundes",
     "email" : "pedro.faa@gmail.com",
     "cpf" : "370.373.659-39",
     "idade" : 28,
     "telefone" : "41934258890",
     "senhaHash" : "Pedro@28",
-    "hashProvider" : "$2a$10$K.AtnPc5SS14rMZhGE76YelQURfwVcvdMkQ47IxmSRfeuXjmb77mu",
+    "hashProvider" : "$2a$10$UuvSmlpNZiB0mLM3bD6y1.K.bX2GxZ4RDX3lJv1ZcY3AonylUJr1O",
     "contatoEmergencia" : null,
-    "infoMedica" : {
-      "descCondicaoMedica" : null,
-      "descAlergia" : null,
-      "quaisMedicamentoEmUso" : null,
-      "frequenciaMedicamentoEmUso" : null,
-      "descLesaoRecenteOuCronica" : null,
-      "descCirurgiaRecente" : null,
-      "descRestricaoMedica" : null,
-      "descTipoSanguineo" : null
-    },
+    "infoMedica" : null,
     "idCodigoAdministrador" : "ADM-2FA4A5BB",
     "adiminRaiz" : false
   },
-  "KAdm6" : {
-    "id" : "Adm6",
+  "Adm9" : {
+    "id" : "Adm9",
     "nome" : "Jean Jackson",
     "email" : "jean.jack@gmail.com",
     "cpf" : "916.395.006-50",
     "idade" : 29,
     "telefone" : "(41) 92231-0039",
     "senhaHash" : "Jean-jack@29",
-    "hashProvider" : "$2a$10$5wWzMnuvu12aSkRoe2fqeOIr/LbX54qh37qCtoOPsg3IJSlNM/WHa",
+    "hashProvider" : "$2a$10$dqTs0kcySCd8xqkF.7LHouoETcm/2jVipEQUEGJAiPlz/nU2pXYCC",
     "contatoEmergencia" : null,
     "infoMedica" : null,
     "idCodigoAdministrador" : "ADM-E091B688",

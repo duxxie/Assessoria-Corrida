@@ -1,10 +1,13 @@
 [ {
   "id" : "ADM-7KQ9-XP21-2026",
-  "usado" : true
+  "usado" : true,
+  "ativo" : true
 }, {
   "id" : "ADM-2FA4A5BB",
-  "usado" : true
+  "usado" : true,
+  "ativo" : true
 }, {
   "id" : "ADM-E091B688",
-  "usado" : false
+  "usado" : true,
+  "ativo" : true
 } ]
