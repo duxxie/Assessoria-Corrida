@@ -9,6 +9,10 @@ public class Log {
 
     private static final String arquivo = "src/main/java/assessoria/log.txt";
 
+    //erro
+    //warn
+    //info
+
     public static void registrar(String tipo, String mensagem) {
         try(FileWriter fileWriter = new FileWriter(arquivo, true)) {
             LocalDateTime agora = LocalDateTime.now();

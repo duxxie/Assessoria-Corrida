@@ -121,7 +121,7 @@ public class AdministradorService {
 
     private void salvarAdministradorMap(Administrador administrador) {
         mapAdministrador.put(administrador.getId(), administrador);
-        Log.registrar("Info", "Administrador ID " + administrador.getId() + " foi adicionado ao Map");
+        Log.registrar("Info", "Administrador ID " + administrador.getId() + " foi adicionado em memória");
     }
 
     private void validarCpfUnicoAdministrador(String cpf) {
@@ -143,6 +143,7 @@ public class AdministradorService {
 
     private void atualizarMapAdministradorNoArquivo() {
         dao.inserirDadosNoArquivo(getMapAdministrador());
+        Log.registrar("Info", "Map de administrador foi atualizado no arquivo");
     }
 
     public int pegarTamanhoMapAdministrador() {

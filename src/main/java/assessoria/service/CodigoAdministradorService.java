@@ -5,6 +5,7 @@ import assessoria.exceptions.NotFoundException;
 import assessoria.exceptions.OperationNotAllowedException;
 import assessoria.model.dao.CodigoAdministradorDAO;
 import assessoria.model.entidades.CodigoAdministrador;
+import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
 import java.util.List;
@@ -38,6 +39,7 @@ public class CodigoAdministradorService {
     public void setarCodigoAdministradorUsadoTrue(String codigoAdmin) {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         codigoAdministrador.setUsado(true);
+        Log.registrar("Info", "Codigo administrador foi atualizado em memória | usado = true");
         atualizarListDadosArquivo();
     }
 
