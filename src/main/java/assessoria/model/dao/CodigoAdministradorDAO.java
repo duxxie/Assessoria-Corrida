@@ -25,7 +25,7 @@ public class CodigoAdministradorDAO{
             objectMapper.writeValue(new File(caminhoArquivo), codigoAdministradorList);
         } catch (IOException e) {
             MensagemView.mostrarErro("Erro ao tentar salvar dados!!");
-            Log.registrar("Error", "Falha ao tentar salvar dados ");
+            Log.registrarErro( "Falha ao salvar dados do codigoAdministrador no arquivo");
             System.out.println(e.getMessage());
         }
     }

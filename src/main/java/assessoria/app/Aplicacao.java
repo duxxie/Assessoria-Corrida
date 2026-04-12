@@ -89,12 +89,12 @@ public class Aplicacao {
 
     public void inicializarIds() {
         GeradorID.carregarIds();
-        Log.registrar("Info", "IDs inicializados.");
+        Log.registrarInfo( "IDs inicializados.");
     }
 
     public void salvarDados() {
         GeradorID.salvarIds();
-        Log.registrar("Info", "Salvos os ultimos IDs que foram gerados.");
+        Log.registrarInfo( "Salvos os ultimos IDs que foram gerados.");
     }
 
     private void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {

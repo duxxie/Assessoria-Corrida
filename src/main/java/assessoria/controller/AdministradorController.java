@@ -11,6 +11,7 @@ import assessoria.model.entidades.CodigoAdministrador;
 import assessoria.service.AdministradorService;
 import assessoria.view.MensagemView;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -34,6 +35,8 @@ public class AdministradorController{
             e.getMessage();
         } catch (InvalidStateException e) {
             e.getMessage();
+        } catch (IOException e) {
+            e.getMessage();
         }
     }
 
@@ -54,7 +57,7 @@ public class AdministradorController{
     }
 
     public void salvarAdministrador(Administrador administrador) {
-        administradorService.salvarAdministrador(administrador);
+        executeActionWithErrorHandler(() -> administradorService.salvarAdministrador(administrador));
     }
 
     private <T> T executeActionWithErrorHandlerWithReturn(Supplier<T> action) {
