@@ -116,7 +116,6 @@ public class AdministradorService {
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
         atualizarMapAdministradorNoArquivo();
-        Log.registrar("Info", "Dados do administrador (ID " + administrador.getId() + ") foi registrado no arquivo.");
     }
 
     private void salvarAdministradorMap(Administrador administrador) {

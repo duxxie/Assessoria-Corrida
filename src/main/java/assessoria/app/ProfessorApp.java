@@ -84,7 +84,7 @@ public class ProfessorApp {
     }
 
     private void executarAcao(Professor professor) {
-        Log.registrar("info", professor.getNome() + " fez login");
+        Log.registrarInfo( professor.getNome() + " fez login no sistema");
         int opcao;
         do {
             professorView.mostrarMenuAcoes();

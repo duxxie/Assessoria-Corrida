@@ -24,12 +24,11 @@ public abstract class GenericDAO<T extends Savable> {
     public void inserirDadosNoArquivo(Map<String, T> typeMap) {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
-        try{
+
             objectMapper.writeValue(new File(getCaminhoBase() + getCaminhoArquivo()), typeMap);
 
-        } catch (IOException e) {
             mensagemView.mostrarErro("Erro ao tentar salvar dados!!");
-            Log.registrar("Error", "Falha ao tentar salvar dados ");
+            Log.registrarErro("Falha ao salvar dados do " + getNomeClass() + " no arquivo");
             System.out.println(e.getMessage());
         }
     }
@@ -42,9 +41,6 @@ public abstract class GenericDAO<T extends Savable> {
         }
         try {
             return objectMapper.readValue(file, objectMapper.getTypeFactory().constructMapType(LinkedHashMap.class, String.class, typeClass));
-            //mensagemView.mostrarSucesso("Map de " + getNomeClass() + "carregado");
-
-
         } catch (Exception e) {
             mensagemView.mostrarErro("Erro ao carregar map de " + getNomeClass());
             throw new RuntimeException(e);

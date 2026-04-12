@@ -75,7 +75,7 @@ public class AlunoApp {
     }
 
     private void executarAcao(Aluno aluno) {
-        Log.registrar("info", aluno.getNome() + " fez login");
+        Log.registrarInfo( aluno.getNome() + " fez login no sistema");
         int opcao;
         do {
             alunoView.mostrarMenuAcoes();

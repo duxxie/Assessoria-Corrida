@@ -6,10 +6,10 @@ public class Main {
 
     public static void main(String[] args) {
         Aplicacao app = new Aplicacao();
-        Log.registrar("info", "Sistema iniciado.");
+        Log.registrarInfo( "Sistema iniciado.");
         app.inicializarIds();
         app.executarPrograma();
         app.salvarDados();
-        Log.registrar("Info", "Sistema encerrado.");
+        Log.registrarInfo("Sistema encerrado.");
     }
 }
