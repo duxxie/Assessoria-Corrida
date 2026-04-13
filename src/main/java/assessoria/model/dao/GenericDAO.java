@@ -1,5 +1,6 @@
 package assessoria.model.dao;
 
+import assessoria.exceptions.PersistenciaException;
 import assessoria.model.entidades.Savable;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
@@ -25,11 +26,10 @@ public abstract class GenericDAO<T extends Savable> {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
+        try {
             objectMapper.writeValue(new File(getCaminhoBase() + getCaminhoArquivo()), typeMap);
-
-            mensagemView.mostrarErro("Erro ao tentar salvar dados!!");
-            Log.registrarErro("Falha ao salvar dados do " + getNomeClass() + " no arquivo");
-            System.out.println(e.getMessage());
+        } catch (IOException e) {
+            throw new PersistenciaException("Falha ao gravar dados no arquivo JSON.", e);
         }
     }
 

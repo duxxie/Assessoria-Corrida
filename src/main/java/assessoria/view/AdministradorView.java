@@ -111,34 +111,34 @@ public class AdministradorView {
         alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
     }
 
-    public void mostrarAdministradores() {
+    public void mostrarAdministradores(Administrador administrador) {
         var listAdminParaExibicao = administradorController.gerarListaAdministradorParaExibicao();
         if(listAdminParaExibicao != null) AdministradorDashBoard.mostrarTabela(listAdminParaExibicao);
     }
 
-    public void gerarCodigoAdministrador() {
-        System.out.println(">> Código: " + administradorController.gerarCodigoAdministrador());
+    public void gerarCodigoAdministrador(Administrador administrador) {
+        System.out.println(">> Código: " + administradorController.gerarCodigoAdministrador(administrador));
     }
 
-    public void mostrarCodigosAdministrador() {
+    public void mostrarCodigosAdministrador(Administrador administrador) {
         CodigoAdministradorDashBoard.mostrarTabela(administradorController.pegarCodigoAdministradorList());
     }
 
-    public void excluirAdministrador() {
-        mostrarAdministradores();
+    public void excluirAdministrador(Administrador administrador) {
+        mostrarAdministradores(administrador);
         String idAdministradorInformado = InputHelper.lerString("\n >> Informe o id do administrador que deseja excluir: ");
-        administradorController.excluirAdministrador(idAdministradorInformado);
+        administradorController.excluirAdministrador(idAdministradorInformado, administrador);
     }
 
-    public void desativarAdministrador() {
-        mostrarAdministradores();
+    public void desativarAdministrador(Administrador administrador) {
+        mostrarAdministradores(administrador);
         String idAdministradorInformado = InputHelper.lerString("\n >> Infome o id do administrador que deseja desativar: ");
-        administradorController.desativarAdministrador(idAdministradorInformado);
+        administradorController.desativarAdministrador(idAdministradorInformado, administrador);
     }
 
-    public void reativarAdministrador() {
-        mostrarAdministradores();
+    public void reativarAdministrador(Administrador administrador) {
+        mostrarAdministradores(administrador);
         String idAdministradorInformado = InputHelper.lerString("\n >> Informe o id do administrador que deseja reativar: ");
-        administradorController.reativarAdministrador(idAdministradorInformado);
+        administradorController.reativarAdministrador(idAdministradorInformado, administrador);
     }
 }

@@ -23,7 +23,7 @@ public class TreinoService {
         String id = GeradorID.gerarIdTreino();
         salvarTreinoMap(new Treino(id, aluno, professor));
         salvarTreinoArquivo();
-        Log.registrar("info", "Dados do treino (ID " + id + ") foi registrado no arquivo.");
+        Log.registrar("Treino criado com sucesso. Id=" + id + ", IdALuno=" + aluno.getId() + ", IdProfessor=" + professor.getId());
         return id;
     }
 
@@ -45,7 +45,6 @@ public class TreinoService {
 
     public void salvarTreinoArquivo() {
         dao.inserirDadosNoArquivo(getMapTreino());
-        Log.registrar("Info", "Map de treinos foi salvo no arquivo.");
     }
 
     public void atualizarProfessorNoTreino(Professor professor) {

@@ -176,7 +176,6 @@ public class ProfessorView {
             String cpfAluno = InputHelper.pegarCpf();
             Aluno aluno = Validador.isCpfExiste(cpfAluno, alunoController.pegarMapAlunos());
             if(aluno != null) {
-                Log.registrar("info", "Aluno com ID(" + aluno.getId() + ") foi selecionado para receber um treino");
                 return aluno;
             }else {
                 System.out.println("Aluno não encontrado!!");
@@ -189,7 +188,6 @@ public class ProfessorView {
             Aluno aluno = escolherAlunoPorCpf();
             Treino treino = treinoController.isAlunoInTreino(aluno);
             if(treino != null) {
-                Log.registrar("info", "Aluno com ID(" + aluno.getId() + ") foi selecionado para modificar o seu treino.");
                 return treino;
             } else {
                 System.out.println("Aluno não possui um treino criado!!");

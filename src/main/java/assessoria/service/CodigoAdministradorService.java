@@ -39,28 +39,34 @@ public class CodigoAdministradorService {
     public void setarCodigoAdministradorUsadoTrue(String codigoAdmin) {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         codigoAdministrador.setUsado(true);
-        Log.registrar("Info", "Codigo administrador foi atualizado em memória | usado = true");
         atualizarListDadosArquivo();
+        Log.registrar("Codigo administrador atualizado. Id=" + codigoAdministrador.getId() + " | Campo=usado | Antes=false | Depois=" + codigoAdministrador.isUsado());
     }
 
     public void setarCodigoAdminUsadoFalse(String codigoAdmin) {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         codigoAdministrador.setUsado(false);
         atualizarListDadosArquivo();
+        Log.registrar("Codigo administrador atualizado. Id=" + codigoAdministrador.getId() + " | Campo=usado | Antes=true | Depois=" + codigoAdministrador.isUsado());
     }
 
     public void desativarCodigoAdministrador(String codigoAdmin) {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         if(!codigoAdministrador.isAtivo()) throw new InvalidStateException("Falha ao desativar o codigo " + codigoAdmin + " | Motivo: o codigo já está desativado!");
+        boolean campoAntigo = codigoAdministrador.isAtivo();
         codigoAdministrador.setAtivo(false);
         atualizarListDadosArquivo();
+        Log.registrarInfo("Codigo administrador desativado. Id=" + codigoAdmin + " | Campo=ativo | Antes="+ campoAntigo +" | Depois=" + codigoAdministrador.isAtivo());
     }
 
     public void reativarCodigoAdministrador(String codigoAdmin) {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         if(codigoAdministrador.isAtivo()) throw new InvalidStateException("Falha ao reativar o codigo de administrador " + codigoAdmin + " | Motivo: codigo já está ativado!");
+        boolean campoAntigo = codigoAdministrador.isAtivo();
         codigoAdministrador.setAtivo(true);
         atualizarListDadosArquivo();
+        Log.registrarInfo("Codigo administrador reativado. Id=" + codigoAdmin + " | Campo=ativo | Antes="+ campoAntigo +" | Depois=" + codigoAdministrador.isAtivo());
+
     }
 
     public String gerarCodigoAdministrador() {

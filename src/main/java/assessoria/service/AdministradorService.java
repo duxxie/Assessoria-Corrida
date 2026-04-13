@@ -88,39 +88,42 @@ public class AdministradorService {
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
-    public void excluirAdministrador(String idAdministradorInformado) {
-        Administrador administrador = findAdministradorPorId(idAdministradorInformado);
-        mapAdministrador.remove(administrador.getId(), administrador);
-        codigoAdministradorService.setarCodigoAdminUsadoFalse(administrador.getIdCodigoAdministrador());
+    public void excluirAdministrador(String idAdministradorInformado, Administrador administrador) {
+        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar excluir administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+        Administrador administradorSerExcluido = findAdministradorPorId(idAdministradorInformado);
+        mapAdministrador.remove(administradorSerExcluido.getId(), administradorSerExcluido);
+        codigoAdministradorService.setarCodigoAdminUsadoFalse(administradorSerExcluido.getIdCodigoAdministrador());
         atualizarMapAdministradorNoArquivo();
-        MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi excluido com sucesso!!");
+        MensagemView.mostrarSucesso("Administrador excluido com sucesso. Id=" + administrador.getId());
     }
 
-
-    public void desativarAdministrador(String idAdministradorInformado) {
-        Administrador administrador = findAdministradorPorId(idAdministradorInformado);
-        codigoAdministradorService.desativarCodigoAdministrador(administrador.getIdCodigoAdministrador());
+    public void desativarAdministrador(String idAdministradorInformado, Administrador administrador) {
+        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar desativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+        Administrador administradorSerDesativado = findAdministradorPorId(idAdministradorInformado);
+        codigoAdministradorService.desativarCodigoAdministrador(administradorSerDesativado.getIdCodigoAdministrador());
         MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi desativado com sucesso!!");
     }
 
-    public void reativarAdministrador(String idAdministradorInformado) {
-        Administrador administrador = findAdministradorPorId(idAdministradorInformado);
-        codigoAdministradorService.reativarCodigoAdministrador(administrador.getIdCodigoAdministrador());
+    public void reativarAdministrador(String idAdministradorInformado, Administrador administrador) {
+        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar reativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+        Administrador administradorSerReativado = findAdministradorPorId(idAdministradorInformado);
+        codigoAdministradorService.reativarCodigoAdministrador(administradorSerReativado.getIdCodigoAdministrador());
         MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi reativado com sucesso!!");
     }
 
-    public String gerarCodigoAdministrador() {
+    public String gerarCodigoAdministrador(Administrador administrador) {
+        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar gerar codigo administrador | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
         return codigoAdministradorService.gerarCodigoAdministrador();
     }
 
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
         atualizarMapAdministradorNoArquivo();
+        Log.registrarInfo("Administrador cadastrado com sucesso. Id=" + administrador.getId() + ", Nome=" + administrador.getNome() + ", CodigoAdmin=" + administrador.getIdCodigoAdministrador());
     }
 
     private void salvarAdministradorMap(Administrador administrador) {
         mapAdministrador.put(administrador.getId(), administrador);
-        Log.registrar("Info", "Administrador ID " + administrador.getId() + " foi adicionado em memória");
     }
 
     private void validarCpfUnicoAdministrador(String cpf) {
@@ -142,7 +145,6 @@ public class AdministradorService {
 
     private void atualizarMapAdministradorNoArquivo() {
         dao.inserirDadosNoArquivo(getMapAdministrador());
-        Log.registrar("Info", "Map de administrador foi atualizado no arquivo");
     }
 
     public int pegarTamanhoMapAdministrador() {

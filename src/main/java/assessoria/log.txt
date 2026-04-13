@@ -586,3 +586,12 @@
 [2026-04-09 17:16:18] INFO - IDs inicializados.
 [2026-04-09 17:20:27] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-09 17:20:27] INFO - Sistema encerrado.
+[2026-04-13 15:33:38] INFO - Sistema iniciado.
+[2026-04-13 15:33:38] INFO - IDs inicializados.
+[2026-04-13 15:36:15] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-13 15:36:15] INFO - Sistema encerrado.
+[2026-04-13 15:47:55] INFO - Sistema iniciado.
+[2026-04-13 15:47:55] INFO - IDs inicializados.
+[2026-04-13 15:48:34] INFO - Codigo reativado. Id=ADM-E091B688 | Campo=ativo | Antes=false | Depois=true
+[2026-04-13 15:49:17] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-13 15:49:17] INFO - Sistema encerrado.

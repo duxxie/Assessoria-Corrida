@@ -55,7 +55,7 @@ public class AlunoService {
     public void salvarAluno(Aluno aluno) {
         salvarAlunoMap(aluno);
         inserirAlunosArquivo();
-        Log.registrar("Info", "Dados do aluno (ID " + aluno.getId() + ") foi registrado no arquivo.");
+        Log.registrarInfo( "Aluno cadastrado com sucesso. Id=" + aluno.getId() + ", Nome=" + aluno.getNome());
     }
 
     private void salvarAlunoMap(Aluno aluno) {
