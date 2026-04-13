@@ -35,12 +35,11 @@ public class ProfessorService {
     public void salvarProfessor(Professor professor) {
         salvarProfessorMap(professor);
         inserirProfessorArquivo();
-        Log.registrar("Info", "Dados do professor (ID " + professor.getId() + ") foi registrado no arquivo.");
+        Log.registrar("Professor cadastrador com sucesso. Id=" + professor.getId() + ", Nome=" + professor.getNome());
     }
 
     private void salvarProfessorMap(Professor professor) {
         mapProfessor.put("K" + professor.getId(), professor);
-        Log.registrar("Info", "Professor ID " + professor.getId() + " foi adicionado ao Map");
     }
 
     private void validarCpfUnicoProfessor(String cpf) {

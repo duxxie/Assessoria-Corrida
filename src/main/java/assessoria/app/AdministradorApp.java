@@ -60,12 +60,12 @@ public class AdministradorApp {
             case 2 -> executarUpdate(administrador);
             case 3 -> administradorView.mostrarProfessorCadastrados();
             case 4 -> administradorView.mostrarAlunosCadastrados();
-            case 5 -> administradorView.gerarCodigoAdministrador();
-            case 6 -> administradorView.mostrarAdministradores();
-            case 7 -> administradorView.mostrarCodigosAdministrador();
-            case 8 -> administradorView.desativarAdministrador();
-            case 9 -> administradorView.reativarAdministrador();
-            case 10 -> administradorView.excluirAdministrador();
+            case 5 -> administradorView.gerarCodigoAdministrador(administrador);
+            case 6 -> administradorView.mostrarAdministradores(administrador);
+            case 7 -> administradorView.mostrarCodigosAdministrador(administrador);
+            case 8 -> administradorView.desativarAdministrador(administrador);
+            case 9 -> administradorView.reativarAdministrador(administrador);
+            case 10 -> administradorView.excluirAdministrador(administrador);
             case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }

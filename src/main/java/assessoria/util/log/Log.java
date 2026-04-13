@@ -14,6 +14,27 @@ public class Log {
         registrar("ERROR - " + mensagem);
     }
 
+    //erro com throwable
+    public static void registrarErro(String mensagem, Throwable cause) {
+        StringBuilder sb = new StringBuilder(mensagem);
+
+        if(cause != null) {
+            sb.append(" | Exception: ").append(cause.getClass().getSimpleName());
+
+            if(cause.getCause() != null) {
+                sb.append(" | Causa original: ")
+                        .append(cause.getCause().getClass().getSimpleName());
+
+                if(cause.getCause().getMessage() != null) {
+                    sb.append(" - ").append(cause.getCause().getMessage());
+                }
+            }
+        }
+
+        registrar("ERROR - " + sb);
+    }
+
+
     //warn
     public static void registrarAviso(String mensagem) {
         registrar("WARN - " + mensagem);
