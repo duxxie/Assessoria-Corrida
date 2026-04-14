@@ -1,11 +1,10 @@
 package assessoria.view;
 
 import assessoria.model.dto.AdministradorDetalhado;
+import assessoria.model.dto.DadosAtualizacaoPessoa;
 import assessoria.model.entidades.Administrador;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AdministradorDashBoard {
@@ -125,6 +124,50 @@ public class AdministradorDashBoard {
                 + "|" + campoFormatado(widthAdminRaiz, String.valueOf(administradorDetalhado.adminRaiz()))
                 + "|" + campoFormatado(widthCodigoAtivo, String.valueOf(administradorDetalhado.codigoAtivo()))
                 + "|" + campoFormatado(widthCodigoUsado, String.valueOf(administradorDetalhado.codigoUsado()))
+                + "|";
+    }
+
+    public static void mostrarDadosAdminUpdate(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
+
+        Map<String,String> campos = new LinkedHashMap<>(Map.ofEntries(
+                Map.entry("Nome", dadosAtualizacaoPessoa.getNome()),
+                Map.entry("Email", dadosAtualizacaoPessoa.getEmail()),
+                Map.entry("Cpf", dadosAtualizacaoPessoa.getCpf()),
+                Map.entry("Telefone", dadosAtualizacaoPessoa.getTelefone())
+        ));
+
+        int widthPadraoValores = campos.entrySet().stream()
+                .mapToInt(value -> value.getValue().length() + 6)
+                .max()
+                .orElse(0);
+
+        int widthPadraoCampo = campos.keySet().stream()
+                .mapToInt(value -> value.length() + 6)
+                .max()
+                .orElse(0);
+
+        String bordaTabela = "+ " + "-".repeat((widthPadraoValores + widthPadraoCampo)-1) + " +";
+
+        String titulo = "Meus dados";
+        int paddinTitulo = ((widthPadraoCampo + widthPadraoValores) - titulo.length()) / 2;
+        String linhaTitulo = "|" + " ".repeat(paddinTitulo) + titulo + " ".repeat(paddinTitulo) + "|";
+
+
+        System.out.println("\n\n");
+        System.out.println(bordaTabela);
+        System.out.println(linhaTitulo);
+        System.out.println(bordaTabela);
+        campos.entrySet().stream()
+                .forEach(entry -> System.out.println(
+                        formatarCamposDadosAdminUpdate(entry.getKey(), entry.getValue(), widthPadraoCampo, widthPadraoValores)
+                ));
+        System.out.println(bordaTabela);
+
+    }
+
+    private static String formatarCamposDadosAdminUpdate(String nomeCampo, String valor, int widthPadraoCampo, int widthPadraoValor) {
+        return "|" + campoFormatado(widthPadraoCampo, nomeCampo)
+                + "|" + campoFormatado(widthPadraoValor, valor)
                 + "|";
     }
 }

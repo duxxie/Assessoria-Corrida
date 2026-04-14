@@ -1,6 +1,7 @@
 package assessoria.app;
 
 import assessoria.controller.AdministradorController;
+import assessoria.model.dto.DadosAtualizacaoPessoa;
 import assessoria.model.entidades.Administrador;
 import assessoria.util.helpers.BCryptHash;
 import assessoria.util.helpers.InputHelper;
@@ -73,49 +74,44 @@ public class AdministradorApp {
 
     public void executarUpdate(Administrador administrador) {
         int opcao;
+        DadosAtualizacaoPessoa dadosAtualizacaoPessoa = administradorView.gerarAdministradorParaUpdate(administrador);
+
         do {
-            administradorView.mostrarMenuUpdate();
+            administradorView.mostrarMenuUpdate(dadosAtualizacaoPessoa);
             opcao = InputHelper.lerOpcao();
-            tratarOpcaoMenuUpdate(opcao, administrador);
-        }while(opcao != 0);
+            tratarOpcaoMenuUpdate(opcao, dadosAtualizacaoPessoa);
+        }while(opcao != 0 && opcao != 6);
     }
 
-    private void tratarOpcaoMenuUpdate(int opcao, Administrador administrador) {
-        boolean salvo = false;
+    private void tratarOpcaoMenuUpdate(int opcao, DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
         switch (opcao) {
             case 1:
-                String nome = InputHelper.pegarNome();
-                administrador.setNome(nome);
+                String nome = administradorView.pegarNomeParaAtualizar();
+                dadosAtualizacaoPessoa.setNome(nome);
                 break;
             case 2:
-                String email = InputHelper.pegarEmail();
-                administrador.setEmail(email);
+                String email = administradorView.pegarEmailParaAtualizar();
+                dadosAtualizacaoPessoa.setEmail(email);
                 break;
             case 3:
-                String senha = InputHelper.pegarSenhaToCadastro();
-                administrador.setSenhaHash(senha);
+                String senha = administradorView.pegarSenhaParaAtualizar();
                 BCryptHash bCryptHash = new BCryptHash();
                 String hash = bCryptHash.gerarHash(senha);
-                administrador.setHashProvider(hash);
+                dadosAtualizacaoPessoa.setNovaSenha(hash);
                 break;
             case 4:
-                String telefone = InputHelper.pegarTelefone();
-                administrador.setTelefone(telefone);
+                String telefone = administradorView.pegarTelefoneParaAtualizar();
+                dadosAtualizacaoPessoa.setTelefone(telefone);
                 break;
             case 5:
-                String cpf = InputHelper.pegarCpf();
-                administrador.setCpf(cpf);
+                String cpf = administradorView.pegarCpfParaAtualizar();
+                dadosAtualizacaoPessoa.setCpf(cpf);
                 break;
             case 6:
-                administradorController.salvarAdministrador(administrador);
-                salvo = true;
+                administradorView.salvarAlteracoesAdministrador(dadosAtualizacaoPessoa);
                 break;
             case 0:
-                if (salvo){
-                    MensagemView.mostrarMensagem("Encerrando update...");
-                } else {
-                    MensagemView.mostrarMensagem("Os dados não foram salvos!!!");
-                }
+                MensagemView.mostrarMensagem("Encerrando update...");
                 break;
             default:
                 MensagemView.mostrarErro("Escolha uma opção válida!!");

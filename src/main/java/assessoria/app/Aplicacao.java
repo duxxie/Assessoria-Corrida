@@ -65,7 +65,7 @@ public class Aplicacao {
         this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorDAO);
 
         this.administradorDAO = new AdministradorDAO();
-        this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService);
+        this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService, alunoService);
         this.administradorController = new AdministradorController(administradorService);
         this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
         this.administradorApp = new AdministradorApp(administradorView, administradorController);

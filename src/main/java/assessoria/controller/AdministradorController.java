@@ -2,6 +2,7 @@ package assessoria.controller;
 
 import assessoria.exceptions.*;
 import assessoria.model.dto.AdministradorDetalhado;
+import assessoria.model.dto.DadosAtualizacaoPessoa;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Administrador;
 import assessoria.model.entidades.CodigoAdministrador;
@@ -26,6 +27,7 @@ public class AdministradorController{
             action.run();
         } catch (ValidationException e) {
             MensagemView.mostrarErro(e.getMessage());
+            Log.registrarAviso(e.getMessage());
         } catch (NotFoundException e) {
             MensagemView.mostrarErro(e.getMessage());
         } catch (OperationNotAllowedException e) {
@@ -56,6 +58,10 @@ public class AdministradorController{
 
     public void salvarAdministrador(Administrador administrador) {
         executeActionWithErrorHandler(() -> administradorService.salvarAdministrador(administrador));
+    }
+
+    public void salvarAlteracoesAdministrador(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
+        executeActionWithErrorHandler(() -> administradorService.salvarAlteracoesAdministrador(dadosAtualizacaoPessoa));
     }
 
     private <T> T executeActionWithErrorHandlerWithReturn(Supplier<T> action) {
@@ -89,6 +95,10 @@ public class AdministradorController{
 
     public List<CodigoAdministrador> pegarCodigoAdministradorList() {
         return administradorService.pegarCodigoAdministradorList();
+    }
+
+    public DadosAtualizacaoPessoa gerarAdministradorParaUpdate(Administrador administrador) {
+        return administradorService.gerarAdministradorParaUpdate(administrador);
     }
 
 }

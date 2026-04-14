@@ -155,6 +155,10 @@ public class InputHelper {
         return cpf;
     }
 
+    public static String pegarSenhaToUpdate() {
+        return pegarSenha("---> Informe uma nova senha para a sua conta <<---");
+    }
+
     public static String pegarSenhaToCadastro() {
         return pegarSenha("-->> Informe uma senha para a sua conta <<--");
     }

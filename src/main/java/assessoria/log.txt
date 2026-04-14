@@ -595,3 +595,66 @@
 [2026-04-13 15:48:34] INFO - Codigo reativado. Id=ADM-E091B688 | Campo=ativo | Antes=false | Depois=true
 [2026-04-13 15:49:17] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-13 15:49:17] INFO - Sistema encerrado.
+[2026-04-14 12:27:31] INFO - Sistema iniciado.
+[2026-04-14 12:27:31] INFO - IDs inicializados.
+[2026-04-14 12:28:59] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:28:59] INFO - Sistema encerrado.
+[2026-04-14 12:32:17] INFO - Sistema iniciado.
+[2026-04-14 12:32:17] INFO - IDs inicializados.
+[2026-04-14 12:35:01] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:35:01] INFO - Sistema encerrado.
+[2026-04-14 12:35:08] INFO - Sistema iniciado.
+[2026-04-14 12:35:08] INFO - IDs inicializados.
+[2026-04-14 12:36:35] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:36:35] INFO - Sistema encerrado.
+[2026-04-14 12:36:40] INFO - Sistema iniciado.
+[2026-04-14 12:36:40] INFO - IDs inicializados.
+[2026-04-14 12:40:03] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:40:03] INFO - Sistema encerrado.
+[2026-04-14 12:40:09] INFO - Sistema iniciado.
+[2026-04-14 12:40:09] INFO - IDs inicializados.
+[2026-04-14 12:43:52] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:43:52] INFO - Sistema encerrado.
+[2026-04-14 12:43:57] INFO - Sistema iniciado.
+[2026-04-14 12:43:57] INFO - IDs inicializados.
+[2026-04-14 12:44:59] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:44:59] INFO - Sistema encerrado.
+[2026-04-14 12:45:03] INFO - Sistema iniciado.
+[2026-04-14 12:45:03] INFO - IDs inicializados.
+[2026-04-14 12:55:20] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:55:20] INFO - Sistema encerrado.
+[2026-04-14 12:56:01] INFO - Sistema iniciado.
+[2026-04-14 12:56:01] INFO - IDs inicializados.
+[2026-04-14 12:58:02] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 12:58:02] INFO - Sistema encerrado.
+[2026-04-14 13:09:22] INFO - Sistema iniciado.
+[2026-04-14 13:09:22] INFO - IDs inicializados.
+[2026-04-14 13:16:14] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 13:16:14] INFO - Sistema encerrado.
+[2026-04-14 13:16:19] INFO - Sistema iniciado.
+[2026-04-14 13:16:19] INFO - IDs inicializados.
+[2026-04-14 13:29:14] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 13:29:14] INFO - Sistema encerrado.
+[2026-04-14 16:26:38] INFO - Sistema iniciado.
+[2026-04-14 16:26:38] INFO - IDs inicializados.
+[2026-04-14 16:29:11] WARN - Falha ao atualizar alteracoes do administrador. | Motivo: cpf informado já está registrado no sistema.
+[2026-04-14 16:29:58] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 16:29:58] INFO - Sistema encerrado.
+[2026-04-14 16:31:06] INFO - Sistema iniciado.
+[2026-04-14 16:31:06] INFO - IDs inicializados.
+[2026-04-14 16:31:52] WARN - Falha ao atualizar alteracoes do administrador. | Motivo: email informado já está registrado no sistema.
+[2026-04-14 16:32:55] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 16:32:55] INFO - Sistema encerrado.
+[2026-04-14 16:33:01] INFO - Sistema iniciado.
+[2026-04-14 16:33:01] INFO - IDs inicializados.
+[2026-04-14 16:33:33] WARN - Falha ao atualizar alteracoes do administrador. | Motivo: email informado já está registrado no sistema.
+[2026-04-14 16:34:38] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 16:34:38] INFO - Sistema encerrado.
+[2026-04-14 16:34:47] INFO - Sistema iniciado.
+[2026-04-14 16:34:47] INFO - IDs inicializados.
+[2026-04-14 16:35:17] WARN - Falha ao atualizar alteracoes do administrador. | Motivo: email informado já está registrado no sistema.
+[2026-04-14 16:48:24] INFO - Sistema iniciado.
+[2026-04-14 16:48:24] INFO - IDs inicializados.
+[2026-04-14 16:49:06] WARN - Falha ao atualizar alteracoes do administrador. | Motivo: email informado já está registrado no sistema.
+[2026-04-14 16:49:29] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-14 16:49:29] INFO - Sistema encerrado.
