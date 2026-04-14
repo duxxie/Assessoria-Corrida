@@ -1,5 +1,6 @@
 package assessoria.service;
 
+import assessoria.exceptions.ValidationException;
 import assessoria.model.dao.AlunoDAO;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
@@ -24,7 +25,8 @@ public class AlunoService {
     }
 
     public void criarAluno(DadosCadastroPessoa dadosCadastroPessoa) {
-        validarCpfUnico(dadosCadastroPessoa.getCpf());
+        if(cpfAlunoJaExiste(dadosCadastroPessoa.getCpf(), null))
+            throw new ValidationException("Cpf informado já está cadastrado");
 
         Aluno aluno = new Aluno.Builder()
                 .id(GeradorID.gerarIdClass(Aluno.class))
@@ -43,13 +45,26 @@ public class AlunoService {
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 
-    public void validarCpfUnico(String cpf) {
-        mapAluno.values().stream()
-                .filter(aluno -> aluno.getCpf().equals(cpf))
-                .findAny()
-                .ifPresent(aluno -> {
-                    throw new IllegalArgumentException("Cpf informado já está cadastrado");
-                });
+    public boolean cpfAlunoJaExiste(String cpf, String idIgnorado) {
+        return mapAluno.values().stream()
+                .filter(aluno -> idIgnorado == null || !aluno.getId().equals(idIgnorado))
+                .anyMatch(aluno -> aluno.getCpf().equals(cpf));
+    }
+
+    public boolean cpfJaExisteEmAluno(String cpf) {
+        return mapAluno.values().stream()
+                .anyMatch(aluno -> aluno.getCpf().equals(cpf));
+    }
+
+    public boolean emailAlunoJaExiste(String email, String idIgnorado) {
+        return mapAluno.values().stream()
+                .filter(aluno -> idIgnorado == null || !aluno.getId().equals(idIgnorado))
+                .anyMatch(aluno -> aluno.getEmail().equals(email));
+    }
+
+    public boolean emailJaExisteEmAluno(String email) {
+        return mapAluno.values().stream()
+                .anyMatch(aluno -> aluno.getEmail().equals(email));
     }
 
     public void salvarAluno(Aluno aluno) {

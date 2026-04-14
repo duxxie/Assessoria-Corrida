@@ -4,6 +4,7 @@ import assessoria.controller.AdministradorController;
 import assessoria.controller.AlunoController;
 import assessoria.controller.ProfessorController;
 import assessoria.controller.TreinoController;
+import assessoria.model.dto.DadosAtualizacaoPessoa;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Administrador;
 import assessoria.util.helpers.BCryptHash;
@@ -85,7 +86,10 @@ public class AdministradorView {
         System.out.println("+ ------------------------------------- +");
     }
 
-    public void mostrarMenuUpdate() {
+    public void mostrarMenuUpdate(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
+
+        AdministradorDashBoard.mostrarDadosAdminUpdate(dadosAtualizacaoPessoa);
+
         System.out.println("\n\n+ --------------------------------- +");
         System.out.println("|  << -- Ações Administrador -- >>  |");
         System.out.println("+ --------------------------------- +");
@@ -140,5 +144,33 @@ public class AdministradorView {
         mostrarAdministradores(administrador);
         String idAdministradorInformado = InputHelper.lerString("\n >> Informe o id do administrador que deseja reativar: ");
         administradorController.reativarAdministrador(idAdministradorInformado, administrador);
+    }
+
+    public DadosAtualizacaoPessoa gerarAdministradorParaUpdate(Administrador administrador) {
+        return administradorController.gerarAdministradorParaUpdate(administrador);
+    }
+
+    public String pegarNomeParaAtualizar() {
+        return InputHelper.pegarNome();
+    }
+
+    public String pegarEmailParaAtualizar() {
+        return InputHelper.pegarEmail();
+    }
+
+    public String pegarSenhaParaAtualizar() {
+        return InputHelper.pegarSenhaToUpdate();
+    }
+
+    public String pegarTelefoneParaAtualizar() {
+        return InputHelper.pegarTelefone();
+    }
+
+    public String pegarCpfParaAtualizar() {
+        return InputHelper.pegarCpf();
+    }
+
+    public void salvarAlteracoesAdministrador(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
+        administradorController.salvarAlteracoesAdministrador(dadosAtualizacaoPessoa);
     }
 }

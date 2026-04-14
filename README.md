@@ -37,15 +37,15 @@ Classe abstrata base do sistema.
 
 Atributos comum:
 
-- id
-- nome
-- email
-- cpf
-- idade
-- telefone
-- hashProvider
-- contatoEmergencia
-- infoMedica
+- `id`
+- `nome`
+- `email`
+- `cpf`
+- `idade`
+- `telefone`
+- `hashProvider`
+- `contatoEmergencia`
+- `infoMedica`
 
 ### `Aluno`
 Representa o aluno da assessoria.
