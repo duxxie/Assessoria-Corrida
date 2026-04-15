@@ -218,7 +218,7 @@ public class InputHelper {
     }
 
     public static int lerOpcao() {
-       return lerInt("Escolha uma opção: ");
+       return lerInt(">> Escolha uma opção: ");
     }
 
     public static float lerFloat(String frase) {

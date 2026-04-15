@@ -129,40 +129,49 @@ public class AdministradorDashBoard {
 
     public static void mostrarDadosAdminUpdate(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
 
-        Map<String,String> campos = new LinkedHashMap<>(Map.ofEntries(
-                Map.entry("Nome", dadosAtualizacaoPessoa.getNome()),
-                Map.entry("Email", dadosAtualizacaoPessoa.getEmail()),
-                Map.entry("Cpf", dadosAtualizacaoPessoa.getCpf()),
-                Map.entry("Telefone", dadosAtualizacaoPessoa.getTelefone())
-        ));
+        Map<String, String> campos = new LinkedHashMap<>();
+        campos.put("Nome", dadosAtualizacaoPessoa.getNome());
+        campos.put("Email", dadosAtualizacaoPessoa.getEmail());
+        campos.put("Cpf", dadosAtualizacaoPessoa.getCpf());
+        campos.put("Telefone", dadosAtualizacaoPessoa.getTelefone());
 
-        int widthPadraoValores = campos.entrySet().stream()
-                .mapToInt(value -> value.getValue().length() + 6)
+        int widthPadraoValores = campos.values().stream()
+                .map(valor -> valor == null ? "" : valor)
+                .mapToInt(valor -> valor.length() + 6)
                 .max()
                 .orElse(0);
 
         int widthPadraoCampo = campos.keySet().stream()
-                .mapToInt(value -> value.length() + 6)
+                .mapToInt(campo -> campo.length() + 6)
                 .max()
                 .orElse(0);
 
-        String bordaTabela = "+ " + "-".repeat((widthPadraoValores + widthPadraoCampo)-1) + " +";
+        List<String> arrayCamposValores = new ArrayList<>();
+
+        for (Map.Entry<String, String> entry : campos.entrySet()) {
+            String valor = entry.getValue() == null ? "" : entry.getValue();
+            arrayCamposValores.add(
+                    formatarCamposDadosAdminUpdate(entry.getKey(), valor, widthPadraoCampo, widthPadraoValores)
+            );
+        }
+
+        String primeiraLinha = arrayCamposValores.getFirst();
+        String bordaTabela = "+" + "-".repeat(primeiraLinha.length() - 2) + "+";
 
         String titulo = "Meus dados";
-        int paddinTitulo = ((widthPadraoCampo + widthPadraoValores) - titulo.length()) / 2;
-        String linhaTitulo = "|" + " ".repeat(paddinTitulo) + titulo + " ".repeat(paddinTitulo) + "|";
+        int larguraInterna = primeiraLinha.length() - 2;
+        int espacosTotais = larguraInterna - titulo.length();
+        int paddingEsquerda = espacosTotais / 2;
+        int paddingDireita = espacosTotais - paddingEsquerda;
 
+        String linhaTitulo = "|" + " ".repeat(paddingEsquerda) + titulo + " ".repeat(paddingDireita) + "|";
 
         System.out.println("\n\n");
         System.out.println(bordaTabela);
         System.out.println(linhaTitulo);
         System.out.println(bordaTabela);
-        campos.entrySet().stream()
-                .forEach(entry -> System.out.println(
-                        formatarCamposDadosAdminUpdate(entry.getKey(), entry.getValue(), widthPadraoCampo, widthPadraoValores)
-                ));
+        arrayCamposValores.forEach(System.out::println);
         System.out.println(bordaTabela);
-
     }
 
     private static String formatarCamposDadosAdminUpdate(String nomeCampo, String valor, int widthPadraoCampo, int widthPadraoValor) {
