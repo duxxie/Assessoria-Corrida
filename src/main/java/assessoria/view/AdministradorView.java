@@ -89,7 +89,7 @@ public class AdministradorView {
     public void mostrarMenuUpdate(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
 
         AdministradorDashBoard.mostrarDadosAdminUpdate(dadosAtualizacaoPessoa);
-        System.out.println("");
+
         System.out.println("[1] Alterar nome              ");
         System.out.println("[2] Alterar email             ");
         System.out.println("[3] Alterar senha             ");

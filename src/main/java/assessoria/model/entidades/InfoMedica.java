@@ -2,116 +2,103 @@ package assessoria.model.entidades;
 
 public class InfoMedica {
 
-    private String descCondicaoMedica;
-    private String descAlergia;
-    private String quaisMedicamentoEmUso;
-    private String frequenciaMedicamentoEmUso;
-    private String descLesaoRecenteOuCronica;
-    private String descCirurgiaRecente;
-    private String descRestricaoMedica;
-    private String descTipoSanguineo;
+    private String condicaoMedica;
+    private String alergia;
+    private String medicamentoEmUso;
+    private String lesao;
+    private String cirurgiaRecente;
+    private String restricaoMedica;
+    private String tipoSanguineo;
 
     public InfoMedica(){};
 
-    public InfoMedica(String descCondicaoMedica, String descAlergia, String quaisMedicamentoEmUso, String frequenciaMedicamentoEmUso, String descLesaoRecenteOuCronica, String descCirurgiaRecente, String descRestricaoMedica, String descTipoSanguineo) {
-        this.descCondicaoMedica = descCondicaoMedica;
-        this.descAlergia = descAlergia;
-        this.quaisMedicamentoEmUso = quaisMedicamentoEmUso;
-        this.frequenciaMedicamentoEmUso = frequenciaMedicamentoEmUso;
-        this.descLesaoRecenteOuCronica = descLesaoRecenteOuCronica;
-        this.descCirurgiaRecente = descCirurgiaRecente;
-        this.descRestricaoMedica = descRestricaoMedica;
-        this.descTipoSanguineo = descTipoSanguineo;
+    public InfoMedica(String condicaoMedica, String alergia, String medicamentoEmUso, String lesao, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
+        this.condicaoMedica = condicaoMedica;
+        this.alergia = alergia;
+        this.medicamentoEmUso = medicamentoEmUso;
+        this.lesao = lesao;
+        this.cirurgiaRecente = cirurgiaRecente;
+        this.restricaoMedica = restricaoMedica;
+        this.tipoSanguineo = tipoSanguineo;
     }
 
-    public String getDescCondicaoMedica() {
-        return descCondicaoMedica;
+    public String getCondicaoMedica() {
+        return condicaoMedica;
     }
 
-    public void setDescCondicaoMedica(String descCondicaoMedica) {
-        this.descCondicaoMedica = descCondicaoMedica;
+    public void setCondicaoMedica(String condicaoMedica) {
+        this.condicaoMedica = condicaoMedica;
     }
 
-    public String getDescAlergia() {
-        return descAlergia;
+    public String getAlergia() {
+        return alergia;
     }
 
-    public void setDescAlergia(String descAlergia) {
-        this.descAlergia = descAlergia;
+    public void setalergia(String alergia) {
+        this.alergia = alergia;
     }
 
-    public String getQuaisMedicamentoEmUso() {
-        return quaisMedicamentoEmUso;
+    public String getMedicamentoEmUso() {
+        return medicamentoEmUso;
     }
 
-    public void setQuaisMedicamentoEmUso(String quaisMedicamentoEmUso) {
-        this.quaisMedicamentoEmUso = quaisMedicamentoEmUso;
+    public void setMedicamentoEmUso(String medicamentoEmUso) {
+        this.medicamentoEmUso = medicamentoEmUso;
     }
 
-    public String getFrequenciaMedicamentoEmUso() {
-        return frequenciaMedicamentoEmUso;
+    public String getLesao() {
+        return lesao;
     }
 
-    public void setFrequenciaMedicamentoEmUso(String frequenciaMedicamentoEmUso) {
-        this.frequenciaMedicamentoEmUso = frequenciaMedicamentoEmUso;
+    public void setLesao(String lesao) {
+        this.lesao = lesao;
     }
 
-    public String getDescLesaoRecenteOuCronica() {
-        return descLesaoRecenteOuCronica;
+    public String getCirurgiaRecente() {
+        return cirurgiaRecente;
     }
 
-    public void setDescLesaoRecenteOuCronica(String descLesaoRecenteOuCronica) {
-        this.descLesaoRecenteOuCronica = descLesaoRecenteOuCronica;
+    public void setCirurgiaRecente(String cirurgiaRecente) {
+        this.cirurgiaRecente = cirurgiaRecente;
     }
 
-    public String getDescCirurgiaRecente() {
-        return descCirurgiaRecente;
+    public String getRestricaoMedica() {
+        return restricaoMedica;
     }
 
-    public void setDescCirurgiaRecente(String descCirurgiaRecente) {
-        this.descCirurgiaRecente = descCirurgiaRecente;
+    public void setRestricaoMedica(String restricaoMedica) {
+        this.restricaoMedica = restricaoMedica;
     }
 
-    public String getDescRestricaoMedica() {
-        return descRestricaoMedica;
+    public String getTipoSanguineo() {
+        return tipoSanguineo;
     }
 
-    public void setDescRestricaoMedica(String descRestricaoMedica) {
-        this.descRestricaoMedica = descRestricaoMedica;
-    }
-
-    public String getDescTipoSanguineo() {
-        return descTipoSanguineo;
-    }
-
-    public void setDescTipoSanguineo(String descTipoSanguineo) {
-        this.descTipoSanguineo = descTipoSanguineo;
+    public void setTipoSanguineo(String tipoSanguineo) {
+        this.tipoSanguineo = tipoSanguineo;
     }
 
     public void mostrarInfoCompleta() {
         String valor;
-        valor = getDescCondicaoMedica() == null ? "Nenhum" : getDescCondicaoMedica();
+        valor = getCondicaoMedica() == null ? "Nenhum" : getCondicaoMedica();
         System.out.println(">> Condição médica: " + valor);
 
-        valor = getDescAlergia() == null ? "Nenhuma" : getDescAlergia();
+        valor = getAlergia() == null ? "Nenhuma" : getAlergia();
         System.out.println(">> Alergia: " + valor);
 
-        valor = getQuaisMedicamentoEmUso() == null ? "Nenhum" : getQuaisMedicamentoEmUso();
+        valor = getMedicamentoEmUso() == null ? "Nenhum" : getMedicamentoEmUso();
         System.out.println(">> Medicamentos em uso: " + valor);
 
-        valor = getFrequenciaMedicamentoEmUso() == null ? "Nenhuma" : getFrequenciaMedicamentoEmUso();
-        System.out.println(">> Frequência de uso do medicamento: " + valor);
-
-        valor = getDescLesaoRecenteOuCronica() == null ? "Nenhuma" : getDescLesaoRecenteOuCronica();
+        valor = getLesao() == null ? "Nenhuma" : getLesao();
         System.out.println(">> Lesão recente ou crônica: " + valor);
 
-        valor = getDescCirurgiaRecente() == null ? "Nenhuma" : getDescCirurgiaRecente();
+        valor = getCirurgiaRecente() == null ? "Nenhuma" : getCirurgiaRecente();
         System.out.println(">> Cirurgia recente: " + valor);
 
-        valor = getDescRestricaoMedica() == null ? "Nenhuma" : getDescRestricaoMedica();
+        valor = getRestricaoMedica() == null ? "Nenhuma" : getRestricaoMedica();
         System.out.println(">> Restrição médica: " + valor);
 
-        valor = getDescTipoSanguineo() == null ? "Não informado" : getDescTipoSanguineo();
+        valor = getTipoSanguineo() == null ? "Não informado" : getTipoSanguineo();
         System.out.println(">> Tipo sanguíneo: " + valor);
     }
 }

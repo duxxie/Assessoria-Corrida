@@ -50,7 +50,6 @@ public class AlunoApp {
                 break;
             case 3:
                 String senha = InputHelper.pegarSenhaToCadastro();
-                aluno.setSenhaHash(senha);
                 BCryptHash bCryptHash = new BCryptHash();
                 String hash = bCryptHash.gerarHash(senha);
                 aluno.setHashProvider(hash);

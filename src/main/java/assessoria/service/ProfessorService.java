@@ -1,6 +1,8 @@
 package assessoria.service;
 
+import assessoria.mapper.ProfessorMapper;
 import assessoria.model.dao.ProfessorDAO;
+import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.ContatoEmergencia;
 import assessoria.model.entidades.InfoMedica;
 import assessoria.model.entidades.Professor;
@@ -12,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ProfessorService {
-    private Map<String, Professor> mapProfessor;
+    private final Map<String, Professor> mapProfessor;
     private final ProfessorDAO dao;
 
     public ProfessorService(ProfessorDAO dao) {
@@ -20,15 +22,12 @@ public class ProfessorService {
         this.mapProfessor = this.dao.lerDadosDoArquivo();
     }
 
-    public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        validarCpfUnicoProfessor(cpf);
-        salvarProfessor(new Professor(GeradorID.gerarIdClass(Professor.class), nome, email, cpf, idade, telefone, senha, hashSenha, new ContatoEmergencia(nomeEmergencia, telefoneEmergencia, relacao), new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
-    }
+    public void criarProfessor(DadosCadastroPessoa dadosCadastroPessoa, String cref) {
+        validarCpfUnicoProfessor(dadosCadastroPessoa.getCpf());
 
-    public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        validarCpfUnicoProfessor(cpf);
-        salvarProfessor(new Professor(GeradorID.gerarIdClass(Professor.class),nome, email, cpf, idade, telefone, senha, hashSenha, new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo)));
+        Professor professor = ProfessorMapper.toEntity(dadosCadastroPessoa, cref, GeradorID.gerarIdClass(Professor.class));
+
+        salvarProfessor(professor);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
     }
 

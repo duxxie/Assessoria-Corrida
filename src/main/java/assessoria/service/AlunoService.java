@@ -1,6 +1,7 @@
 package assessoria.service;
 
 import assessoria.exceptions.ValidationException;
+import assessoria.mapper.AlunoMapper;
 import assessoria.model.dao.AlunoDAO;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
@@ -16,7 +17,7 @@ import java.util.Optional;
 
 public class AlunoService {
 
-    private Map<String, Aluno> mapAluno;
+    private final Map<String, Aluno> mapAluno;
     private final AlunoDAO dao;
 
     public AlunoService(AlunoDAO dao) {
@@ -28,18 +29,10 @@ public class AlunoService {
         if(cpfAlunoJaExiste(dadosCadastroPessoa.getCpf(), null))
             throw new ValidationException("Cpf informado já está cadastrado");
 
-        Aluno aluno = new Aluno.Builder()
-                .id(GeradorID.gerarIdClass(Aluno.class))
-                .nome(dadosCadastroPessoa.getNome())
-                .email(dadosCadastroPessoa.getEmail())
-                .cpf(dadosCadastroPessoa.getCpf())
-                .idade(dadosCadastroPessoa.getIdade())
-                .telefone(dadosCadastroPessoa.getTelefone())
-                .senhaHash(dadosCadastroPessoa.getSenhaHash())
-                .hashProvider(dadosCadastroPessoa.getHashProvider())
-                .contatoEmergencia(dadosCadastroPessoa.getContatoEmergencia())
-                .infoMedica(dadosCadastroPessoa.getInfoMedica())
-                .build();
+        if(emailAlunoJaExiste(dadosCadastroPessoa.getEmail(), null))
+            throw new ValidationException("Email informado já está cadastrado");
+
+        Aluno aluno = AlunoMapper.toEntity(dadosCadastroPessoa, GeradorID.gerarIdClass(Aluno.class));
 
         salvarAluno(aluno);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
