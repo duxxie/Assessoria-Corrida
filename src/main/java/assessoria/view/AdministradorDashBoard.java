@@ -151,7 +151,59 @@ public class AdministradorDashBoard {
         for (Map.Entry<String, String> entry : campos.entrySet()) {
             String valor = entry.getValue() == null ? "" : entry.getValue();
             arrayCamposValores.add(
-                    formatarCamposDadosAdminUpdate(entry.getKey(), valor, widthPadraoCampo, widthPadraoValores)
+                    formatarCamposDadosAdminExibicao(entry.getKey(), valor, widthPadraoCampo, widthPadraoValores)
+            );
+        }
+
+        String primeiraLinha = arrayCamposValores.getFirst();
+        String bordaTabela = "+" + "-".repeat(primeiraLinha.length() - 2) + "+";
+
+        String titulo = "Alterar meus dados";
+        int larguraInterna = primeiraLinha.length() - 2;
+        int espacosTotais = larguraInterna - titulo.length();
+        int paddingEsquerda = espacosTotais / 2;
+        int paddingDireita = espacosTotais - paddingEsquerda;
+
+        String linhaTitulo = "|" + " ".repeat(paddingEsquerda) + titulo + " ".repeat(paddingDireita) + "|";
+
+        System.out.println("\n\n");
+        System.out.println(bordaTabela);
+        System.out.println(linhaTitulo);
+        System.out.println(bordaTabela);
+        arrayCamposValores.forEach(System.out::println);
+        System.out.println(bordaTabela);
+    }
+
+    public static void mostrarDadosAdmin(AdministradorDetalhado administradorDetalhado) {
+        Map<String, String> campos = new LinkedHashMap<>();
+        campos.put("Nome", administradorDetalhado.nome());
+        campos.put("Email", administradorDetalhado.email());
+        campos.put("Cpf", administradorDetalhado.cpf());
+        campos.put("Idade", String.valueOf(administradorDetalhado.idade()));
+        campos.put("Telefone", administradorDetalhado.telefone());
+        campos.put("IdCodigoAdministrador", administradorDetalhado.idCodigoAdministrador());
+        campos.put("AdminRaiz", String.valueOf(administradorDetalhado.adminRaiz()));
+        campos.put("CodigoAtivo", String.valueOf(administradorDetalhado.codigoAtivo()));
+        campos.put("CodigoUsado", String.valueOf(administradorDetalhado.codigoUsado()));
+
+        int widthPadraoValores = campos.values().stream()
+                .map(valor -> valor == null ? "" : valor)
+                .mapToInt(valor -> valor.length() + 6)
+                .max()
+                .orElse(0);
+
+        int widthPadraoCampo = campos.keySet().stream()
+                .mapToInt(campo -> campo.length() + 6)
+                .max()
+                .orElse(0);
+
+
+        List<String> arrayCamposValores = new ArrayList<>();
+
+        for (Map.Entry<String, String> entry : campos.entrySet()) {
+            String valor = entry.getValue() == null ? "" : entry.getValue();
+            arrayCamposValores.add(
+                    formatarCamposDadosAdminExibicao(entry.getKey(), valor, widthPadraoCampo, widthPadraoValores)
             );
         }
 
@@ -172,11 +224,13 @@ public class AdministradorDashBoard {
         System.out.println(bordaTabela);
         arrayCamposValores.forEach(System.out::println);
         System.out.println(bordaTabela);
+
     }
 
-    private static String formatarCamposDadosAdminUpdate(String nomeCampo, String valor, int widthPadraoCampo, int widthPadraoValor) {
+    private static String formatarCamposDadosAdminExibicao(String nomeCampo, String valor, int widthPadraoCampo, int widthPadraoValor) {
         return "|" + campoFormatado(widthPadraoCampo, nomeCampo)
                 + "|" + campoFormatado(widthPadraoValor, valor)
                 + "|";
     }
+
 }

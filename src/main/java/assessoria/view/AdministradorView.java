@@ -4,6 +4,7 @@ import assessoria.controller.AdministradorController;
 import assessoria.controller.AlunoController;
 import assessoria.controller.ProfessorController;
 import assessoria.controller.TreinoController;
+import assessoria.model.dto.AdministradorDetalhado;
 import assessoria.model.dto.DadosAtualizacaoPessoa;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Administrador;
@@ -36,10 +37,10 @@ public class AdministradorView {
         System.out.println("+ ------------------------------------ +");
     }
 
-    public void pegarDadosAdministrador() {
+    public Administrador realizarCadastroAdministrador() {
         DadosCadastroPessoa dadosCadastroPessoa = CadastroViewHelper.pegarDadosCadastroPessoa();
         String codigoAdmin = InputHelper.lerString("Informe o código de administrador: ");
-        administradorController.criarAdministrador(dadosCadastroPessoa, codigoAdmin);
+        return administradorController.cadastrarAdministrador(dadosCadastroPessoa, codigoAdmin);
     }
 
     public void mostrarMenuLoginAdministrador() {
@@ -100,7 +101,7 @@ public class AdministradorView {
     }
 
     public void mostrarDadosAdministrador(Administrador administrador) {
-        administrador.mostrarInfo();
+        AdministradorDashBoard.mostrarDadosAdmin(administradorController.gerarAdministradorParaExibicao(administrador));
     }
 
     public void mostrarProfessorCadastrados() {

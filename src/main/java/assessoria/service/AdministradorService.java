@@ -48,7 +48,7 @@ public class AdministradorService {
         return mapAdministrador;
     }
 
-    private AdministradorDetalhado gerarAdministradorDetalhado(Administrador administrador) {
+    public AdministradorDetalhado gerarAdministradorDetalhado(Administrador administrador) {
         CodigoAdministrador codigoAdministrador = codigoAdministradorService.encontrarCodigoAdministrador(administrador.getIdCodigoAdministrador());
 
         return AdministradorMapper.toDetalhado(administrador, codigoAdministrador);
@@ -86,21 +86,30 @@ public class AdministradorService {
         return AdministradorMapper.toDadosAtualizacao(administrador);
     }
 
-    public void criarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
-        if(cpfAdministradorJaExiste(dadosCadastroPessoa.getCpf(), null))
-            throw new ValidationException("Falha no cadastro do administrador | Motivo: cpf informado já está cadastrado");
-        boolean adminRaiz = mapAdministrador.isEmpty();
-        if(!adminRaiz) codigoAdministradorService.validarCodigoAdministradorParaCadastro(codigoAdmin);
+    public Administrador cadastrarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
+        if(cpfAdministradorJaExiste(dadosCadastroPessoa.getCpf(), null) || alunoService.cpfJaExisteEmAluno(dadosCadastroPessoa.getCpf()))
+            throw new ValidationException("Falha no cadastro do administrador | Motivo: cpf informado já está registrado no sistema");
+
+        if(emailAdministradorJaExiste(dadosCadastroPessoa.getEmail(), null) || alunoService.emailJaExisteEmAluno(dadosCadastroPessoa.getEmail()))
+            throw new ValidationException("Falha no cadastro do administrador | Motivo: email informado já está registrado no sistema");
+
+        boolean adminRaiz = codigoAdministradorService.isCodigoAdminRaiz(codigoAdmin);
+        codigoAdministradorService.validarCodigoAdministradorParaCadastro(codigoAdmin);
 
         Administrador administrador = AdministradorMapper.toEntity(dadosCadastroPessoa, GeradorID.gerarIdClass(Administrador.class), adminRaiz, codigoAdmin);
 
         salvarAdministrador(administrador);
         codigoAdministradorService.setarCodigoAdministradorUsadoTrue(codigoAdmin);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+        Log.registrarInfo("Administrador cadastrado com sucesso. Id=" + administrador.getId() + ", Nome=" + administrador.getNome() + ", CodigoAdmin=" + administrador.getIdCodigoAdministrador());
+
+        return administrador;
     }
 
     public void excluirAdministrador(String idAdministradorInformado, Administrador administrador) {
-        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar excluir administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+        if(!administrador.isAdiminRaiz())
+            throw new OperationNotAllowedException("Falha ao tentar excluir administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+
         Administrador administradorSerExcluido = findAdministradorPorId(idAdministradorInformado);
         mapAdministrador.remove(administradorSerExcluido.getId(), administradorSerExcluido);
         codigoAdministradorService.setarCodigoAdminUsadoFalse(administradorSerExcluido.getIdCodigoAdministrador());
@@ -109,14 +118,18 @@ public class AdministradorService {
     }
 
     public void desativarAdministrador(String idAdministradorInformado, Administrador administrador) {
-        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar desativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+        if(!administrador.isAdiminRaiz())
+            throw new OperationNotAllowedException("Falha ao tentar desativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+
         Administrador administradorSerDesativado = findAdministradorPorId(idAdministradorInformado);
         codigoAdministradorService.desativarCodigoAdministrador(administradorSerDesativado.getIdCodigoAdministrador());
         MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi desativado com sucesso!!");
     }
 
     public void reativarAdministrador(String idAdministradorInformado, Administrador administrador) {
-        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar reativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+        if(!administrador.isAdiminRaiz())
+            throw new OperationNotAllowedException("Falha ao tentar reativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
+
         Administrador administradorSerReativado = findAdministradorPorId(idAdministradorInformado);
         codigoAdministradorService.reativarCodigoAdministrador(administradorSerReativado.getIdCodigoAdministrador());
         MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi reativado com sucesso!!");
@@ -126,7 +139,6 @@ public class AdministradorService {
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
         atualizarMapAdministradorNoArquivo();
-        Log.registrarInfo("Administrador cadastrado com sucesso. Id=" + administrador.getId() + ", Nome=" + administrador.getNome() + ", CodigoAdmin=" + administrador.getIdCodigoAdministrador());
     }
 
     private void salvarAdministradorMap(Administrador administrador) {

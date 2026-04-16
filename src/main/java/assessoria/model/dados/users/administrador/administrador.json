@@ -1,44 +1,28 @@
 {
-  "Adm7" : {
-    "id" : "Adm7",
-    "nome" : "Carla Machado",
-    "email" : "carla_ma@gmail.com",
-    "cpf" : "162.488.220-00",
-    "idade" : 32,
-    "telefone" : "(41)93330-8980",
-    "senhaHash" : "ca1rlaZ0",
-    "hashProvider" : "$2a$10$Dkx0yiMbJ.JTxd7Gzm9.duYSgiyCvXlvNv53Ac.T3meS20IMp6IeW",
-    "contatoEmergencia" : null,
-    "infoMedica" : null,
-    "idCodigoAdministrador" : "ADM-7KQ9-XP21-2026",
-    "adiminRaiz" : true
-  },
-  "Adm8" : {
-    "id" : "Adm8",
+  "Adm1" : {
+    "id" : "Adm1",
     "nome" : "Pedro Fagundes",
     "email" : "pedro.faa@gmail.com",
-    "cpf" : "370.373.659-39",
+    "cpf" : "37037365939",
     "idade" : 28,
     "telefone" : "41934258890",
-    "senhaHash" : "Pedro@28",
-    "hashProvider" : "$2a$10$UuvSmlpNZiB0mLM3bD6y1.K.bX2GxZ4RDX3lJv1ZcY3AonylUJr1O",
+    "hashProvider" : "$2a$10$liECuB2TiKYErnB13W1/OOFgmSFI4HjWr4xyxJmqqtVBVcnAMummG",
     "contatoEmergencia" : null,
     "infoMedica" : null,
     "idCodigoAdministrador" : "ADM-2FA4A5BB",
     "adiminRaiz" : false
   },
-  "Adm9" : {
-    "id" : "Adm9",
-    "nome" : "Jean Jackson",
-    "email" : "jean.jack@gmail.com",
-    "cpf" : "916.395.006-50",
-    "idade" : 29,
-    "telefone" : "(41) 92231-0039",
-    "senhaHash" : "Jean-jack@29",
-    "hashProvider" : "$2a$10$dqTs0kcySCd8xqkF.7LHouoETcm/2jVipEQUEGJAiPlz/nU2pXYCC",
+  "Adm2" : {
+    "id" : "Adm2",
+    "nome" : "Carla Machado",
+    "email" : "carla_ma@gmail.com",
+    "cpf" : "16248822000",
+    "idade" : 32,
+    "telefone" : "41933308980",
+    "hashProvider" : "$2a$10$3V/6WPDXqhcnjIeCT2YnHOxYqNnxI8OZLuQ9rCfyLEnyedvrZLHjG",
     "contatoEmergencia" : null,
     "infoMedica" : null,
-    "idCodigoAdministrador" : "ADM-E091B688",
-    "adiminRaiz" : false
+    "idCodigoAdministrador" : "ADM-RRK1-XP21-2026",
+    "adiminRaiz" : true
   }
 }

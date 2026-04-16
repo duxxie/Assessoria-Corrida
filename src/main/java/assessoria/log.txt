@@ -707,3 +707,58 @@
 [2026-04-15 10:55:35] INFO - IDs inicializados.
 [2026-04-15 10:57:14] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-15 10:57:14] INFO - Sistema encerrado.
+[2026-04-16 10:19:50] INFO - Sistema iniciado.
+[2026-04-16 10:19:50] INFO - IDs inicializados.
+[2026-04-16 10:25:24] INFO - Sistema iniciado.
+[2026-04-16 10:27:35] INFO - Sistema iniciado.
+[2026-04-16 10:27:35] INFO - IDs inicializados.
+[2026-04-16 10:27:48] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 10:27:48] INFO - Sistema encerrado.
+[2026-04-16 10:28:02] INFO - Sistema iniciado.
+[2026-04-16 10:28:02] INFO - IDs inicializados.
+[2026-04-16 10:28:58] INFO - Sistema iniciado.
+[2026-04-16 10:28:58] INFO - IDs inicializados.
+[2026-04-16 10:30:31] INFO - Administrador cadastrado com sucesso. Id=Adm1, Nome=Jean Jackson, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-16 10:30:31] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-16 10:32:12] INFO - Administrador cadastrado com sucesso. Id=Adm2, Nome=Carla Machado, CodigoAdmin=ADM-RRK1-XP21-2026
+[2026-04-16 10:32:12] Codigo administrador atualizado. Id=ADM-RRK1-XP21-2026 | Campo=usado | Antes=false | Depois=true
+[2026-04-16 11:48:01] INFO - Sistema iniciado.
+[2026-04-16 11:48:01] INFO - IDs inicializados.
+[2026-04-16 11:55:27] INFO - Administrador cadastrado com sucesso. Id=Adm1, Nome=Pedro Fagundes, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-16 11:55:27] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-16 11:59:19] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 11:59:19] INFO - Sistema encerrado.
+[2026-04-16 12:48:05] INFO - Sistema iniciado.
+[2026-04-16 12:48:05] INFO - IDs inicializados.
+[2026-04-16 12:51:49] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 12:51:49] INFO - Sistema encerrado.
+[2026-04-16 12:53:09] INFO - Sistema iniciado.
+[2026-04-16 12:53:09] INFO - IDs inicializados.
+[2026-04-16 12:55:53] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 12:55:53] INFO - Sistema encerrado.
+[2026-04-16 12:58:03] INFO - Sistema iniciado.
+[2026-04-16 12:58:03] INFO - IDs inicializados.
+[2026-04-16 13:06:51] INFO - Sistema iniciado.
+[2026-04-16 13:06:51] INFO - IDs inicializados.
+[2026-04-16 13:09:23] INFO - Sistema iniciado.
+[2026-04-16 13:09:23] INFO - IDs inicializados.
+[2026-04-16 13:10:25] Codigo administrador atualizado. Id=ADM-RRK1-XP21-2026 | Campo=usado | Antes=false | Depois=true
+[2026-04-16 13:10:25] INFO - Administrador cadastrado com sucesso. Id=Adm2, Nome=Carla Machado, CodigoAdmin=ADM-RRK1-XP21-2026
+[2026-04-16 13:11:29] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 13:11:29] INFO - Sistema encerrado.
+[2026-04-16 13:21:18] INFO - Sistema iniciado.
+[2026-04-16 13:21:18] INFO - IDs inicializados.
+[2026-04-16 13:23:37] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 13:23:37] INFO - Sistema encerrado.
+[2026-04-16 13:23:41] INFO - Sistema iniciado.
+[2026-04-16 13:23:41] INFO - IDs inicializados.
+[2026-04-16 13:24:26] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 13:24:26] INFO - Sistema encerrado.
+[2026-04-16 15:47:07] INFO - Sistema iniciado.
+[2026-04-16 15:47:07] INFO - IDs inicializados.
+[2026-04-16 15:49:33] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 15:49:33] INFO - Sistema encerrado.
+[2026-04-16 15:50:04] INFO - Sistema iniciado.
+[2026-04-16 15:50:04] INFO - IDs inicializados.
+[2026-04-16 15:50:57] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 15:50:57] INFO - Sistema encerrado.

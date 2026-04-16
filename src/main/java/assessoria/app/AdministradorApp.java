@@ -20,7 +20,9 @@ public class AdministradorApp {
 
     public void executarCadastro() {
         administradorView.mostrarMenuCadastrarAdministrador();
-        administradorView.pegarDadosAdministrador();
+        Administrador administrador = administradorView.realizarCadastroAdministrador();
+        if(administrador != null)
+            executarAcao(administrador);
     }
 
     public void executarLogin() {
