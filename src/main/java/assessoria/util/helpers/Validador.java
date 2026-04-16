@@ -47,6 +47,14 @@ public class Validador {
 
     }
 
+    public static boolean isCrefValido(String crefInformado) {
+        String crefLimpo = Formatador.removerMascaraCref(crefInformado);
+
+        if(crefLimpo.length() != 9) throw new ValidationException("Formato do cref inválido!");
+
+        return crefLimpo.matches("\\d{6}[GP][A-Z]{2}");
+    }
+
     public static boolean isEmailValido(String email) {
         if(!email.matches("^[a-z._0-9+-]+@[a-z]{3,}+\\.[a-z]{2,}$")) {
             throw new IllegalArgumentException("⚠️ --> [Formato de email inválido!!]");

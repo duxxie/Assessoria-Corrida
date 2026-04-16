@@ -15,7 +15,6 @@ public class Administrador extends Pessoa implements Usuario,Savable{
                 builder.cpf,
                 builder.idade,
                 builder.telefone,
-                builder.senhaHash,
                 builder.hashProvider,
                 builder.contatoEmergencia,
                 builder.infoMedica
@@ -79,11 +78,6 @@ public class Administrador extends Pessoa implements Usuario,Savable{
 
         public Builder telefone(String telefone) {
             this.telefone = telefone;
-            return this;
-        }
-
-        public Builder senhaHash(String senhaHash) {
-            this.senhaHash = senhaHash;
             return this;
         }
 

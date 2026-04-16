@@ -12,7 +12,6 @@ public class Aluno extends Pessoa implements Usuario,Savable {
                 builder.cpf,
                 builder.idade,
                 builder.telefone,
-                builder.senhaHash,
                 builder.hashProvider,
                 builder.contatoEmergencia,
                 builder.infoMedica
@@ -26,7 +25,6 @@ public class Aluno extends Pessoa implements Usuario,Savable {
         private String cpf;
         private int idade;
         private String telefone;
-        private String senhaHash;
         private String hashProvider;
         private ContatoEmergencia contatoEmergencia;
         private InfoMedica infoMedica;
@@ -58,11 +56,6 @@ public class Aluno extends Pessoa implements Usuario,Savable {
 
         public Builder telefone(String telefone) {
             this.telefone = telefone;
-            return this;
-        }
-
-        public Builder senhaHash(String senhaHash) {
-            this.senhaHash = senhaHash;
             return this;
         }
 

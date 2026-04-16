@@ -10,7 +10,6 @@ public class DadosCadastroPessoa {
     private String cpf;
     private int idade;
     private String telefone;
-    private String senhaHash;
     private String hashProvider;
 
     private ContatoEmergencia contatoEmergencia;
@@ -64,14 +63,6 @@ public class DadosCadastroPessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
-    }
-
-    public String getSenhaHash() {
-        return senhaHash;
-    }
-
-    public void setSenhaHash(String senhaHash) {
-        this.senhaHash = senhaHash;
     }
 
     public String getHashProvider() {

@@ -3,6 +3,7 @@ package assessoria.service;
 import assessoria.exceptions.NotFoundException;
 import assessoria.exceptions.OperationNotAllowedException;
 import assessoria.exceptions.ValidationException;
+import assessoria.mapper.AdministradorMapper;
 import assessoria.model.dao.AdministradorDAO;
 import assessoria.model.dto.AdministradorDetalhado;
 import assessoria.model.dto.DadosAtualizacaoPessoa;
@@ -26,7 +27,7 @@ public class AdministradorService {
     private final AdministradorDAO dao;
     private final CodigoAdministradorService codigoAdministradorService;
     private final AlunoService alunoService;
-    private Map<String, Administrador> mapAdministrador;
+    private final Map<String, Administrador> mapAdministrador;
 
     public AdministradorService(AdministradorDAO dao, CodigoAdministradorService codigoAdministradorService, AlunoService alunoService) {
         this.dao = dao;
@@ -37,11 +38,10 @@ public class AdministradorService {
 
     public List<AdministradorDetalhado> gerarListaAdministradorParaExibicao() {
         if(getMapAdministrador().isEmpty()) throw new NotFoundException("Falha ao gerar lista para Administrador | Motivo: nenhum administrador cadastrado");
-        List<AdministradorDetalhado> administradorDetalhados = getMapAdministrador().values().stream()
+
+        return getMapAdministrador().values().stream()
                 .map(this::gerarAdministradorDetalhado)
                 .toList();
-
-        return administradorDetalhados;
     }
 
     public Map<String, Administrador> getMapAdministrador() {
@@ -51,18 +51,7 @@ public class AdministradorService {
     private AdministradorDetalhado gerarAdministradorDetalhado(Administrador administrador) {
         CodigoAdministrador codigoAdministrador = codigoAdministradorService.encontrarCodigoAdministrador(administrador.getIdCodigoAdministrador());
 
-        return new AdministradorDetalhado(
-                administrador.getId(),
-                administrador.getNome(),
-                administrador.getEmail(),
-                administrador.getCpf(),
-                administrador.getIdade(),
-                administrador.getTelefone(),
-                administrador.getIdCodigoAdministrador(),
-                administrador.isAdiminRaiz(),
-                codigoAdministrador.isAtivo(),
-                codigoAdministrador.isUsado()
-        );
+        return AdministradorMapper.toDetalhado(administrador, codigoAdministrador);
     }
 
     public Administrador validarLogin(String email, String senha) {
@@ -94,14 +83,7 @@ public class AdministradorService {
     }
 
     public DadosAtualizacaoPessoa gerarAdministradorParaUpdate(Administrador administrador) {
-        return new DadosAtualizacaoPessoa(
-                administrador.getId(),
-                administrador.getNome(),
-                administrador.getEmail(),
-                administrador.getCpf(),
-                administrador.getTelefone(),
-                administrador.getHashProvider()
-        );
+        return AdministradorMapper.toDadosAtualizacao(administrador);
     }
 
     public void criarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
@@ -110,18 +92,7 @@ public class AdministradorService {
         boolean adminRaiz = mapAdministrador.isEmpty();
         if(!adminRaiz) codigoAdministradorService.validarCodigoAdministradorParaCadastro(codigoAdmin);
 
-        Administrador administrador = new Administrador.Builder()
-                .id(GeradorID.gerarIdClass(Administrador.class))
-                .nome(dadosCadastroPessoa.getNome())
-                .email(dadosCadastroPessoa.getEmail())
-                .cpf(dadosCadastroPessoa.getCpf())
-                .idade(dadosCadastroPessoa.getIdade())
-                .telefone(dadosCadastroPessoa.getTelefone())
-                .senhaHash(dadosCadastroPessoa.getSenhaHash())
-                .hashProvider(dadosCadastroPessoa.getHashProvider())
-                .contatoEmergencia(dadosCadastroPessoa.getContatoEmergencia())
-                .infoMedica(dadosCadastroPessoa.getInfoMedica())
-                .build(codigoAdmin, adminRaiz);
+        Administrador administrador = AdministradorMapper.toEntity(dadosCadastroPessoa, GeradorID.gerarIdClass(Administrador.class), adminRaiz, codigoAdmin);
 
         salvarAdministrador(administrador);
         codigoAdministradorService.setarCodigoAdministradorUsadoTrue(codigoAdmin);

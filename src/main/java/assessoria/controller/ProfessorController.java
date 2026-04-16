@@ -1,5 +1,6 @@
 package assessoria.controller;
 
+import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.*;
 import assessoria.model.entidades.Professor;
 import assessoria.service.ProfessorService;
@@ -24,12 +25,8 @@ public class ProfessorController{
         }
     }
 
-    public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String nomeEmergencia, String telefoneEmergencia, String relacao, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        executeActionWithErrorHandler(() -> professorService.criarProfessor(nome, email, cpf, idade, telefone, senha, hashSenha, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
-    }
-
-    public void criarProfessor(String nome, String email, String cpf, int idade, String telefone, String senha, String hashSenha, String condicaoMedica, String alergia, String medicamentoEmUso, String frequenciaMedicamentoEmUso, String lesaoRecente, String cirurgiaRecente, String restricaoMedica, String tipoSanguineo) {
-        executeActionWithErrorHandler(() -> professorService.criarProfessor(nome, email, cpf, idade, telefone, senha, hashSenha, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo));
+    public void criarProfessor(DadosCadastroPessoa dadosCadastroPessoa, String cref) {
+        executeActionWithErrorHandler(() -> professorService.criarProfessor(dadosCadastroPessoa, cref));
     }
 
     public void salvarProfessor(Professor professor) {

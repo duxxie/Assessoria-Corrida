@@ -2,6 +2,7 @@ package assessoria.util.helpers;
 
 import java.util.Scanner;
 
+import assessoria.exceptions.ValidationException;
 import assessoria.view.MensagemView;
 
 public class InputHelper {
@@ -79,9 +80,9 @@ public class InputHelper {
         }
     }
 
-    public static String[] pegarMedicamentoEmUso() {
+    public static String pegarMedicamentoEmUso() {
         if(pegarSePossuiInfoMedica("Faz o uso de algum medicamento contínuo ?")) {
-            return new String[] {lerString("Digite o medicamento (se for mais de uma, separe elas por vírgula): "), lerString("Informe com qual frequência (Ex: Todos os dias; De dois em dois dias): ")};
+            return lerString("Digite o medicamento (se for mais de um, separe-os por vírgula): ")   ;
         } else {
             return null;
         }
@@ -155,6 +156,20 @@ public class InputHelper {
         return cpf;
     }
 
+    public static String pegarCref() {
+        String cref = "";
+        boolean crefValido = false;
+        while(!crefValido) {
+            try {
+                cref = lerString("Informe o seu CREF: ");
+                crefValido = Validador.isCrefValido(cref);
+            } catch (ValidationException e) {
+                MensagemView.mostrarAviso(e.getMessage());
+            }
+        }
+        return cref;
+    }
+
     public static String pegarSenhaToUpdate() {
         return pegarSenha("---> Informe uma nova senha para a sua conta <<---");
     }
@@ -218,7 +233,7 @@ public class InputHelper {
     }
 
     public static int lerOpcao() {
-       return lerInt("Escolha uma opção: ");
+       return lerInt(">> Escolha uma opção: ");
     }
 
     public static float lerFloat(String frase) {

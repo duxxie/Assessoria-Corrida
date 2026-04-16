@@ -3,10 +3,12 @@ package assessoria.view;
 import assessoria.controller.AlunoController;
 import assessoria.controller.ProfessorController;
 import assessoria.controller.TreinoController;
+import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Professor;
 import assessoria.model.entidades.Treino;
 import assessoria.util.helpers.BCryptHash;
+import assessoria.util.helpers.CadastroViewHelper;
 import assessoria.util.helpers.InputHelper;
 import assessoria.util.helpers.Validador;
 import assessoria.util.log.Log;
@@ -34,41 +36,10 @@ public class ProfessorView {
     }
 
     public void pegarDadosProfessor() {
-        BCryptHash bCryptHash = new BCryptHash();
-        boolean dadosEmergencia = false;
+        DadosCadastroPessoa dadosCadastroPessoa = CadastroViewHelper.pegarDadosCadastroPessoa();
+        String cref = InputHelper.pegarCref();
 
-        //Dados primários
-        String nome = InputHelper.pegarNome();
-        String cpf = InputHelper.pegarCpf();
-        int idade = InputHelper.pegarIdade();
-        String telefone = InputHelper.pegarTelefone();
-        String email = InputHelper.pegarEmail();
-        String senha = InputHelper.pegarSenhaToCadastro();
-        String hash = bCryptHash.gerarHash(senha);
-
-        //Dados scundários
-        String condicaoMedica = InputHelper.pegarCondicaoMedica();
-        String alergia = InputHelper.pegarAlergia();
-        String[] medicamento = InputHelper.pegarMedicamentoEmUso();
-        String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
-        String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
-        String lesaoRecente = InputHelper.pegarLesao();
-        String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
-        String restricaoMedica = InputHelper.pegarRestricaoMedica();
-        String tipoSanguineo = InputHelper.pegarTipoSanguineo();
-
-        if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
-            System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
-            String nomeEmergencia = InputHelper.pegarNome();
-            String telefoneEmergencia = InputHelper.pegarTelefone();
-            String relacao = InputHelper.pegarRelacao();
-            //Criando professor com todos os atributos
-            professorController.criarProfessor(nome, email, cpf, idade, telefone, senha, hash, nomeEmergencia, telefoneEmergencia, relacao, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        } else {
-            //Criando professor sem os dados do contato de emergencia
-            System.out.println("\n\n[<< Você pode adicionar um contado de emergência a qualquer momento dentro da sua conta!!>>]\n\n");
-            professorController.criarProfessor(nome, email, cpf, idade, telefone, senha, hash, condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
-        }
+        professorController.criarProfessor(dadosCadastroPessoa, cref);
     }
 
 

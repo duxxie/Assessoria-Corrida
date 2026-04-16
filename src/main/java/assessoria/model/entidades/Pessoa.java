@@ -7,75 +7,22 @@ public abstract class Pessoa {
     private String cpf;
     private int idade;
     private String telefone;
-    private String senhaHash;
     private String hashProvider;
     private ContatoEmergencia contatoEmergencia;
     private InfoMedica infoMedica;
 
     public Pessoa(){}
 
-    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
+    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.idade = idade;
         this.telefone = telefone;
-        this.senhaHash = senhaHash;
         this.hashProvider = hashProvider;
         this.contatoEmergencia = contatoEmergencia;
         this.infoMedica = infoMedica;
-    }
-
-    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, InfoMedica infoMedica) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.cpf = cpf;
-        this.idade = idade;
-        this.telefone = telefone;
-        this.senhaHash = senhaHash;
-        this.hashProvider = hashProvider;
-        this.infoMedica = infoMedica;
-    }
-
-    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider, ContatoEmergencia contatoEmergencia) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.cpf = cpf;
-        this.idade = idade;
-        this.telefone = telefone;
-        this.senhaHash = senhaHash;
-        this.hashProvider = hashProvider;
-        this.contatoEmergencia = contatoEmergencia;
-    }
-
-    public Pessoa(String id, String nome, String cpf, int idade) {
-        this.id = id;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.idade = idade;
-    }
-
-    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.cpf = cpf;
-        this.idade = idade;
-        this.telefone = telefone;
-    }
-
-    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String senhaHash, String hashProvider) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.cpf = cpf;
-        this.idade = idade;
-        this.telefone = telefone;
-        this.senhaHash = senhaHash;
-        this.hashProvider = hashProvider;
     }
 
     public String getCpf() {
@@ -126,10 +73,6 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
-    public String getSenhaHash() {
-        return senhaHash;
-    }
-
     public String getHashProvider() {
         return hashProvider;
     }
@@ -150,17 +93,10 @@ public abstract class Pessoa {
         this.infoMedica = infoMedica;
     }
 
-    public void setSenhaHash(String senhaHash) {
-        this.senhaHash = senhaHash;
-    }
 
     public void setHashProvider(String hashProvider) {
         this.hashProvider = hashProvider;
     }
-
-    //    public boolean verificarSenha(String senhaPlana) {
-//        return hashProvider.verificarHash(senhaPlana, this.senhaHash);
-//    }
 
     public void mostrarInfoCompleta() {
 

@@ -18,21 +18,18 @@ public class CadastroViewHelper {
         dadosCadastroPessoa.setEmail(InputHelper.pegarEmail());
 
         String senha = InputHelper.pegarSenhaToCadastro();
-        dadosCadastroPessoa.setSenhaHash(senha);
         dadosCadastroPessoa.setHashProvider(bCryptHash.gerarHash(senha));
 
         if(InputHelper.isAdicionarDadosInfoMedicaAgoraTrue()) {
             String condicaoMedica = InputHelper.pegarCondicaoMedica();
             String alergia = InputHelper.pegarAlergia();
-            String[] medicamento = InputHelper.pegarMedicamentoEmUso();
-            String medicamentoEmUso = medicamento != null ? medicamento[0] : null;
-            String frequenciaMedicamento = medicamento != null ? medicamento[1] : null;
+            String medicamentoEmUso = InputHelper.pegarMedicamentoEmUso();
             String lesaoRecente = InputHelper.pegarLesao();
             String cirurgiaRecente = InputHelper.pegarCirurgiaRecente();
             String restricaoMedica = InputHelper.pegarRestricaoMedica();
             String tipoSanguineo = InputHelper.pegarTipoSanguineo();
 
-            InfoMedica infoMedica = new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, frequenciaMedicamento, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
+            InfoMedica infoMedica = new InfoMedica(condicaoMedica, alergia, medicamentoEmUso, lesaoRecente, cirurgiaRecente, restricaoMedica, tipoSanguineo);
 
             dadosCadastroPessoa.setInfoMedica(infoMedica);
         }
