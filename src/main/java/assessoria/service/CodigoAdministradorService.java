@@ -15,6 +15,7 @@ public class CodigoAdministradorService {
 
     private final CodigoAdministradorDAO dao;
     private final List<CodigoAdministrador> codigoAdministradorList;
+    private final String KEY_ADMIN_RAIZ = "RRK1";
 
     public CodigoAdministradorService(CodigoAdministradorDAO dao) {
         this.dao = dao;
@@ -69,6 +70,10 @@ public class CodigoAdministradorService {
 
     }
 
+    private void atualizarListDadosArquivo() {
+        dao.inserirDadosNoArquivo(getCodigoAdministradorList());
+    }
+
     public String gerarCodigoAdministrador() {
         String codigoGerado = "ADM-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
         codigoAdministradorList.add(new CodigoAdministrador(codigoGerado, false, true));
@@ -77,8 +82,8 @@ public class CodigoAdministradorService {
         return codigoGerado;
     }
 
-    private void atualizarListDadosArquivo() {
-        dao.inserirDadosNoArquivo(getCodigoAdministradorList());
+    public boolean isCodigoAdminRaiz(String codigoInformado) {
+        return codigoInformado.contains(KEY_ADMIN_RAIZ);
     }
 
     public List<CodigoAdministrador> getCodigoAdministradorList() {

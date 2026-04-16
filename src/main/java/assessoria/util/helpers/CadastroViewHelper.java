@@ -34,7 +34,7 @@ public class CadastroViewHelper {
             dadosCadastroPessoa.setInfoMedica(infoMedica);
         }
 
-        if(InputHelper.pegarEscolhaDadosContatoEmergencia()) {
+        if(InputHelper.isAdicionarContatoEmergenciaAgoraTrue()) {
             System.out.println("\n >>> Informe os dados do seu contado de emergencia abaixo <<<");
             String nomeEmergencia = InputHelper.pegarNome();
             String telefoneEmergencia = InputHelper.pegarTelefone();

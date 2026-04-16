@@ -40,9 +40,6 @@ public class AdministradorController{
         }
     }
 
-    public void criarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
-        executeActionWithErrorHandler(() -> administradorService.criarAdministrador(dadosCadastroPessoa, codigoAdmin));
-    }
 
     public void excluirAdministrador(String idAdministradorInformado, Administrador administrador) {
         executeActionWithErrorHandler(() -> administradorService.excluirAdministrador(idAdministradorInformado, administrador));
@@ -77,8 +74,12 @@ public class AdministradorController{
         }
     }
 
+    public Administrador cadastrarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
+        return executeActionWithErrorHandlerWithReturn(() -> administradorService.cadastrarAdministrador(dadosCadastroPessoa, codigoAdmin));
+    }
+
     public Administrador validarLogin(String email, String senha) {
-      return executeActionWithErrorHandlerWithReturn(() -> administradorService.validarLogin(email, senha));
+        return executeActionWithErrorHandlerWithReturn(() -> administradorService.validarLogin(email, senha));
     }
 
     public List<AdministradorDetalhado> gerarListaAdministradorParaExibicao() {
@@ -99,6 +100,10 @@ public class AdministradorController{
 
     public DadosAtualizacaoPessoa gerarAdministradorParaUpdate(Administrador administrador) {
         return administradorService.gerarAdministradorParaUpdate(administrador);
+    }
+
+    public AdministradorDetalhado gerarAdministradorParaExibicao(Administrador administrador) {
+        return administradorService.gerarAdministradorDetalhado(administrador);
     }
 
 }

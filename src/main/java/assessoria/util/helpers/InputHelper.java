@@ -26,7 +26,17 @@ public class InputHelper {
     }
 
     public static String pegarTelefone() {
-        return lerString("Digite o telefone (XX)9xxxx-xxxx: ");
+        while(true) {
+            try{
+                String telefone = lerString("Digite o telefone (XX)9xxxx-xxxx: ");
+                String telefoneSemMascara = Formatador.removerMascaraTelefone(telefone);
+                Validador.isTelefoneValido(telefoneSemMascara);
+
+                return telefoneSemMascara;
+            }catch (ValidationException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 
     public static String pegarRelacao() {
@@ -120,54 +130,37 @@ public class InputHelper {
         }
     }
 
-    public static boolean pegarEscolhaDadosContatoEmergencia() {
-        char opcao = Character.toLowerCase(lerChar("Deseja adicionar um contato para emergência ?"));
-        if(opcao == 'n') {
-           while(true) {
-               System.out.println("\n------------------------------------------------------------------------");
-               System.out.println("O contato de emergência é crucial em casos como: Emergência de Saúde; Acidentes Inesperados.");
-               System.out.println(" >> [1] Estou ciente, mesmo assim não quero adicionar um contato de emergência");
-               System.out.println(" >> [2] Estou ciente, quero adicionar um contato de emergência");
-               int op = lerOpcao();
-               if(op == 1) {
-                   return false;
-               } else if (op == 2) {
-                   return true;
-               } else {
-                   MensagemView.mostrarErro("Escolha uma opção válida!!");
-               }
-           }
-        }
-        return true;
+    public static boolean isAdicionarContatoEmergenciaAgoraTrue() {
+        char opcao = Character.toLowerCase(lerChar("Deseja adicionar um contato para emergência agora ?"));
+        return opcao == 's';
     }
 
     public static String pegarCpf() {
-        String cpf = "";
-        boolean valido = false;
-        while(!valido) {
+        while(true) {
             try{
-                System.out.print("Digite o CPF (xxx.xxx.xxx-xx) : ");
-                cpf = ler.nextLine();
-                valido = Validador.isCpfValido(cpf);
-            }catch (Exception e) {
+                String cpf = lerString("Digite o CPF (xxx.xxx.xxx-xx) : ");
+                String cpfSemMascara = Formatador.removerMascaraCpf(cpf);
+                Validador.isCpfValido(cpfSemMascara);
+
+                return cpfSemMascara;
+            }catch (ValidationException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return cpf;
     }
 
     public static String pegarCref() {
-        String cref = "";
-        boolean crefValido = false;
-        while(!crefValido) {
+        while(true) {
             try {
-                cref = lerString("Informe o seu CREF: ");
-                crefValido = Validador.isCrefValido(cref);
+                String cref = lerString("Informe o seu CREF: ");
+                String crefSemMascara = Formatador.removerMascaraCref(cref);
+                Validador.isCrefValido(cref);
+
+                return crefSemMascara;
             } catch (ValidationException e) {
                 MensagemView.mostrarAviso(e.getMessage());
             }
         }
-        return cref;
     }
 
     public static String pegarSenhaToUpdate() {
@@ -183,38 +176,33 @@ public class InputHelper {
     }
 
     private static String pegarSenha(String frase) {
-        String senha = "";
-        boolean valido = false;
         System.out.println("\n\n----------------------------------------------------------");
         System.out.println(frase);
         System.out.println("[A senha deve ser composta por no mínimo 8 caracteres.]\n[Ter pelo menos uma letra maiúscula e um número.]");
         System.out.println("----------------------------------------------------------");
-        while(!valido) {
+        while(true) {
             try{
-                System.out.print("Digite a senha: ");
-                senha = ler.nextLine();
-                valido = Validador.isSenhaValido(senha);
-            }catch (Exception e) {
+                String senha = lerString("Digite a senha: ");
+                Validador.isSenhaValido(senha);
+
+                return senha;
+            }catch (ValidationException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return senha;
-
     }
 
     public static String pegarEmail() {
-        String email = "";
-        boolean valido = false;
-        while(!valido) {
+        while(true) {
             try {
-                System.out.print("Digite o email (Ex: user@gmail.com): ");
-                email = ler.nextLine();
-                valido = Validador.isEmailValido(email);
-            }catch (Exception e) {
+                String email = lerString("Digite o email (Ex: user@gmail.com): ");
+                Validador.isEmailValido(email);
+
+                return email;
+            }catch (ValidationException e) {
                 System.out.println(e.getMessage());
             }
         }
-        return email;
     }
 
     private static int lerInt(String frase) {
