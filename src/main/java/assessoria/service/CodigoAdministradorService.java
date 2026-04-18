@@ -41,14 +41,14 @@ public class CodigoAdministradorService {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         codigoAdministrador.setUsado(true);
         atualizarListDadosArquivo();
-        Log.registrar("Codigo administrador atualizado. Id=" + codigoAdministrador.getId() + " | Campo=usado | Antes=false | Depois=" + codigoAdministrador.isUsado());
+        Log.registrarInfo("Codigo administrador atualizado. Id=" + codigoAdministrador.getId() + " | Campo=usado | Antes=false | Depois=" + codigoAdministrador.isUsado());
     }
 
     public void setarCodigoAdminUsadoFalse(String codigoAdmin) {
         CodigoAdministrador codigoAdministrador = encontrarCodigoAdministrador(codigoAdmin);
         codigoAdministrador.setUsado(false);
         atualizarListDadosArquivo();
-        Log.registrar("Codigo administrador atualizado. Id=" + codigoAdministrador.getId() + " | Campo=usado | Antes=true | Depois=" + codigoAdministrador.isUsado());
+        Log.registrarInfo("Codigo administrador atualizado. Id=" + codigoAdministrador.getId() + " | Campo=usado | Antes=true | Depois=" + codigoAdministrador.isUsado());
     }
 
     public void desativarCodigoAdministrador(String codigoAdmin) {

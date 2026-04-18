@@ -25,17 +25,19 @@ public class AlunoService {
         this.mapAluno = this.dao.lerDadosDoArquivo();
     }
 
-    public void criarAluno(DadosCadastroPessoa dadosCadastroPessoa) {
-        if(cpfAlunoJaExiste(dadosCadastroPessoa.getCpf(), null))
+    public Aluno cadastrarAluno(DadosCadastroPessoa dadosCadastroPessoa) {
+        if(cpfAlunoJaExiste(dadosCadastroPessoa.getCpf(), null))// verificar com map de admin e professores
             throw new ValidationException("Cpf informado já está cadastrado");
 
-        if(emailAlunoJaExiste(dadosCadastroPessoa.getEmail(), null))
+        if(emailAlunoJaExiste(dadosCadastroPessoa.getEmail(), null))// verificar com map de admin e professores
             throw new ValidationException("Email informado já está cadastrado");
 
         Aluno aluno = AlunoMapper.toEntity(dadosCadastroPessoa, GeradorID.gerarIdClass(Aluno.class));
 
         salvarAluno(aluno);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+        Log.registrarInfo("Aluno cadastrado com sucesso. Id=" + aluno.getId() + ", Nome=" + aluno.getNome());
+        return aluno;
     }
 
     public boolean cpfAlunoJaExiste(String cpf, String idIgnorado) {

@@ -1,9 +1,11 @@
 package assessoria.util.log;
 
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 public class Log {
 
@@ -34,7 +36,6 @@ public class Log {
         registrar("ERROR - " + sb);
     }
 
-
     //warn
     public static void registrarAviso(String mensagem) {
         registrar("WARN - " + mensagem);
@@ -43,6 +44,22 @@ public class Log {
     //info
     public static void registrarInfo(String mensagem) {
         registrar("INFO - " + mensagem);
+    }
+
+    //info de alteracao de dados de entidade
+    public static void registrarAlteracao(String entidade, String id, String campo, String antes, String depois) {
+        if(!Objects.equals(antes, depois)) {
+            registrarInfo(entidade + " atualizado. Id=" + id
+                + " | Campo=" + campo
+                + " | Antes=" + antes
+                + " | Depois=" + depois);
+        }
+    }
+
+    //info de alteracao de dados de entidade sensivel
+    public static void registrarAlteracaoSensivel(String entidade, String id, String campo) {
+        registrarInfo(entidade + " atualizado. Id="+ id +" | Campo=" + campo
+            + " | Alteracao realizada com sucesso");
     }
 
     public static void registrar(String mensagem) {

@@ -45,7 +45,7 @@ public class AdministradorMapper {
                 administrador.getEmail(),
                 Formatador.formatarCpf(administrador.getCpf()),
                 Formatador.formatarTelefone(administrador.getTelefone()),
-                administrador.getHashProvider()
+                null
         );
     }
 }

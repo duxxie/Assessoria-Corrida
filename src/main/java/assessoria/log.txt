@@ -762,3 +762,136 @@
 [2026-04-16 15:50:04] INFO - IDs inicializados.
 [2026-04-16 15:50:57] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-16 15:50:57] INFO - Sistema encerrado.
+[2026-04-16 18:51:20] INFO - Sistema iniciado.
+[2026-04-16 18:51:20] INFO - IDs inicializados.
+[2026-04-16 18:55:38] Codigo administrador atualizado. Id=ADM-E091B688 | Campo=usado | Antes=false | Depois=true
+[2026-04-16 18:55:38] INFO - Administrador cadastrado com sucesso. Id=Adm3, Nome=Gabriel Felipe, CodigoAdmin=ADM-E091B688
+[2026-04-16 18:57:54] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 18:57:54] INFO - Sistema encerrado.
+[2026-04-16 19:35:34] INFO - Sistema iniciado.
+[2026-04-16 19:35:34] INFO - IDs inicializados.
+[2026-04-16 19:39:25] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 19:39:25] INFO - Sistema encerrado.
+[2026-04-16 19:40:00] INFO - Sistema iniciado.
+[2026-04-16 19:40:00] INFO - IDs inicializados.
+[2026-04-16 19:41:00] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-16 19:41:00] INFO - Sistema encerrado.
+[2026-04-17 13:57:59] INFO - Sistema iniciado.
+[2026-04-17 13:57:59] INFO - IDs inicializados.
+[2026-04-17 14:00:14] Codigo administrador atualizado. Id=ADM-E091B688 | Campo=usado | Antes=true | Depois=false
+[2026-04-17 14:01:03] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 14:01:03] INFO - Sistema encerrado.
+[2026-04-17 14:01:54] INFO - Sistema iniciado.
+[2026-04-17 14:01:54] INFO - IDs inicializados.
+[2026-04-17 14:04:10] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 14:04:10] INFO - Sistema encerrado.
+[2026-04-17 14:05:47] INFO - Sistema iniciado.
+[2026-04-17 14:05:47] INFO - IDs inicializados.
+[2026-04-17 14:19:54] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 14:19:54] INFO - Sistema encerrado.
+[2026-04-17 15:23:02] INFO - Sistema iniciado.
+[2026-04-17 15:23:02] INFO - IDs inicializados.
+[2026-04-17 15:27:14] INFO - Administrador atualizado. Id=Adm1 | Campo=Cpf | Antes=37037365939 | Depois=370.373.659-39
+[2026-04-17 15:27:14] INFO - Administrador atualizado. Id=Adm1 | Campo=Telefone | Antes=41984052239 | Depois=(41) 98405-2239
+[2026-04-17 15:27:14] INFO - Administrador atualizado. Id=Adm1 | Campo=Senha | Alteracao realizada com sucesso
+[2026-04-17 15:27:14] INFO - Atualização do administrador concluída. Id=Adm1
+[2026-04-17 15:28:33] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 15:28:33] INFO - Sistema encerrado.
+[2026-04-17 15:28:46] INFO - Sistema iniciado.
+[2026-04-17 15:28:46] INFO - IDs inicializados.
+[2026-04-17 15:29:20] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 15:29:20] INFO - Sistema encerrado.
+[2026-04-17 16:19:12] INFO - Sistema iniciado.
+[2026-04-17 16:19:12] INFO - IDs inicializados.
+[2026-04-17 16:20:20] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=true | Depois=false
+[2026-04-17 16:21:46] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 16:21:46] INFO - Sistema encerrado.
+[2026-04-17 16:22:41] INFO - Sistema iniciado.
+[2026-04-17 16:22:41] INFO - IDs inicializados.
+[2026-04-17 16:24:13] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-17 16:24:13] INFO - Administrador cadastrado com sucesso. Id=Adm4, Nome=Pedro Fagundes, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-17 16:26:28] INFO - Administrador atualizado. Id=Adm4 | Campo=Cpf | Antes=37037365939 | Depois=370.373.659-39
+[2026-04-17 16:26:28] INFO - Administrador atualizado. Id=Adm4 | Campo=Telefone | Antes=41934258890 | Depois=(41) 93425-8890
+[2026-04-17 16:26:28] INFO - Atualização do administrador concluída. Id=Adm4
+[2026-04-17 16:32:44] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 16:32:44] INFO - Sistema encerrado.
+[2026-04-17 16:32:51] INFO - Sistema iniciado.
+[2026-04-17 16:32:51] INFO - IDs inicializados.
+[2026-04-17 16:54:09] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 16:54:09] INFO - Sistema encerrado.
+[2026-04-17 16:54:28] INFO - Sistema iniciado.
+[2026-04-17 16:54:28] INFO - IDs inicializados.
+[2026-04-17 16:56:56] INFO - Administrador atualizado. Id=Adm4 | Campo=Senha | Alteracao realizada com sucesso
+[2026-04-17 16:56:56] INFO - Atualização do administrador concluída. Id=Adm4
+[2026-04-17 17:00:19] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 17:00:19] INFO - Sistema encerrado.
+[2026-04-17 17:00:24] INFO - Sistema iniciado.
+[2026-04-17 17:00:24] INFO - IDs inicializados.
+[2026-04-17 17:05:19] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 17:05:19] INFO - Sistema encerrado.
+[2026-04-17 17:15:19] INFO - Sistema iniciado.
+[2026-04-17 17:15:19] INFO - IDs inicializados.
+[2026-04-17 17:15:50] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=true | Depois=false
+[2026-04-17 17:17:28] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-17 17:17:28] INFO - Administrador cadastrado com sucesso. Id=Adm5, Nome=pedro.faa@gmail.com, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-17 17:37:38] INFO - Sistema iniciado.
+[2026-04-17 17:37:38] INFO - IDs inicializados.
+[2026-04-17 17:38:18] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=true | Depois=false
+[2026-04-17 17:39:57] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-17 17:39:57] INFO - Administrador cadastrado com sucesso. Id=Adm5, Nome=Pedro Fagundes, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-17 17:43:34] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 17:45:48] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 17:46:40] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 17:46:40] INFO - Sistema encerrado.
+[2026-04-17 17:46:45] INFO - Sistema iniciado.
+[2026-04-17 17:46:45] INFO - IDs inicializados.
+[2026-04-17 17:47:33] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 17:49:03] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 17:49:03] INFO - Sistema encerrado.
+[2026-04-17 17:49:07] INFO - Sistema iniciado.
+[2026-04-17 17:49:07] INFO - IDs inicializados.
+[2026-04-17 17:49:55] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 17:50:10] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 17:50:10] INFO - Sistema encerrado.
+[2026-04-17 17:51:38] INFO - Sistema iniciado.
+[2026-04-17 17:51:38] INFO - IDs inicializados.
+[2026-04-17 17:52:13] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 17:52:58] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 17:52:58] INFO - Sistema encerrado.
+[2026-04-17 17:54:53] INFO - Sistema iniciado.
+[2026-04-17 17:54:53] INFO - IDs inicializados.
+[2026-04-17 17:55:38] INFO - Administrador atualizado. Id=Adm5 | Campo=Nome | Antes=James Harden | Depois=Pedro Fagundes
+[2026-04-17 17:55:38] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 17:59:03] INFO - Administrador atualizado. Id=Adm5 | Campo=Senha | Alteracao realizada com sucesso
+[2026-04-17 17:59:03] INFO - Atualização do administrador concluída. Id=Adm5
+[2026-04-17 18:07:14] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 18:07:14] INFO - Sistema encerrado.
+[2026-04-17 20:14:11] INFO - Sistema iniciado.
+[2026-04-17 20:14:11] INFO - IDs inicializados.
+[2026-04-17 20:14:49] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=true | Depois=false
+[2026-04-17 20:16:13] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-17 20:16:13] INFO - Administrador cadastrado com sucesso. Id=Adm6, Nome=Pedro Fagundes, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-17 20:21:53] INFO - Administrador atualizado. Id=Adm6 | Campo=Senha | Alteracao realizada com sucesso
+[2026-04-17 20:21:53] INFO - Atualização do administrador concluída. Id=Adm6
+[2026-04-17 20:27:37] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 20:27:37] INFO - Sistema encerrado.
+[2026-04-17 20:27:44] INFO - Sistema iniciado.
+[2026-04-17 20:27:44] INFO - IDs inicializados.
+[2026-04-17 20:28:29] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=true | Depois=false
+[2026-04-17 20:31:51] Codigo administrador atualizado. Id=ADM-2FA4A5BB | Campo=usado | Antes=false | Depois=true
+[2026-04-17 20:31:51] INFO - Administrador cadastrado com sucesso. Id=Adm7, Nome=Pedro Fagundes, CodigoAdmin=ADM-2FA4A5BB
+[2026-04-17 20:34:28] INFO - Atualização do administrador concluída. Id=Adm7
+[2026-04-17 20:36:08] INFO - Administrador atualizado. Id=Adm7 | Campo=Nome | Antes=Pedro Fagundes | Depois=James Harden
+[2026-04-17 20:36:08] INFO - Administrador atualizado. Id=Adm7 | Campo=Senha | Alteracao realizada com sucesso
+[2026-04-17 20:36:08] INFO - Atualização do administrador concluída. Id=Adm7
+[2026-04-17 20:42:17] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 20:42:17] INFO - Sistema encerrado.
+[2026-04-17 20:42:25] INFO - Sistema iniciado.
+[2026-04-17 20:42:25] INFO - IDs inicializados.
+[2026-04-17 20:47:28] INFO - Atualização do administrador concluída. Id=Adm7
+[2026-04-17 20:52:20] INFO - Administrador atualizado. Id=Adm7 | Campo=Senha | Alteracao realizada com sucesso
+[2026-04-17 20:52:20] INFO - Atualização do administrador concluída. Id=Adm7
+[2026-04-17 20:52:54] INFO - Administrador atualizado. Id=Adm7 | Campo=Nome | Antes=James Harden | Depois=Pedro Fagundes
+[2026-04-17 20:52:54] INFO - Atualização do administrador concluída. Id=Adm7
+[2026-04-17 20:53:27] INFO - Salvos os ultimos IDs que foram gerados.
+[2026-04-17 20:53:27] INFO - Sistema encerrado.

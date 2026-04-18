@@ -8,10 +8,7 @@ import assessoria.model.dto.AdministradorDetalhado;
 import assessoria.model.dto.DadosAtualizacaoPessoa;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Administrador;
-import assessoria.util.helpers.BCryptHash;
-import assessoria.util.helpers.CadastroViewHelper;
-import assessoria.util.helpers.InputHelper;
-import assessoria.util.helpers.Validador;
+import assessoria.util.helpers.*;
 
 public class AdministradorView {
     private final ProfessorDashBoard professorDashBoard;
@@ -160,11 +157,11 @@ public class AdministradorView {
     }
 
     public String pegarTelefoneParaAtualizar() {
-        return InputHelper.pegarTelefone();
+        return Formatador.formatarTelefone(InputHelper.pegarTelefone());
     }
 
     public String pegarCpfParaAtualizar() {
-        return InputHelper.pegarCpf();
+        return Formatador.formatarCpf(InputHelper.pegarCpf());
     }
 
     public void salvarAlteracoesAdministrador(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {

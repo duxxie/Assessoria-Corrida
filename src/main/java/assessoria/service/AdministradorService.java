@@ -12,6 +12,8 @@ import assessoria.model.entidades.Administrador;
 import assessoria.model.entidades.CodigoAdministrador;
 import assessoria.model.entidades.ContatoEmergencia;
 import assessoria.model.entidades.InfoMedica;
+import assessoria.util.helpers.BCryptHash;
+import assessoria.util.helpers.Formatador;
 import assessoria.util.helpers.GeradorID;
 import assessoria.util.helpers.Validador;
 import assessoria.util.log.Log;
@@ -162,6 +164,7 @@ public class AdministradorService {
     }
 
     public void salvarAlteracoesAdministrador(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
+
         if(cpfAdministradorJaExiste(dadosAtualizacaoPessoa.getCpf(), dadosAtualizacaoPessoa.getId()) || alunoService.cpfJaExisteEmAluno(dadosAtualizacaoPessoa.getCpf()))
             throw new ValidationException("Falha ao atualizar alteracoes do administrador. | Motivo: cpf informado já está registrado no sistema.");
 
@@ -169,15 +172,31 @@ public class AdministradorService {
             throw new ValidationException("Falha ao atualizar alteracoes do administrador. | Motivo: email informado já está registrado no sistema.");
 
         Administrador administrador = findAdministradorPorId(dadosAtualizacaoPessoa.getId());
+        BCryptHash bCryptHash = new BCryptHash();
+        String cpfSemMascara = Formatador.removerMascaraCpf(dadosAtualizacaoPessoa.getCpf());
+        String telefoneSemMascara = Formatador.removerMascaraTelefone(dadosAtualizacaoPessoa.getTelefone());
+
+        Log.registrarAlteracao("Administrador", administrador.getId(), "Nome", administrador.getNome(), dadosAtualizacaoPessoa.getNome());
+        Log.registrarAlteracao("Administrador", administrador.getId(), "Email", administrador.getEmail(), dadosAtualizacaoPessoa.getEmail());
+        Log.registrarAlteracao("Administrador", administrador.getId(), "Cpf", administrador.getCpf(), cpfSemMascara);
+        Log.registrarAlteracao("Administrador", administrador.getId(), "Telefone", administrador.getTelefone(), telefoneSemMascara);
 
         administrador.setNome(dadosAtualizacaoPessoa.getNome());
         administrador.setEmail(dadosAtualizacaoPessoa.getEmail());
-        administrador.setCpf(dadosAtualizacaoPessoa.getCpf());
-        administrador.setTelefone(dadosAtualizacaoPessoa.getTelefone());
-        administrador.setHashProvider(dadosAtualizacaoPessoa.getNovaSenha());
+        administrador.setCpf(cpfSemMascara);
+        administrador.setTelefone(telefoneSemMascara);
 
+        if(dadosAtualizacaoPessoa.getNovaSenha() != null && !bCryptHash.verificarHash(dadosAtualizacaoPessoa.getNovaSenha(), administrador.getHashProvider())) {
+            String novoHash = bCryptHash.gerarHash(dadosAtualizacaoPessoa.getNovaSenha());
+            administrador.setHashProvider(novoHash);
+            Log.registrarAlteracaoSensivel("Administrador", administrador.getId(), "Senha");
+        }
+
+        Log.registrarInfo("Atualização do administrador concluída. Id=" + administrador.getId());
         atualizarMapAdministradorNoArquivo();
-    }
 
+        MensagemView.mostrarSucesso("Dados salvos com sucesso.");
+
+    }
 
 }

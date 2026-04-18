@@ -1,28 +1,28 @@
 {
-  "Adm1" : {
-    "id" : "Adm1",
-    "nome" : "Pedro Fagundes",
-    "email" : "pedro.faa@gmail.com",
-    "cpf" : "37037365939",
-    "idade" : 28,
-    "telefone" : "41934258890",
-    "hashProvider" : "$2a$10$liECuB2TiKYErnB13W1/OOFgmSFI4HjWr4xyxJmqqtVBVcnAMummG",
-    "contatoEmergencia" : null,
-    "infoMedica" : null,
-    "idCodigoAdministrador" : "ADM-2FA4A5BB",
-    "adiminRaiz" : false
-  },
   "Adm2" : {
     "id" : "Adm2",
     "nome" : "Carla Machado",
     "email" : "carla_ma@gmail.com",
-    "cpf" : "16248822000",
+    "cpf" : "162.488.220-00",
     "idade" : 32,
-    "telefone" : "41933308980",
+    "telefone" : "(41) 98402-3380",
     "hashProvider" : "$2a$10$3V/6WPDXqhcnjIeCT2YnHOxYqNnxI8OZLuQ9rCfyLEnyedvrZLHjG",
     "contatoEmergencia" : null,
     "infoMedica" : null,
     "idCodigoAdministrador" : "ADM-RRK1-XP21-2026",
     "adiminRaiz" : true
+  },
+  "Adm7" : {
+    "id" : "Adm7",
+    "nome" : "Pedro Fagundes",
+    "email" : "pedro.faa@gmail.com",
+    "cpf" : "37037365939",
+    "idade" : 28,
+    "telefone" : "41934258890",
+    "hashProvider" : "$2a$10$6MaFkLYbnGbY4uYOcpFcweWdBWGcQDoqyKZ8LtoLOPkNs7rvBX4Eq",
+    "contatoEmergencia" : null,
+    "infoMedica" : null,
+    "idCodigoAdministrador" : "ADM-2FA4A5BB",
+    "adiminRaiz" : false
   }
 }

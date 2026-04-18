@@ -25,9 +25,9 @@ public class AlunoView {
         System.out.println("+ ---------------------------- +");
     }
 
-    public void pegarDadosAluno() {
+    public Aluno realizarCadastroAluno() {
         DadosCadastroPessoa dadosCadastroPessoa = CadastroViewHelper.pegarDadosCadastroPessoa();
-        alunoController.criarAluno(dadosCadastroPessoa);
+        return alunoController.cadastrarAluno(dadosCadastroPessoa);
     }
 
     public void mostrarMenuLoginAluno() {
