@@ -21,7 +21,9 @@ public class AlunoApp {
 
     public void executarCadastro() {
         alunoView.mostrarMenuCadastrarAluno();
-        alunoView.pegarDadosAluno();
+        Aluno aluno = alunoView.realizarCadastroAluno();
+        if(aluno != null)
+            executarAcao(aluno);
     }
 
     public void executarLogin() {

@@ -97,9 +97,7 @@ public class AdministradorApp {
                 break;
             case 3:
                 String senha = administradorView.pegarSenhaParaAtualizar();
-                BCryptHash bCryptHash = new BCryptHash();
-                String hash = bCryptHash.gerarHash(senha);
-                dadosAtualizacaoPessoa.setNovaSenha(hash);
+                dadosAtualizacaoPessoa.setNovaSenha(senha);
                 break;
             case 4:
                 String telefone = administradorView.pegarTelefoneParaAtualizar();
