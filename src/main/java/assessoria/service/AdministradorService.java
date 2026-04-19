@@ -38,6 +38,7 @@ public class AdministradorService {
         this.alunoService = alunoService;
     }
 
+    //Gerar lista para mostrar administradores cadastrados no sistema
     public List<AdministradorDetalhado> gerarListaAdministradorParaExibicao() {
         if(getMapAdministrador().isEmpty()) throw new NotFoundException("Falha ao gerar lista para Administrador | Motivo: nenhum administrador cadastrado");
 
@@ -50,12 +51,14 @@ public class AdministradorService {
         return mapAdministrador;
     }
 
+    //Transformar a entidade administrador em um dto de exibicao
     public AdministradorDetalhado gerarAdministradorDetalhado(Administrador administrador) {
         CodigoAdministrador codigoAdministrador = codigoAdministradorService.encontrarCodigoAdministrador(administrador.getIdCodigoAdministrador());
 
         return AdministradorMapper.toDetalhado(administrador, codigoAdministrador);
     }
 
+    //Validar email, senha se o codigo de admin nao esta desativado
     public Administrador validarLogin(String email, String senha) {
         Administrador administrador = Validador.isDadosLoginValido(email, senha, getMapAdministrador());
         codigoAdministradorService.validarCodigoAdministradorParaLogin(administrador.getIdCodigoAdministrador());
@@ -63,6 +66,7 @@ public class AdministradorService {
         return administrador;
     }
 
+    //Encontra administrador pelo id informado ou lanca exception
     public Administrador findAdministradorPorId(String idAdministradorInformado) {
         Administrador administrador = mapAdministrador.get(idAdministradorInformado);
 
@@ -71,12 +75,15 @@ public class AdministradorService {
         return administrador;
     }
 
+    //Gera codigo administrador e salva no sistema apenas se o admin for o raiz
     public String gerarCodigoAdministrador(Administrador administrador) {
         if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao tentar gerar codigo administrador | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
         return codigoAdministradorService.gerarCodigoAdministrador();
     }
 
-    public List<CodigoAdministrador> pegarCodigoAdministradorList() {
+    //Pega a lista de codigo de administrador para ser exibida, somente se o administrador for o raiz
+    public List<CodigoAdministrador> pegarCodigoAdministradorList(Administrador administrador) {
+        if(!administrador.isAdiminRaiz()) throw new OperationNotAllowedException("Falha ao listar codigos de administrador | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
         return codigoAdministradorService.getCodigoAdministradorList();
     }
 
@@ -84,10 +91,12 @@ public class AdministradorService {
         return new LinkedHashMap<>(mapAdministrador);
     }
 
+    //Gera um dto de administrador para atualizacao
     public DadosAtualizacaoPessoa gerarAdministradorParaUpdate(Administrador administrador) {
         return AdministradorMapper.toDadosAtualizacao(administrador);
     }
 
+    //Cadastra o administrador se as validacoes como cpf unico, email unico e o codigo admin informado forem verdadeiras
     public Administrador cadastrarAdministrador(DadosCadastroPessoa dadosCadastroPessoa, String codigoAdmin) {
         if(cpfAdministradorJaExiste(dadosCadastroPessoa.getCpf(), null) || alunoService.cpfJaExisteEmAluno(dadosCadastroPessoa.getCpf()))
             throw new ValidationException("Falha no cadastro do administrador | Motivo: cpf informado já está registrado no sistema");
@@ -108,6 +117,7 @@ public class AdministradorService {
         return administrador;
     }
 
+    //Exclui administrador se ele nao for o administrador raiz e se o administrador for encontrado
     public void excluirAdministrador(String idAdministradorInformado, Administrador administrador) {
         if(!administrador.isAdiminRaiz())
             throw new OperationNotAllowedException("Falha ao tentar excluir administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
@@ -119,6 +129,7 @@ public class AdministradorService {
         MensagemView.mostrarSucesso("Administrador excluido com sucesso. Id=" + administrador.getId());
     }
 
+    //Desativa administrador a partir do codigo de administrador
     public void desativarAdministrador(String idAdministradorInformado, Administrador administrador) {
         if(!administrador.isAdiminRaiz())
             throw new OperationNotAllowedException("Falha ao tentar desativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
@@ -128,6 +139,7 @@ public class AdministradorService {
         MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi desativado com sucesso!!");
     }
 
+    //Reativa o administrador a partir do codigo de administrador
     public void reativarAdministrador(String idAdministradorInformado, Administrador administrador) {
         if(!administrador.isAdiminRaiz())
             throw new OperationNotAllowedException("Falha ao tentar reativar administrador id=" + idAdministradorInformado + " | Motivo: administrador nome=" + administrador.getNome() + " não tem permissão para tal ação.");
@@ -137,32 +149,49 @@ public class AdministradorService {
         MensagemView.mostrarSucesso("Administrador com o id: " + administrador.getId() + " foi reativado com sucesso!!");
     }
 
-
+    //Salva o administrador validado e criado no map e depois atualiza para o arquivo
     public void salvarAdministrador(Administrador administrador) {
         salvarAdministradorMap(administrador);
         atualizarMapAdministradorNoArquivo();
     }
 
+    //Atualiza o administrador dentro do map em memoria
     private void salvarAdministradorMap(Administrador administrador) {
         mapAdministrador.put(administrador.getId(), administrador);
     }
 
+    //Verifica se o cpf do administrador informado ja existe dentro do map administrador, podendo ser utilizado tanto para o cadastro quando para atualizacao
     private boolean cpfAdministradorJaExiste(String cpf, String idIgnorado) {
         return mapAdministrador.values().stream()
                 .filter(administrador -> idIgnorado == null || !administrador.getId().equals(idIgnorado))
                 .anyMatch(administrador -> administrador.getCpf().equals(cpf));
     }
 
+    //Verifica se o cpf de outra entidade informado ja existe dentro do map administrador, esse metodo é utilizado por outros services
+    public boolean cpfJaExisteEmAdministrador(String cpf) {
+        return mapAdministrador.values().stream()
+                .anyMatch(administrador -> administrador.getCpf().equals(cpf));
+    }
+
+    //Verifica se o email do administrador informado ja existe dentro do map administrador, podendo ser utilizado tanto para o cadastro quanto para atualizacao
     private boolean emailAdministradorJaExiste(String email, String idIgnorado) {
         return mapAdministrador.values().stream()
                 .filter(administrador -> idIgnorado == null || !administrador.getId().equals(idIgnorado))
                 .anyMatch(administrador -> administrador.getEmail().equals(email));
     }
 
+    //Verifica se o email de outra entidade informado ja existe dentro do map administrador, esse metodo é utlizado por outros services
+    public boolean emailJaExisteEmAdministrador(String email) {
+        return mapAdministrador.values().stream()
+                .anyMatch(administrador -> administrador.getEmail().equals(email));
+    }
+
+    //Atualiza o map em memoria no arquivo
     private void atualizarMapAdministradorNoArquivo() {
         dao.inserirDadosNoArquivo(getMapAdministrador());
     }
 
+    //Salva alteracoes do administrador se as validacoes como cpf unico e email unico forem verdadeiras.
     public void salvarAlteracoesAdministrador(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
 
         if(cpfAdministradorJaExiste(dadosAtualizacaoPessoa.getCpf(), dadosAtualizacaoPessoa.getId()) || alunoService.cpfJaExisteEmAluno(dadosAtualizacaoPessoa.getCpf()))

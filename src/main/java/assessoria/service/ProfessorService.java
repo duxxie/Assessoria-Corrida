@@ -16,6 +16,7 @@ import java.util.Map;
 public class ProfessorService {
     private final Map<String, Professor> mapProfessor;
     private final ProfessorDAO dao;
+    private AlunoService alunoService;
 
     public ProfessorService(ProfessorDAO dao) {
         this.dao = dao;
@@ -54,6 +55,16 @@ public class ProfessorService {
         dao.inserirDadosNoArquivo(getMapProfessor());
     }
 
+    public boolean cpfJaExisteEmProfessor(String cpf) {
+        return mapProfessor.values().stream()
+                .anyMatch(professor -> professor.getCpf().equals(cpf));
+    }
+
+    public boolean emailJaExisteEmProfessor(String email) {
+        return mapProfessor.values().stream()
+                .anyMatch(professor -> professor.getEmail().equals(email));
+    }
+
     public int pegarTamanhoMapProfessor() {
         return mapProfessor.size();
     }
@@ -64,5 +75,9 @@ public class ProfessorService {
 
     public Map<String, Professor> getMapProfessor() {
         return mapProfessor;
+    }
+
+    public void setAlunoService(AlunoService alunoService) {
+        this.alunoService = alunoService;
     }
 }

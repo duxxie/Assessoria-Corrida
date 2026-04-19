@@ -2,6 +2,7 @@ package assessoria.view;
 
 import assessoria.controller.AlunoController;
 import assessoria.controller.TreinoController;
+import assessoria.exceptions.ValidationException;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Treino;
@@ -42,14 +43,10 @@ public class AlunoView {
                 String email = InputHelper.pegarEmail();
                 String senha = InputHelper.pegarSenhaToLogin();
                 return Validador.isDadosLoginValido(email, senha, alunoController.pegarMapAlunos());
-            }catch (Exception e) {
+            }catch (ValidationException e) {
                 System.out.println(e.getMessage());
             }
         }
-    }
-
-    public void mostrarAlunosCadastrados() {
-        alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
     }
 
     public void mostrarMenuAcoes() {

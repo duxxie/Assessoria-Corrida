@@ -106,7 +106,8 @@ public class AdministradorView {
     }
 
     public void mostrarAlunosCadastrados() {
-        alunoDashBoard.mostrarTabela(alunoController.pegarMapAlunos());
+        var listAlunoParaExibicao = alunoController.gerarListaAlunoParaExibicao();
+        if(listAlunoParaExibicao != null) alunoDashBoard.mostrarTabela(listAlunoParaExibicao);
     }
 
     public void mostrarAdministradores(Administrador administrador) {
@@ -119,7 +120,8 @@ public class AdministradorView {
     }
 
     public void mostrarCodigosAdministrador(Administrador administrador) {
-        CodigoAdministradorDashBoard.mostrarTabela(administradorController.pegarCodigoAdministradorList());
+        var listaCodigoAdmin = administradorController.pegarCodigoAdministradorList(administrador);
+        if(listaCodigoAdmin != null) CodigoAdministradorDashBoard.mostrarTabela(listaCodigoAdmin);
     }
 
     public void excluirAdministrador(Administrador administrador) {

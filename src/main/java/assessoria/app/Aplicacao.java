@@ -51,21 +51,28 @@ public class Aplicacao {
 
         this.alunoDAO = new AlunoDAO();
         this.alunoService = new AlunoService(alunoDAO);
-        this.alunoController = new AlunoController(alunoService);
-        this.alunoView = new AlunoView(alunoController, treinoController);
-        this.alunoApp = new AlunoApp(alunoView, alunoController);
 
         this.professorDAO = new ProfessorDAO();
         this.professorService = new ProfessorService(professorDAO);
-        this.professorController = new ProfessorController(professorService);
-        this.professorView = new ProfessorView(professorController, alunoController, treinoController);
-        this.professorApp = new ProfessorApp(professorView, professorController);
+        this.professorService.setAlunoService(alunoService);
 
         this.codigoAdministradorDAO = new CodigoAdministradorDAO();
         this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorDAO);
 
         this.administradorDAO = new AdministradorDAO();
         this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService, alunoService);
+
+        this.alunoService.setAdministradorService(administradorService);
+        this.alunoService.setProfessorService(professorService);
+
+        this.alunoController = new AlunoController(alunoService);
+        this.alunoView = new AlunoView(alunoController, treinoController);
+        this.alunoApp = new AlunoApp(alunoView, alunoController);
+
+        this.professorController = new ProfessorController(professorService);
+        this.professorView = new ProfessorView(professorController, alunoController, treinoController);
+        this.professorApp = new ProfessorApp(professorView, professorController);
+
         this.administradorController = new AdministradorController(administradorService);
         this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
         this.administradorApp = new AdministradorApp(administradorView, administradorController);
