@@ -96,8 +96,4 @@ public class AlunoApp {
         }
     }
 
-    public void mostrarAlunos() {
-        alunoView.mostrarAlunosCadastrados();
-    }
-
 }

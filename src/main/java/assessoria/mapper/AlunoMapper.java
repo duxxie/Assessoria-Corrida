@@ -1,7 +1,9 @@
 package assessoria.mapper;
 
+import assessoria.model.dto.AlunoBase;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
+import assessoria.util.helpers.Formatador;
 
 public class AlunoMapper {
 
@@ -17,5 +19,16 @@ public class AlunoMapper {
                 .contatoEmergencia(dadosCadastroPessoa.getContatoEmergencia())
                 .infoMedica(dadosCadastroPessoa.getInfoMedica())
                 .build();
+    }
+
+    public static AlunoBase toBase(Aluno aluno) {
+        return new AlunoBase(
+                aluno.getId(),
+                aluno.getNome(),
+                aluno.getEmail(),
+                Formatador.formatarCpf(aluno.getCpf()),
+                aluno.getIdade(),
+                Formatador.formatarTelefone(aluno.getTelefone())
+        );
     }
 }
