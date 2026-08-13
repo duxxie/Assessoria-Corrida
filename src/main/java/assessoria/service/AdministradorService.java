@@ -107,7 +107,7 @@ public class AdministradorService {
         boolean adminRaiz = codigoAdministradorService.isCodigoAdminRaiz(codigoAdmin);
         codigoAdministradorService.validarCodigoAdministradorParaCadastro(codigoAdmin);
 
-        Administrador administrador = AdministradorMapper.toEntity(dadosCadastroPessoa, GeradorID.gerarIdClass(Administrador.class), adminRaiz, codigoAdmin);
+        Administrador administrador = AdministradorMapper.toEntity(dadosCadastroPessoa, adminRaiz, codigoAdmin);
 
         salvarAdministrador(administrador);
         codigoAdministradorService.setarCodigoAdministradorUsadoTrue(codigoAdmin);
@@ -215,9 +215,9 @@ public class AdministradorService {
         administrador.setCpf(cpfSemMascara);
         administrador.setTelefone(telefoneSemMascara);
 
-        if(dadosAtualizacaoPessoa.getNovaSenha() != null && !bCryptHash.verificarHash(dadosAtualizacaoPessoa.getNovaSenha(), administrador.getHashProvider())) {
+        if(dadosAtualizacaoPessoa.getNovaSenha() != null && !bCryptHash.verificarHash(dadosAtualizacaoPessoa.getNovaSenha(), administrador.getSenhaHash())) {
             String novoHash = bCryptHash.gerarHash(dadosAtualizacaoPessoa.getNovaSenha());
-            administrador.setHashProvider(novoHash);
+            administrador.setSenhaHash(novoHash);
             Log.registrarAlteracaoSensivel("Administrador", administrador.getId(), "Senha");
         }
 

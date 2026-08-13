@@ -895,3 +895,5 @@
 [2026-04-17 20:52:54] INFO - Atualização do administrador concluída. Id=Adm7
 [2026-04-17 20:53:27] INFO - Salvos os ultimos IDs que foram gerados.
 [2026-04-17 20:53:27] INFO - Sistema encerrado.
+[2026-08-13 09:53:31] INFO - Sistema iniciado.
+[2026-08-13 09:53:31] INFO - IDs inicializados.

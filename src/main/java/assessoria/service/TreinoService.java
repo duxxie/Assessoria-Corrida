@@ -21,7 +21,7 @@ public class TreinoService {
 
     public String salvarTreino(Aluno aluno, Professor professor) {
         String id = GeradorID.gerarIdTreino();
-        salvarTreinoMap(new Treino(id, aluno, professor));
+        salvarTreinoMap(new Treino(aluno, professor));
         salvarTreinoArquivo();
         Log.registrar("Treino criado com sucesso. Id=" + id + ", IdALuno=" + aluno.getId() + ", IdProfessor=" + professor.getId());
         return id;

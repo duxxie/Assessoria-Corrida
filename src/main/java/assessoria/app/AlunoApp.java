@@ -31,6 +31,17 @@ public class AlunoApp {
         executarAcao(alunoView.pegarEtratarDadosLogin());
     }
 
+    private void executarAcao(Aluno aluno) {
+        Log.registrarInfo( aluno.getNome() + " fez login no sistema");
+        int opcao;
+        do {
+            alunoView.mostrarMenuAcoes();
+            opcao = InputHelper.lerOpcao();
+            tratarOpcaoMenuAcoes(opcao, aluno);
+        }while(opcao != 0);
+
+    }
+
     public void executarUpdate(Aluno aluno) {
         int opcao;
         do {
@@ -54,7 +65,7 @@ public class AlunoApp {
                 String senha = InputHelper.pegarSenhaToCadastro();
                 BCryptHash bCryptHash = new BCryptHash();
                 String hash = bCryptHash.gerarHash(senha);
-                aluno.setHashProvider(hash);
+                aluno.setSenhaHash(hash);
                 break;
             case 4:
                 String telefone = InputHelper.pegarTelefone();
@@ -73,17 +84,6 @@ public class AlunoApp {
         }
         alunoController.salvarAluno(aluno);
         alunoView.atualizarAlunoNoTreino(aluno);
-    }
-
-    private void executarAcao(Aluno aluno) {
-        Log.registrarInfo( aluno.getNome() + " fez login no sistema");
-        int opcao;
-        do {
-            alunoView.mostrarMenuAcoes();
-            opcao = InputHelper.lerOpcao();
-            tratarOpcaoMenuAcoes(opcao, aluno);
-        }while(opcao != 0);
-
     }
 
     private void tratarOpcaoMenuAcoes(int opcao, Aluno aluno) {

@@ -4,15 +4,14 @@ import java.time.DayOfWeek;
 import java.util.*;
 
 public class Treino implements Savable {
-    private String id;
+    private String id = UUID.randomUUID().toString();
     private Aluno aluno;
     private Professor professor;
     private Map<DayOfWeek, List<String>> planoSemanal;
 
     public Treino(){};
 
-    public Treino(String id, Aluno aluno, Professor professor) {
-        this.id = id;
+    public Treino( Aluno aluno, Professor professor) {
         this.aluno = aluno;
         this.professor = professor;
         this.planoSemanal = new EnumMap<>(DayOfWeek.class);

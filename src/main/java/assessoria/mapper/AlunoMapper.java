@@ -7,9 +7,8 @@ import assessoria.util.helpers.Formatador;
 
 public class AlunoMapper {
 
-    public static Aluno toEntity(DadosCadastroPessoa dadosCadastroPessoa, String idGerado) {
+    public static Aluno toEntity(DadosCadastroPessoa dadosCadastroPessoa) {
         return new Aluno.Builder()
-                .id(idGerado)
                 .nome(dadosCadastroPessoa.getNome())
                 .email(dadosCadastroPessoa.getEmail())
                 .cpf(dadosCadastroPessoa.getCpf())

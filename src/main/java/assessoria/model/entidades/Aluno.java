@@ -6,7 +6,6 @@ public class Aluno extends Pessoa implements Usuario,Savable {
 
     private Aluno(Builder builder) {
         super(
-                builder.id,
                 builder.nome,
                 builder.email,
                 builder.cpf,
@@ -19,7 +18,6 @@ public class Aluno extends Pessoa implements Usuario,Savable {
     }
 
     public static class Builder {
-        private String id;
         private String nome;
         private String email;
         private String cpf;
@@ -28,11 +26,6 @@ public class Aluno extends Pessoa implements Usuario,Savable {
         private String hashProvider;
         private ContatoEmergencia contatoEmergencia;
         private InfoMedica infoMedica;
-
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
 
         public Builder nome(String nome) {
             this.nome = nome;

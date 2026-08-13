@@ -37,7 +37,7 @@ public class AlunoService {
                 || administradorService.emailJaExisteEmAdministrador(dadosCadastroPessoa.getEmail()))
             throw new ValidationException("Falha no cadastro do aluno | Motivo: email informado já está registrado no sistema");
 
-        Aluno aluno = AlunoMapper.toEntity(dadosCadastroPessoa, GeradorID.gerarIdClass(Aluno.class));
+        Aluno aluno = AlunoMapper.toEntity(dadosCadastroPessoa);
 
         salvarAluno(aluno);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");

@@ -26,7 +26,7 @@ public class ProfessorService {
     public void criarProfessor(DadosCadastroPessoa dadosCadastroPessoa, String cref) {
         validarCpfUnicoProfessor(dadosCadastroPessoa.getCpf());
 
-        Professor professor = ProfessorMapper.toEntity(dadosCadastroPessoa, cref, GeradorID.gerarIdClass(Professor.class));
+        Professor professor = ProfessorMapper.toEntity(dadosCadastroPessoa, cref);
 
         salvarProfessor(professor);
         MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");

@@ -9,13 +9,12 @@ public class Administrador extends Pessoa implements Usuario,Savable{
 
     private Administrador(Builder builder, String idCodigoAdministrador, boolean adiminRaiz) {
         super(
-                builder.id,
                 builder.nome,
                 builder.email,
                 builder.cpf,
                 builder.idade,
                 builder.telefone,
-                builder.hashProvider,
+                builder.senhaHash,
                 builder.contatoEmergencia,
                 builder.infoMedica
         );
@@ -27,34 +26,19 @@ public class Administrador extends Pessoa implements Usuario,Savable{
         return idCodigoAdministrador;
     }
 
-    public void setIdCodigoAdministrador(String idCodigoAdministrador) {
-        this.idCodigoAdministrador = idCodigoAdministrador;
-    }
-
     public boolean isAdiminRaiz() {
         return adiminRaiz;
     }
 
-    public void setAdiminRaiz(boolean adiminRaiz) {
-        this.adiminRaiz = adiminRaiz;
-    }
-
     public static class Builder {
-        private String id;
         private String nome;
         private String email;
         private String cpf;
         private int idade;
         private String telefone;
         private String senhaHash;
-        private String hashProvider;
         private ContatoEmergencia contatoEmergencia;
         private InfoMedica infoMedica;
-
-        public Builder id(String id) {
-            this.id = id;
-            return this;
-        }
 
         public Builder nome(String nome) {
             this.nome = nome;
@@ -81,8 +65,8 @@ public class Administrador extends Pessoa implements Usuario,Savable{
             return this;
         }
 
-        public Builder hashProvider(String hashProvider) {
-            this.hashProvider = hashProvider;
+        public Builder senhaHash(String senhaHash) {
+            this.senhaHash = senhaHash;
             return this;
         }
 

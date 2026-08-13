@@ -61,7 +61,7 @@ public class ProfessorApp {
                 String senha = InputHelper.pegarSenhaToCadastro();
                 BCryptHash bCryptHash = new BCryptHash();
                 String hash = bCryptHash.gerarHash(senha);
-                professor.setHashProvider(hash);
+                professor.setSenhaHash(hash);
                 break;
             case 4:
                 String telefone = InputHelper.pegarTelefone();

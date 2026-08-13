@@ -5,9 +5,8 @@ import assessoria.model.entidades.Professor;
 
 public class ProfessorMapper {
 
-    public static Professor toEntity(DadosCadastroPessoa dadosCadastroPessoa, String cref, String idGerado) {
+    public static Professor toEntity(DadosCadastroPessoa dadosCadastroPessoa, String cref) {
         return new Professor.Builder()
-                .id(idGerado)
                 .nome(dadosCadastroPessoa.getNome())
                 .email(dadosCadastroPessoa.getEmail())
                 .cpf(dadosCadastroPessoa.getCpf())
