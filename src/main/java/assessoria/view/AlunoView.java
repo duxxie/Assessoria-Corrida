@@ -85,8 +85,4 @@ public class AlunoView {
             MensagemView.mostrarMensagem("\n [  >>> Você ainda não possuí treino <<<  ]\n\n");
         }
     }
-
-    public void atualizarAlunoNoTreino(Aluno aluno) {
-        treinoController.atualizarAluno(aluno);
-    }
 }

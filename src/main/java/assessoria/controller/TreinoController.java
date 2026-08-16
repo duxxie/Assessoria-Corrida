@@ -1,12 +1,15 @@
 package assessoria.controller;
 
+import assessoria.exceptions.NotFoundException;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Professor;
 import assessoria.model.entidades.Treino;
 import assessoria.service.TreinoService;
 import assessoria.util.helpers.GeradorID;
+import assessoria.view.MensagemView;
 
 import java.util.Map;
+import java.util.function.Supplier;
 
 
 public class TreinoController {
@@ -17,16 +20,25 @@ public class TreinoController {
         this.treinoService = treinoService;
     }
 
-    public String criarTreino(Aluno aluno, Professor professor) {
-       return treinoService.salvarTreino(aluno, professor);
+    public Treino criarTreino(String alunoId, String professorId) {
+       return treinoService.salvarTreino(alunoId, professorId);
     }
 
     public Map<String,Treino> pegarMapTreino() {
         return treinoService.getMapTreino();
     }
 
+    private <T> T executeActionWithErrorHandlerWithReturN(Supplier<T> action) {
+        try {
+            return action.get();
+        } catch (NotFoundException e) {
+            MensagemView.mostrarErro(e.getMessage());
+            return null;
+        }
+    }
+
     public Treino getTreinoPorID(String id) {
-        return treinoService.getTreinoPorID(id);
+        return executeActionWithErrorHandlerWithReturN(() -> treinoService.getTreinoPorId(id));
     }
 
     public void salvarTreino(Treino treino) {
@@ -43,21 +55,4 @@ public class TreinoController {
         return null;
     }
 
-    public Treino isProfessorInTreino(Professor professor) {
-        Map<String,Treino> map = pegarMapTreino();
-        for(Map.Entry<String,Treino> entry : map.entrySet()) {
-            if(entry.getValue().getAluno().getId().equals(professor.getId())) {
-                return entry.getValue();
-            }
-        }
-        return null;
-    }
-
-    public void atualizarProfessor(Professor professor) {
-        treinoService.atualizarProfessorNoTreino(professor);
-    }
-
-    public void atualizarAluno(Aluno aluno) {
-        treinoService.atualizarAlunoNoTreino(aluno);
-    }
 }

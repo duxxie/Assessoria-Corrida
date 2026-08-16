@@ -19,10 +19,7 @@ import assessoria.util.helpers.Validador;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AdministradorService {
@@ -88,7 +85,7 @@ public class AdministradorService {
     }
 
     public Map<String,Administrador> pegarCopiaMapAdministrador() {
-        return new LinkedHashMap<>(mapAdministrador);
+        return new HashMap<>(mapAdministrador);
     }
 
     //Gera um dto de administrador para atualizacao

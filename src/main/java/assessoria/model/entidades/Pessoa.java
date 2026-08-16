@@ -2,7 +2,7 @@ package assessoria.model.entidades;
 
 import java.util.UUID;
 
-public abstract class Pessoa {
+public abstract class Pessoa implements Savable {
     private String id = UUID.randomUUID().toString();
     private String nome;
     private String email;

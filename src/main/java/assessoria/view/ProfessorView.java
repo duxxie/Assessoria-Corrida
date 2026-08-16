@@ -189,8 +189,8 @@ public class ProfessorView {
         professor.mostrarInfoCompleta();
     }
 
-    public String criarTreino(Aluno aluno, Professor professor) {
-       return treinoController.criarTreino(aluno, professor);
+    public Treino criarTreino(String alunoId, String professorId) {
+       return treinoController.criarTreino(alunoId, professorId);
     }
 
     public Treino pegarTreinoPorID(String id) {
@@ -199,9 +199,5 @@ public class ProfessorView {
 
     public void mostrarAlunos(Professor professor) {
 
-    }
-
-    public void atualizarProfessorNoMapTreino(Professor professor) {
-        treinoController.atualizarProfessor(professor);
     }
 }

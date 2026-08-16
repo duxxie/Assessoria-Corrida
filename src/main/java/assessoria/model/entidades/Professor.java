@@ -1,6 +1,6 @@
 package assessoria.model.entidades;
 
-public class Professor extends Pessoa implements Usuario, Savable {
+public class Professor extends Pessoa implements Usuario {
 
     private String cref;
 
@@ -8,7 +8,6 @@ public class Professor extends Pessoa implements Usuario, Savable {
 
     public Professor(Builder builder, String cref) {
         super(
-                builder.id,
                 builder.nome,
                 builder.email,
                 builder.cpf,
@@ -30,7 +29,6 @@ public class Professor extends Pessoa implements Usuario, Savable {
     }
 
     public static class Builder {
-        private String id;
         private String nome;
         private String email;
         private String cpf;
@@ -39,11 +37,6 @@ public class Professor extends Pessoa implements Usuario, Savable {
         private String hashProvider;
         private ContatoEmergencia contatoEmergencia;
         private InfoMedica infoMedica;
-
-        public Professor.Builder id(String id) {
-            this.id = id;
-            return this;
-        }
 
         public Professor.Builder nome(String nome) {
             this.nome = nome;

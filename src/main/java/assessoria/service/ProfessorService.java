@@ -10,7 +10,7 @@ import assessoria.util.helpers.GeradorID;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ProfessorService {
@@ -70,7 +70,7 @@ public class ProfessorService {
     }
 
     public Map<String,Professor> pegarCopiaMapProfessor() {
-        return new LinkedHashMap<>(mapProfessor);
+        return new HashMap<>(mapProfessor);
     }
 
     public Map<String, Professor> getMapProfessor() {

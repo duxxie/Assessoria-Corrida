@@ -1,6 +1,6 @@
 package assessoria.model.entidades;
 
-public class Administrador extends Pessoa implements Usuario,Savable{
+public class Administrador extends Pessoa implements Usuario{
 
     private String idCodigoAdministrador;
     private boolean adiminRaiz;

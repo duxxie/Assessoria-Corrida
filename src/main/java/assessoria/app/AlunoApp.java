@@ -83,7 +83,6 @@ public class AlunoApp {
                 break;
         }
         alunoController.salvarAluno(aluno);
-        alunoView.atualizarAlunoNoTreino(aluno);
     }
 
     private void tratarOpcaoMenuAcoes(int opcao, Aluno aluno) {

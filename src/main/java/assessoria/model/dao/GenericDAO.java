@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -37,10 +38,10 @@ public abstract class GenericDAO<T extends Savable> {
         ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(getCaminhoBase() + getCaminhoArquivo());
         if(!file.exists() || file.length() == 0) {
-            return new LinkedHashMap<>();
+            return new HashMap<>();
         }
         try {
-            return objectMapper.readValue(file, objectMapper.getTypeFactory().constructMapType(LinkedHashMap.class, String.class, typeClass));
+            return objectMapper.readValue(file, objectMapper.getTypeFactory().constructMapType(HashMap.class, String.class, typeClass));
         } catch (Exception e) {
             mensagemView.mostrarErro("Erro ao carregar map de " + getNomeClass());
             throw new RuntimeException(e);

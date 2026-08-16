@@ -79,7 +79,6 @@ public class ProfessorApp {
                 break;
         }
         professorController.salvarProfessor(professor);
-        professorView.atualizarProfessorNoMapTreino(professor);
     }
 
     private void executarAcao(Professor professor) {
@@ -154,7 +153,7 @@ public class ProfessorApp {
 
     private void criarTreino(Professor professor) {
         Aluno aluno = professorView.escolherAlunoPorCpf();
-        Treino treino = professorView.pegarTreinoPorID(professorView.criarTreino(aluno, professor));
+        Treino treino = professorView.criarTreino(aluno.getId(), professor.getId());
         int opCriarTreino;
         do {
             professorView.mostrarMenuOpDiaTreino();

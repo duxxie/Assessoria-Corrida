@@ -1,6 +1,6 @@
 package assessoria.model.entidades;
 
-public class Aluno extends Pessoa implements Usuario,Savable {
+public class Aluno extends Pessoa implements Usuario {
 
     public Aluno() {super();}
 
