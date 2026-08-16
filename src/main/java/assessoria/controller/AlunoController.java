@@ -1,6 +1,8 @@
 package assessoria.controller;
+import assessoria.exceptions.NotFoundException;
 import assessoria.exceptions.OperationNotAllowedException;
 import assessoria.exceptions.ValidationException;
+import assessoria.model.dto.AlunoBase;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.ContatoEmergencia;
@@ -10,6 +12,7 @@ import assessoria.util.helpers.GeradorID;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
+import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
@@ -30,7 +33,6 @@ public class AlunoController{
         }
     }
 
-
     public void salvarAluno(Aluno aluno) {
         alunoService.salvarAluno(aluno);
     }
@@ -45,11 +47,18 @@ public class AlunoController{
             MensagemView.mostrarAviso(e.getMessage());
             Log.registrarAviso(e.getMessage());
             return null;
+        } catch (NotFoundException e) {
+            MensagemView.mostrarAviso(e.getMessage());
+            return null;
         }
     }
 
     public Aluno cadastrarAluno(DadosCadastroPessoa dadosCadastroPessoa) {
         return executeActionWithErrorHandlerWithReturn(() -> alunoService.cadastrarAluno(dadosCadastroPessoa));
+    }
+
+    public List<AlunoBase> gerarListaAlunoParaExibicao() {
+        return executeActionWithErrorHandlerWithReturn(() -> alunoService.gerarListaAlunoParaExibicao());
     }
 
     public Map<String,Aluno> pegarMapAlunos() {

@@ -94,8 +94,8 @@ public class AdministradorController{
         return administradorService.getMapAdministrador();
     }
 
-    public List<CodigoAdministrador> pegarCodigoAdministradorList() {
-        return administradorService.pegarCodigoAdministradorList();
+    public List<CodigoAdministrador> pegarCodigoAdministradorList(Administrador administrador) {
+        return executeActionWithErrorHandlerWithReturn(() -> administradorService.pegarCodigoAdministradorList(administrador));
     }
 
     public DadosAtualizacaoPessoa gerarAdministradorParaUpdate(Administrador administrador) {

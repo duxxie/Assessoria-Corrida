@@ -9,15 +9,14 @@ import assessoria.util.helpers.Formatador;
 
 public class AdministradorMapper {
 
-    public static Administrador toEntity(DadosCadastroPessoa dadosCadastroPessoa, String idGerado, boolean adminRaiz, String codigoAdmin) {
+    public static Administrador toEntity(DadosCadastroPessoa dadosCadastroPessoa, boolean adminRaiz, String codigoAdmin) {
         return new Administrador.Builder()
-                .id(idGerado)
                 .nome(dadosCadastroPessoa.getNome())
                 .email(dadosCadastroPessoa.getEmail())
                 .cpf(dadosCadastroPessoa.getCpf())
                 .idade(dadosCadastroPessoa.getIdade())
                 .telefone(dadosCadastroPessoa.getTelefone())
-                .hashProvider(dadosCadastroPessoa.getHashProvider())
+                .senhaHash(dadosCadastroPessoa.getHashProvider())
                 .contatoEmergencia(dadosCadastroPessoa.getContatoEmergencia())
                 .infoMedica(dadosCadastroPessoa.getInfoMedica())
                 .build(codigoAdmin, adminRaiz);

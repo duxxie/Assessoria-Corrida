@@ -1,6 +1,11 @@
 package assessoria.app;
 import assessoria.controller.*;
 import assessoria.model.dao.*;
+import assessoria.repository.CodigoAdministradorRepository;
+import assessoria.repository.TreinoRepository;
+import assessoria.repository.pessoaRepository.AdministradorRepository;
+import assessoria.repository.pessoaRepository.AlunoRepository;
+import assessoria.repository.pessoaRepository.ProfessorRepository;
 import assessoria.service.*;
 import assessoria.util.helpers.GeradorID;
 import assessoria.util.helpers.InputHelper;
@@ -14,6 +19,7 @@ public class Aplicacao {
     private final AlunoView alunoView;
     private final AlunoController alunoController;
     private final AlunoService alunoService;
+    private final AlunoRepository alunoRepository;
     private final AlunoDAO alunoDAO;
 
     //Instancias Treino
@@ -21,6 +27,7 @@ public class Aplicacao {
     private final TreinoView treinoView;
     private final TreinoController treinoController;
     private final TreinoService treinoService;
+    private final TreinoRepository treinoRepository;
     private final TreinoDAO treinoDAO;
 
     //Instancias Professor
@@ -28,10 +35,12 @@ public class Aplicacao {
     private final ProfessorView professorView;
     private final ProfessorController professorController;
     private final ProfessorService professorService;
+    private final ProfessorRepository professorRepository;
     private final ProfessorDAO professorDAO;
 
     //Intancias CodigoAdministrador
     private final CodigoAdministradorService codigoAdministradorService;
+    private final CodigoAdministradorRepository codigoAdministradorRepository;
     private final CodigoAdministradorDAO codigoAdministradorDAO;
 
     //Intancias Administrados
@@ -39,36 +48,52 @@ public class Aplicacao {
     private final AdministradorView administradorView;
     private final AdministradorController administradorController;
     private final AdministradorService administradorService;
+    private final AdministradorRepository administradorRepository;
     private final AdministradorDAO administradorDAO;
 
 
     public Aplicacao() {
-        this.treinoDAO = new TreinoDAO();
-        this.treinoService = new TreinoService(treinoDAO);
-        this.treinoController = new TreinoController(treinoService);
-        this.treinoView = new TreinoView(treinoController);
-        this.treinoApp = new TreinoApp(treinoView);
 
-        this.alunoDAO = new AlunoDAO();
-        this.alunoService = new AlunoService(alunoDAO);
-        this.alunoController = new AlunoController(alunoService);
-        this.alunoView = new AlunoView(alunoController, treinoController);
-        this.alunoApp = new AlunoApp(alunoView, alunoController);
+          this.treinoDAO = new TreinoDAO();
+          this.treinoRepository = new TreinoRepository(treinoDAO);
+          this.treinoService = new TreinoService(treinoDAO);
+          this.treinoController = new TreinoController(treinoService);
+          this.treinoView = new TreinoView(treinoController);
+          this.treinoApp = new TreinoApp(treinoView);
 
-        this.professorDAO = new ProfessorDAO();
-        this.professorService = new ProfessorService(professorDAO);
-        this.professorController = new ProfessorController(professorService);
-        this.professorView = new ProfessorView(professorController, alunoController, treinoController);
-        this.professorApp = new ProfessorApp(professorView, professorController);
-
-        this.codigoAdministradorDAO = new CodigoAdministradorDAO();
-        this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorDAO);
-
-        this.administradorDAO = new AdministradorDAO();
-        this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService, alunoService);
-        this.administradorController = new AdministradorController(administradorService);
-        this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
-        this.administradorApp = new AdministradorApp(administradorView, administradorController);
+//        this.treinoDAO = new TreinoDAO();
+//        this.treinoService = new TreinoService(treinoDAO);
+//        this.treinoController = new TreinoController(treinoService);
+//        this.treinoView = new TreinoView(treinoController);
+//        this.treinoApp = new TreinoApp(treinoView);
+//
+//        this.alunoDAO = new AlunoDAO();
+//        this.alunoService = new AlunoService(alunoDAO);
+//
+//        this.professorDAO = new ProfessorDAO();
+//        this.professorService = new ProfessorService(professorDAO);
+//        this.professorService.setAlunoService(alunoService);
+//
+//        this.codigoAdministradorDAO = new CodigoAdministradorDAO();
+//        this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorDAO);
+//
+//        this.administradorDAO = new AdministradorDAO();
+//        this.administradorService = new AdministradorService(administradorDAO, codigoAdministradorService, alunoService);
+//
+//        this.alunoService.setAdministradorService(administradorService);
+//        this.alunoService.setProfessorService(professorService);
+//
+//        this.alunoController = new AlunoController(alunoService);
+//        this.alunoView = new AlunoView(alunoController, treinoController);
+//        this.alunoApp = new AlunoApp(alunoView, alunoController);
+//
+//        this.professorController = new ProfessorController(professorService);
+//        this.professorView = new ProfessorView(professorController, alunoController, treinoController);
+//        this.professorApp = new ProfessorApp(professorView, professorController);
+//
+//        this.administradorController = new AdministradorController(administradorService);
+//        this.administradorView = new AdministradorView(administradorController, alunoController, treinoController, professorController);
+//        this.administradorApp = new AdministradorApp(administradorView, administradorController);
     }
 
     private final MenuPrincipal menuPrincipal = new MenuPrincipal();

@@ -1,38 +1,37 @@
 package assessoria.service;
 
+import assessoria.exceptions.NotFoundException;
 import assessoria.model.dao.TreinoDAO;
 import assessoria.model.entidades.Aluno;
 import assessoria.model.entidades.Professor;
 import assessoria.model.entidades.Treino;
+import assessoria.repository.TreinoRepository;
 import assessoria.util.helpers.GeradorID;
 import assessoria.util.log.Log;
 
 import java.util.Map;
+import java.util.Optional;
 
 public class TreinoService {
 
-    private Map<String, Treino> mapTreino;
-    private final TreinoDAO dao;
+    private final TreinoRepository treinoRepository;
 
-    public TreinoService(TreinoDAO dao) {
-        this.dao = dao;
-        this.mapTreino = this.dao.lerDadosDoArquivo();
+    public TreinoService(TreinoRepository treinoRepository) {
+        this.treinoRepository = treinoRepository;
     }
 
-    public String salvarTreino(Aluno aluno, Professor professor) {
-        String id = GeradorID.gerarIdTreino();
-        salvarTreinoMap(new Treino(id, aluno, professor));
-        salvarTreinoArquivo();
-        Log.registrar("Treino criado com sucesso. Id=" + id + ", IdALuno=" + aluno.getId() + ", IdProfessor=" + professor.getId());
-        return id;
+    public Treino salvarTreino(String alunoId, String professorId) {
+        Treino treino = treinoRepository.add(new Treino(alunoId, professorId));
+        treinoRepository.save();
+        return treino;
     }
 
     public Map<String, Treino> getMapTreino() {
-        return mapTreino;
+        return treinoRepository.getAll();
     }
 
-    public Treino getTreinoPorID(String id) {
-        return mapTreino.getOrDefault(id, null);
+    public Treino getTreinoPorId(String id) {
+        return treinoRepository.findById(id).orElseThrow(() -> new NotFoundException("Treino nao encontrado"));
     }
 
     public int pegarTamanhoMap() {
@@ -45,27 +44,5 @@ public class TreinoService {
 
     public void salvarTreinoArquivo() {
         dao.inserirDadosNoArquivo(getMapTreino());
-    }
-
-    public void atualizarProfessorNoTreino(Professor professor) {
-        Map<String,Treino> map = getMapTreino();
-
-        for(Map.Entry<String,Treino> entry : map.entrySet()) {
-            if(entry.getValue().getProfessor().getId().equals(professor.getId())) {
-                entry.getValue().setProfessor(professor);
-            }
-        }
-        salvarTreinoArquivo();
-    }
-
-    public void atualizarAlunoNoTreino(Aluno aluno) {
-        Map<String, Treino> map = getMapTreino();
-
-        for(Map.Entry<String,Treino> entry : map.entrySet()) {
-            if(entry.getValue().getAluno().getId().equals(aluno.getId())) {
-                entry.getValue().setAluno(aluno);
-            }
-        }
-        salvarTreinoArquivo();
     }
 }

@@ -77,7 +77,7 @@ public class Validador {
         BCryptHash bCryptHash = new BCryptHash();
 
         for(Map.Entry<String, type> entry : map.entrySet()) {
-            if(emailFornecido.equals(entry.getValue().getEmail()) && bCryptHash.verificarHash(senhaFornecida, entry.getValue().getHashProvider())) {
+            if(emailFornecido.equals(entry.getValue().getEmail()) && bCryptHash.verificarHash(senhaFornecida, entry.getValue().getSenhaHash())) {
                 return entry.getValue();
             }
         }

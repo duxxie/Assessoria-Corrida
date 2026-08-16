@@ -1,30 +1,32 @@
 package assessoria.view;
 
+import assessoria.model.dto.AlunoBase;
 import assessoria.model.entidades.Administrador;
 import assessoria.model.entidades.Aluno;
 
+import java.util.List;
 import java.util.Map;
 
 public class AlunoDashBoard {
 
-    public void mostrarTabela(Map<String, Aluno> typeMap) {
+    public void mostrarTabela(List<AlunoBase> alunoBaseList) {
 
         String[] headers = {"id", "Nome", "Cpf", "Email", "Idade", "Telefone"};
 
-        int maxId = 0;
-        int maxNome = 0;
-        int maxCpf = 0;
-        int maxEmail = 0;
-        int maxIdade = 0;
-        int maxTelefone = 0;
+        int maxId = headers[0].length();
+        int maxNome = headers[1].length();
+        int maxCpf = headers[2].length();
+        int maxEmail = headers[3].length();
+        int maxIdade = headers[4].length();
+        int maxTelefone = headers[5].length();
 
-        for(Map.Entry<String, Aluno> entry : typeMap.entrySet()) {
-            maxId = Math.max(maxId, String.valueOf(entry.getValue().getIdade()).length());
-            maxNome = Math.max(maxNome, entry.getValue().getNome().length());
-            maxCpf = Math.max(maxCpf, entry.getValue().getCpf().length());
-            maxEmail = Math.max(maxEmail, entry.getValue().getEmail().length());
-            maxIdade = Math.max(maxIdade, String.valueOf(entry.getValue().getIdade()).length());
-            maxTelefone = Math.max(maxTelefone, entry.getValue().getTelefone().length());
+        for(AlunoBase alunoBase : alunoBaseList) {
+            maxId = Math.max(maxId, alunoBase.id().length());
+            maxNome = Math.max(maxNome, alunoBase.nome().length());
+            maxCpf = Math.max(maxCpf, alunoBase.cpf().length());
+            maxEmail = Math.max(maxEmail, alunoBase.email().length());
+            maxIdade = Math.max(maxIdade, String.valueOf(alunoBase.idade()).length());
+            maxTelefone = Math.max(maxTelefone, alunoBase.telefone().length());
         }
 
         int widthId = maxId + 6;
@@ -67,9 +69,18 @@ public class AlunoDashBoard {
         System.out.println(bordaTabela);
 
         // Dados
-        for (Aluno aluno : typeMap.values()) {
-            System.out.println(formatarCampoDadosAlunos(widthId, widthNome, widthCpf, widthEmail, widthIdade, widthTelefone, aluno));
-        }
+        alunoBaseList.stream().forEach(
+                alunoBase -> System.out.println(
+                        formatarCampoDadosAlunos(
+                                widthId,
+                                widthNome,
+                                widthCpf,
+                                widthEmail,
+                                widthIdade,
+                                widthTelefone,
+                                alunoBase)
+                )
+        );
         System.out.println(bordaTabela);
     }
 
@@ -80,13 +91,13 @@ public class AlunoDashBoard {
         return padding + valorCampo + padding.repeat(valorPadding - 1);
     }
 
-    private static String formatarCampoDadosAlunos(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, Aluno aluno) {
-        return "|" + campoFormatado(widthId, aluno.getId())
-                + "|" + campoFormatado(widthNome, aluno.getNome())
-                + "|" + campoFormatado(widthCpf, aluno.getCpf())
-                + "|" + campoFormatado(widthEmail, aluno.getEmail())
-                + "|" + campoFormatado(widthIdade, String.valueOf(aluno.getIdade()))
-                + "|" + campoFormatado(widthTelefone, aluno.getTelefone())
+    private static String formatarCampoDadosAlunos(int widthId, int widthNome, int widthCpf, int widthEmail, int widthIdade, int widthTelefone, AlunoBase alunoBase) {
+        return "|" + campoFormatado(widthId, alunoBase.id())
+                + "|" + campoFormatado(widthNome, alunoBase.nome())
+                + "|" + campoFormatado(widthCpf, alunoBase.cpf())
+                + "|" + campoFormatado(widthEmail, alunoBase.email())
+                + "|" + campoFormatado(widthIdade, String.valueOf(alunoBase.idade()))
+                + "|" + campoFormatado(widthTelefone, alunoBase.telefone())
                 + "|";
     }
 }

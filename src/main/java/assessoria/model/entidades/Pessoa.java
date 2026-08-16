@@ -1,26 +1,27 @@
 package assessoria.model.entidades;
 
-public abstract class Pessoa {
-    private String id;
+import java.util.UUID;
+
+public abstract class Pessoa implements Savable {
+    private String id = UUID.randomUUID().toString();
     private String nome;
     private String email;
     private String cpf;
     private int idade;
     private String telefone;
-    private String hashProvider;
+    private String senhaHash;
     private ContatoEmergencia contatoEmergencia;
     private InfoMedica infoMedica;
 
     public Pessoa(){}
 
-    public Pessoa(String id, String nome, String email, String cpf, int idade, String telefone, String hashProvider, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
-        this.id = id;
+    public Pessoa(String nome, String email, String cpf, int idade, String telefone, String senhaHash, ContatoEmergencia contatoEmergencia, InfoMedica infoMedica) {
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
         this.idade = idade;
         this.telefone = telefone;
-        this.hashProvider = hashProvider;
+        this.senhaHash = senhaHash;
         this.contatoEmergencia = contatoEmergencia;
         this.infoMedica = infoMedica;
     }
@@ -35,10 +36,6 @@ public abstract class Pessoa {
 
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -73,8 +70,8 @@ public abstract class Pessoa {
         this.telefone = telefone;
     }
 
-    public String getHashProvider() {
-        return hashProvider;
+    public String getSenhaHash() {
+        return senhaHash;
     }
 
     public ContatoEmergencia getContatoEmergencia() {
@@ -93,9 +90,8 @@ public abstract class Pessoa {
         this.infoMedica = infoMedica;
     }
 
-
-    public void setHashProvider(String hashProvider) {
-        this.hashProvider = hashProvider;
+    public void setSenhaHash(String senhaHash) {
+        this.senhaHash = senhaHash;
     }
 
     public void mostrarInfoCompleta() {
@@ -124,4 +120,18 @@ public abstract class Pessoa {
         System.out.println("Telefone: " + getTelefone());
     }
 
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", idade=" + idade +
+                ", telefone='" + telefone + '\'' +
+                ", hashProvider='" + senhaHash + '\'' +
+                ", contatoEmergencia=" + contatoEmergencia +
+                ", infoMedica=" + infoMedica +
+                '}';
+    }
 }
