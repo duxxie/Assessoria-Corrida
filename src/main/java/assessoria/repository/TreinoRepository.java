@@ -22,7 +22,8 @@ public class TreinoRepository {
     }
 
     public Treino add(Treino treino) {
-        return mapTreino.put(treino.getId(), treino);
+        mapTreino.put(treino.getId(), treino);
+        return treino;
     }
 
     public void remove(Treino treino) {

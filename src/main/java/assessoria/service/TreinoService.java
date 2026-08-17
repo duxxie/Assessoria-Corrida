@@ -1,16 +1,11 @@
 package assessoria.service;
 
 import assessoria.exceptions.NotFoundException;
-import assessoria.model.dao.TreinoDAO;
-import assessoria.model.entidades.Aluno;
-import assessoria.model.entidades.Professor;
 import assessoria.model.entidades.Treino;
 import assessoria.repository.TreinoRepository;
-import assessoria.util.helpers.GeradorID;
-import assessoria.util.log.Log;
 
 import java.util.Map;
-import java.util.Optional;
+import java.util.SimpleTimeZone;
 
 public class TreinoService {
 
@@ -20,13 +15,13 @@ public class TreinoService {
         this.treinoRepository = treinoRepository;
     }
 
-    public Treino salvarTreino(String alunoId, String professorId) {
-        Treino treino = treinoRepository.add(new Treino(alunoId, professorId));
+    public Treino salvarTreino(String alunoId, String professorId, String descTreino) {
+        Treino treino = treinoRepository.add(new Treino(descTreino, alunoId, professorId));
         treinoRepository.save();
         return treino;
     }
 
-    public Map<String, Treino> getMapTreino() {
+    public Map<String, Treino> getAllTreino() {
         return treinoRepository.getAll();
     }
 
@@ -34,15 +29,19 @@ public class TreinoService {
         return treinoRepository.findById(id).orElseThrow(() -> new NotFoundException("Treino nao encontrado"));
     }
 
-    public int pegarTamanhoMap() {
-        return mapTreino.size();
+    public Map<String, Treino> getTreinoByProfessorId(String id) {
+        return treinoRepository.getByProfessorId(id);
     }
 
-    public void salvarTreinoMap(Treino treino) {
-        mapTreino.put(treino.getId(), treino);
+    public Map<String, Treino> getTreinoByAlunoId(String id) {
+        return treinoRepository.getByAlunoId(id);
     }
 
-    public void salvarTreinoArquivo() {
-        dao.inserirDadosNoArquivo(getMapTreino());
+    public Map<String, Treino> getTreinoByProfessorAndAlunoId(String professorId, String alunoId) {
+        return treinoRepository.getByProfessorIdAndAlunoId(professorId, alunoId);
+    }
+
+    public void salvarTreino() {
+        treinoRepository.save();
     }
 }

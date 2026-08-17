@@ -78,7 +78,7 @@ public class ProfessorApp {
                 MensagemView.mostrarErro("Escolha uma opção válida!!");
                 break;
         }
-        professorController.salvarProfessor(professor);
+        professorController.salvarAlteracoesProfessor();
     }
 
     private void executarAcao(Professor professor) {
@@ -116,21 +116,57 @@ public class ProfessorApp {
 
     private void tratarOpModificarTreino(int op, Professor professor) {
         switch (op) {
-            case 1 -> modificarTreino(professor);
+            case 1 -> executarEscolhaTreinoParaModificar(professor);
             case 0 -> MensagemView.mostrarMensagem("Voltando...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
     }
 
-    private void modificarTreino(Professor professor) {
-        Treino treino = professorView.escolherAlunoPorCpfComTreino();
+    private void executarEscolhaTreinoParaModificar(Professor professor) {
+        String opEscolhaTreino;
+        do {
+            professorView.mostrarTreinosDoProfessor(professor);
+            opEscolhaTreino = InputHelper.lerString("Informe o id do treino (ou digite 'voltar' para voltar): ").toLowerCase();
+            if(!opEscolhaTreino.equals("voltar")) {
+                Treino treino = professorView.pegarTreinoById(opEscolhaTreino);
+                if(treino != null) {
+                    executarMenuModificarTreino(treino);
+                } else {
+                    MensagemView.mostrarErro("Treino não encontrado!!");
+                }
+            }
+        }while(!opEscolhaTreino.equals("voltar"));
+        System.out.println("voltando...");
+    }
+
+    private void executarMenuModificarTreino(Treino treino) {
+        int opEscolhaModificarTreino;
+        do {
+            treino.mostrarTreino();
+            professorView.mostrarMenuOpModificarTreino();
+            opEscolhaModificarTreino = InputHelper.lerOpcao();
+            tratarOpMenuModificarTreino(treino, opEscolhaModificarTreino);
+        }while (opEscolhaModificarTreino != 0 && opEscolhaModificarTreino != 3);
+    }
+
+    private void tratarOpMenuModificarTreino(Treino treino, int opModificarTreino) {
+        switch (opModificarTreino) {
+            case 1 -> treino.setDescricao(professorView.pegarNomeTreino());
+            case 2 -> modificarTreino(treino);
+            case 3 -> professorView.salvarTreino();
+            case 0 -> MensagemView.mostrarMensagem("Voltando...");
+            default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
+        }
+    }
+
+    private void modificarTreino(Treino treino) {
         int opModificarTreino;
         do {
+            treino.mostrarTreino();
             professorView.mostrarMenuOpDiaTreino();
             opModificarTreino = InputHelper.lerOpcao();
             tratarOpDiaTreino(opModificarTreino, treino);
         }while (opModificarTreino != 0);
-        professorView.salvarTreino(treino);
     }
 
     private void executarCriacaoTreino(Professor professor) {
@@ -139,28 +175,28 @@ public class ProfessorApp {
             professorView.mostrarMenuCriarTreino();
             opExecutarCriacaoTreino = InputHelper.lerOpcao();
             tratarOpCriacaoTreino(opExecutarCriacaoTreino, professor);
-        }while(opExecutarCriacaoTreino != 0);
+        }while(opExecutarCriacaoTreino != 0 && opExecutarCriacaoTreino != 2);
     }
 
     private void tratarOpCriacaoTreino(int opCriacaoTreino, Professor professor) {
         switch (opCriacaoTreino) {
             case 1 -> criarTreino(professor);
+            case 2 -> professorView.salvarTreino();
             case 0 -> MensagemView.mostrarMensagem("Voltando...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");
         }
     }
 
-
     private void criarTreino(Professor professor) {
+        String descTreino = InputHelper.lerString("Informe um nome ao treino: ");
         Aluno aluno = professorView.escolherAlunoPorCpf();
-        Treino treino = professorView.criarTreino(aluno.getId(), professor.getId());
+        Treino treino = professorView.criarTreino(aluno.getId(), professor.getId(), descTreino);
         int opCriarTreino;
         do {
             professorView.mostrarMenuOpDiaTreino();
             opCriarTreino = InputHelper.lerOpcao();
             tratarOpDiaTreino(opCriarTreino, treino);
         }while(opCriarTreino != 0);
-        professorView.salvarTreino(treino);
     }
 
     private void tratarOpDiaTreino(int opDia, Treino treino) {

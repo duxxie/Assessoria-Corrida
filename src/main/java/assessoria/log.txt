@@ -897,3 +897,71 @@
 [2026-04-17 20:53:27] INFO - Sistema encerrado.
 [2026-08-13 09:53:31] INFO - Sistema iniciado.
 [2026-08-13 09:53:31] INFO - IDs inicializados.
+[2026-08-16 23:13:27] INFO - Sistema iniciado.
+[2026-08-16 23:22:56] INFO - Sistema iniciado.
+[2026-08-16 23:29:35] INFO - Sistema iniciado.
+[2026-08-16 23:31:02] INFO - Sistema encerrado.
+[2026-08-16 23:42:24] INFO - Sistema iniciado.
+[2026-08-16 23:43:23] INFO - Professor cadastrado com sucesso. Id=cff914b5-54f0-487f-972e-7d7475a4c493, Nome=Carlos Alcaraz
+[2026-08-16 23:45:20] INFO - Aluno cadastrado com sucesso. Id=69c98f57-7b0c-449a-bab8-7e23ce2169e0, Nome=Fernando Correa De Paula
+[2026-08-16 23:45:20] INFO - Fernando Correa De Paula fez login no sistema
+[2026-08-16 23:46:31] INFO - Sistema iniciado.
+[2026-08-16 23:46:54] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-16 23:58:02] INFO - Sistema iniciado.
+[2026-08-16 23:58:26] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:02:35] INFO - Sistema iniciado.
+[2026-08-17 00:02:57] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:08:01] INFO - Sistema encerrado.
+[2026-08-17 00:12:51] INFO - Sistema iniciado.
+[2026-08-17 00:13:16] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:15:00] INFO - Sistema encerrado.
+[2026-08-17 00:26:40] INFO - Sistema iniciado.
+[2026-08-17 00:26:58] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:28:06] INFO - Sistema encerrado.
+[2026-08-17 00:33:17] INFO - Sistema iniciado.
+[2026-08-17 00:33:37] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:36:09] INFO - Sistema encerrado.
+[2026-08-17 00:37:10] INFO - Sistema iniciado.
+[2026-08-17 00:37:26] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:39:13] INFO - Sistema encerrado.
+[2026-08-17 00:39:21] INFO - Sistema iniciado.
+[2026-08-17 00:39:36] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:41:58] INFO - Sistema encerrado.
+[2026-08-17 00:42:03] INFO - Sistema iniciado.
+[2026-08-17 00:42:18] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:45:51] INFO - Sistema encerrado.
+[2026-08-17 00:49:27] INFO - Sistema iniciado.
+[2026-08-17 00:49:42] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 00:53:07] INFO - Sistema encerrado.
+[2026-08-17 09:28:47] INFO - Sistema iniciado.
+[2026-08-17 09:29:18] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 09:32:22] INFO - Sistema encerrado.
+[2026-08-17 09:46:32] INFO - Sistema iniciado.
+[2026-08-17 09:46:54] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 09:53:40] INFO - Sistema encerrado.
+[2026-08-17 10:01:39] INFO - Sistema iniciado.
+[2026-08-17 10:02:22] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 10:05:37] INFO - Sistema iniciado.
+[2026-08-17 10:06:00] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 10:06:45] INFO - Sistema encerrado.
+[2026-08-17 10:13:33] INFO - Sistema iniciado.
+[2026-08-17 10:13:55] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 10:15:27] INFO - Sistema encerrado.
+[2026-08-17 10:39:08] INFO - Sistema iniciado.
+[2026-08-17 10:39:25] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 10:43:53] INFO - Sistema encerrado.
+[2026-08-17 10:54:54] INFO - Sistema iniciado.
+[2026-08-17 10:55:17] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 10:56:20] INFO - Sistema encerrado.
+[2026-08-17 11:26:42] INFO - Sistema iniciado.
+[2026-08-17 11:27:00] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 11:31:59] INFO - Sistema encerrado.
+[2026-08-17 11:32:05] INFO - Sistema iniciado.
+[2026-08-17 11:32:24] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 11:36:48] INFO - Sistema encerrado.
+[2026-08-17 11:36:53] INFO - Sistema iniciado.
+[2026-08-17 11:37:12] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 11:46:15] INFO - Sistema encerrado.
+[2026-08-17 11:47:06] INFO - Sistema iniciado.
+[2026-08-17 11:47:22] INFO - Carlos Alcaraz fez login no sistema
+[2026-08-17 11:55:19] INFO - Sistema encerrado.

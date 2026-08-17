@@ -15,14 +15,12 @@ public class AdministradorView {
     private final AlunoDashBoard alunoDashBoard;
     private final AdministradorController administradorController;
     private final AlunoController alunoController;
-    private final TreinoController treinoController;
     private final ProfessorController professorController;
 
 
-    public AdministradorView(AdministradorController administradorController, AlunoController alunoController, TreinoController treinoController, ProfessorController professorController) {
+    public AdministradorView(AdministradorController administradorController, AlunoController alunoController, ProfessorController professorController) {
         this.administradorController = administradorController;
         this.alunoController = alunoController;
-        this.treinoController = treinoController;
         this.professorController = professorController;
         this.professorDashBoard = new ProfessorDashBoard();
         this.alunoDashBoard = new AlunoDashBoard();

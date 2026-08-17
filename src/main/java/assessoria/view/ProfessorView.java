@@ -14,6 +14,7 @@ import assessoria.util.helpers.Validador;
 import assessoria.util.log.Log;
 
 import java.time.DayOfWeek;
+import java.util.List;
 
 public class ProfessorView {
 
@@ -135,9 +136,52 @@ public class ProfessorView {
         System.out.println("|    << -- Modificar treino -->>    |");
         System.out.println("+ --------------------------------- +");
         System.out.println("|           [1] Modificar           |");
-        System.out.println("|           [2] Salvar              |");
         System.out.println("|           [0] Voltar              |");
         System.out.println("+ --------------------------------- +");
+    }
+
+    public void mostrarMenuOpModificarTreino() {
+        System.out.println("\n\n+ --------------------------------- +");
+        System.out.println("|    << -- Modificar treino -->>    |");
+        System.out.println("+ --------------------------------- +");
+        System.out.println("|           [1] Descrição           |");
+        System.out.println("|           [2] Plano Semanal       |");
+        System.out.println("|           [3] Salvar              |");
+        System.out.println("|           [0] Voltar              |");
+        System.out.println("+ --------------------------------- +");
+    }
+
+    public void mostrarTreinosDoProfessor(Professor professor) {
+        var mapTreinoProfessor = treinoController.getTreinoByProfessorId(professor.getId());
+
+        String tituloMenu = "<< -- Meus Treinos -- >>";
+
+        List<String> treinosOptions = mapTreinoProfessor.entrySet().stream()
+                .map(entry -> " [" + entry.getKey() + "] - " + entry.getValue().getDescricao())
+                .toList();
+
+        int maiorLinhaTreinos = tituloMenu.length();
+
+        for(var treino : treinosOptions) {
+            maiorLinhaTreinos = Math.max(maiorLinhaTreinos, treino.length());
+        }
+
+        final int maiorLinhaOpTreinos = maiorLinhaTreinos;
+        int marginLado = 6;
+
+        String linhaMenu = "+ " + "-".repeat((maiorLinhaTreinos+marginLado) - 3) + " +";
+
+        int paddingTitulo = ((maiorLinhaTreinos - tituloMenu.length()) + marginLado) / 2;
+
+        String tituloMenuFormatado = "|" + " ".repeat(paddingTitulo) + tituloMenu + " ".repeat(paddingTitulo) + "|";
+
+        System.out.println("\n\n" + linhaMenu);
+        System.out.println(tituloMenuFormatado);
+        System.out.println(linhaMenu);
+        treinosOptions.stream()
+                .forEach(treino -> System.out.println("|" + treino + " ".repeat((maiorLinhaOpTreinos - treino.length()) + (marginLado -1)) + "|"));
+
+        System.out.println(linhaMenu);
     }
 
 
@@ -145,7 +189,7 @@ public class ProfessorView {
         while(true) {
             System.out.println(" >> Informe o cpf do Aluno que receberá o treino <<");
             String cpfAluno = InputHelper.pegarCpf();
-            Aluno aluno = Validador.isCpfExiste(cpfAluno, alunoController.pegarMapAlunos());
+            Aluno aluno = alunoController.findAlunoByCpf(cpfAluno);
             if(aluno != null) {
                 return aluno;
             }else {
@@ -154,18 +198,18 @@ public class ProfessorView {
         }
     }
 
-    public Treino escolherAlunoPorCpfComTreino() {
-        while(true) {
-            Aluno aluno = escolherAlunoPorCpf();
-            Treino treino = treinoController.isAlunoInTreino(aluno);
-            if(treino != null) {
-                return treino;
-            } else {
-                System.out.println("Aluno não possui um treino criado!!");
-            }
-        }
-
-    }
+//    public Treino escolherAlunoPorCpfComTreino() {
+//        while(true) {
+//            Aluno aluno = escolherAlunoPorCpf();
+//            Treino treino = treinoController.isAlunoInTreino(aluno);
+//            if(treino != null) {
+//                return treino;
+//            } else {
+//                System.out.println("Aluno não possui um treino criado!!");
+//            }
+//        }
+//
+//    }
     public void mostrarMenuUpdate() {
         System.out.println("\n\n+ ------------------------- +");
         System.out.println("|  << -- Ações Professor -- >>  |");
@@ -180,20 +224,33 @@ public class ProfessorView {
         System.out.println("+ ----------------------------- +");
     }
 
+    public String pegarNomeTreino() {
+        return InputHelper.lerString("Informe um nome ao treino: ");
+    }
 
-    public void salvarTreino(Treino treino) {
-        treinoController.salvarTreino(treino);
+    public void salvarTreino() {
+        treinoController.salvarTreino();
+        MensagemView.mostrarSucesso("Treino salvo com sucesso!");
+    }
+
+    public void mostrarTodosTreinos() {
+        var treinoMap = treinoController.getAllTreino();
+
+        treinoMap.values().stream()
+                .forEach(treino -> System.out.println(treino.toString()));
+
+        System.out.println("\n Tamanho do map treinos => " + treinoMap.size());
     }
 
     public void mostrarDadosProfessor(Professor professor) {
         professor.mostrarInfoCompleta();
     }
 
-    public Treino criarTreino(String alunoId, String professorId) {
-       return treinoController.criarTreino(alunoId, professorId);
+    public Treino criarTreino(String alunoId, String professorId, String desTreino) {
+       return treinoController.criarTreino(alunoId, professorId, desTreino);
     }
 
-    public Treino pegarTreinoPorID(String id) {
+    public Treino pegarTreinoById(String id) {
         return treinoController.getTreinoPorID(id);
     }
 

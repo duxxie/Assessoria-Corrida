@@ -20,8 +20,9 @@ public class AlunoRepository implements PessoaRepository<Aluno> {
         return this.mapAluno;
     }
 
-    public Optional<Aluno> add(Aluno aluno) {
-        return Optional.ofNullable(mapAluno.put(aluno.getId(), aluno));
+    public Aluno add(Aluno aluno) {
+        mapAluno.put(aluno.getId(), aluno);
+        return aluno;
     }
 
     public void remove(Aluno aluno) {
@@ -36,6 +37,32 @@ public class AlunoRepository implements PessoaRepository<Aluno> {
         return mapAluno.values().stream()
                 .filter(a -> a.getEmail().equals(email))
                 .findAny();
+    }
+
+    public Optional<Aluno> findByCpf(String cpf) {
+        return mapAluno.values().stream()
+                .filter(a -> a.getCpf().equals(cpf))
+                .findAny();
+    }
+
+    public boolean existsByEmail(String email) {
+        return mapAluno.values().stream()
+                .anyMatch(a -> a.getEmail().equals(email));
+    }
+
+    public boolean existsByEmail(String email, String idIgnorar) {
+        return mapAluno.values().stream()
+                .anyMatch(aluno -> !aluno.getId().equals(idIgnorar) && aluno.getEmail().equals(email));
+    }
+
+    public boolean existsByCpf(String cpf) {
+        return mapAluno.values().stream()
+                .anyMatch(aluno -> aluno.getCpf().equals(cpf));
+    }
+
+    public boolean existsByCpf(String cpf, String idIgnorar) {
+        return mapAluno.values().stream()
+                .anyMatch(aluno -> !aluno.getId().equals(idIgnorar) && aluno.getCpf().equals(cpf));
     }
 
     public void save() {

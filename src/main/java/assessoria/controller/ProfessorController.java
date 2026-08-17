@@ -1,10 +1,8 @@
 package assessoria.controller;
 
 import assessoria.model.dto.DadosCadastroPessoa;
-import assessoria.model.entidades.*;
 import assessoria.model.entidades.Professor;
 import assessoria.service.ProfessorService;
-import assessoria.util.helpers.GeradorID;
 import assessoria.view.MensagemView;
 
 import java.util.Map;
@@ -22,6 +20,8 @@ public class ProfessorController{
             action.run();
         } catch (IllegalArgumentException e) {
             MensagemView.mostrarErro("Não foi possível realizar o cadastro | Motivo: " + e.getMessage());
+        } catch (RuntimeException e) {
+            MensagemView.mostrarErro(e.getMessage());
         }
     }
 
@@ -29,8 +29,8 @@ public class ProfessorController{
         executeActionWithErrorHandler(() -> professorService.criarProfessor(dadosCadastroPessoa, cref));
     }
 
-    public void salvarProfessor(Professor professor) {
-        professorService.salvarProfessor(professor);
+    public void salvarAlteracoesProfessor() {
+        professorService.salvarAlteracoesProfessor();
     }
 
     public Map<String,Professor> pegarMapProfessor() {

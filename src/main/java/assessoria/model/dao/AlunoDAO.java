@@ -26,7 +26,6 @@ public class AlunoDAO extends GenericDAO<Aluno> {
         return caminhoArquivo;
     }
 
-    //private final String arquivoUsuarios = "src/main/java/assessoria/util/treino/alunos.csv";
 
 //    public void inserirAlunoNoCsv(Map<String,Aluno> alunoMap) {
 //

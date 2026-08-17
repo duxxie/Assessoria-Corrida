@@ -77,12 +77,12 @@ public class AlunoView {
         aluno.mostrarInfoCompleta();
     }
 
-    public void mostrarTreino(Aluno aluno) {
-        Treino treino = treinoController.isAlunoInTreino(aluno);
-        if (treino != null) {
-            treino.mostrarTreino();
-        } else {
-            MensagemView.mostrarMensagem("\n [  >>> Você ainda não possuí treino <<<  ]\n\n");
-        }
-    }
+//    public void mostrarTreino(Aluno aluno) {
+//        Treino treino = treinoController.isAlunoInTreino(aluno);
+//        if (treino != null) {
+//            treino.mostrarTreino();
+//        } else {
+//            MensagemView.mostrarMensagem("\n [  >>> Você ainda não possuí treino <<<  ]\n\n");
+//        }
+//    }
 }

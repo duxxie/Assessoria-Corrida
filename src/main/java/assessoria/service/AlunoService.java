@@ -3,108 +3,72 @@ package assessoria.service;
 import assessoria.exceptions.NotFoundException;
 import assessoria.exceptions.ValidationException;
 import assessoria.mapper.AlunoMapper;
-import assessoria.model.dao.AlunoDAO;
 import assessoria.model.dto.AlunoBase;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
-import assessoria.util.helpers.GeradorID;
+import assessoria.repository.TreinoRepository;
+import assessoria.repository.pessoaRepository.AdministradorRepository;
+import assessoria.repository.pessoaRepository.AlunoRepository;
+import assessoria.repository.pessoaRepository.ProfessorRepository;
 import assessoria.util.log.Log;
-import assessoria.view.MensagemView;
 
 import java.util.List;
 import java.util.Map;
 
 public class AlunoService {
 
-    private final Map<String, Aluno> mapAluno;
-    private final AlunoDAO dao;
-    private AdministradorService administradorService;
-    private ProfessorService professorService;
+    private AlunoRepository alunoRepository;
+    private ProfessorRepository professorRepository;
+    private AdministradorRepository administradorRepository;
+    private TreinoRepository treinoRepository;
 
-    public AlunoService(AlunoDAO dao) {
-        this.dao = dao;
-        this.mapAluno = this.dao.lerDadosDoArquivo();
+    public AlunoService(AlunoRepository alunoRepository, ProfessorRepository professorRepository, AdministradorRepository administradorRepository, TreinoRepository treinoRepository) {
+        this.alunoRepository = alunoRepository;
+        this.professorRepository = professorRepository;
+        this.administradorRepository = administradorRepository;
+        this.treinoRepository = treinoRepository;
     }
 
     public Aluno cadastrarAluno(DadosCadastroPessoa dadosCadastroPessoa) {
-        if(cpfAlunoJaExiste(dadosCadastroPessoa.getCpf(), null)
-                || professorService.cpfJaExisteEmProfessor(dadosCadastroPessoa.getCpf())
-                || administradorService.cpfJaExisteEmAdministrador(dadosCadastroPessoa.getCpf()))
+        if(alunoRepository.existsByCpf(dadosCadastroPessoa.getCpf())
+            || professorRepository.existsByCpf(dadosCadastroPessoa.getCpf())
+            || administradorRepository.existsByCpf(dadosCadastroPessoa.getCpf()))
             throw new ValidationException("Falha no cadastro do aluno | Motivo: cpf informado já está registrado no sistema");
 
-        if(emailAlunoJaExiste(dadosCadastroPessoa.getEmail(), null)
-                || professorService.emailJaExisteEmProfessor(dadosCadastroPessoa.getEmail())
-                || administradorService.emailJaExisteEmAdministrador(dadosCadastroPessoa.getEmail()))
+        if(alunoRepository.existsByEmail(dadosCadastroPessoa.getEmail())
+            || professorRepository.existsByEmail(dadosCadastroPessoa.getEmail())
+            || administradorRepository.existsByEmail(dadosCadastroPessoa.getEmail()))
             throw new ValidationException("Falha no cadastro do aluno | Motivo: email informado já está registrado no sistema");
 
-        Aluno aluno = AlunoMapper.toEntity(dadosCadastroPessoa);
+        Aluno aluno = alunoRepository.add(AlunoMapper.toEntity(dadosCadastroPessoa));
+        alunoRepository.save();
 
-        salvarAluno(aluno);
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
         Log.registrarInfo("Aluno cadastrado com sucesso. Id=" + aluno.getId() + ", Nome=" + aluno.getNome());
         return aluno;
     }
 
     public List<AlunoBase> gerarListaAlunoParaExibicao() {
-        if(mapAluno.isEmpty()) throw new NotFoundException("Falha ao gerar lista para Aluno | Motivo: nenhum aluno cadastrado");
+        if(alunoRepository.getAll().isEmpty()) throw new NotFoundException("Falha ao gerar lista para Aluno | Motivo: nenhum aluno cadastrado");
 
-        return mapAluno.values().stream()
+        return alunoRepository.getAll().values().stream()
                 .map(this::gerarAlunoBase)
                 .toList();
+    }
+
+    public Aluno getAlunoByCpf(String cpf) {
+        return alunoRepository.findByCpf(cpf)
+                .orElseThrow(() -> new NotFoundException("Falha ao econtrar aluno | Motivo: cpf não econtrado"));
     }
 
     private AlunoBase gerarAlunoBase(Aluno aluno) {
         return AlunoMapper.toBase(aluno);
     }
 
-    public boolean cpfAlunoJaExiste(String cpf, String idIgnorado) {
-        return mapAluno.values().stream()
-                .filter(aluno -> idIgnorado == null || !aluno.getId().equals(idIgnorado))
-                .anyMatch(aluno -> aluno.getCpf().equals(cpf));
-    }
-
-    public boolean cpfJaExisteEmAluno(String cpf) {
-        return mapAluno.values().stream()
-                .anyMatch(aluno -> aluno.getCpf().equals(cpf));
-    }
-
-    public boolean emailAlunoJaExiste(String email, String idIgnorado) {
-        return mapAluno.values().stream()
-                .filter(aluno -> idIgnorado == null || !aluno.getId().equals(idIgnorado))
-                .anyMatch(aluno -> aluno.getEmail().equals(email));
-    }
-
-    public boolean emailJaExisteEmAluno(String email) {
-        return mapAluno.values().stream()
-                .anyMatch(aluno -> aluno.getEmail().equals(email));
-    }
-
-    public void salvarAluno(Aluno aluno) {
-        salvarAlunoMap(aluno);
-        inserirAlunosArquivo();
-    }
-
-    private void salvarAlunoMap(Aluno aluno) {
-        mapAluno.put(aluno.getId(), aluno);
-    }
-
-    private void inserirAlunosArquivo() {
-        dao.inserirDadosNoArquivo(getMapAluno());
-    }
-
-    public int pegarTamanhoMapAluno() {
-        return mapAluno.size();
+    public void salvarAlteracoesAluno() {
+        alunoRepository.save();
     }
 
     public Map<String, Aluno> getMapAluno() {
-        return mapAluno;
-    }
-
-    public void setAdministradorService(AdministradorService administradorService) {
-        this.administradorService = administradorService;
-    }
-
-    public void setProfessorService(ProfessorService professorService) {
-        this.professorService = professorService;
+        return alunoRepository.getAll();
     }
 }

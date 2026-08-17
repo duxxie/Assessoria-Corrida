@@ -20,8 +20,9 @@ public class ProfessorRepository implements PessoaRepository<Professor>{
         return this.mapProfessor;
     }
 
-    public Optional<Professor> add(Professor professor) {
-        return Optional.ofNullable(mapProfessor.put(professor.getId(), professor));
+    public Professor add(Professor professor) {
+        mapProfessor.put(professor.getId(), professor);
+        return professor;
     }
 
     public void remove(Professor professor) {
@@ -36,6 +37,26 @@ public class ProfessorRepository implements PessoaRepository<Professor>{
         return mapProfessor.values().stream()
                 .filter(p -> p.getEmail().equals(email))
                 .findAny();
+    }
+
+    public boolean existsByEmail(String email) {
+        return mapProfessor.values().stream()
+                .anyMatch(p -> p.getEmail().equals(email));
+    }
+
+    public boolean existsByEmail(String email, String idIgnorar) {
+        return mapProfessor.values().stream()
+                .anyMatch(p -> !p.getId().equals(idIgnorar) && p.getEmail().equals(email));
+    }
+
+    public boolean existsByCpf(String cpf) {
+        return mapProfessor.values().stream()
+                .anyMatch(p -> p.getCpf().equals(cpf));
+    }
+
+    public boolean existsByCpf(String cpf, String idIgnorar) {
+        return mapProfessor.values().stream()
+                .anyMatch(p -> !p.getId().equals(idIgnorar) && p.getCpf().equals(cpf));
     }
 
     public void save() {

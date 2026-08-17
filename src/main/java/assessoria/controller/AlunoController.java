@@ -5,10 +5,7 @@ import assessoria.exceptions.ValidationException;
 import assessoria.model.dto.AlunoBase;
 import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Aluno;
-import assessoria.model.entidades.ContatoEmergencia;
-import assessoria.model.entidades.InfoMedica;
 import assessoria.service.AlunoService;
-import assessoria.util.helpers.GeradorID;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
@@ -33,8 +30,8 @@ public class AlunoController{
         }
     }
 
-    public void salvarAluno(Aluno aluno) {
-        alunoService.salvarAluno(aluno);
+    public void salvarAlteracoesAluno() {
+        alunoService.salvarAlteracoesAluno();
     }
 
     private <T> T executeActionWithErrorHandlerWithReturn(Supplier<T> action) {
@@ -63,6 +60,10 @@ public class AlunoController{
 
     public Map<String,Aluno> pegarMapAlunos() {
         return alunoService.getMapAluno();
+    }
+
+    public Aluno findAlunoByCpf(String cpf) {
+        return executeActionWithErrorHandlerWithReturn(() -> alunoService.getAlunoByCpf(cpf));
     }
 
 }
