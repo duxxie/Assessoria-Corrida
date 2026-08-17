@@ -1,0 +1,13 @@
+{
+  "69c98f57-7b0c-449a-bab8-7e23ce2169e0" : {
+    "id" : "69c98f57-7b0c-449a-bab8-7e23ce2169e0",
+    "nome" : "Fernando Correa De Paula",
+    "email" : "fernando@gmail.com",
+    "cpf" : "43717504002",
+    "idade" : 37,
+    "telefone" : "21944432342",
+    "senhaHash" : "$2a$10$PvlQiboQoLUnNr88Yo.Km.nCjZYcer5oEf8OEL2dDKEuE7.gAryra",
+    "contatoEmergencia" : null,
+    "infoMedica" : null
+  }
+}

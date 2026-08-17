@@ -1,12 +1,13 @@
 package assessoria.service;
 
+import assessoria.exceptions.ValidationException;
 import assessoria.mapper.ProfessorMapper;
-import assessoria.model.dao.ProfessorDAO;
 import assessoria.model.dto.DadosCadastroPessoa;
-import assessoria.model.entidades.ContatoEmergencia;
-import assessoria.model.entidades.InfoMedica;
 import assessoria.model.entidades.Professor;
-import assessoria.util.helpers.GeradorID;
+import assessoria.repository.TreinoRepository;
+import assessoria.repository.pessoaRepository.AdministradorRepository;
+import assessoria.repository.pessoaRepository.AlunoRepository;
+import assessoria.repository.pessoaRepository.ProfessorRepository;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
@@ -14,70 +15,46 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ProfessorService {
-    private final Map<String, Professor> mapProfessor;
-    private final ProfessorDAO dao;
-    private AlunoService alunoService;
 
-    public ProfessorService(ProfessorDAO dao) {
-        this.dao = dao;
-        this.mapProfessor = this.dao.lerDadosDoArquivo();
+    private ProfessorRepository professorRepository;
+    private AlunoRepository alunoRepository;
+    private TreinoRepository treinoRepository;
+    private AdministradorRepository administradorRepository;
+
+    public ProfessorService(ProfessorRepository professorRepository,
+                            AlunoRepository alunoRepository,
+                            TreinoRepository treinoRepository,
+                            AdministradorRepository administradorRepository) {
+        this.professorRepository = professorRepository;
+        this.alunoRepository = alunoRepository;
+        this.treinoRepository = treinoRepository;
+        this.administradorRepository = administradorRepository;
     }
 
     public void criarProfessor(DadosCadastroPessoa dadosCadastroPessoa, String cref) {
-        validarCpfUnicoProfessor(dadosCadastroPessoa.getCpf());
+        if(professorRepository.existsByCpf(dadosCadastroPessoa.getCpf())
+            || administradorRepository.existsByCpf(dadosCadastroPessoa.getCpf())
+            || alunoRepository.existsByCpf(dadosCadastroPessoa.getCpf()))
+            throw new ValidationException("Falha no cadastro do professor | Motivo: cpf informado já está registrado no sistema");
 
-        Professor professor = ProfessorMapper.toEntity(dadosCadastroPessoa, cref);
+        if(professorRepository.existsByEmail(dadosCadastroPessoa.getEmail())
+            || administradorRepository.existsByEmail(dadosCadastroPessoa.getEmail())
+            || alunoRepository.existsByEmail(dadosCadastroPessoa.getEmail()))
+            throw new ValidationException("Falha no cadastro do professor | Motivo: email informado já está registrado no sistema");
 
-        salvarProfessor(professor);
-        MensagemView.mostrarSucesso("Seu cadastrado foi realizado com sucesso!!");
+
+        Professor professor = professorRepository.add(ProfessorMapper.toEntity(dadosCadastroPessoa, cref));
+        professorRepository.save();
+
+        Log.registrarInfo("Professor cadastrado com sucesso. Id=" + professor.getId() + ", Nome=" + professor.getNome());
     }
 
-    public void salvarProfessor(Professor professor) {
-        salvarProfessorMap(professor);
-        inserirProfessorArquivo();
-        Log.registrar("Professor cadastrador com sucesso. Id=" + professor.getId() + ", Nome=" + professor.getNome());
-    }
-
-    private void salvarProfessorMap(Professor professor) {
-        mapProfessor.put("K" + professor.getId(), professor);
-    }
-
-    private void validarCpfUnicoProfessor(String cpf) {
-        mapProfessor.values().stream()
-                .filter(professor -> professor.getCpf().equals(cpf))
-                .findAny()
-                .ifPresent(professor -> {
-                    throw new IllegalArgumentException("O cpf informado já está cadastrado");
-                });
-    }
-
-    public void inserirProfessorArquivo() {
-        dao.inserirDadosNoArquivo(getMapProfessor());
-    }
-
-    public boolean cpfJaExisteEmProfessor(String cpf) {
-        return mapProfessor.values().stream()
-                .anyMatch(professor -> professor.getCpf().equals(cpf));
-    }
-
-    public boolean emailJaExisteEmProfessor(String email) {
-        return mapProfessor.values().stream()
-                .anyMatch(professor -> professor.getEmail().equals(email));
-    }
-
-    public int pegarTamanhoMapProfessor() {
-        return mapProfessor.size();
-    }
-
-    public Map<String,Professor> pegarCopiaMapProfessor() {
-        return new HashMap<>(mapProfessor);
+    public void salvarAlteracoesProfessor() {
+        professorRepository.save();
+        Log.registrar("Professor atualizado com sucesso. Id=");
     }
 
     public Map<String, Professor> getMapProfessor() {
-        return mapProfessor;
-    }
-
-    public void setAlunoService(AlunoService alunoService) {
-        this.alunoService = alunoService;
+        return professorRepository.getAll();
     }
 }

@@ -4,18 +4,28 @@ import java.time.DayOfWeek;
 import java.util.*;
 
 public class Treino implements Savable {
-    private String id = UUID.randomUUID().toString();
+    private String id = UUID.randomUUID().toString().substring(0,8);
+    private String descricao;
     private String idAluno;
     private String idProfessor;
     private Map<DayOfWeek, List<String>> planoSemanal;
 
     public Treino(){};
 
-    public Treino(String idAluno, String idProfessor) {
+    public Treino(String descricao, String idAluno, String idProfessor) {
+        this.descricao = descricao;
         this.idAluno = idAluno;
         this.idProfessor = idProfessor;
         this.planoSemanal = new EnumMap<>(DayOfWeek.class);
     }
+
+   public String getDescricao() {
+        return descricao;
+   }
+
+   public void setDescricao(String descricao) {
+        this.descricao = descricao;
+   }
 
    public String getId() {
         return id;
@@ -100,4 +110,14 @@ public class Treino implements Savable {
        }
    }
 
+    @Override
+    public String toString() {
+        return "Treino{" +
+                "id='" + id + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", idAluno='" + idAluno + '\'' +
+                ", idProfessor='" + idProfessor + '\'' +
+                ", planoSemanal=" + planoSemanal +
+                '}';
+    }
 }

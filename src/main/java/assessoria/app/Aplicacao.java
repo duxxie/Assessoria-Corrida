@@ -7,9 +7,7 @@ import assessoria.repository.pessoaRepository.AdministradorRepository;
 import assessoria.repository.pessoaRepository.AlunoRepository;
 import assessoria.repository.pessoaRepository.ProfessorRepository;
 import assessoria.service.*;
-import assessoria.util.helpers.GeradorID;
 import assessoria.util.helpers.InputHelper;
-import assessoria.util.log.Log;
 import assessoria.view.*;
 
 public class Aplicacao {
@@ -56,10 +54,39 @@ public class Aplicacao {
 
           this.treinoDAO = new TreinoDAO();
           this.treinoRepository = new TreinoRepository(treinoDAO);
-          this.treinoService = new TreinoService(treinoDAO);
+          this.treinoService = new TreinoService(treinoRepository);
           this.treinoController = new TreinoController(treinoService);
           this.treinoView = new TreinoView(treinoController);
           this.treinoApp = new TreinoApp(treinoView);
+
+          this.alunoDAO = new AlunoDAO();
+          this.professorDAO = new ProfessorDAO();
+          this.administradorDAO = new AdministradorDAO();
+
+          this.alunoRepository = new AlunoRepository(alunoDAO);
+          this.professorRepository = new ProfessorRepository(professorDAO);
+          this.administradorRepository = new AdministradorRepository(administradorDAO);
+
+          this.codigoAdministradorDAO = new CodigoAdministradorDAO();
+          this.codigoAdministradorRepository = new CodigoAdministradorRepository(codigoAdministradorDAO);
+          this.codigoAdministradorService = new CodigoAdministradorService(codigoAdministradorRepository);
+
+          this.alunoService = new AlunoService(alunoRepository, professorRepository, administradorRepository, treinoRepository);
+          this.professorService = new ProfessorService(professorRepository, alunoRepository, treinoRepository, administradorRepository);
+          this.administradorService = new AdministradorService(administradorRepository, alunoRepository, professorRepository, codigoAdministradorRepository);
+
+          this.alunoController = new AlunoController(alunoService);
+          this.professorController = new ProfessorController(professorService);
+          this.administradorController = new AdministradorController(administradorService, codigoAdministradorService);
+
+
+          this.alunoView = new AlunoView(alunoController, treinoController);
+          this.professorView = new ProfessorView(professorController, alunoController, treinoController);
+          this.administradorView = new AdministradorView(administradorController, alunoController, professorController);
+
+          this.alunoApp = new AlunoApp(alunoView, alunoController);
+          this.professorApp = new ProfessorApp(professorView, professorController);
+          this.administradorApp = new AdministradorApp(administradorView, administradorController);
 
 //        this.treinoDAO = new TreinoDAO();
 //        this.treinoService = new TreinoService(treinoDAO);
@@ -110,16 +137,6 @@ public class Aplicacao {
         }while (opcaoMenuPrincipal != 0);
         System.out.println("\n\n");
         InputHelper.encerrarInput();
-    }
-
-    public void inicializarIds() {
-        GeradorID.carregarIds();
-        Log.registrarInfo( "IDs inicializados.");
-    }
-
-    public void salvarDados() {
-        GeradorID.salvarIds();
-        Log.registrarInfo( "Salvos os ultimos IDs que foram gerados.");
     }
 
     private void tratarOpcaoMenuPrincipal(int opcaoMenuPrincipal) {

@@ -7,6 +7,7 @@ import assessoria.model.dto.DadosCadastroPessoa;
 import assessoria.model.entidades.Administrador;
 import assessoria.model.entidades.CodigoAdministrador;
 import assessoria.service.AdministradorService;
+import assessoria.service.CodigoAdministradorService;
 import assessoria.util.log.Log;
 import assessoria.view.MensagemView;
 
@@ -17,9 +18,11 @@ import java.util.function.Supplier;
 public class AdministradorController{
 
     private final AdministradorService administradorService;
+    private final CodigoAdministradorService codigoAdministradorService;
 
-    public AdministradorController(AdministradorService administradorService) {
+    public AdministradorController(AdministradorService administradorService, CodigoAdministradorService codigoAdministradorService) {
         this.administradorService = administradorService;
+        this.codigoAdministradorService = codigoAdministradorService;
     }
 
     private void executeActionWithErrorHandler(Runnable action) {
@@ -53,10 +56,6 @@ public class AdministradorController{
         executeActionWithErrorHandler(() -> administradorService.reativarAdministrador(idAdministradorInformado, administrador));
     }
 
-    public void salvarAdministrador(Administrador administrador) {
-        executeActionWithErrorHandler(() -> administradorService.salvarAdministrador(administrador));
-    }
-
     public void salvarAlteracoesAdministrador(DadosAtualizacaoPessoa dadosAtualizacaoPessoa) {
         executeActionWithErrorHandler(() -> administradorService.salvarAlteracoesAdministrador(dadosAtualizacaoPessoa));
     }
@@ -87,7 +86,7 @@ public class AdministradorController{
     }
 
     public String gerarCodigoAdministrador(Administrador administrador) {
-        return administradorService.gerarCodigoAdministrador(administrador);
+        return codigoAdministradorService.gerarCodigoAdministrador(administrador);
     }
 
     public Map<String,Administrador> pegarMapAdministrador() {

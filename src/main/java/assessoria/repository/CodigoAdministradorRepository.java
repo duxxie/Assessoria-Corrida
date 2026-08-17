@@ -35,4 +35,17 @@ public class CodigoAdministradorRepository {
                 .filter(c -> c.getId().equals(id))
                 .findAny();
     }
+
+    public boolean isCodigoAdminRaiz(String codigoInformado) {
+        return codigoInformado.contains(KEY_ADMIN_RAIZ);
+    }
+
+    public String gerarCodigoAdministradorAndSalvar() {
+        CodigoAdministrador codigoAdministrador = new CodigoAdministrador();
+        add(codigoAdministrador);
+        save();
+        return codigoAdministrador.getId();
+    }
+
+
 }

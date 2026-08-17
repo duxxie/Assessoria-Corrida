@@ -1,0 +1,14 @@
+{
+  "cff914b5-54f0-487f-972e-7d7475a4c493" : {
+    "id" : "cff914b5-54f0-487f-972e-7d7475a4c493",
+    "nome" : "Carlos Alcaraz",
+    "email" : "carlos_alcaraz@gmail.com",
+    "cpf" : "88362893044",
+    "idade" : 24,
+    "telefone" : "90913142221",
+    "senhaHash" : "$2a$10$SzIzMCWyNWeXfAfvmdlODOBQWL739CRdzTnljTgf0lDP9b8X8Z3vW",
+    "contatoEmergencia" : null,
+    "infoMedica" : null,
+    "cref" : "000000GPR"
+  }
+}

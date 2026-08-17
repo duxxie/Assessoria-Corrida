@@ -2,10 +2,8 @@ package assessoria.controller;
 
 import assessoria.exceptions.NotFoundException;
 import assessoria.model.entidades.Aluno;
-import assessoria.model.entidades.Professor;
 import assessoria.model.entidades.Treino;
 import assessoria.service.TreinoService;
-import assessoria.util.helpers.GeradorID;
 import assessoria.view.MensagemView;
 
 import java.util.Map;
@@ -20,12 +18,12 @@ public class TreinoController {
         this.treinoService = treinoService;
     }
 
-    public Treino criarTreino(String alunoId, String professorId) {
-       return treinoService.salvarTreino(alunoId, professorId);
+    public Treino criarTreino(String alunoId, String professorId, String descTreino) {
+       return treinoService.salvarTreino(alunoId, professorId, descTreino);
     }
 
-    public Map<String,Treino> pegarMapTreino() {
-        return treinoService.getMapTreino();
+    public Map<String,Treino> getAllTreino() {
+        return treinoService.getAllTreino();
     }
 
     private <T> T executeActionWithErrorHandlerWithReturN(Supplier<T> action) {
@@ -41,18 +39,30 @@ public class TreinoController {
         return executeActionWithErrorHandlerWithReturN(() -> treinoService.getTreinoPorId(id));
     }
 
-    public void salvarTreino(Treino treino) {
-        treinoService.salvarTreinoMap(treino);
+    public Map<String, Treino> getTreinoByProfessorId(String id) {
+        return treinoService.getTreinoByProfessorId(id);
     }
 
-    public Treino isAlunoInTreino(Aluno aluno) {
-        Map<String,Treino> map = pegarMapTreino();
-        for(Map.Entry<String,Treino> entry : map.entrySet()) {
-            if(entry.getValue().getAluno().getId().equals(aluno.getId())) {
-                return entry.getValue();
-            }
-        }
-        return null;
+    public Map<String, Treino> getTreinoByAlunoId(String id) {
+        return treinoService.getTreinoByAlunoId(id);
     }
+
+    public Map<String, Treino> getTreinoByProfessorAndAlunoId(String professorId, String alunoId) {
+        return treinoService.getTreinoByProfessorAndAlunoId(professorId, alunoId);
+    }
+
+    public void salvarTreino() {
+        treinoService.salvarTreino();
+    }
+
+//    public Treino isAlunoInTreino(Aluno aluno) {
+//        Map<String,Treino> map = pegarMapTreino();
+//        for(Map.Entry<String,Treino> entry : map.entrySet()) {
+//            if(entry.getValue().getAluno().getId().equals(aluno.getId())) {
+//                return entry.getValue();
+//            }
+//        }
+//        return null;
+//    }
 
 }

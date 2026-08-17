@@ -20,8 +20,9 @@ public class AdministradorRepository implements  PessoaRepository<Administrador>
         return this.mapAdminstrador;
     }
 
-    public Optional<Administrador> add(Administrador administrador) {
-        return  Optional.ofNullable(mapAdminstrador.put(administrador.getId(), administrador));
+    public Administrador add(Administrador administrador) {
+        mapAdminstrador.put(administrador.getId(), administrador);
+        return administrador;
     }
 
     public void remove(Administrador administrador) {
@@ -36,6 +37,26 @@ public class AdministradorRepository implements  PessoaRepository<Administrador>
         return mapAdminstrador.values().stream()
                 .filter(admin -> admin.getEmail().equals(email))
                 .findAny();
+    }
+
+    public boolean existsByEmail(String email) {
+        return mapAdminstrador.values().stream()
+                .anyMatch(admin -> admin.getEmail().equals(email));
+    }
+
+    public boolean existsByEmail(String email, String idIgnorar) {
+        return mapAdminstrador.values().stream()
+                .anyMatch(admin -> !admin.getId().equals(idIgnorar) && admin.getEmail().equals(email));
+    }
+
+    public boolean existsByCpf(String cpf) {
+        return mapAdminstrador.values().stream()
+                .anyMatch(admin -> admin.getCpf().equals(cpf));
+    }
+
+    public boolean existsByCpf(String cpf, String idIgnorar) {
+        return mapAdminstrador.values().stream()
+                .anyMatch(admin -> !admin.getId().equals(idIgnorar) && admin.getCpf().equals(cpf));
     }
 
     public void save() {

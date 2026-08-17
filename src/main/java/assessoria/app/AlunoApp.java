@@ -82,13 +82,13 @@ public class AlunoApp {
                 MensagemView.mostrarErro("Escolha uma opção válida!!");
                 break;
         }
-        alunoController.salvarAluno(aluno);
+        alunoController.salvarAlteracoesAluno();
     }
 
     private void tratarOpcaoMenuAcoes(int opcao, Aluno aluno) {
         switch (opcao) {
             case 1 -> alunoView.mostrarDadosAluno(aluno);
-            case 2 -> alunoView.mostrarTreino(aluno);
+            //case 2 -> alunoView.mostrarTreino(aluno);
             case 3 -> executarUpdate(aluno);
             case 0 -> MensagemView.mostrarMensagem("Encerrando login...");
             default -> MensagemView.mostrarErro("Escolha uma opção válida!!");

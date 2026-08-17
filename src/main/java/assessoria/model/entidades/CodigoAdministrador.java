@@ -1,18 +1,15 @@
 package assessoria.model.entidades;
 
+import java.util.UUID;
+
 public class CodigoAdministrador implements Savable {
 
-    private String id;
-    private boolean usado;
-    private boolean ativo;
+    private String id = "ADM-" + UUID.randomUUID().toString().substring(0,8).toUpperCase();
+    private boolean usado = false;
+    private boolean ativo = true;
 
-    public CodigoAdministrador() {};
 
-    public CodigoAdministrador(String id, boolean usado, boolean ativo) {
-        this.id = id;
-        this.usado = usado;
-        this.ativo = ativo;
-    }
+    public CodigoAdministrador() {}
 
     public boolean isUsado() {
         return usado;

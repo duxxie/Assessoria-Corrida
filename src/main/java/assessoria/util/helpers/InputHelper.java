@@ -152,7 +152,7 @@ public class InputHelper {
     public static String pegarCref() {
         while(true) {
             try {
-                String cref = lerString("Informe o seu CREF: ");
+                String cref = lerString("Informe o seu CREF ex(xxxxxx-X/XX): ");
                 String crefSemMascara = Formatador.removerMascaraCref(cref);
                 Validador.isCrefValido(cref);
 
