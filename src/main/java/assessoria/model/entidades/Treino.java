@@ -81,7 +81,7 @@ public class Treino implements Savable {
         planoSemanal.remove(dia);
     }
 
-   private String traduzirDia(DayOfWeek day) {
+   public String traduzirDia(DayOfWeek day) {
 
        return switch (day) {
            case MONDAY -> "Segunda";

@@ -2,66 +2,56 @@ package assessoria.view;
 
 import assessoria.model.entidades.Treino;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class TreinoDashBoard {
 
-//    public void mostrarAtividades(Map<String, Treino> typeMap, String id) {
-//
-//        String[] headers = {"Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sabado", "Domingo"};
-//
-//
-//
-//
-//        int maxId = headers[0].length();
-//        int maxNome = headers[1].length();
-//        int maxCpf = headers[2].length();
-//        int maxEmail = headers[3].length();
-//        int maxIdade = headers[4].length();
-//        int maxTelefone = headers[5].length();
-//
-//        for(Map.Entry<String, Aluno> entry : typeMap.entrySet()) {
-//            maxId = Math.max(maxId, String.valueOf(entry.getValue().getIdade()).length());
-//            maxNome = Math.max(maxNome, entry.getValue().getNome().length());
-//            maxCpf = Math.max(maxCpf, entry.getValue().getCpf().length());
-//            maxEmail = Math.max(maxEmail, entry.getValue().getEmail().length());
-//            maxIdade = Math.max(maxIdade, String.valueOf(entry.getValue().getIdade()).length());
-//            maxTelefone = Math.max(maxTelefone, entry.getValue().getTelefone().length());
-//        }
-//
-//        int larguraId = maxId + 4;
-//        int larguraNome = maxNome + 4;
-//        int larguraCpf = maxCpf + 4;
-//        int larguraEmail = maxEmail + 4;
-//        int larguraIdade = maxIdade + 4;
-//        int larguraTelefone = maxTelefone + 4;
-//
-//        // Linha separadora
-//        int totalLargura = larguraId + larguraNome + larguraCpf + larguraEmail + larguraIdade + larguraTelefone + 7; // 7 separadores "|"
-//
-//
-//        System.out.println("-".repeat(totalLargura));
-//
-//        String titulo =  "|" + center("ALUNOS CADASTRADOS", totalLargura-2) + "|";
-//
-//        System.out.println(titulo);
-//
-//        System.out.println("-".repeat(totalLargura));
-//
-//        // Imprime o cabeçalho
-//        String cabecalho = "|" + center("id", larguraId) + "|" + center("Nome", larguraNome) + "|" + center("Cpf", larguraCpf) + "|" +  center("Email", larguraEmail) + "|" + center("Idade", larguraIdade) + "|" + center("Telefone", larguraTelefone) + "|";
-//        System.out.println(cabecalho);
-//
-//        System.out.println("-".repeat(totalLargura));
-//
-//        // Dados
-//        for (Map.Entry<String,Aluno> entry : typeMap.entrySet()) {
-//            String linha = "|" + center(entry.getValue().getId(), larguraId) + "|" + center(entry.getValue().getNome(), larguraNome) + "|" + center(entry.getValue().getCpf(), larguraCpf) + "|" + center(entry.getValue().getEmail(), larguraEmail) + "|" + center(String.valueOf(entry.getValue().getIdade()), larguraIdade) + "|" + center(entry.getValue().getTelefone(), larguraTelefone) + "|";
-//            System.out.println(linha);
-//            System.out.println("-".repeat(totalLargura));
-//        }
-//
-//    }
+    public static void mostrarAtividades(Treino treino) {
+
+        String[] headers = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"};
+
+        /*
+            Estrutura tabela
+
+                                    + ------------- +
+                                    |  Nome treino  |
+            + ------------------------------------------------------------ +
+            | Segunda | Terça | Quarta | Quinta | Sexta | Sábado | Domingo |
+            + ------------------------------------------------------------ +
+            | treino  |treino | treino | treino | treino| treino | treino  |
+            |--------------------------------------------------------------|
+            | treino  |treino | treino | treino | treino| treino | treino  |
+            |--------------------------------------------------------------|
+            | treino  |treino | treino | treino | treino| treino | treino  |
+            + ------------------------------------------------------------ +
+
+            - Cada coluna de dia da semana tera o mesmo tamanho de comprimento
+            - O valor do comprimento da coluna sera definido da seguinte forma:
+                - O map de plano semanal do treino sera percorrido
+                - Para cada dia da semana (key) sera percorrido a list de treino
+                - Para cada treino na list sera calculado o treino que tiver o maior comprimento de string
+                - Resultara nos valores das maiores strings de cada dia da semana
+                - Desses valores sera pego o maior valor
+                - Definindo assim o valor padrao do comprimento de cada coluna
+
+        * */
+
+
+        var planoSemanal = treino.getPlanoSemanal();
+        List<Integer> maioresComprimentoTreinos = new ArrayList<>();
+
+        for(var entry : planoSemanal.entrySet()) {
+            var maiorLengh = entry.getValue().stream()
+                    .mapToInt(plano -> plano.length())
+                    .max().orElse(0);
+
+            maioresComprimentoTreinos.add(maiorLengh);
+        }
+
+
+    }
 //
 //    // Método para centralizar o texto dentro de um campo
 //    public static String center(String text, int width) {
