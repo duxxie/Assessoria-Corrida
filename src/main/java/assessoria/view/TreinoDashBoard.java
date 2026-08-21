@@ -8,57 +8,64 @@ import java.util.Map;
 
 public class TreinoDashBoard {
 
-    public static void mostrarAtividades(Treino treino) {
+    public static void mostrarPlanoSemanal(Treino treino) {
 
-        String[] headers = {"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"};
-
-        /*
-            Estrutura tabela
-
-                                    + ------------- +
-                                    |  Nome treino  |
-            + ------------------------------------------------------------ +
-            | Segunda | Terça | Quarta | Quinta | Sexta | Sábado | Domingo |
-            + ------------------------------------------------------------ +
-            | treino  |treino | treino | treino | treino| treino | treino  |
-            |--------------------------------------------------------------|
-            | treino  |treino | treino | treino | treino| treino | treino  |
-            |--------------------------------------------------------------|
-            | treino  |treino | treino | treino | treino| treino | treino  |
-            + ------------------------------------------------------------ +
-
-            - Cada coluna de dia da semana tera o mesmo tamanho de comprimento
-            - O valor do comprimento da coluna sera definido da seguinte forma:
-                - O map de plano semanal do treino sera percorrido
-                - Para cada dia da semana (key) sera percorrido a list de treino
-                - Para cada treino na list sera calculado o treino que tiver o maior comprimento de string
-                - Resultara nos valores das maiores strings de cada dia da semana
-                - Desses valores sera pego o maior valor
-                - Definindo assim o valor padrao do comprimento de cada coluna
-
-        * */
-
-
+        int paddingLeftTitulo = 20;
         var planoSemanal = treino.getPlanoSemanal();
-        List<Integer> maioresComprimentoTreinos = new ArrayList<>();
+        String tituloTreino = treino.getDescricao();
+
+        String linhaTituloTreino = "".repeat(paddingLeftTitulo) + "║" + " ".repeat(3) + tituloTreino + " ".repeat(3) + "║";
+
+        int linhaBorder = linhaTituloTreino.length() - (paddingLeftTitulo + 2);
+
+        String bordaTopTituloTreino = " ".repeat(paddingLeftTitulo) + "╔" + "═" .repeat(linhaBorder) + "╗";
+        String bordaBottomTituloTreino = " ".repeat(paddingLeftTitulo) + "╚" + "═".repeat(linhaBorder) + "╝";
+
+        System.out.println(bordaTopTituloTreino);
+        System.out.println(linhaTituloTreino);
+        System.out.println(bordaBottomTituloTreino);
+        System.out.println("\n");
 
         for(var entry : planoSemanal.entrySet()) {
-            var maiorLengh = entry.getValue().stream()
-                    .mapToInt(plano -> plano.length())
-                    .max().orElse(0);
+            formatarCampoDiaSemana(treino.traduzirDia(entry.getKey()), entry.getValue());
+            System.out.println("\n");
+        }
+    }
 
-            maioresComprimentoTreinos.add(maiorLengh);
+    public static void formatarCampoDiaSemana(String diaSemana, List<String> treinos) {
+        String linhaTopTabela = "╔"
+                + "═".repeat(6)
+                + " "
+                + diaSemana
+                + " "
+                + "═".repeat(31)
+                + " [ " + treinos.size() + (treinos.size() == 1 ? " Exercício" : " Exercícios")
+                + " ] "
+                + "═".repeat(6)
+                + "╗";
+
+        String linhaVazia = "║" + " ".repeat(linhaTopTabela.length() - 2) + "║";
+        String bordaTabelaVazia = "╚" + "═".repeat(linhaTopTabela.length() - 2) + "╝";
+
+        System.out.println(linhaTopTabela);
+        System.out.println(linhaVazia);
+
+        int marcadorLinha = 1;
+
+        for(var treino : treinos) {
+            var paddingLeftLinha = 3;
+            var textoTreino = "0" + marcadorLinha++ + ". " + treino;
+            String linha = "║"
+                    + " ".repeat(paddingLeftLinha)
+                    + textoTreino
+                    + " ".repeat(linhaTopTabela.length() - (paddingLeftLinha + 2 + textoTreino.length()))
+                    + "║";
+
+            System.out.println(linha);
         }
 
-
+        System.out.println(linhaVazia);
+        System.out.println(bordaTabelaVazia);
     }
-//
-//    // Método para centralizar o texto dentro de um campo
-//    public static String center(String text, int width) {
-//        int padding = width - text.length();
-//        int padStart = padding / 2;
-//        int padEnd = padding - padStart;
-//        return " ".repeat(padStart) + text + " ".repeat(padEnd);
-//    }
 
 }
