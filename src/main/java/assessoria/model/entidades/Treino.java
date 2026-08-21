@@ -84,13 +84,13 @@ public class Treino implements Savable {
    public String traduzirDia(DayOfWeek day) {
 
        return switch (day) {
-           case MONDAY -> "Segunda";
-           case TUESDAY -> "Terça";
-           case WEDNESDAY -> "Quarta";
-           case THURSDAY -> "Quinta";
-           case FRIDAY -> "Sexta";
-           case SATURDAY -> "Sábado";
-           case SUNDAY -> "Domingo";
+           case MONDAY -> "Segunda-Feira";
+           case TUESDAY -> "Terça-Feira";
+           case WEDNESDAY -> "Quarta-Feira";
+           case THURSDAY -> "Quinta-Feira";
+           case FRIDAY -> "Sexta-Feira";
+           case SATURDAY -> "Sábado-Feira";
+           case SUNDAY -> "Domingo-Feira";
        };
    }
 
