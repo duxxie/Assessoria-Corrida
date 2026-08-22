@@ -15,6 +15,7 @@ import assessoria.util.helpers.InputHelper;
 import assessoria.util.log.Log;
 import assessoria.view.ProfessorView;
 import assessoria.view.MensagemView;
+import assessoria.view.TreinoDashBoard;
 
 import java.time.DayOfWeek;
 
@@ -142,7 +143,7 @@ public class ProfessorApp {
     private void executarMenuModificarTreino(Treino treino) {
         int opEscolhaModificarTreino;
         do {
-            treino.mostrarTreino();
+            TreinoDashBoard.mostrarPlanoSemanal(treino);
             professorView.mostrarMenuOpModificarTreino();
             opEscolhaModificarTreino = InputHelper.lerOpcao();
             tratarOpMenuModificarTreino(treino, opEscolhaModificarTreino);
@@ -162,7 +163,7 @@ public class ProfessorApp {
     private void modificarTreino(Treino treino) {
         int opModificarTreino;
         do {
-            treino.mostrarTreino();
+            TreinoDashBoard.mostrarPlanoSemanal(treino);
             professorView.mostrarMenuOpDiaTreino();
             opModificarTreino = InputHelper.lerOpcao();
             tratarOpDiaTreino(opModificarTreino, treino);
@@ -238,7 +239,7 @@ public class ProfessorApp {
     private void adicionarAtividades(DayOfWeek day, Treino treino) {
         int opAdicionarAtv;
         do {
-            treino.mostrarTreino();
+            TreinoDashBoard.mostrarPlanoSemanal(treino);
             professorView.mostrarMenuAdicionarAtividades();
             opAdicionarAtv = InputHelper.lerOpcao();
             tratarOpAddAtv(opAdicionarAtv, day, treino);
